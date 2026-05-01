@@ -577,7 +577,7 @@ As $P \Rightarrow Q$ is a true statement in this particular example, there is no
 - **For $P$, it is necessary that $Q$.**
 - **$P$ only if $Q$.**
 
-<!-- TODO: missing image: Pasted image 20260322211426.png -->
+<img src="../assets/Pasted image 20260322211426.png" width="500">
 
 These can all be used in the place of (and mean exactly the same thing as) "If $P$, then $Q$." **<mark>You should analyze the meaning of each one and convince yourself that it captures the meaning of $P \Rightarrow Q$. For example, $P \Rightarrow Q$ means the condition of $P$ being true is enough (i.e., sufficient) to make $Q$ true; hence "$P$ is a sufficient condition for $Q$."</mark>**
 
@@ -789,7 +789,7 @@ Compare the statement $R$: ($a$ is even) $\Leftrightarrow$ ($a$ is divisible by 
 - **$P$ is equivalent to $Q$.**
 - **If $P$, then $Q$, and conversely.**
 
-<!-- TODO: missing image: Pasted image 20260323164206.png -->
+<img src="../assets/Pasted image 20260323164206.png" width="500">
 
 The first three of these just combine constructions from the previous section to express that $P \Rightarrow Q$ and $Q \Rightarrow P$. In the last one, the words “...and conversely” mean that in addition to "If $P$, then $Q$" being true, the converse statement "If $Q$, then $P$" is also true.
 
@@ -1568,7 +1568,7 @@ Example 2.8: Consider the Mean Value Theorem from Calculus:
 > 
 > Think of driving from time $a$ to time $b$: $\dfrac{f(b) - f(a)}{b - a}$ is your average speed, and $f^{\prime}(c)$ is your instantaneous speed at time $c$. The theorem says: somewhere between the endpoints, the curve must momentarily move at exactly its overall average pace.
 > 
-> <!-- TODO: missing image: b23ada4aa8884135bc4c19741306914a.png -->
+> <img src="../assets/b23ada4aa8884135bc4c19741306914a.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run

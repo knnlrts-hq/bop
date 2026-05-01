@@ -96,7 +96,7 @@ We close this section with a summary of special sets. These are sets that are so
 
 **We visualize the set $\mathbb { R }$ of real numbers is as an infinitely long number line.** 
 
-<!-- TODO: missing image: 63780fde110b1b1afe80364020df48298487b1d56d3a294f646b78654788c380.jpg -->
+<img src="../assets/63780fde110b1b1afe80364020df48298487b1d56d3a294f646b78654788c380.jpg">
 
 **Notice that $\mathbb { Q }$ is the set of all numbers in $\mathbb { R }$ that can be expressed as a fraction of two integers. You may be aware that $\mathbb { Q } \neq \mathbb { R }$ , as ${ \sqrt { 2 } } \notin \mathbb { Q }$ but ${ \sqrt { 2 } } \in \mathbb { R }$** (If not, this point will be addressed in Chapter 6).
 
@@ -110,7 +110,7 @@ We close this section with a summary of special sets. These are sets that are so
 - **Infinite interval: $( - \infty , b ) = \left\{ x \in \mathbb { R } : x < b \right\}$** 
 - **Infinite interval: $( - \infty , b ] = \left\{ x \in \mathbb { R } : x \leq b \right\}$** 
 
-| </br>• **Closed interval: $[a,b]=\{x\in\mathbb{R}:a\le x\le b\}$**</br></br><br>• **Open interval: $(a,b)=\{x\in\mathbb{R}:a<x<b\}$**</br></br><br>• **Half-open interval: $(a,b]=\{x\in\mathbb{R}:a<x\le b\}$**</br></br><br>• **Half-open interval: $[a,b)=\{x\in\mathbb{R}:a\le x<b\}$**</br></br><br>• **Infinite interval: $(a,\infty)=\{x\in\mathbb{R}:a<x\}$**</br></br><br>• **Infinite interval: $[a,\infty)=\{x\in\mathbb{R}:a\le x\}$**</br></br><br>• **Infinite interval: $(-\infty,b)=\{x\in\mathbb{R}:x<b\}$**</br></br><br>• **Infinite interval: $(-\infty,b]=\{x\in\mathbb{R}:x\le b\}$** | <!-- TODO: missing image: 15f2ecd81d4d6844074463491705b23c33d89a73c26e55363bcde27177c331f8.jpg --> |
+| </br>• **Closed interval: $[a,b]=\{x\in\mathbb{R}:a\le x\le b\}$**</br></br><br>• **Open interval: $(a,b)=\{x\in\mathbb{R}:a<x<b\}$**</br></br><br>• **Half-open interval: $(a,b]=\{x\in\mathbb{R}:a<x\le b\}$**</br></br><br>• **Half-open interval: $[a,b)=\{x\in\mathbb{R}:a\le x<b\}$**</br></br><br>• **Infinite interval: $(a,\infty)=\{x\in\mathbb{R}:a<x\}$**</br></br><br>• **Infinite interval: $[a,\infty)=\{x\in\mathbb{R}:a\le x\}$**</br></br><br>• **Infinite interval: $(-\infty,b)=\{x\in\mathbb{R}:x<b\}$**</br></br><br>• **Infinite interval: $(-\infty,b]=\{x\in\mathbb{R}:x\le b\}$** | <img src="../assets/15f2ecd81d4d6844074463491705b23c33d89a73c26e55363bcde27177c331f8.jpg"> |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 
 **Each of these intervals is an infinite set containing infinitely many numbers as elements. For example, though its length is short, the interval $(0.1,0.2)$ contains infinitely many numbers, that is, all numbers between $0.1$ and $0.2$. It is an unfortunate notational accident that $( a , b )$ can denote both an open interval on the line and a point on the plane.** The difference is usually clear from context. In the next section we will see yet another meaning of $( a , b )$ . 
@@ -282,7 +282,7 @@ C. Find the following cardinalities.
 D. Sketch the following sets of points in the $x \text{-} y$ plane. 
 39. $\left\{ ( x , y ) : x \in [ 1 , 2 ] , y \in [ 1 , 2 ] \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: b1168a21c2fd4bb19e751c96a0e3520d.png -->
+> <img src="../assets/b1168a21c2fd4bb19e751c96a0e3520d.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -330,7 +330,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 40. $\left\{ ( x , y ) : x \in [ 0 , 1 ] , y \in [ 1 , 2 ] \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: 1cfa0f6fb58146388f7b397203a9addd.png -->
+> <img src="../assets/1cfa0f6fb58146388f7b397203a9addd.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -377,7 +377,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 41. $\left\{ ( x , y ) : x \in [ - 1 , 1 ] , y = 1 \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: 2697e73658b94399ba8e837509853f03.png -->
+> <img src="../assets/2697e73658b94399ba8e837509853f03.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -426,7 +426,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 42. $\left\{ ( x , y ) : x = 2 , y \in [ 0 , 1 ] \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: 79c9009f35434d099b9676c8461a1726.png -->
+> <img src="../assets/79c9009f35434d099b9676c8461a1726.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -475,7 +475,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 43. $\left\{ ( x , y ) : | x | = 2 , y \in [ 0 , 1 ] \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: deddd8656ae640da8bcfb84920e31f37.png -->
+> <img src="../assets/deddd8656ae640da8bcfb84920e31f37.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -527,7 +527,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 44. $\left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: e19918260cbd4998bb8652ae48a3e348.png -->
+> <img src="../assets/e19918260cbd4998bb8652ae48a3e348.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -574,7 +574,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 45. $\left\{ ( x , y ) : x , y \in \mathbb { R } , x ^ { 2 } + y ^ { 2 } = 1 \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: 08a1fb88d1034f8ba6df3ae1f3d2e843.png -->
+> <img src="../assets/08a1fb88d1034f8ba6df3ae1f3d2e843.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -622,7 +622,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 46. $\left\{ ( x , y ) : x , y \in \mathbb { R } , x ^ { 2 } + y ^ { 2 } \leq 1 \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: 5a1d3909e8f04e058bb5e855e911b5c7.png -->
+> <img src="../assets/5a1d3909e8f04e058bb5e855e911b5c7.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -671,7 +671,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 47. $\left\{ ( x , y ) : x , y \in \mathbb { R } , y \geq x ^ { 2 } - 1 \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: f27f0609f123425cbbe209b1e04a223b.png -->
+> <img src="../assets/f27f0609f123425cbbe209b1e04a223b.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -721,7 +721,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 48. $\left\{ ( x , y ) : x , y \in \mathbb { R } , x > 1 \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: ccd103c0c19841128c6fd58cf9a49c1a.png -->
+> <img src="../assets/ccd103c0c19841128c6fd58cf9a49c1a.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -770,7 +770,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 49. $\left\{ ( x , x + y ) : x \in \mathbb { R } , y \in \mathbb { Z } \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: 42aeab0f73ea43a4b67ee8a714b89fd4.png -->
+> <img src="../assets/42aeab0f73ea43a4b67ee8a714b89fd4.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -816,7 +816,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 > plt.close()
 > ```
 > 49b. $\left\{ ( x , x + n ) : x \in \mathbb { R } , n \in \mathbb { N } \right\}$
-> <!-- TODO: missing image: 63fdfc5514274bc896f835e17f5d1aa3.png -->
+> <img src="../assets/63fdfc5514274bc896f835e17f5d1aa3.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -869,7 +869,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 50. $\left\{ ( x , { \tfrac { x ^ { 2 } } { y } } ) : x \in \mathbb { R } , y \in \mathbb { N } \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: 7008ff431a7e4b3db7ba6b0d763f1fbe.png -->
+> <img src="../assets/7008ff431a7e4b3db7ba6b0d763f1fbe.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -918,7 +918,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 51. $\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : ( y - x ) ( y + x ) = 0 \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: 57066fadf1914e72b6433536bf1537bf.png -->
+> <img src="../assets/57066fadf1914e72b6433536bf1537bf.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -967,7 +967,7 @@ D. Sketch the following sets of points in the $x \text{-} y$ plane.
 
 52. $\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : ( y - x ^ { 2 } ) ( y + x ^ { 2 } ) = 0 \right\}$ 
 > [!success]- Answer
-> <!-- TODO: missing image: 5e623304cce847148376bdbafc75a442.png -->
+> <img src="../assets/5e623304cce847148376bdbafc75a442.png" width="500">
 > ```python
 > #!/usr/bin/env -S uv run
 > # /// script
@@ -1032,7 +1032,7 @@ $$
 
 Figure 1.1 shows how to make a schematic diagram of $A \times B$. Line up the elements of $A$ horizontally and line up the elements of $B$ vertically, as if $A$ and $B$ form an $x$- and $y$ -axis. Then fill in the ordered pairs so that each element $( x , y )$ is in the column headed by $x$ and the row headed by $y$. 
 
-<!-- TODO: missing image: 4e3db6eb38074c025811e6114be325367086d62e7d2a6f8a0f2647be903a65a4.jpg -->
+<img src="../assets/4e3db6eb38074c025811e6114be325367086d62e7d2a6f8a0f2647be903a65a4.jpg">
 Figure 1.1. A diagram of a Cartesian product
 
 For another example, $\left\{ 0 , 1 \right\} \times \left\{ 2 , 1 \right\} = \left\{ ( 0 , 2 ) , ( 0 , 1 ) , ( 1 , 2 ) , ( 1 , 1 ) \right\}$. If you are a visual thinker, you may wish to draw a diagram similar to Figure 1.1. The rectangular array of such diagrams give us the following general fact. 
@@ -1041,11 +1041,11 @@ For another example, $\left\{ 0 , 1 \right\} \times \left\{ 2 , 1 \right\} = \le
 
 Example 1.3: Let $A = \{ \unicode{x2680}, \unicode{x2681}, \unicode{x2682}, \unicode{x2683}, \unicode{x2684}, \unicode{x2685} \}$ be the set consisting of the six faces of a dice. The Cartesian product $A \times A$ is diagramed below. By Fact 1.1 (or by simple counting), $| A \times A | = 6 \cdot 6 = 3 6$. We might think of $A \times A$ as the set of possible outcomes in rolling a dice two times in a row. Each element of the product is an ordered pair of the form $( \text{result of 1st roll }, \text{ result of 2nd roll})$. Such constructions are useful in the study of probability. 
 
-<!-- TODO: missing image: f97548d9c7a63e74cc4c2158271bc8f5e017ae10646d78c00d1be0c310bb1821.jpg -->
+<img src="../assets/f97548d9c7a63e74cc4c2158271bc8f5e017ae10646d78c00d1be0c310bb1821.jpg">
 
 **The set $\mathbb { R } \times \mathbb { R } = \left\{ ( x , y ) : x , y \in \mathbb { R } \right\}$ should be very familiar. It can be viewed as the set of points on the Cartesian plane, as drawn in Figure 1.2(a). The set $\mathbb { R } \times \mathbb { N } = \left\{ ( x , y ) : x \in \mathbb { R } , y \in \mathbb { N } \right\}$ can be regarded as all of the points on the plane whose second coordinate is a natural number. This is illustrated in Figure 1.2(b), which shows that $\mathbb { R } \times \mathbb { N }$ looks like infinitely many horizontal lines at integer heights above the $x$-axis. The set $\mathbb { N } \times \mathbb { N }$ is the set of all points on the plane whose coordinates are both natural numbers. It looks like a grid of dots in the first quadrant, as illustrated in Figure 1.2(c).** 
 
-<!-- TODO: missing image: Pasted image 20260312095254.png -->
+<img src="../assets/Pasted image 20260312095254.png" width="1000">
 Figure 1.2. Drawings of some Cartesian products
 
 It is even possible for one factor of a Cartesian product to be a Cartesian product itself, as in $\mathbb { R } \times ( \mathbb { N } \times \mathbb { Z } ) = \left\{ ( x , ( y , z ) ) : x \in \mathbb { R } , ( y , z ) \in \mathbb { N } \times \mathbb { Z } \right\}$ . 
@@ -1248,7 +1248,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > [!success]- Answer
 > $\{1,2,3\} \times \{-1,0,1\} = \{(1,-1),(1,0),(1,1),(2,-1),(2,0),(2,1),(3,-1),(3,0),(3,1)\}$
 > 
-> <!-- TODO: missing image: adcd5e018a1b4f3581fcdc448c018cb7.png -->
+> <img src="../assets/adcd5e018a1b4f3581fcdc448c018cb7.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1295,7 +1295,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > [!success]- Answer
 > $\{-1,0,1\} \times \{1,2,3\} = \{(-1,1),(-1,2),(-1,3),(0,1),(0,2),(0,3),(1,1),(1,2),(1,3)\}$
 > 
-> <!-- TODO: missing image: 93c60db0f6c248a0a401b68864b427cc.png -->
+> <img src="../assets/93c60db0f6c248a0a401b68864b427cc.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1342,7 +1342,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > [!success]- Answer
 > $[0,1] \times [0,1]$ is the closed unit square: all points $(x,y)$ with $0 \le x \le 1$ and $0 \le y \le 1$.
 > 
-> <!-- TODO: missing image: 6f7ce8ca23b44acb8768aad66316d8fe.png -->
+> <img src="../assets/6f7ce8ca23b44acb8768aad66316d8fe.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1394,7 +1394,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > [!success]- Answer
 > $[-1,1] \times [1,2]$ is the rectangle of all points $(x,y)$ with $-1 \le x \le 1$ and $1 \le y \le 2$.
 > 
-> <!-- TODO: missing image: 043403fbfdb84a5e93fed9c8b48daa59.png -->
+> <img src="../assets/043403fbfdb84a5e93fed9c8b48daa59.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1446,7 +1446,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > [!success]- Answer
 > Three vertical line segments: for $x=1,1.5,2$ and $1\le y\le2$.
 > 
-> <!-- TODO: missing image: 306892566b4c442cb323c6483229bb6d.png -->
+> <img src="../assets/306892566b4c442cb323c6483229bb6d.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1502,7 +1502,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > [!success]- Answer
 > Three horizontal line segments: for $y=1,1.5,2$ and $1\le x\le2$.
 > 
-> <!-- TODO: missing image: 3e021c7631b249c8a1bee52b7758fb55.png -->
+> <img src="../assets/3e021c7631b249c8a1bee52b7758fb55.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1566,7 +1566,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > [!success]- Answer
 > The vertical line segment at $x=1$ with $0 \le y \le1$.
 > 
-> <!-- TODO: missing image: e82afe96943a478d9dd88198825abc0f.png -->
+> <img src="../assets/e82afe96943a478d9dd88198825abc0f.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1616,7 +1616,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > [!success]- Answer
 > The horizontal line segment at $y=1$ with $0 \le x \le 1$.
 > 
-> <!-- TODO: missing image: 2f47fb69224a469bb14cbcd1dca0ab7f.png -->
+> <img src="../assets/2f47fb69224a469bb14cbcd1dca0ab7f.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1667,7 +1667,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > Note: $0$ is not included in $\mathbb{N}$, and thus $\mathbb{N} = \{1,2,3,\dots\}$.
 > A lattice of points $(m,n)$ where $m\in\mathbb{N}$ and $n\in\mathbb{Z}$: vertical columns of integer points for positive integer $x$-coordinates.
 > 
-> <!-- TODO: missing image: f6ccfb9a97914075b5b6c484e2fcba2d.png -->
+> <img src="../assets/f6ccfb9a97914075b5b6c484e2fcba2d.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1714,7 +1714,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > [!success]- Answer
 > The full integer lattice: all points $(m,n)$ with $m,n\in\mathbb{Z}$.
 > 
-> <!-- TODO: missing image: 6c44e78036824dbab706c9a63bad1fb2.png -->
+> <img src="../assets/6c44e78036824dbab706c9a63bad1fb2.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1761,7 +1761,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > [!success]- Answer
 > This is the closed unit cube: all points $(x,y,z)$ with $0 \le x, y, z \le 1$.
 > 
-> <!-- TODO: missing image: feff4c63a97a438f82842d900040d351.png -->
+> <img src="../assets/feff4c63a97a438f82842d900040d351.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1839,7 +1839,7 @@ B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ 
 > [!success]- Answer
 > The set is a solid right circular cylinder of radius $1$ and height $1$:  all points $(x,y,z)$ with $x^{2}+y^{2}\le1$ and $0 \le z\le 1$.
 > 
-> <!-- TODO: missing image: ce824ba9609b40569f5f71f1d57fef2a.png -->
+> <img src="../assets/ce824ba9609b40569f5f71f1d57fef2a.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -1933,7 +1933,7 @@ Example 1.5: Be sure you understand why each of the following is true.
 
 **This idea of “making” a subset can help us list out all the subsets of a given set $B$. As an example, let $B = \{ a , b , c \}$. Let’s list all of its subsets. One way of approaching this is to make a tree-like structure. Begin with the subset $\{ \}$, which is shown on the left of Figure 1.3. Considering the element $a$ of $B$, we have a choice: insert it into $\{ \}$, or not. The lines from $\{ \}$ point to what we get depending whether or not we insert $a$, either $\{ \}$ or $\{ a \}$. Now move on to the element $b$ of $B$. For each of the sets just formed we can either insert or not insert $b$, and the lines on the diagram point to the resulting sets $\{ \} , \{ b \} , \{ a \}$, or $\{ a , b \}$. Finally, to each of these sets, we can either insert $c$ or not insert it, and this gives us, on the far right-hand column, the sets $\{ \} , \{ c \} , \{ b \} , \{ b , c \} , \{ a \} , \{ a , c \} , \{ a , b \}$ and $\{ a , b , c \}$. These are the eight subsets of $B = \{ a , b , c \}$.** 
 
-<!-- TODO: missing image: 225c12d1dcc8f3968d20b7fb097aed60b93dab251a12da9f1e990697c292aef2.jpg -->
+<img src="../assets/225c12d1dcc8f3968d20b7fb097aed60b93dab251a12da9f1e990697c292aef2.jpg">
 Figure 1.3. A “tree” for listing subsets
 
 **<mark>We can see from the way this tree branches that if it happened that $B = \left\{ a \right\}$ , then $B$ would have just two subsets, those in the second column of the diagram. If it happened that $B = \left\{ a , b \right\}$ , then $B$ would have four subsets, those in the third column, and so on. At each branching of the tree, the number of subsets doubles. So in general, if $| B | = n$ , then $B$ has $2 ^ { n }$ subsets.</mark>**
@@ -2042,7 +2042,7 @@ C. Decide if the following statements are true or false. Explain.
 > The right-hand set consists of two vertical lines in $\mathbb{R}^2$: $\{ (x,y) : x(x-1)=0 \}$, i.e. $x=0$ or $x=1$. Thus $\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } - x = 0 \} = \{\ldots,(0,-1),\ldots, (0, -0.5),\ldots, (0,0),\ldots, (0,0.5),\ldots,(0,1),\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}$. Every tuple $(x,y)$ in $\mathbb{R}^2$ with $x = 0$ or $x = 1$.
 > Every point with $x=1$ lies in the right set.
 > 
-> <!-- TODO: missing image: 1e9c3f57391e482cb70ba4cd573c1a59.png -->
+> <img src="../assets/1e9c3f57391e482cb70ba4cd573c1a59.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -2121,7 +2121,7 @@ C. Decide if the following statements are true or false. Explain.
 > The right-hand set is the vertical line $x=1$. Thus $\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x - 1 = 0 \} = \{\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}$. Every tuple $(x,y)$ in $\mathbb{R}^2$ with $x = 1$.
 > Points with $x=0$ (e.g. $(0,0)$) are not in the right-hand set representing $x=1$.
 > 
-> <!-- TODO: missing image: 3b17cae42f3e47c7bbe1c3cde73de857.png -->
+> <img src="../assets/3b17cae42f3e47c7bbe1c3cde73de857.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -2234,7 +2234,7 @@ $$
 
 **The set $\mathscr { P } ( \mathbb { R } ^ { 2 } )$ is mind boggling. Think of $\mathbb { R } ^ { 2 } = \left\{ ( x , y ) : x , y \in \mathbb { R } \right\}$ as the set of all points on the Cartesian plane. A subset of $\mathbb { R } ^ { 2 }$ (that is, an element of $\mathscr { P } ( \mathbb { R } ^ { 2 } )$ ) is a set of points in the plane. Let’s look at some of these sets. Since $\left\{ ( 1 , 2 ) , ( 1 , 1 ) \right\} \subseteq \mathbb { R } ^ { 2 }$, we know that $\left\{ ( 1 , 2 ) , ( 1 , 1 ) \right\} \in { \mathscr { P } } ( \mathbb { R } ^ { 2 } )$. We can even draw a picture of this subset, as in Figure 1.4(a). For another example, the graph of the equation $y = x ^ { 2 }$ is the set of points $G = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}$ and this is a subset of $\mathbb { R } ^ { 2 }$, so $G \in { \mathscr { P } } ( \mathbb { R } ^ { 2 } )$ . Figure 1.4(b) is a picture of $G$. Because this can be done for any function, the graph of any imaginable function $f : \mathbb { R } \to \mathbb { R }$ is an element of $\mathscr { P } ( \mathbb { R } ^ { 2 } )$.** 
 
-<!-- TODO: missing image: Pasted image 20260312095628.png -->
+<img src="../assets/Pasted image 20260312095628.png" width="1000">
 Figure 1.4. Three of the many, many sets in $\mathscr { P } ( \mathbb { R } ^ { 2 } )$
 
 **In fact, any black-and-white image on the plane can be thought of as a subset of $\mathbb { R } ^ { 2 }$, where the black points belong to the subset and the white points do not. So the text “INFINITE” in Figure 1.4(c) is a subset of $\mathbb { R } ^ { 2 }$ and therefore an element of $\mathscr { P } ( \mathbb { R } ^ { 2 } )$. By that token, $\mathscr { P } ( \mathbb { R } ^ { 2 } )$ contains a copy of the page you are reading now.**
@@ -2400,7 +2400,7 @@ Parts 12–15 use interval notation (Section 1.1), so $[ 2 , 5 ] = \left\{ x \in
 
 Example 1.9: Let $A = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}$ be the graph of the equation $y = x ^ { 2 }$ and let $B = \left\{ ( x , x + 2 ) : x \in \mathbb { R } \right\}$ be the graph of the equation $y = x + 2$. These sets are subsets of $\mathbb { R } ^ { 2 }$. They are sketched together in Figure 1.5(a). Figure 1.5(b) shows $A \cup B$, the set of all points $( x , y )$ that are on one (or both) of the two graphs. Observe that $A \cap B = \left\{ ( - 1 , 1 ) , ( 2 , 4 ) \right\}$ consists of just two elements, the two points where the graphs intersect, as illustrated in Figure 1.5(c). Figure 1.5(d) shows $A - B$, which is the set $A$ with “holes” where $B$ crossed it. In set builder notation, we could write $A \cup B = \left\{ ( x , y ) : x \in \mathbb { R } , y = x ^ { 2 } \right.$ or $y = x + 2 \}$ and $A - B = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } - \left\{ - 1 , 2 \right\} \right\}$ ($\mathbb{R}$ without $-1$ and $2$). 
 
-<!-- TODO: missing image: Pasted image 20260312095755.png -->
+<img src="../assets/Pasted image 20260312095755.png" width="1000">
 Figure 1.5. The union, intersection and difference of sets A and B
 
 ## Exercises for Section 1.5
@@ -2587,7 +2587,7 @@ Figure 1.5. The union, intersection and difference of sets A and B
 > $X-Y = \{(x,y):1\le x\le3,\ 1\le y\le3,\ \text{and }(x<2\ \text{or}\ y<2)\}$
 > $Y-X = \{(x,y):2\le x\le4,\ 2\le y\le4,\ \text{and }(x>3\ \text{or}\ y>3)\}$
 > 
-> <!-- TODO: missing image: 7c124270f2dd4fc0bdc6630ef0239d8e.png -->
+> <img src="../assets/7c124270f2dd4fc0bdc6630ef0239d8e.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -2685,7 +2685,7 @@ Figure 1.5. The union, intersection and difference of sets A and B
 > $X-Y = \{(x,y): -1\le x\le3,\ 0\le y\le2,\ \text{and }(x<0\ \text{or}\ y<1)\}$
 > $Y-X = \{(x,y): 0\le x\le3,\ 1\le y\le4,\ \text{and }y>2\}$
 > 
-> <!-- TODO: missing image: 0ccc91f38e1d4060b66ded27cc6070c3.png -->
+> <img src="../assets/0ccc91f38e1d4060b66ded27cc6070c3.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -2781,7 +2781,7 @@ Figure 1.5. The union, intersection and difference of sets A and B
 > $X-Y = \{(x,y): x\le0,\ x^2+y^2\le1\}\ \text{(left semicircle)}$
 > $Y-X = \{(x,y): x\ge0,\ x^2+y^2>1\}$
 > 
-> <!-- TODO: missing image: c560f21869af4d57988a3704fa5241d1.png -->
+> <img src="../assets/c560f21869af4d57988a3704fa5241d1.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -2904,7 +2904,7 @@ Figure 1.5. The union, intersection and difference of sets A and B
 > $X-Y = \{(x,y):x^2+y^2\le1,\ y>0\}$
 > $Y-X = \{(x,y):-1\le y\le0,\ x^2+y^2>1\}$
 > 
-> <!-- TODO: missing image: 6118fb811b894b9e897f7e30336d9623.png -->
+> <img src="../assets/6118fb811b894b9e897f7e30336d9623.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3049,7 +3049,7 @@ Figure 1.5. The union, intersection and difference of sets A and B
 > **The second statement is false**; for example $(0.5,0.5) \in \mathbb{R} \times \mathbb{R}$ but $(0.5,0.5) \notin (\mathbb{R} \times \mathbb{Z}) \cup (\mathbb{Z} \times \mathbb{R})$. 
 > $( \mathbb { R } \times \mathbb { Z } ) \cup ( \mathbb { Z } \times \mathbb { R } )$ creates a checkerboard pattern, not the full $\mathbb{R}^{2}$ plane.
 > 
-> <!-- TODO: missing image: 526246e415114ab6a864511d8bd81350.png -->
+> <img src="../assets/526246e415114ab6a864511d8bd81350.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3130,7 +3130,7 @@ Figure 1.5. The union, intersection and difference of sets A and B
 > $\iff (x,y)\in A\times C\ \text{and}\ (x,y)\notin B\times C$
 > Taking $A=\mathbb{R}$, $B=\mathbb{Z}$, and $C=\mathbb{N}$ yields the claimed identity.
 > 
-> <!-- TODO: missing image: 50d07a5b007c4f028089815e0557da0c.png -->
+> <img src="../assets/50d07a5b007c4f028089815e0557da0c.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3230,7 +3230,7 @@ Thus $\overline { { P } }$ is the set of composite numbers and 1.
 
 Example 1.11: Let $A = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}$ be the graph of the equation $y = x^{2}$. Figure 1.6(a) shows $A$ in its universal set $\mathbb{R}^{2}$. The complement of $A$ is ${ \overline { { A } } } =$ $\mathbb { R } ^ { 2 } - A = \left\{ ( x , y ) \in \mathbb{R}^{2} : y \neq x^{2} \right\}$, illustrated by the shaded area in Figure 1.6(b). 
 
-<!-- TODO: missing image: Pasted image 20260312095945.png -->
+<img src="../assets/Pasted image 20260312095945.png" width="750">
 Figure 1.6. A set and its complement
 
 ## Exercises for Section 1.6
@@ -3316,7 +3316,7 @@ Figure 1.6. A set and its complement
 > $\overline{X}$ is the complement of this rectangle in the plane $\mathbb{R}^{2}$.
 > $\overline{X} \cap ([0,2] \times [0,3])$ is the part of the complement restricted to the larger rectangle $[0,2] \times [0,3]$.
 > 
-> <!-- TODO: missing image: 863fa9efdc634887abf79efde205c87d.png -->
+> <img src="../assets/863fa9efdc634887abf79efde205c87d.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3388,7 +3388,7 @@ Figure 1.6. A set and its complement
 > $\overline{X}$ is the complement of this rectangle in the plane $\mathbb{R}^{2}$.
 > $\overline{X} \cap ([-2,4] \times [-1,3])$ is the part of the complement restricted to the larger rectangle $[-2,4] \times [-1,3]$.
 > 
-> <!-- TODO: missing image: 23fb6b0144fd480fb4e29093f6e261f5.png -->
+> <img src="../assets/23fb6b0144fd480fb4e29093f6e261f5.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3455,7 +3455,7 @@ Figure 1.6. A set and its complement
 > The complement $\overline{X}$ consists of points inside the smaller circle $(x^2 + y^2 < 1)$ and outside the larger circle $(x^2 + y^2 > 4)$.
 > Equation of a circle with midpoint $(m,n)$ and radius $r$ : $(x-m)^2 + (y-n)^2 = r^2$
 > 
-> <!-- TODO: missing image: b89627aa82f34b4d84b4b61eb2af2228.png -->
+> <img src="../assets/b89627aa82f34b4d84b4b61eb2af2228.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3518,7 +3518,7 @@ Figure 1.6. A set and its complement
 > The set $X$ is the region below the parabola $y = x^2$.
 > The complement $\overline{X}$ is the region on and above the parabola $f(x) = x^2$.
 > 
-> <!-- TODO: missing image: ea95428730c9406eb4b2a8f77820337b.png -->
+> <img src="../assets/ea95428730c9406eb4b2a8f77820337b.png" width="750">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3582,14 +3582,14 @@ Figure 1.6. A set and its complement
 
 **In thinking about sets, it is sometimes helpful to draw informal, schematic diagrams of them. In doing this we often represent a set with a circle (or oval), which we regard as enclosing all the elements of the set. Such diagrams can illustrate how sets combine using various operations. For example, Figures 1.7(a–c) show two sets $A$ and $B$ that overlap in a middle region. The sets $A \cup B$, $A \cap B$ and $A - B$ are shaded. Such graphical representations of sets are called Venn diagrams, after their inventor, British logician John Venn, 1834–1923.** 
 
-<!-- TODO: missing image: Pasted image 20260312100105.png -->
+<img src="../assets/Pasted image 20260312100105.png" width="1000">
 Figure 1.7. Venn diagrams for two sets
 
 **Though you are unlikely to draw Venn diagrams as a part of a proof of any theorem, you will probably find them to be useful “scratch work” devices that help you to understand how sets combine, and to develop strategies for proving certain theorems or solving certain problems.** The remainder of this section uses Venn diagrams to explore how three sets can be combined using $\cup$ and $\cap$. 
 
 Let’s begin with the set $A \cup B \cup C$. Our definitions suggest this should consist of all elements which are in one or more of the sets $A$, $B$ and $C$. Figure 1.8(a) shows a Venn diagram for this. Similarly, we think of $A \cap B \cap C$ as all elements common to each of $A$, $B$ and $C$, so in Figure 1.8(b) the region belonging to all three sets is shaded. 
 
-<!-- TODO: missing image: Pasted image 20260312100213.png -->
+<img src="../assets/Pasted image 20260312100213.png">
 Figure 1.8. Venn diagrams for three sets
 
 **We can also think of $A \cap B \cap C$ as the two-step operation $( A \cap B ) \cap C$. In this expression the set $A \cap B$ is represented by the region common to both $A$ and $B$, and when we intersect this with $C$ we get Figure 1.8(b). This is a visual representation of the fact that $A \cap B \cap C = ( A \cap B ) \cap C$. Similarly, we have $A \cap B \cap C = A \cap ( B \cap C )$. Likewise, $A \cup B \cup C = ( A \cup B ) \cup C = A \cup ( B \cup C )$.** 
@@ -3598,12 +3598,12 @@ Figure 1.8. Venn diagrams for three sets
 
 **Now let’s use Venn diagrams to help us understand the expressions $( A \cup B ) \cap C$ and $A \cup ( B \cap C )$, which use a mix of $\cup$ and $\cap$. Figure 1.9 shows how to draw a Venn diagram for $( A \cup B ) \cap C$. In the drawing on the left, the set $A \cup B$ is shaded with horizontal lines, while $C$ is shaded with vertical lines. Thus the set $( A \cup B ) \cap C$ is represented by the cross-hatched region where $A \cup B$ and $C$ overlap.** The superfluous shadings are omitted in the drawing on the right showing the set $( A \cup B ) \cap C$. 
 
-<!-- TODO: missing image: Pasted image 20260312100303.png -->
+<img src="../assets/Pasted image 20260312100303.png">
 Figure 1.9. How to make a Venn diagram for $( A \cup B ) \cap C$
 
 **Now think about $A \cup ( B \cap C )$. In Figure 1.10 the set $A$ is shaded with horizontal lines, and $B \cap C$ is shaded with vertical lines. The union $A \cup ( B \cap C )$ is represented by the totality of all shaded regions, as shown on the right.** 
 
-<!-- TODO: missing image: Pasted image 20260312100321.png -->
+<img src="../assets/Pasted image 20260312100321.png">
 Figure 1.10. How to make a Venn diagram for $A \cup ( B \cap C )$
 
 **Compare the diagrams for $( A \cup B ) \cap C$ and $A \cup ( B \cap C )$ in Figures 1.9 and 1.10. The fact that the diagrams are different indicates that $( A \cup B ) \cap C \neq$ $A \cup ( B \cap C )$ in general. Thus an expression such as $A \cup B \cap C$ is absolutely meaningless because we can’t tell whether it means $( A \cup B ) \cap C$ or $A \cup ( B \cap C )$.** In summary, Venn diagrams have helped us understand the following. 
@@ -3620,7 +3620,7 @@ In the next section we will study types of expressions that use only $\cup$ or o
 1. Draw a Venn diagram for $\overline{A}$, where $A$ is a subset of a universal set $U$. 
 > [!success]- Answer
 > 
-> <!-- TODO: missing image: f64483caafea4948911c14c52a1326c8.png -->
+> <img src="../assets/f64483caafea4948911c14c52a1326c8.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3668,7 +3668,7 @@ In the next section we will study types of expressions that use only $\cup$ or o
 2. Draw a Venn diagram for $B - A$. 
 > [!success]- Answer
 > 
-> <!-- TODO: missing image: 9ecef6a1b6a443878cfae594f80dbfd9.png -->
+> <img src="../assets/9ecef6a1b6a443878cfae594f80dbfd9.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3723,7 +3723,7 @@ In the next section we will study types of expressions that use only $\cup$ or o
 3. Draw a Venn diagram for $( A - B ) \cap C$. 
 > [!success]- Answer
 > 
-> <!-- TODO: missing image: 4383157491e140838889ac5d3381f094.png -->
+> <img src="../assets/4383157491e140838889ac5d3381f094.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3778,7 +3778,7 @@ In the next section we will study types of expressions that use only $\cup$ or o
 4. Draw a Venn diagram for $( A \cup B ) - C$.
 > [!success]- Answer
 > 
-> <!-- TODO: missing image: 80fdd1e633fc4f3eb5c1971a6b97a1a4.png -->
+> <img src="../assets/80fdd1e633fc4f3eb5c1971a6b97a1a4.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3834,7 +3834,7 @@ In the next section we will study types of expressions that use only $\cup$ or o
 > [!success]- Answer
 > The statement $A \cup ( B \cap C ) = ( A \cup B ) \cap ( A \cup C )$ is true. Based on the drawings, we are inclined to say that the equation $A \cup ( B \cap C ) = ( A \cup B ) \cap ( A \cup C )$ holds for all sets $A$, $B$ and $C$.
 > 
-> <!-- TODO: missing image: 30536fb2611e40e293c3f44dda2d5390.png -->
+> <img src="../assets/30536fb2611e40e293c3f44dda2d5390.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3893,7 +3893,7 @@ In the next section we will study types of expressions that use only $\cup$ or o
 > [!success]- Answer
 > The statement $A \cap ( B \cup C ) = ( A \cap B ) \cup ( A \cap C )$ is true. Based on the drawings, we are inclined to say that the equation $A \cap ( B \cup C ) = ( A \cap B ) \cup ( A \cap C )$ holds for all sets $A$, $B$ and $C$.
 > 
-> <!-- TODO: missing image: a0056cf9b450468a8b780c3dba04e407.png -->
+> <img src="../assets/a0056cf9b450468a8b780c3dba04e407.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -3952,7 +3952,7 @@ In the next section we will study types of expressions that use only $\cup$ or o
 > [!success]- Answer
 > The diagrams for $\overline{A \cap B}$ and $\overline{A} \cup \overline{B}$ look exactly alike. Thus we would expect that the equation $\overline{A \cap B} = \overline{A} \cup \overline{B}$ is true for any sets $A$ and $B$.
 > 
-> <!-- TODO: missing image: 8da21a150ec94bde8bd0380b380486b4.png -->
+> <img src="../assets/8da21a150ec94bde8bd0380b380486b4.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -4023,7 +4023,7 @@ In the next section we will study types of expressions that use only $\cup$ or o
 > [!success]- Answer
 > The diagrams for $\overline{A \cup B}$ and $\overline{A} \cap \overline{B}$ look exactly alike. Thus we would expect that the equation $\overline{A \cup B} = \overline{A} \cap \overline{B}$ is true for any sets $A$ and $B$.
 > 
-> <!-- TODO: missing image: fb279a3fed544bcbb86a5b7fa303f0c7.png -->
+> <img src="../assets/fb279a3fed544bcbb86a5b7fa303f0c7.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -4093,7 +4093,7 @@ In the next section we will study types of expressions that use only $\cup$ or o
 9. Draw a Venn diagram for $( A \cap B ) - C$. 
 > [!success]- Answer
 > 
-> <!-- TODO: missing image: fb2a739f7dfb48cb9b361012f5de1548.png -->
+> <img src="../assets/fb2a739f7dfb48cb9b361012f5de1548.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -4148,7 +4148,7 @@ In the next section we will study types of expressions that use only $\cup$ or o
 10. Draw a Venn diagram for $( A - B ) \cup C$. 
 > [!success]- Answer
 > 
-> <!-- TODO: missing image: 96f1daeec3e44762a97bc45a7970e932.png -->
+> <img src="../assets/96f1daeec3e44762a97bc45a7970e932.png" width="500">
 > 
 > ```python
 > #!/usr/bin/env -S uv run
@@ -4202,22 +4202,22 @@ In the next section we will study types of expressions that use only $\cup$ or o
 
 Following are Venn diagrams for expressions involving sets $A , B$ and $c$ . Write a corresponding expression. 
 11. 
-<!-- TODO: missing image: 4d577c2df50eb9aa5f6c2c4ed711be14f7616e6034122ea1ddc5fbb7b5eab7f1.jpg -->
+<img src="../assets/4d577c2df50eb9aa5f6c2c4ed711be14f7616e6034122ea1ddc5fbb7b5eab7f1.jpg">
 > [!success]- Answer
 > $(B \cap C) - A$
 
 12. 
-<!-- TODO: missing image: fabab6a864bc5cc448a6fbbafdcb0d94b039ca528e355770879b7bf4c6a9380d.jpg -->
+<img src="../assets/fabab6a864bc5cc448a6fbbafdcb0d94b039ca528e355770879b7bf4c6a9380d.jpg">
 > [!success]- Answer
 > $((A \cup B) \cap C) \cup (A - (B \cup C))$
 
 13. 
-<!-- TODO: missing image: cbafb51dacfae915b8cac6cbd4e606c1cf43b4c22331c6b179da323b6e030473.jpg -->
+<img src="../assets/cbafb51dacfae915b8cac6cbd4e606c1cf43b4c22331c6b179da323b6e030473.jpg">
 > [!success]- Answer
 > $(A \cup B \cup C) - (A \cap B \cap C)$
 
 14. 
-<!-- TODO: missing image: dffa532617f3cacbe6ce1ecdd34a4a870ffa8611f2dfb9c0b6795f8ed460ed1c.jpg -->
+<img src="../assets/dffa532617f3cacbe6ce1ecdd34a4a870ffa8611f2dfb9c0b6795f8ed460ed1c.jpg">
 > [!success]- Answer
 > $(A \cap B \cap C) \cup (A - (B \cup C))$
 
@@ -4297,13 +4297,13 @@ $$
 
 Example 1.14: In this example, all sets $A_{\alpha}$ are all subsets of the plane $\mathbb{R}^{2}$. Each $\alpha$ belongs to the index set $I = [ 0 , 2 ] = \left\{ x \in \mathbb{R} : 0 \leq x \leq 2 \right\}$, which is the set of all real numbers between 0 and 2. For each number $\alpha \in I$, define $A _ { \alpha }$ to be the set $A _ { \alpha } = [ \alpha , 2 ] \times [ 0 , \alpha ]$, which is the rectangle on the $xy$-plane whose base runs from $\alpha$ to 2 on the $x$-axis, and whose height is $\alpha$. Some of these are shown shaded below. (The dotted diagonal line $y = x$ is not a part of any of the sets, but is shown for clarity, as the upper left corner of each $A_{\alpha}$ touches it.) Note that these sets are not indexed with just integers. For example, as $\sqrt{2} \in I$, there is a set $A_{\sqrt{2}}$, which shown below on the right. 
 
-<!-- TODO: missing image: Pasted image 20260312100524.png -->
+<img src="../assets/Pasted image 20260312100524.png" width="1200">
 
 Note that $A_{0} = [ 0 , 2 ] \times [ 0 , 0 ] = [ 0 , 2 ] \times \left\{ 0 \right\} = \left\{ (0,0), \ldots, (1,0) \ldots, (2,0) \right\}$ is the interval $[0, 2]$ on the $x$-axis (a “flat” rectangle). Also, $A_{2} = [ 2 , 2 ] \times [ 0 , 2 ] = \{ 2 \} \times [ 0 , 2 ] = \left\{ (2,0), \ldots, (2,1), \ldots, (2,2) \right\}$ is the vertical side of the dotted triangle in the above pictures. 
 
 Now consider the infinite union $\displaystyle \bigcup _ { \alpha \in I } A _ { \alpha }$. It is the shaded triangle shown below, because any point $( x , y )$ on this triangle belongs to the set $A_{x}$, and is therefore in the union. (And any point not on the triangle is not in any $A_{x}$.) 
 
-<!-- TODO: missing image: 278f2d3ae1d1f0e3ecc096d39ff2122e4af3bd7c3fc54f362651cdd1372e4acf.jpg -->
+<img src="../assets/278f2d3ae1d1f0e3ecc096d39ff2122e4af3bd7c3fc54f362651cdd1372e4acf.jpg">
 
 Now let’s work out the intersection $\displaystyle \bigcap_{\alpha \in I} A_{\alpha}$. Notice that the point $(2, 0)$ on the $x$-axis is the lower right corner of any set $A_{\alpha}$, so $( 2 , 0 ) \in A_{\alpha}$ for any $\alpha \in I$. Therefore the point $(2,0)$ is in the intersection of all the $A_{\alpha}$. But any other point $( x , y ) \neq ( 2 , 0 )$ on the triangle does *not* belong to *all* of the sets $A_{\alpha}$. The reason is that if $x < 2$ , then $( x , y ) \notin A_{\alpha}$ for any $x < \alpha \leq 2$. (Check this.) And if $x = 2$, then $( x , y ) \notin A_{\alpha}$ for any $0 < \alpha < y$ (only $y=0$ is valid). Consequently 
 
@@ -4323,7 +4323,7 @@ In words, given a point $(a,b) \in \mathbb{R}^{2}$, the corresponding set $P_{(a
 
 Figure 1.11 (left) shows the specific set $P_{(1,2)} = \left\{(x,y,z) \in \mathbb{R}^{3} : x + 2y = 0 \right\}$. It is the vertical plane that intersects the $xy$-plane at the line $x + 2y = 0$ (or $y = \dfrac{1}{-2}x$). 
 
-<!-- TODO: missing image: Pasted image 20260312100654.png -->
+<img src="../assets/Pasted image 20260312100654.png" width="1000">
 Figure 1.11. The sets $P_{(a,b)}$ are vertical planes containing the $z$-axis.
 
 For any point $(a,b) \in \mathbb{R}^{2}$ with $(a,b) \neq (0,0)$, we can visualize $P_{(a,b)}$ as the vertical plane that cuts the $xy$-plane at the line $ax + by = 0$. Figure 1.11 (right) shows a few of the $P_{(a,b)}$ sets. Since any two such planes intersect along the $z$-axis, and because the $z$-axis is a subset of every $P_{(a,b)}$, it is immediately clear that 
