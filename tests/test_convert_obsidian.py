@@ -24,3 +24,21 @@ def test_slugify_logic():
 
 def test_slugify_counting():
     assert slugify_filename("03✓. Counting.md") == "03-counting.md"
+
+
+# --- strip_comments ---
+
+def test_strip_inline_comment():
+    assert strip_comments("before %%IMPORTANT_FORMULA%% after") == "before  after"
+
+
+def test_strip_multiline_comment():
+    assert strip_comments("a\n%%multi\nline%%\nb") == "a\n\nb"
+
+
+def test_strip_no_comments():
+    assert strip_comments("no comments here") == "no comments here"
+
+
+def test_strip_empty_comment():
+    assert strip_comments("%%%%") == ""

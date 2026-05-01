@@ -16,7 +16,7 @@ def slugify_filename(name: str) -> str:
 
 
 def strip_comments(text: str) -> str:
-    raise NotImplementedError
+    return re.sub(r"%%.*?%%", "", text, flags=re.DOTALL)
 
 
 def convert_highlights(text: str) -> str:
