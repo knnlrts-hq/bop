@@ -118,6 +118,7 @@ We close this section with a summary of special sets. These are sets that are so
 ## Exercises for Section 1.1
 
 A. Write each of the following sets by listing their elements between braces. 
+
 1. $\left\{ 5 x - 1 : x \in \mathbb { Z } \right\}$ 
 :::{dropdown} Answer
 $\{\dots,-6,-1,4,9,\dots\}$
@@ -206,6 +207,7 @@ $\{ \dots,-6,-4,-2,0,2,4,6, \dots \}$ = set of all even integers.
 :::
 
 B. Write each of the following sets in set-builder notation. 
+
 17. $\{2,4,8,16,32,64, \ldots \}$ 
 :::{dropdown} Answer
 $\{2^x : x \in \mathbb{N}\}$ ($\mathbb{N}$ does not include 0!)
@@ -267,6 +269,7 @@ $\left\{\dfrac{3k}{4} : k \in \mathbb{Z}\right\}$
 :::
 
 C. Find the following cardinalities. 
+
 29. $\left| \{ \{ 1 \} , \{ 2 , \{ 3 , 4 \} \} , \varnothing \} \right|$ 
 :::{dropdown} Answer
 $3$
@@ -317,9 +320,11 @@ $|\varnothing| = 0$
 $4$
 :::
 
-D. Sketch the following sets of points in the $x \text{-} y$ plane. 
+D. Sketch the following sets of points in the $x \text{-} y$ plane.
+
 39. $\left\{ ( x , y ) : x \in [ 1 , 2 ] , y \in [ 1 , 2 ] \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/b1168a21c2fd4bb19e751c96a0e3520d.png" width="500">
 
 ```python
@@ -369,7 +374,9 @@ uv run plot.py
 
 40. $\left\{ ( x , y ) : x \in [ 0 , 1 ] , y \in [ 1 , 2 ] \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/1cfa0f6fb58146388f7b397203a9addd.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -417,7 +424,9 @@ uv run plot.py
 
 41. $\left\{ ( x , y ) : x \in [ - 1 , 1 ] , y = 1 \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/2697e73658b94399ba8e837509853f03.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -467,7 +476,9 @@ uv run plot.py
 
 42. $\left\{ ( x , y ) : x = 2 , y \in [ 0 , 1 ] \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/79c9009f35434d099b9676c8461a1726.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -517,7 +528,9 @@ uv run plot.py
 
 43. $\left\{ ( x , y ) : | x | = 2 , y \in [ 0 , 1 ] \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/deddd8656ae640da8bcfb84920e31f37.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -570,7 +583,9 @@ uv run plot.py
 
 44. $\left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/e19918260cbd4998bb8652ae48a3e348.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -618,7 +633,9 @@ uv run plot.py
 
 45. $\left\{ ( x , y ) : x , y \in \mathbb { R } , x ^ { 2 } + y ^ { 2 } = 1 \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/08a1fb88d1034f8ba6df3ae1f3d2e843.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -667,7 +684,9 @@ uv run plot.py
 
 46. $\left\{ ( x , y ) : x , y \in \mathbb { R } , x ^ { 2 } + y ^ { 2 } \leq 1 \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/5a1d3909e8f04e058bb5e855e911b5c7.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -717,7 +736,9 @@ uv run plot.py
 
 47. $\left\{ ( x , y ) : x , y \in \mathbb { R } , y \geq x ^ { 2 } - 1 \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/f27f0609f123425cbbe209b1e04a223b.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -768,7 +789,9 @@ uv run plot.py
 
 48. $\left\{ ( x , y ) : x , y \in \mathbb { R } , x > 1 \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/ccd103c0c19841128c6fd58cf9a49c1a.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -814,11 +837,12 @@ chmod +x plot.py
 uv run plot.py
 ```
 :::
-4
 
 49. $\left\{ ( x , x + y ) : x \in \mathbb { R } , y \in \mathbb { Z } \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/42aeab0f73ea43a4b67ee8a714b89fd4.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -863,8 +887,11 @@ plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
 plt.savefig(f"{uid}.svg", bbox_inches="tight")
 plt.close()
 ```
+
 49b. $\left\{ ( x , x + n ) : x \in \mathbb { R } , n \in \mathbb { N } \right\}$
+
 <img src="../assets/63fdfc5514274bc896f835e17f5d1aa3.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -918,7 +945,9 @@ uv run plot.py
 
 50. $\left\{ ( x , { \tfrac { x ^ { 2 } } { y } } ) : x \in \mathbb { R } , y \in \mathbb { N } \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/7008ff431a7e4b3db7ba6b0d763f1fbe.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -968,7 +997,9 @@ uv run plot.py
 
 51. $\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : ( y - x ) ( y + x ) = 0 \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/57066fadf1914e72b6433536bf1537bf.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
@@ -1018,7 +1049,9 @@ uv run plot.py
 
 52. $\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : ( y - x ^ { 2 } ) ( y + x ^ { 2 } ) = 0 \right\}$ 
 :::{dropdown} Answer
+
 <img src="../assets/5e623304cce847148376bdbafc75a442.png" width="500">
+
 ```python
 #!/usr/bin/env -S uv run
 # /// script
