@@ -2,8 +2,7 @@
 
 *Book of Proof* is a free, open-source mathematics textbook by **Richard Hammack**
 (Virginia Commonwealth University). It introduces students to the language and
-methods of mathematical proof — the foundation of every upper-level mathematics
-course. The full text is freely available at
+methods of mathematical proof. The full text is freely available at
 [richardhammack.github.io/BookOfProof](https://richardhammack.github.io/BookOfProof/).
 
 This site contains annotated chapter notes and exercise solutions. Annotations
