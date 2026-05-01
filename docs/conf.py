@@ -1,4 +1,4 @@
-project = "Book of Proof — Annotated"
+project = "Book of Proof - Annotated"
 author = "Richard Hammack (annotations by knnlrts-hq)"
 extensions = ["myst_parser", "sphinx_copybutton", "sphinx.ext.mathjax", "sphinx_design"]
 myst_enable_extensions = ["colon_fence", "html_image", "dollarmath"]
