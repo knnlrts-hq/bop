@@ -20,7 +20,7 @@ def strip_comments(text: str) -> str:
 
 
 def convert_highlights(text: str) -> str:
-    raise NotImplementedError
+    return re.sub(r"==(.+?)==", r"<mark>\1</mark>", text)
 
 
 def convert_images(text: str, existing: set) -> str:
