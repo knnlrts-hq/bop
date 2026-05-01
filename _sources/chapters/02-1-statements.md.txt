@@ -1,0 +1,192 @@
+**Logic is a systematic way of thinking that allows us to parse the meanings of sentences and to deduce new information from old information. You use logic informally in everyday life and certainly also in doing mathematics. For example, say you are working with a certain circle (call it “Circle X”), and suppose you have available the following two pieces of information.**
+- **1. Circle X has a radius of 3 units.**
+- **2. If any circle has radius $r$, then its area is $\pi r ^ { 2 }$ square units.**
+**You have no trouble putting these two facts together to get:**
+- **3. Circle X has area $9 \pi$ square units.**
+
+**In doing this you are using logic to combine existing information to produce new information. Because deducing new information is central to mathematics, logic plays a fundamental role.** This chapter is intended to give you a sufficient mastery of it.
+
+**<mark>It is important to realize that logic is a process of deducing information correctly, not just deducing correct information.</mark> For example, suppose we were mistaken and Circle X actually had a radius of 4, not 3. Let’s look at our exact same argument again.**
+- **1. Circle X has a radius of 3 units.**
+- **2. If any circle has radius $r$, then its area is $\pi r ^ { 2 }$ square units.**
+- **3. Circle X has area $9 \pi$ square units.**
+
+**The sentence “Circle X has a radius of 3 units.” is now untrue, and so is our conclusion “Circle X has area $9\pi$ square units.” But the logic is perfectly correct; the information was combined correctly, even if some of it was false. <mark>This distinction between correct logic and correct information is significant because it is often important to follow the consequences of an incorrect assumption.</mark>** Ideally, we want both our logic and our information to be correct, but the point is that they are different things.
+
+**In proving theorems, we apply logic to information that is considered obviously true (such as “Any two points determine exactly one line.”) or is already known to be true (e.g., the Pythagorean theorem). If our logic is correct, then anything we deduce from such information will also be true (or at least as true as the “obviously true” information we began with).**
+
+# 2.1 Statements
+
+**The study of logic begins with statements. A statement is a sentence or a mathematical expression that is either definitely true or definitely false. You can think of statements as pieces of information that are either correct or incorrect.** Thus statements are pieces of information that we might apply logic to in order to produce other pieces of information (which are also statements).
+
+Example 2.1: Here are some examples of statements. They are all true.
+- If a circle has radius $r$, then its area is $\pi r ^ { 2 }$ square units.
+- Every even number is divisible by 2.
+- $2 \in \mathbb {Z}$
+- $\sqrt {2} \notin \mathbb {Z}$
+- $\mathbb {N} \subseteq \mathbb {Z}$
+- The set $\{0,1,2\}$ has three elements.
+- Some right triangles are isosceles (a triangle that has at least 2 sides of equal length and 2 angles of equal measure).
+
+Example 2.2: Here are some additional statements. They are all false.
+- All right triangles are isosceles.
+- $5 = 2$
+- $\sqrt {2} \notin \mathbb {R}$
+- $\mathbb {Z} \subseteq \mathbb {N}$
+- $\{0, 1, 2 \} \cap \mathbb {N} = \varnothing$
+
+Example 2.3: Here non-statements are paired with similar statements.
+
+<table style="margin-left: auto; margin-right: auto;">
+	<thead>
+		<tr>
+			<th style="text-align:center;">NOT a statement:</th>
+			<th style="text-align:center;">Statement:</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Add 5 to both sides.</td>
+			<td>Adding 5 to both sides of x - 5 = 37 gives x = 42.</td>
+		</tr>
+		<tr>
+			<td>ℤ</td>
+			<td>42 ∈ ℤ</td>
+		</tr>
+		<tr>
+			<td>42</td>
+			<td>42 is not a number.</td>
+		</tr>
+		<tr>
+			<td>What is the solution of 2x = 84?</td>
+			<td>The solution of 2x = 84 is 42.</td>
+		</tr>
+	</tbody>
+</table>
+
+Example 2.4: **We will often use the letters $P$, $Q$, $R$ and $S$ to stand for specific statements. When more letters are needed we can use subscripts.** Here are more statements, designated with letters. You decide which of them are true and which are false.
+- $P$ : For every integer $n > 1$, the number $2 ^ { n } - 1$ is prime. False. Counterexample: $2^{4} - 1 = 16-1 = 15$. 15 is not prime, since $3 \times 5 = 15$.
+- $Q$ : Every polynomial of degree $n$ has at most $n$ roots. True. Fundamental theorem of algebra: a non-zero polynomial of degree $n$ over any field (such as $\mathbb{R}$ or $\mathbb{C}$) has at most/maximum $n$ distinct real or complex roots. Example: $x^{3} -1$ has degree $n=3$, so it can have no more than 3 roots. 
+- $R$ : The function $f(x) = x^{2}$ is continuous. True. A polynomial function is continuous everywhere on $\mathbb{R}$. $\forall \ a \in \mathbb{R} : \lim_{x \rightarrow a} x^{2} = a^{2} = f(a)$.
+- $S_{1}: \mathbb {Z} \subseteq \varnothing$. False. The empty set $\varnothing$ has no elements whatsoever. Only $\varnothing$ itself is a subset of $\varnothing$. 
+- $S_{2} : \{0, - 1, - 2 \} \cap \mathbb {N} = \varnothing$. True. The most common convention in mathematics defines $\mathbb{N} = \{1,2,3,\ldots\}$, i.e. positive integers only. Therefore the intersection is empty.
+
+Designating statements with letters (as was done above) is a very useful shorthand. In discussing a particular statement, such as “The function $f ( x ) = x ^ { 2 }$ is continuous,” it is convenient to just refer to it as $R$ to avoid having to write or say it many times.
+
+Statements can contain variables. Here is an example.
+- $P$ : If an integer $x$ is a multiple of 6, then $x$ is even.
+
+This is a sentence that is true. (All multiples of 6 are even, so no matter which multiple of 6 the integer $x$ happens to be, it is even.) Since the sentence $P$ is definitely true, it is a statement. **When a sentence or statement $P$ contains a variable such as $x$, we sometimes denote it as $P(x)$ to indicate that it is saying something about $x$.** Thus the above statement can be denoted as
+- $P(x)$ : If an integer $x$ is a multiple of 6, then $x$ is even.
+
+A statement or sentence involving two variables might be denoted $P(x, y)$ and so on. 
+
+**It is quite possible for a sentence containing variables to not be a statement. Consider the following example.**
+- **$Q(x)$ : The integer $x$ is even.**
+
+**Is this a statement? Whether it is true or false depends on just which integer $x$ is. It is true if $x = 4$ and false if $x = 7$, etc. But without any stipulations on the value of $x$ it is impossible to say whether $Q(x)$ is true or false. Since it is neither definitely true nor definitely false, $Q(x)$ cannot be a statement. A sentence such as this, whose truth depends on the value of one or more variables, is called an open sentence. The variables in an open sentence (or statement) can represent any type of entity, not just numbers. Here is an open sentence where the variables are functions:**
+- **$R(f, g)$ : The function $f$ is the derivative of the function $g$.**
+
+**This open sentence is true if $f(x) = 2x$ and $g(x) = x^{2}$. It is false if $f(x) = x^{3}$ and$g(x) = x^{2}$, etc.** A sentence such as $R(f, g)$ (that involves variables) can be denoted either as $R(f, g)$ or just $R$. We use the expression $R(f, g)$ when we want to emphasize that the sentence involves variables.
+
+We will have more to say about open sentences later, but for now let’s return to statements.
+
+**Statements are everywhere in mathematics. Any result or theorem that has been proved true is a statement. The quadratic formula and the Pythagorean theorem are both statements:**
+- **$P$ : The solutions of the equation $ax^{2} + bx + c = 0$ are $\displaystyle x = \frac{-b \pm \sqrt{b^{2} - 4ac}}{2a}$.**
+- **$Q$ : If a right triangle has legs of lengths $a$ and $b$ and hypotenuse of length $c$, then $a^{2} + b^{2} = c^{2}$.**
+
+**Here is a very famous statement, so famous, in fact, that it has a name. It is called Fermat’s last theorem after Pierre Fermat, a seventeenth- century French mathematician who scribbled it in the margin of a book.**
+- **$R$ : For all numbers $a, b, c, n \in \mathbb{N}$ with $n > 2$, it is the case that $a^{n} + b^{n} \neq c^{n}$.**
+
+Fermat believed this statement to be true. He noted that he could prove it was true, except the book’s margin was too narrow to contain his proof. It is doubtful that he really had a correct proof in mind, for after his death many generations of brilliant mathematicians tried unsuccessfully to prove that his statement was true (or false). Finally, in 1993, Andrew Wiles of Princeton University announced that he had devised a proof. Wiles had worked on the problem for over seven years, and his proof runs through hundreds of pages. **The moral of this story is that some true statements are not obviously true.**
+
+**Here is another statement famous enough to be named. It was first posed in the eighteenth century by the German mathematician Christian Goldbach, and thus is called the Goldbach conjecture:**
+- **$S$ : Every even integer greater than 2 is a sum of two prime numbers.**
+
+**You must agree that $S$ is either true or false. It appears to be true, because when you examine even numbers that are bigger than 2, they seem to be sums of two primes: $4 = 2 + 2$, $6 = 3 + 3$, $8 = 3 + 5$, $10 = 5 + 5$, $12 = 5 + 7$, $100 = 17 + 83$ and so on. But that’s not to say there isn’t some large even number that’s not the sum of two primes. If such a number exists, then $S$ is false. The thing is, in the over 260 years since Goldbach first posed this problem, no one has been able to determine whether it’s true or false. But since it is clearly either true or false $S$ is a statement.**
+
+This book is about the methods that can be used to prove that $S$ (or any other statement) is true or false. **To prove that $S$ is true, start with obvious statements (or other statements that have been proven true) and use logic to deduce more and more complex statements until finally we obtain the statement $S$ Of course some statements are more difficult to prove than others, and $S$ appears to be notoriously difficult**; we will concentrate on statements that are easier to prove.
+
+**But the point is this: In proving that statements are true, we use logic to help us understand statements and to combine pieces of information to produce new pieces of information.** In the next several sections we explore some standard ways that statements can be combined to form new statements, or broken down into simpler statements.
+
+## Exercises for Section 2.1
+
+Decide whether or not the following are statements. In the case of a statement, say if it is true or false, if possible.
+1. Every real number is an even integer.
+:::{dropdown} Answer
+This statement is false. $\mathbb{R} \not \subseteq \{z \in \mathbb{Z} : 2z\}$.
+:::
+
+2. Every even integer is a real number.
+:::{dropdown} Answer
+This statement is true. $\{z \in \mathbb{Z} : 2z\} \subseteq \mathbb{R}$.
+:::
+
+3. If $x$ and $y$ are real numbers and $5x = 5y$, then $x = y$.
+:::{dropdown} Answer
+This statement is true. 
+:::
+
+4. Sets $\mathbb{Z}$ and $\mathbb{N}$.
+:::{dropdown} Answer
+This is not a statement. This is just a sentence, not something that can be either true or false.
+:::
+
+5. Sets $\mathbb{Z}$ and $\mathbb{N}$ are infinite.
+:::{dropdown} Answer
+This statement is true. For every largest number $n \in \mathbb{N}$ you can think of, there is always a larger number $n+1$.
+:::
+
+6. Some sets are finite.
+:::{dropdown} Answer
+This staement is true. For example $S = \{1,2,3\}$ is a finite set.
+:::
+
+7. The derivative of any polynomial of degree 5 is a polynomial of degree 6.
+:::{dropdown} Answer
+This statement is false. The derivative of any polynomial of degree 5 is a polynomial of degree 4: $f(x) = a_{0}x^5 + a_{1}x^4 + a_{2}x^3 + a_{3}x^2 + a_{4}x + a_{5} \rightarrow f'(x) = 5a_{0}x^4 + 4a_{1}x^3 + 3a_{2}x^2 + 2a_{3}x + a_{4}$.
+:::
+
+8. $\mathbb{N} \notin \mathscr{P}(\mathbb{N})$.
+:::{dropdown} Answer
+This statement is false. $\mathbb{N} \in \mathscr{P}(\mathbb{N})$ because $\mathscr{P}(\mathbb{N})$ is the power set of $\mathbb{N}$, whose elements are all subsets of $\mathbb{N}$, and $\mathbb{N}$ is a subset of itself.
+:::
+
+9. $\cos(x) = - 1$.
+:::{dropdown} Answer
+This is not a statement. A sentence such as this, whose truth depends on the value of one or more variables, is called an open sentence. Whether this statment is true or false depends on just which value $x$ has. Since it is neither definitely true nor definitely false, the sentence $\cos(x)=-1$ cannot be a statement.
+:::
+
+10. $(\mathbb{R} \times \mathbb{N}) \cap (\mathbb{N} \times \mathbb{R}) = \mathbb{N} \times \mathbb{N}$.
+:::{dropdown} Answer
+This statement is true. A pair $(a,b)$ is in both sets exactly when:
+$a \in \mathbb{R}$ and $b \in \mathbb{N}$,
+$a \in \mathbb{N}$ and $b \in \mathbb{R}$.
+So both coordinates must be natural numbers, which gives $\mathbb{N} \times \mathbb{N}$.
+:::
+
+11. The integer $x$ is a multiple of 7.
+:::{dropdown} Answer
+This is not a statement. A sentence such as this, whose truth depends on the value of one or more variables, is called an open sentence. Whether this statment is true or false depends on just which value $x$ has. Since it is neither definitely true nor definitely false, this cannot be a statement.
+:::
+
+12. If the integer $x$ is a multiple of 7, then it is divisible by 7.
+:::{dropdown} Answer
+This statement is true. Since being a multiple of 7 means exactly that it is divisible by 7.
+:::
+
+13. Either $x$ is a multiple of 7, or it is not.
+:::{dropdown} Answer
+This statement is true. This is a statement, because the sentence is true no matter what $x$ is.
+:::
+
+14. Call me Ishmael.
+:::{dropdown} Answer
+This is not a statement. This is a sentence, not something that has a truth value.
+:::
+
+15. In the beginning, God created the heaven and the earth.
+:::{dropdown} Answer
+This is a statement, because it is either definitely true or definitely false. There is some controversy over whether it’s true or false, but no one claims that it is neither true nor false. No one has been able to determine whether it’s true or false.
+:::
+

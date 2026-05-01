@@ -1,0 +1,886 @@
+# 1.5 Union, Intersection, Difference
+
+**Just as numbers are combined with operations such as addition, subtraction and multiplication, there are various operations that can be applied to sets. The Cartesian product (defined in Section 1.2) is one such operation; given sets $A$ and $B$, we can combine them with $\times$ to get a new set $A \times B$. Here are three new operations called union, intersection and difference.** 
+
+**<mark>Definition 1.5: Suppose A and $B$ are sets.</mark>**
+**<mark>The union of $A$ and $B$ is the set $A \cup B = \left\{ x : x \in A \right.$ or $x \in B \}$.</mark>** 
+**<mark>The intersection of $A$ and $B$ is the set $A \cap B = \left\{ x : x \in A \right.$ and ${ x \in B } \}$.</mark>** 
+**<mark>The difference of $A$ and $B$ is the set $A - B = \left\{ x : x \in A \right.$ and ${ x \notin B } \}$.</mark>** 
+
+**In words, the union $A \cup B$ is the set of all things that are in $A$ or in $B$ (or in both). The intersection $A \cap B$ is the set of all things in both $A$ and $B$. The difference $A - B$ is the set of all things that are in $A$ but not in $B$.** 
+
+Example 1.8 Suppose $A = \{ a , b , c , d , e \}$ , ${ B } = \left\{ d , e , f \right\}$ and $C = \{ 1 , 2 , 3 \}$ 
+1. $A \cup B = \{ a , b , c , d , e , f \}$ 
+2. $A \cap B = \left\{ d , e \right\}$ 
+3. $A-B = \{a,b,c\}$ 
+4. $B-A = \{f\}$ 
+5. $(A-B) \cup (B-A) = \{a,b,c,f\}$ 
+6. $A \cup C = \{ a , b , c , d , e , 1,2,3 \}$ 
+7. $A \cap C = \varnothing$ 
+8. $A - C = \{ a , b , c , d , e \}$ 
+9. $( A \cap C ) \cup ( A - C ) = \left\{ a , b , c , d , e \right\}$ 
+10. $( A \cap B ) \times B = \big\{ (d,d),(d,e),(d,f),(e,d),(e,e),(e,f) \big\}$ 
+11. $( A \times C ) \cap ( B \times C ) = \big\{ (d,1),(d,2),(d,3),(e,1),(e,2),(e,3) \big\}$ 
+
+Parts 12–15 use interval notation (Section 1.1), so $[ 2 , 5 ] = \left\{ x \in \mathbb { R } : 2 \leq x \leq 5 \right\}$, etc. Sketching these on the number line may aid your understanding. 
+12. $[ 2 , 5 ] \cup [ 3 , 6 ] = [ 2 , 6 ]$ 
+13. $[2, 5] \cap [3, 6] = [3, 5]$ 
+14. $[2, 5] − [3, 6] = [2, 3)$ 
+15. $[ 0 , 3 ] - [ 1 , 2 ] = [ 0 , 1 ) \cup ( 2 , 3 ]$ 
+
+**Observe that for any sets $X$ and $Y$ it is always true that $X \cup Y = Y \cup X$ and $X \cap Y = Y \cap X$, but in general $X - Y \neq Y - X$.** 
+
+Example 1.9: Let $A = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}$ be the graph of the equation $y = x ^ { 2 }$ and let $B = \left\{ ( x , x + 2 ) : x \in \mathbb { R } \right\}$ be the graph of the equation $y = x + 2$. These sets are subsets of $\mathbb { R } ^ { 2 }$. They are sketched together in Figure 1.5(a). Figure 1.5(b) shows $A \cup B$, the set of all points $( x , y )$ that are on one (or both) of the two graphs. Observe that $A \cap B = \left\{ ( - 1 , 1 ) , ( 2 , 4 ) \right\}$ consists of just two elements, the two points where the graphs intersect, as illustrated in Figure 1.5(c). Figure 1.5(d) shows $A - B$, which is the set $A$ with “holes” where $B$ crossed it. In set builder notation, we could write $A \cup B = \left\{ ( x , y ) : x \in \mathbb { R } , y = x ^ { 2 } \right.$ or $y = x + 2 \}$ and $A - B = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } - \left\{ - 1 , 2 \right\} \right\}$ ($\mathbb{R}$ without $-1$ and $2$). 
+
+<img src="../assets/Pasted image 20260312095755.png" width="1000">
+Figure 1.5. The union, intersection and difference of sets A and B
+
+## Exercises for Section 1.5
+
+1. Suppose $A = \left\{ 4 , 3 , 6 , 7 , 1 , 9 \right\}$ , $B = \{ 5 , 6 , 8 , 4 \}$ and $C = \{ 5 , 8 , 4 \}$. Find: 
+(a) $A \cup B$ 
+:::{dropdown} Answer
+$A\cup B=\{1,3,4,5,6,7,8,9\}$
+:::
+
+(b) $A \cap B$ 
+:::{dropdown} Answer
+$A\cap B=\{4,6\}$
+:::
+
+(c) $A − B$ 
+:::{dropdown} Answer
+$A-B=\{3,7,1,9\}$
+:::
+
+(d) $A − C$ 
+:::{dropdown} Answer
+$A-C=\{3,6,7,1,9\}$
+:::
+
+(e) $B − A$ 
+:::{dropdown} Answer
+$B-A=\{5,8\}$
+:::
+
+(f) $A \cap C$ 
+:::{dropdown} Answer
+$A\cap C=\{4\}$
+:::
+
+(g) $B \cap C$ 
+:::{dropdown} Answer
+$B\cap C=\{5,8,4\}$
+:::
+
+(h) $B \cup C$ 
+:::{dropdown} Answer
+$B\cup C=\{5,6,8,4\}$
+:::
+
+(i) $C − B$ 
+:::{dropdown} Answer
+$C-B=\varnothing$
+:::
+
+2. Suppose $A = \left\{ 0 , 2 , 4 , 6 , 8 \right\}$ , $B = \left\{ 1 , 3 , 5 , 7 \right\}$ and $C = \{ 2 , 8 , 4 \}$ . Find: 
+(a) $A \cup B$ 
+:::{dropdown} Answer
+$A\cup B=\{0,1,2,3,4,5,6,7,8\}$
+:::
+
+(b) $A \cap B$ 
+:::{dropdown} Answer
+$A\cap B=\varnothing$
+:::
+
+(c) $A −B$ 
+:::{dropdown} Answer
+$A-B=\{0,2,4,6,8\}$
+:::
+
+(d) $A − C$ 
+:::{dropdown} Answer
+$A-C=\{0,6\}$
+:::
+
+(e) $B − A$ 
+:::{dropdown} Answer
+$B-A=\{1,3,5,7\}$
+:::
+
+(f) $A \cap C$ 
+:::{dropdown} Answer
+$A\cap C=\{2,4,8\}$
+:::
+
+(g) $B \cap C$ 
+:::{dropdown} Answer
+$B\cap C=\varnothing$
+:::
+
+(h) $C − A$ 
+:::{dropdown} Answer
+$C-A=\varnothing$
+:::
+
+(i) $C − B$ 
+:::{dropdown} Answer
+$C-B=\{2,4,8\}$
+:::
+
+3. Suppose $A = \left\{ 0 , 1 \right\}$ and $B = \left\{ 1 , 2 \right\}$ . Find: 
+(a) $( A \times B ) \cap ( B \times B )$ 
+:::{dropdown} Answer
+$\{(1,1),(1,2)\}$
+:::
+
+(b) $( A \times B ) \cup ( B \times B )$ 
+:::{dropdown} Answer
+$\{(0,1),(0,2),(1,1),(1,2),(2,1),(2,2)\}$
+:::
+
+(c) $( A \times B ) - ( B \times B )$ 
+:::{dropdown} Answer
+$\{(0,1),(0,2)\}$
+:::
+
+(d) $(A \cap B) \times A$ 
+:::{dropdown} Answer
+$\{(1,0),(1,1)\}$
+:::
+
+(e) $(A \times B) \cap B$ 
+:::{dropdown} Answer
+$\varnothing$
+:::
+
+(f) $\mathscr{P}(A) \cap \mathscr{P}(B)$ 
+:::{dropdown} Answer
+$\{\varnothing,\{1\}\}$
+:::
+
+(g) $\mathscr { P } ( A ) - \mathscr { P } ( B )$ 
+:::{dropdown} Answer
+$\{\{0\},\{0,1\}\}$
+:::
+
+(h) ${ \mathscr { P } } ( A \cap B )$ 
+:::{dropdown} Answer
+$\{\varnothing,\{1\}\}$
+:::
+
+(i) $\mathscr { P } ( A \times B )$ 
+:::{dropdown} Answer
+$\mathscr{P}(A\times B)$ = all subsets of $A\times B$. 
+$|A\times B|=4$, so $|\mathscr{P}(A\times B)|= 2^4 = 16$
+All subsets of $A\times B=\{(0,1),(0,2),(1,1),(1,2)\}$, explicitly: 
+$\{$
+$\quad \varnothing,$
+$\quad \{(0,1)\},\{(0,2)\},\{(1,1)\},\{(1,2)\},$
+$\quad \{(0,1),(0,2)\},\{(0,1),(1,1)\},\{(0,1),(1,2)\},\{(0,2),(1,1)\},\{(0,2),(1,2)\},\{(1,1),(1,2)\},$
+$\quad \{(0,1),(0,2),(1,1)\},\{(0,1),(0,2),(1,2)\},\{(0,1),(1,1),(1,2)\},\{(0,2),(1,1),(1,2)\},$
+$\quad \{(0,1),(0,2),(1,1),(1,2)\}$
+$\}$
+:::
+
+4. Suppose $A = \left\{ b , c , d \right\}$ and $B = \left\{ a , b \right\}$ . Find: 
+(a) $( A \times B ) \cap ( B \times B )$ 
+:::{dropdown} Answer
+$\{(b,a),(b,b)\}$
+:::
+
+(b) $( A \times B ) \cup ( B \times B )$ 
+:::{dropdown} Answer
+$\{(b,a),(b,b),(c,a),(c,b),(d,a),(d,b),(a,a),(a,b)\}$
+:::
+
+(c) $( A \times B ) - ( B \times B )$ 
+:::{dropdown} Answer
+$\{(c,a),(c,b),(d,a),(d,b)\}$
+:::
+
+(d) $(A \cap B) \times A$ 
+:::{dropdown} Answer
+$\{(b,b),(b,c),(b,d)\}$
+:::
+
+(e) $(A \times B) \cap B$ 
+:::{dropdown} Answer
+$\varnothing$
+:::
+
+(f) $\mathscr{P}(A) \cap \mathscr{P}(B)$ 
+:::{dropdown} Answer
+$\{\varnothing,\{b\}\}$
+:::
+
+(g) $\mathscr { P } ( A ) - \mathscr { P } ( B )$ 
+:::{dropdown} Answer
+$\{\{c\},\{d\},\{b,c\},\{b,d\},\{c,d\},\{b,c,d\}\}$
+:::
+
+(h) ${ \mathscr { P } } ( A \cap B )$ 
+:::{dropdown} Answer
+$\{\varnothing,\{b\}\}$
+:::
+
+(i) $\mathscr { P } ( A ) \times \mathscr { P } ( B )$ 
+:::{dropdown} Answer
+$|\mathscr{P}(A)|=2^3=8$
+$\mathscr{P}(A) = \{\varnothing, \{b\}, \{c\}, \{d\}, \{b,c\}, \{b,d\}, \{c,d\}, \{b,c,d\}\}$
+$|\mathscr{P}(B)|=2^2=4$
+$\mathscr{P}(B) = \{\varnothing, \{a\}, \{b\}, \{a,b\}\}$
+
+$|\mathscr{P}(A) \times \mathscr{P}(B)| = 8 \cdot 4 = 32$
+$\mathscr{P}(A) \times \mathscr{P}(B) = \{$
+$\quad (\varnothing,\varnothing), (\varnothing,\{a\}), (\varnothing,\{b\}), (\varnothing,\{a,b\}),$
+$\quad (\{b\},\varnothing), (\{b\},\{a\}), (\{b\},\{b\}), (\{b\},\{a,b\}),$ 
+$\quad (\{c\},\varnothing), (\{c\},\{a\}), (\{c\},\{b\}), (\{c\},\{a,b\}),$
+$\quad (\{d\},\varnothing), (\{d\},\{a\}), (\{d\},\{b\}), (\{d\},\{a,b\}),$
+$\quad (\{b,c\},\varnothing), (\{b,c\},\{a\}), (\{b,c\},\{b\}), (\{b,c\},\{a,b\}),$ 
+$\quad (\{b,d\},\varnothing), (\{b,d\},\{a\}), (\{b,d\},\{b\}), (\{b,d\},\{a,b\}),$
+$\quad (\{c,d\},\varnothing), (\{c,d\},\{a\}), (\{c,d\},\{b\}), (\{c,d\},\{a,b\}),$
+$\quad (\{b,c,d\},\varnothing), (\{b,c,d\},\{a\}), (\{b,c,d\},\{b\}), (\{b,c,d\},\{a,b\})$
+$\}$
+
+$\large C(n,k) = \frac{n!}{k!(n-k)!}$ (the number of ways to select a set of $k$ items from a set of $n$ distinct items)
+
+:::
+
+5. Sketch the sets $X = [ 1 , 3 ] \times [ 1 , 3 ]$ and $Y = [ 2 , 4 ] \times [ 2 , 4 ]$ on the plane $\mathbb { R } ^ { 2 }$. On separate drawings, shade in the sets $X \cup Y$ , $X \cap Y$ , $X - Y$ and $Y - X$. (Hint: $X$ and $Y$ are Cartesian products of intervals. You may wish to review how you drew sets like $[ 1 , 3 ] \times [ 1 , 3 ]$ in the exercises for Section 1.2.) 
+:::{dropdown} Answer
+$X\cup Y = ([1,3]\times[1,3])\cup([2,4]\times[2,4])$
+$X\cap Y = [2,3]\times[2,3]$
+$X-Y = \{(x,y):1\le x\le3,\ 1\le y\le3,\ \text{and }(x<2\ \text{or}\ y<2)\}$
+$Y-X = \{(x,y):2\le x\le4,\ 2\le y\le4,\ \text{and }(x>3\ \text{or}\ y>3)\}$
+
+<img src="../assets/7c124270f2dd4fc0bdc6630ef0239d8e.png" width="750">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle, Polygon
+
+def style_axes(ax, title):
+    ax.axhline(0, color="black", linewidth=0.5)
+    ax.axvline(0, color="black", linewidth=0.5)
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(0, 5)
+    ax.set_ylim(0, 5)
+    ax.set_xticks(np.arange(0, 6, 1))
+    ax.set_yticks(np.arange(0, 6, 1))
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.grid(True, linestyle=":")
+    ax.set_title(title, fontsize=11)
+    ax.set_axisbelow(True)
+
+fig, axes = plt.subplots(2, 3, figsize=(12, 8))
+axes = axes.ravel()
+n = 6
+cmap = mpl.colormaps["tab10"]
+colors = cmap(np.linspace(0, 1, n))   # n RGBA colors
+
+# 1) set X
+ax = axes[0]
+c = colors[0]
+ax.add_patch(Rectangle((1, 1), 2, 2, facecolor=(c[0],c[1],c[2],0.25), edgecolor=(c[0],c[1],c[2],1.0)))
+style_axes(ax, r"$X = [1,3] \times [1,3]$")
+# 2) set Y
+ax = axes[1]
+c = colors[1]
+ax.add_patch(Rectangle((2, 2), 2, 2, facecolor=(c[0],c[1],c[2],0.25), edgecolor=(c[0],c[1],c[2],1.0),))
+style_axes(ax, r"$Y = [2,4] \times [2,4]$")
+# 3) X union Y
+ax = axes[2]
+c = colors[2]
+xy_diff = [(1,1), (3,1), (3,2), (4,2), (4,4), (2,4), (2,3), (1,3)]
+ax.add_patch(Polygon(xy_diff, closed=True, facecolor=(c[0],c[1],c[2],0.25), edgecolor=(c[0],c[1],c[2],1.0)))
+style_axes(ax, r"$X \cup Y$")
+# 4) X intersection Y
+ax = axes[3]
+c = colors[3]
+ax.add_patch(Rectangle((2, 2), 1, 1, facecolor=(c[0],c[1],c[2],0.25), edgecolor=(c[0],c[1],c[2],1.0)))
+style_axes(ax, r"$X \cap Y$")
+# 5) X - Y
+ax = axes[4]
+c = colors[4]
+xy_diff = [(1, 1), (3, 1), (3, 2), (2, 2), (2, 3), (1, 3)]
+ax.add_patch(Polygon(xy_diff, closed=True, facecolor=(c[0],c[1],c[2],0.25), edgecolor="none"))
+ax.plot([1,1],[1,3],color=(c[0],c[1],c[2],1.0))
+ax.plot([1,2],[3,3],color=(c[0],c[1],c[2],1.0))
+ax.plot([1,3],[1,1],color=(c[0],c[1],c[2],1.0))
+ax.plot([3,3],[1,2],color=(c[0],c[1],c[2],1.0))
+style_axes(ax, r"$X - Y$")
+# 6) Y - X
+ax = axes[5]
+c = colors[5]
+yx_diff = [(2, 3), (3, 3), (3, 2), (4, 2), (4, 4), (2, 4)]
+ax.add_patch(Polygon(yx_diff, closed=True, facecolor=(c[0],c[1],c[2],0.25), edgecolor="none"))
+ax.plot([2,2],[3,4],color=(c[0],c[1],c[2],1.0))
+ax.plot([2,4],[4,4],color=(c[0],c[1],c[2],1.0))
+ax.plot([4,4],[2,4],color=(c[0],c[1],c[2],1.0))
+ax.plot([3,4],[2,2],color=(c[0],c[1],c[2],1.0))
+style_axes(ax, r"$Y - X$")
+
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+6. Sketch the sets $X = [ - 1 , 3 ] \times [ 0 , 2 ]$ and $Y = [ 0 , 3 ] \times [ 1 , 4 ]$ on the plane $\mathbb { R } ^ { 2 }$. On separate drawings, shade in the sets $X \cup Y$ , X ∩Y , X −Y and $Y - X$. 
+:::{dropdown} Answer
+$X \cup Y = ([-1,3]\times[0,2])\cup([0,3]\times[1,4])$
+$X \cap Y = [0,3]\times[1,2]$
+$X-Y = \{(x,y): -1\le x\le3,\ 0\le y\le2,\ \text{and }(x<0\ \text{or}\ y<1)\}$
+$Y-X = \{(x,y): 0\le x\le3,\ 1\le y\le4,\ \text{and }y>2\}$
+
+<img src="../assets/0ccc91f38e1d4060b66ded27cc6070c3.png" width="750">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle, Polygon
+
+def style_axes(ax, title):
+    ax.axhline(0, color="black", linewidth=0.5)
+    ax.axvline(0, color="black", linewidth=0.5)
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-2, 4)
+    ax.set_ylim(-1, 5)
+    ax.set_xticks(np.arange(-2, 5, 1))
+    ax.set_yticks(np.arange(-1, 6, 1))
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.grid(True, linestyle=":")
+    ax.set_title(title, fontsize=11)
+    ax.set_axisbelow(True)
+
+fig, axes = plt.subplots(2, 3, figsize=(12, 8))
+axes = axes.ravel()
+n = 6
+cmap = mpl.colormaps["tab10"]
+colors = cmap(np.linspace(0, 1, n))   # n RGBA colors
+
+# 1) set X
+ax = axes[0]
+c = colors[0]
+ax.add_patch(Rectangle((-1, 0), 4, 2, facecolor=(c[0],c[1],c[2],0.25), edgecolor=(c[0],c[1],c[2],1.0)))
+style_axes(ax, r"$X = [-1,3] \times [0,2]$")
+# 2) set Y
+ax = axes[1]
+c = colors[1]
+ax.add_patch(Rectangle((0, 1), 3, 3, facecolor=(c[0],c[1],c[2],0.25), edgecolor=(c[0],c[1],c[2],1.0),))
+style_axes(ax, r"$Y = [0,3] \times [1,4]$")
+# 3) X union Y
+ax = axes[2]
+c = colors[2]
+xy_diff = [(-1,0), (-1,2), (0,2), (0,4), (3,4), (3,0)]
+ax.add_patch(Polygon(xy_diff, closed=True, facecolor=(c[0],c[1],c[2],0.25), edgecolor=(c[0],c[1],c[2],1.0)))
+style_axes(ax, r"$X \cup Y$")
+# 4) X intersection Y
+ax = axes[3]
+c = colors[3]
+ax.add_patch(Rectangle((0, 1), 3, 1, facecolor=(c[0],c[1],c[2],0.25), edgecolor=(c[0],c[1],c[2],1.0)))
+style_axes(ax, r"$X \cap Y$")
+# 5) X - Y
+ax = axes[4]
+c = colors[4]
+xy_diff = [(-1,0), (-1,2), (0,2), (0,1), (3,1), (3,0)]
+ax.add_patch(Polygon(xy_diff, closed=True, facecolor=(c[0],c[1],c[2],0.25), edgecolor="none"))
+ax.plot([-1,-1],[0,2],color=(c[0],c[1],c[2],1.0))
+ax.plot([-1,0],[2,2],color=(c[0],c[1],c[2],1.0))
+ax.plot([3,3],[1,0],color=(c[0],c[1],c[2],1.0))
+ax.plot([3,-1],[0,0],color=(c[0],c[1],c[2],1.0))
+style_axes(ax, r"$X - Y$")
+# 6) Y - X
+ax = axes[5]
+c = colors[5]
+ax.add_patch(Rectangle((0,2), 3, 2, facecolor=(c[0],c[1],c[2],0.25), edgecolor="none"))
+ax.plot([0,0],[2,4],color=(c[0],c[1],c[2],1.0))
+ax.plot([0,3],[4,4],color=(c[0],c[1],c[2],1.0))
+ax.plot([3,3],[4,2],color=(c[0],c[1],c[2],1.0))
+style_axes(ax, r"$Y - X$")
+
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+7. Sketch the sets $X = \left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } + y ^ { 2 } \leq 1 \right\}$ and $Y = \left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x \geq 0 \right\}$ on $\mathbb { R } ^ { 2 }$. On separate drawings, shade in the sets $X \cup Y$ , $X \cap Y$ , X −Y and $Y - X$. 
+:::{dropdown} Answer
+$X\cup Y = \{(x,y): x\ge0\}\ \cup\ \{(x,y):x^2+y^2\le1\}$
+$X\cap Y = \{(x,y): x\ge0,\ x^2+y^2\le1\}$
+$X-Y = \{(x,y): x\le0,\ x^2+y^2\le1\}\ \text{(left semicircle)}$
+$Y-X = \{(x,y): x\ge0,\ x^2+y^2>1\}$
+
+<img src="../assets/c560f21869af4d57988a3704fa5241d1.png" width="750">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Rectangle, Wedge, PathPatch, Arc
+from matplotlib.path import Path
+
+def style_axes(ax, title):
+    ax.axhline(0, color="black", linewidth=0.5)
+    ax.axvline(0, color="black", linewidth=0.5)
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-2, 2)
+    ax.set_ylim(-2, 2)
+    ax.set_xticks(np.arange(-2, 3, 1))
+    ax.set_yticks(np.arange(-2, 3, 1))
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.grid(True, linestyle=":")
+    ax.set_title(title, fontsize=11)
+    ax.set_axisbelow(True)
+
+def rgba(c, alpha):
+    return (c[0], c[1], c[2], alpha)
+
+def semicircle_points(side, n=181):
+    """
+    Return points on the unit semicircle.
+    side='right': from (0,-1) to (0,1) through (1,0)
+    side='left' : from (0,-1) to (0,1) through (-1,0)
+    """
+    if side == "right":
+        theta = np.deg2rad(np.linspace(-90, 90, n))
+    elif side == "left":
+        theta = np.deg2rad(np.linspace(270, 90, n))
+    else:
+        raise ValueError("side must be 'right' or 'left'")
+    return np.c_[np.cos(theta), np.sin(theta)]
+
+def curved_region_patch(vertices, facecolor, edgecolor="none", linewidth=1.0):
+    verts = np.asarray(vertices, dtype=float)
+    verts_closed = np.vstack([verts, verts[0]])
+    codes = [Path.MOVETO] + [Path.LINETO] * (len(verts) - 1) + [Path.CLOSEPOLY]
+    path = Path(verts_closed, codes)
+    return PathPatch(path, facecolor=facecolor, edgecolor=edgecolor, linewidth=linewidth)
+
+fig, axes = plt.subplots(2, 3, figsize=(12, 8))
+axes = axes.ravel()
+n = 6
+cmap = mpl.colormaps["tab10"]
+colors = cmap(np.linspace(0, 1, n))
+
+# 1) set X
+ax = axes[0]
+c = colors[0]
+ax.add_patch(Circle((0, 0), 1, facecolor=rgba(c, 0.25), edgecolor=rgba(c, 1.0)))
+style_axes(ax, r"$X = \left\{ ( x , y ) \in \mathbb{R}^{2} : x^{2} + y^{2} \leq 1 \right\}$")
+# 2) set Y
+ax = axes[1]
+c = colors[1]
+ax.add_patch(Rectangle((0, -3), 3, 6, facecolor=rgba(c, 0.25), edgecolor=rgba(c, 1.0)))
+style_axes(ax, r"$Y = \left\{ ( x , y ) \in \mathbb{R}^{2} : x \geq 0 \right\}$")
+# 3) X ∪ Y
+ax = axes[2]
+c = colors[2]
+verts_union = [(0, 3), (3, 3), (3, -3), (0, -3), (0, -1)]
+verts_union.extend(semicircle_points("left", n=181).tolist())
+verts_union.append((0, 2))
+ax.add_patch(curved_region_patch(verts_union, facecolor=rgba(c, 0.25), edgecolor=rgba(c, 1.0)))
+style_axes(ax, r"$X \cup Y$")
+# 4) X ∩ Y = right half-disk
+ax = axes[3]
+c = colors[3]
+ax.add_patch(Wedge((0, 0), 1, -90, 90, facecolor=rgba(c, 0.25), edgecolor=rgba(c, 1.0)))
+style_axes(ax, r"$X \cap Y$")
+# 5) X - Y = left half-disk
+ax = axes[4]
+c = colors[4]
+ax.add_patch(Wedge((0, 0), 1, 90, 270, facecolor=rgba(c, 0.25), edgecolor="none"))
+ax.add_patch(Arc((0, 0), 2, 2, theta1=90, theta2=270, edgecolor=rgba(c, 1.0), linewidth=1.0))
+style_axes(ax, r"$X - Y$")
+# 6) Y - X
+ax = axes[5]
+c = colors[5]
+verts_y_minus_x = [(0, 2), (2, 2), (2, -2), (0, -2), (0, -1)]
+verts_y_minus_x.extend(semicircle_points("right", n=181).tolist())
+verts_y_minus_x.append((0, 2))
+ax.add_patch(curved_region_patch(verts_y_minus_x, facecolor=rgba(c, 0.25), edgecolor="none"))
+edgecolor = rgba(c, 1.0)
+lw = 1.0
+ax.plot([0, 0], [-2, -1], color=edgecolor, linewidth=lw)   # lower left vertical
+ax.plot([0, 0], [1, 2], color=edgecolor, linewidth=lw)     # upper left vertical
+style_axes(ax, r"$Y - X$")
+
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+8. Sketch the sets $X = \left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } + y ^ { 2 } \leq 1 \right\}$ and $Y = \left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : - 1 \leq y \leq 0 \right\}$ on $\mathbb { R } ^ { 2 }$. On separate drawings, shade in the sets $X \cup Y$ , $X \cap Y$ , $X - Y$ and $Y - X$. 
+:::{dropdown} Answer
+$X\cup Y = \{(x,y):x^2+y^2\le1\}\ \cup\ \{(x,y):-1\le y\le0\}$
+$X\cap Y = \{(x,y):x^2+y^2\le1,\ -1\le y\le0\}$
+$X-Y = \{(x,y):x^2+y^2\le1,\ y>0\}$
+$Y-X = \{(x,y):-1\le y\le0,\ x^2+y^2>1\}$
+
+<img src="../assets/6118fb811b894b9e897f7e30336d9623.png" width="750">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Rectangle, Wedge, PathPatch, Arc
+from matplotlib.path import Path
+
+def style_axes(ax, title):
+    ax.axhline(0, color="black", linewidth=0.5)
+    ax.axvline(0, color="black", linewidth=0.5)
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-2, 2)
+    ax.set_ylim(-2, 2)
+    ax.set_xticks(np.arange(-2, 3, 1))
+    ax.set_yticks(np.arange(-2, 3, 1))
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.grid(True, linestyle=":")
+    ax.set_title(title, fontsize=11)
+    ax.set_axisbelow(True)
+
+def rgba(c, alpha):
+    return (c[0], c[1], c[2], alpha)
+
+def semicircle_points(side, n=181):
+    """
+    Return points on the unit semicircle.
+
+    side='right': from (0,-1) to (0,1) through (1,0)
+    side='left' : from (0,-1) to (0,1) through (-1,0)
+    side='up'   : from (-1,0) to (1,0) through (0,1)
+    side='down' : from (-1,0) to (1,0) through (0,-1)
+    """
+    if side == "right":
+        theta = np.deg2rad(np.linspace(-90, 90, n))
+    elif side == "left":
+        theta = np.deg2rad(np.linspace(270, 90, n))
+    elif side == "up":
+        theta = np.deg2rad(np.linspace(180, 0, n))
+    elif side == "down":
+        theta = np.deg2rad(np.linspace(180, 360, n))
+    else:
+        raise ValueError("side must be one of 'right', 'left', 'up', 'down'")
+    return np.c_[np.cos(theta), np.sin(theta)]
+
+def curved_region_patch(vertices, facecolor, edgecolor="none", linewidth=1.0):
+    verts = np.asarray(vertices, dtype=float)
+    verts_closed = np.vstack([verts, verts[0]])
+    codes = [Path.MOVETO] + [Path.LINETO] * (len(verts) - 1) + [Path.CLOSEPOLY]
+    path = Path(verts_closed, codes)
+    return PathPatch(path, facecolor=facecolor, edgecolor=edgecolor, linewidth=linewidth)
+
+def region_with_hole_patch(outer_vertices, inner_vertices, facecolor, edgecolor="none", linewidth=1.0):
+    """
+    Create a filled region with one hole.
+    The inner path should be given with opposite orientation to the outer path.
+    """
+    outer = np.asarray(outer_vertices, dtype=float)
+    inner = np.asarray(inner_vertices, dtype=float)
+    outer_closed = np.vstack([outer, outer[0]])
+    inner_closed = np.vstack([inner, inner[0]])
+    verts = np.vstack([outer_closed, inner_closed])
+    codes = (
+        [Path.MOVETO] + [Path.LINETO] * (len(outer) - 1) + [Path.CLOSEPOLY] +
+        [Path.MOVETO] + [Path.LINETO] * (len(inner) - 1) + [Path.CLOSEPOLY]
+    )
+    path = Path(verts, codes)
+    return PathPatch(path, facecolor=facecolor, edgecolor=edgecolor, linewidth=linewidth)
+
+fig, axes = plt.subplots(2, 3, figsize=(12, 8))
+axes = axes.ravel()
+n = 6
+cmap = mpl.colormaps["tab10"]
+colors = cmap(np.linspace(0, 1, n))
+
+# 1) set X
+ax = axes[0]
+c = colors[0]
+ax.add_patch(Circle((0, 0), 1, facecolor=rgba(c, 0.25), edgecolor=rgba(c, 1.0)))
+style_axes(ax, r"$X = \left\{ ( x , y ) \in \mathbb{R}^{2} : x^{2} + y^{2} \leq 1 \right\}$")
+# 2) set Y
+ax = axes[1]
+c = colors[1]
+ax.add_patch(Rectangle((-3, -1), 6, 1, facecolor=rgba(c, 0.25), edgecolor=rgba(c, 1.0)))
+style_axes(ax, r"$Y = \left\{ ( x , y ) \in \mathbb{R}^{2} : - 1 \leq y \leq 0 \right\}$")
+# 3) X ∪ Y
+ax = axes[2]
+c = colors[2]
+verts_union = [(-2, 0), (-1, 0)]
+verts_union.extend(semicircle_points("up", n=181).tolist())
+verts_union.extend([(2, 0), (2, -1), (-2, -1)])
+ax.add_patch(curved_region_patch(verts_union, facecolor=rgba(c, 0.25), edgecolor=rgba(c, 1.0)))
+style_axes(ax, r"$X \cup Y$")
+# 4) X ∩ Y = lower half-disk
+ax = axes[3]
+c = colors[3]
+ax.add_patch(Wedge((0, 0), 1, 180, 360, facecolor=rgba(c, 0.25), edgecolor=rgba(c, 1.0)))
+style_axes(ax, r"$X \cap Y$")
+# 5) X - Y = upper half-disk
+ax = axes[4]
+c = colors[4]
+ax.add_patch(Wedge((0, 0), 1, 0, 180, facecolor=rgba(c, 0.25), edgecolor="none"))
+ax.add_patch(Arc((0, 0), 2, 2, theta1=0, theta2=180, edgecolor=rgba(c, 1.0), linewidth=1.0))
+style_axes(ax, r"$X - Y$")
+# 6) Y - X
+ax = axes[5]
+c = colors[5]
+outer_strip = [(-3, -1), (-3, 0), (3, 0), (3, -1)]
+inner_hole = semicircle_points("down", n=181)  # opposite orientation to outer_strip
+ax.add_patch(region_with_hole_patch(outer_strip, inner_hole, facecolor=rgba(c, 0.25), edgecolor="none"))
+edgecolor = rgba(c, 1.0)
+ax.plot([-3, -1], [0, 0], color=edgecolor, linewidth=1.0)    # top-left
+ax.plot([1, 3], [0, 0], color=edgecolor, linewidth=1.0)      # top-right
+ax.plot([-3, 3], [-1, -1], color=edgecolor, linewidth=1.0)   # bottom
+style_axes(ax, r"$Y - X$")
+
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+8. Is the statement $( \mathbb { R } \times \mathbb { Z } ) \cap ( \mathbb { Z } \times \mathbb { R } ) = \mathbb { Z } \times \mathbb { Z }$ true or false? What about the statement $( \mathbb { R } \times \mathbb { Z } ) \cup ( \mathbb { Z } \times \mathbb { R } ) = \mathbb { R } \times \mathbb { R }$? 
+:::{dropdown} Answer
+**The first statement is true**; an ordered pair lies in both sets if and only if both coordinates are integers.
+**The second statement is false**; for example $(0.5,0.5) \in \mathbb{R} \times \mathbb{R}$ but $(0.5,0.5) \notin (\mathbb{R} \times \mathbb{Z}) \cup (\mathbb{Z} \times \mathbb{R})$. 
+$( \mathbb { R } \times \mathbb { Z } ) \cup ( \mathbb { Z } \times \mathbb { R } )$ creates a checkerboard pattern, not the full $\mathbb{R}^{2}$ plane.
+
+<img src="../assets/526246e415114ab6a864511d8bd81350.png" width="750">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+
+def style_axes(ax, title):
+    ax.axhline(0, color="black", linewidth=0.5)
+    ax.axvline(0, color="black", linewidth=0.5)
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-4, 4)
+    ax.set_ylim(-4, 4)
+    ax.set_xticks(np.arange(-4, 5, 1))
+    ax.set_yticks(np.arange(-4, 5, 1))
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.grid(True, linestyle=":")
+    ax.set_title(title, fontsize=11)
+    ax.set_axisbelow(True)
+
+fig, axes = plt.subplots(2, 2, figsize=(12, 12))
+axes = axes.ravel()
+x = np.linspace(-5, 5, 300)
+# 1) RxZ
+ax = axes[0]
+for y in range(-5,6):
+    y_vals = np.full_like(x,y)
+    ax.plot(x, y_vals, color="blue", lw=1.0)
+style_axes(ax, r"$\mathbb{R} \times \mathbb{Z}$")
+# 2) ZxR
+ax = axes[1]
+for y in range(-5,6):
+    y_vals = np.full_like(x,y)
+    ax.plot(y_vals, x, color="blue", lw=1.0)
+style_axes(ax, r"$\mathbb{Z} \times \mathbb{R}$")
+# 3) ZxZ
+ax = axes[2]
+xs, ys = [], []
+for x in range(-5, 5):
+    for y in range(-5, 5):
+        xs.append(x)
+        ys.append(y)
+    ax.plot(xs, ys, color="blue", marker=".", linestyle="none")
+style_axes(ax, r"$\mathbb{Z} \times \mathbb{Z} = (\mathbb{R} \times \mathbb{Z}) \cap (\mathbb{Z} \times \mathbb{R})$")
+# 4) RxR
+ax = axes[3]
+ax.add_patch(Rectangle((-5, -5), 10, 10, color='blue', fill=True, alpha=0.3))
+style_axes(ax, r"$\mathbb{R} \times \mathbb{R} \neq (\mathbb{R} \times \mathbb{Z}) \cup (\mathbb{Z} \times \mathbb{R})$")
+
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+9. Do you think the statement $( \mathbb { R } - \mathbb { Z } ) \times \mathbb { N } = ( \mathbb { R } \times \mathbb { N } ) - ( \mathbb { Z } \times \mathbb { N } )$ is true, or false? Justify. 
+:::{dropdown} Answer
+**True.** 
+In general, for sets $A,B,C$ it holds that: $(A-B)\times C=(A\times C)-(B\times C)$.
+$(x,y)\in (A-B)\times C$
+$\iff (x\in A\ \text{and}\ x\notin B)\ \text{and}\ y\in C$
+$\iff (x,y)\in A\times C\ \text{and}\ (x,y)\notin B\times C$
+Taking $A=\mathbb{R}$, $B=\mathbb{Z}$, and $C=\mathbb{N}$ yields the claimed identity.
+
+<img src="../assets/50d07a5b007c4f028089815e0557da0c.png" width="750">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+
+def style_axes(ax, title):
+    ax.axhline(0, color="black", linewidth=0.5)
+    ax.axvline(0, color="black", linewidth=0.5)
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-4, 4)
+    ax.set_ylim(-4, 4)
+    ax.set_xticks(np.arange(-4, 5, 1))
+    ax.set_yticks(np.arange(-4, 5, 1))
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.grid(True, linestyle=":")
+    ax.set_title(title, fontsize=11)
+    ax.set_axisbelow(True)
+
+fig, axes = plt.subplots(2, 2, figsize=(12, 12))
+axes = axes.ravel()
+x_vals = np.linspace(-5, 5, 300)
+# 1) R-Z
+ax = axes[0]
+y_vals = np.full_like(x_vals,0)
+ax.plot(x_vals, y_vals, color="blue", lw=1.5)
+ax.plot([-5,-4,-3,-2,-1,0,1,2,3,4,5], [0,0,0,0,0,0,0,0,0,0,0], color="white", marker=".", linestyle="none")
+style_axes(ax, r"$\mathbb{R} - \mathbb{Z}$")
+# 2) RxN
+ax = axes[1]
+for y in range(1,6):
+    y_vals = np.full_like(x_vals,y)
+    ax.plot(x_vals, y_vals, color="blue", lw=1.0)
+style_axes(ax, r"$\mathbb{R} \times \mathbb{N}$")
+# 3) ZxN
+ax = axes[2]
+xs, ys = [], []
+for x in range(-5, 5):
+    for y in range(1, 5):
+        xs.append(x)
+        ys.append(y)
+    ax.plot(xs, ys, color="blue", marker=".", linestyle="none")
+style_axes(ax, r"$\mathbb{Z} \times \mathbb{N}$")
+# 4) (R-Z)xN = (RxN) - (ZxN)
+ax = axes[3]
+for y in range(1,5):
+    y_vals = np.full_like(x_vals,y)
+    ax.plot(x_vals, y_vals, color="blue", lw=1.0)
+xs, ys = [], []
+for x in range(-5, 5):
+    for y in range(1, 5):
+        xs.append(x)
+        ys.append(y)
+    ax.plot(xs, ys, color="white", marker=".", linestyle="none")
+style_axes(ax, r"$(\mathbb{R} - \mathbb{Z}) \times \mathbb{N} = (\mathbb{R} \times \mathbb{N}) - (\mathbb{Z} \times \mathbb{N})$")
+
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+

@@ -1,0 +1,535 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="3.7 The Inclusion-Exclusion Principle" href="03-7-the-inclusion-exclusion-principle.html"><link rel="prev" title="3.5 Counting Subsets" href="03-5-counting-subsets.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
+        <title>3.6 Pascal’s Triangle and the Binomial Theorem - Book of Proof — Annotated documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Sections</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-1-introduction-to-sets.html">1.1 Introduction to Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-2-the-cartesian-product.html">1.2 The Cartesian Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-3-subsets.html">1.3 Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-4-power-sets.html">1.4 Power Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-5-union-intersection-difference.html">1.5 Union, Intersection, Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-6-complement.html">1.6 Complement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-7-venn-diagrams.html">1.7 Venn Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-8-indexed-sets.html">1.8 Indexed Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-9-sets-that-are-number-systems.html">1.9 Sets That Are Number Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-10-russells-paradox.html">1.10 Russell’s Paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-1-statements.html">2.1 Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-2-and-or-not.html">2.2 And, Or, Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-3-conditional-statements.html">2.3 Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-4-biconditional-statements.html">2.4 Biconditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-5-truth-tables-for-statements.html">2.5 Truth Tables for Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-6-logical-equivalence.html">2.6 Logical Equivalence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-7-quantifiers.html">2.7 Quantifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-8-more-on-conditional-statements.html">2.8 More on Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-9-translating-english-to-symbolic-logic.html">2.9 Translating English to Symbolic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-10-negating-statements.html">2.10 Negating Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-11-logical-inference.html">2.11 Logical Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-12-an-important-note.html">2.12 An Important Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-1-lists.html">3.1 Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-2-the-multiplication-principle.html">3.2 The Multiplication Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-3-the-addition-and-subtraction-principles.html">3.3 The Addition and Subtraction Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-4-factorials-and-permutations.html">3.4 Factorials and Permutations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-5-counting-subsets.html">3.5 Counting Subsets</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">3.6 Pascal’s Triangle and the Binomial Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-7-the-inclusion-exclusion-principle.html">3.7 The Inclusion-Exclusion Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-8-counting-multisets.html">3.8 Counting Multisets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-9-the-division-and-pigeonhole-principles.html">3.9 The Division and Pigeonhole Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-10-combinatorial-proof.html">3.10 Combinatorial Proof</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/chapters/03-6-pascals-triangle-and-the-binomial-theorem.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="pascals-triangle-and-the-binomial-theorem">
+<h1>3.6 Pascal’s Triangle and the Binomial Theorem<a class="headerlink" href="#pascals-triangle-and-the-binomial-theorem" title="Link to this heading">¶</a></h1>
+<p><strong>There are some beautiful and significant patterns among the numbers<span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> We now investigate a pattern based on one equation in particular. It happens that</strong></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+\binom {n + 1} {k} = \binom {n} {k - 1} + \binom {n} {k} \tag {3.3}
+\]</div>
+</div>
+<p><strong>for any integers <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> with <span class="math notranslate nohighlight">\(1 \leq k \leq n\)</span>.</strong></p>
+<p><strong>To see why this is true, notice that the left-hand side <span class="math notranslate nohighlight">\(\displaystyle \binom{n+1}{k}\)</span> is the number of <span class="math notranslate nohighlight">\(k\)</span>-element subsets of the set <span class="math notranslate nohighlight">\(A = \{0,1,2,3,\ldots,n\}\)</span>, which has <span class="math notranslate nohighlight">\(n + 1\)</span> elements. Such a subset either contains 0 or it does not. The <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k-1}\)</span> on the right is the number of subsets of <span class="math notranslate nohighlight">\(A\)</span> that contain 0, because to make such a subset we can start with <span class="math notranslate nohighlight">\(\{0\}\)</span> and append it an additional <span class="math notranslate nohighlight">\(k-1\)</span> numbers selected from <span class="math notranslate nohighlight">\(\{1,2,3,\ldots,n\}\)</span>, and there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k-1}\)</span> ways to do this. Also, the <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> on the right is the number of subsets of <span class="math notranslate nohighlight">\(A\)</span> that do not contain 0, for it is the number of ways to select <span class="math notranslate nohighlight">\(k\)</span> elements from <span class="math notranslate nohighlight">\(\{1,2,3,\dots,n\}\)</span>. In light of all this, Equation (3.3) just states the obvious fact that the number of <span class="math notranslate nohighlight">\(k\)</span>-element subsets of A equals the number of <span class="math notranslate nohighlight">\(k\)</span>-element subsets that contain 0 plus the number of <span class="math notranslate nohighlight">\(k\)</span>-element subsets that do not contain 0.</strong></p>
+<p>Having seen why Equation (3.3) is true, we now highlight it by arranging the numbers <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> in a triangular pattern. The left-hand side of Figure 3.3 shows the numbers <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> arranged in a pyramid with <span class="math notranslate nohighlight">\(\displaystyle \binom{0}{0}\)</span> at the apex, just above a row containing <span class="math notranslate nohighlight">\(\displaystyle \binom{1}{k}\)</span> with <span class="math notranslate nohighlight">\(k = 0\)</span> and <span class="math notranslate nohighlight">\(k = 1\)</span>. Below this is a row listing the values of <span class="math notranslate nohighlight">\(\displaystyle \binom{2}{k}\)</span> for <span class="math notranslate nohighlight">\(k = 0,1,2\)</span>, and so on.</p>
+<img src="../assets/9e54065721aac4afe8abdc73589d5ff8718a3b4e9c527ae21d456e4644011e93.jpg">
+Figure 3.3. Pascal’s triangle
+<p>Any number <span class="math notranslate nohighlight">\(\displaystyle \binom{n+1}{k}\)</span> for <span class="math notranslate nohighlight">\(0 &lt; k &lt; n\)</span> in this pyramid is just below and between the two numbers <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k-1}\)</span> and <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> in the previous row. But Equation (3.3) says <span class="math notranslate nohighlight">\(\displaystyle \binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}\)</span>. Therefore any number (other than 1) in the pyramid is the sum of the two numbers immediately above it. This pattern is especially evident on the right of Figure 3.3, where each <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> is worked out. Notice how 21 is the sum of the numbers 6 and 15 above it. Similarly, 5 is the sum of the 1 and 4 above it and so on. <strong>This arrangement is called Pascal’s triangle, after Blaise Pascal, 1623– 1662, a French philosopher and mathematician who discovered many of its properties. We’ve shown only the first eight rows, but the triangle extends downward forever.</strong> We can always add a new row at the bottom by placing a 1 at each end and obtaining each remaining number by adding the two numbers above its position. Doing this in Figure 3.3 (right) gives a new bottom row: <span class="math notranslate nohighlight">\(1 \quad 8 \quad 28 \quad 56 \quad 70 \quad 56 \quad 28 \quad 8 \quad 1\)</span>. This row consists of the numbers <span class="math notranslate nohighlight">\(\displaystyle \binom{8}{k}\)</span> for <span class="math notranslate nohighlight">\(0 \leq k \leq 8\)</span>, and we have computed them without the formula <span class="math notranslate nohighlight">\(\displaystyle \binom{8}{k} = \dfrac{8!}{k!(8-k)!}\)</span>. Any <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> can be computed this way. <strong>The very top row (containing only 1) of Pascal’s triangle is called Row 0. Row 1 is the next down, followed by Row 2, then Row 3, etc. Thus Row <span class="math notranslate nohighlight">\(n\)</span> lists the numbers <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> for <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>. Exercises 3.5.13 and 3.5.14 established</strong></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+\binom {n} {k} = \binom {n} {n - k}, \tag {3.4}
+\]</div>
+</div>
+<p><strong>for each <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>. In words, the <span class="math notranslate nohighlight">\(k\)</span>-th entry of Row <span class="math notranslate nohighlight">\(n\)</span> of Pascal’s triangle equals the <span class="math notranslate nohighlight">\((n-k)\)</span>-th entry. This means that Pascal’s triangle is symmetric with respect to the vertical line through its apex, as is evident in Figure 3.3.</strong></p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260324170515.png"><img alt="assets/Pastedimage20260324170515.png" src="assets/Pastedimage20260324170515.png" style="width: 1000px;" />
+</a>
+<p>Figure 3.4. The <span class="math notranslate nohighlight">\(n\)</span>-th row of Pascal’s triangle lists the coefficients of <span class="math notranslate nohighlight">\((x+y)^{n}\)</span></p>
+<p><strong>Notice that Row <span class="math notranslate nohighlight">\(n\)</span> appears to be a list of the coefficients of <span class="math notranslate nohighlight">\((x+y)^{n}\)</span>. For example <span class="math notranslate nohighlight">\((x+y)^{2} = \mathbf{1}x^{2} + \mathbf{2}xy + \mathbf{1}y^{2}\)</span>, and Row 2 lists the coefficients <span class="math notranslate nohighlight">\(1 \quad 2 \quad 1\)</span>. Also <span class="math notranslate nohighlight">\((x+y)^{3} = \mathbf{1}x^{3} + \mathbf{3}x^{2}y + \mathbf{3}xy^{2} + \mathbf{1}y^{3}\)</span>, and Row 3 is <span class="math notranslate nohighlight">\(1 \quad 3 \quad 3 \quad 1\)</span>. See Figure 3.4, which suggests that the numbers in Row <span class="math notranslate nohighlight">\(n\)</span> are the coefficients of <span class="math notranslate nohighlight">\((x+y)^{n}\)</span>. In fact this turns out to be true for every <span class="math notranslate nohighlight">\(n\)</span>. This fact is known as the binomial theorem, and it is worth mentioning here. It tells how to raise a binomial <span class="math notranslate nohighlight">\(x+y\)</span> to a non-negative integer power <span class="math notranslate nohighlight">\(n\)</span>.</strong></p>
+<p><strong><mark>Theorem 3.1: (Binomial Theorem) If <span class="math notranslate nohighlight">\(n\)</span> is a non-negative integer, then <span class="math notranslate nohighlight">\(\displaystyle (x+y)^{n} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}\)</span>.</mark></strong></p>
+<p>For now we will be content to accept the binomial theorem without proof. (You will be asked to prove it in an exercise in Chapter 10.) <strong>You may find it useful from time to time. For instance, you can use it if you ever need to expand an expression such as <span class="math notranslate nohighlight">\((x+y)^{7}\)</span>.</strong> To do this, look at Row 7 of Pascal’s triangle in Figure 3.3 and apply the binomial theorem to get <span class="math notranslate nohighlight">\((x+y)^{7} = \mathbf{1}x^{7} + \mathbf{7}x^{6}y + \mathbf{21}x^{5}y^{2} + \mathbf{35}x^{4}y^{3} + \mathbf{35}x^{3}y^{4} + \mathbf{21}x^{2}y^{5} + \mathbf{7}xy^{6} + \mathbf{1}y^{7}\)</span>.</p>
+<p>For another example,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l} (2a - b)^{4} &amp;= \left((2a) + (-b)\right)^{4} \\ &amp;= \mathbf{1}(2a)^{4} + \mathbf{4}(2a)^{3}(-b) + \mathbf{6}(2a)^{2}(-b)^{2} + \mathbf{4}(2a)(-b)^{3} + \mathbf{1}(-b)^{4} \\ &amp;= 16a^{4} - 32a^{3}b + 24a^{2}b^{2} -8ab^{3} + b^{4}\end{array}
+\end{split}\]</div>
+</div>
+<section id="exercises-for-section-3-6">
+<h2>Exercises for Section 3.6<a class="headerlink" href="#exercises-for-section-3-6" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Write out Row 11 of Pascal’s triangle.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{11}{0} = \frac{11!}{0! \cdot (11-0)!} = \frac{11!}{11!} = 1\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{11}{1} = \frac{11!}{1! \cdot (11-1)!} = \frac{11 \cdot 10!}{1! \cdot 10!} = 11\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{11}{2} = \frac{11!}{2! \cdot (11-2)!} = \frac{11 \cdot 10 \cdot 9!}{2! \cdot 9!} = 55\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{11}{3} = \frac{11!}{3! \cdot (11-3)!} = \frac{11 \cdot 10 \cdot 9 \cdot 8!}{3! \cdot 8!} = 165\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{11}{4} = \frac{11!}{4! \cdot (11-4)!} = \frac{11 \cdot 10 \cdot 9 \cdot 8 \cdot 7!}{4! \cdot 7!} = 330\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{11}{5} = \frac{11!}{5! \cdot (11-5)!} = \frac{11 \cdot 10 \cdot 9 \cdot 8 \cdot 7 \cdot 6!}{5! \cdot 6!} = 462\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{11}{6} = \frac{11!}{6! \cdot (11-6)!} = \frac{11 \cdot 10 \cdot 9 \cdot 8 \cdot 7 \cdot 6!}{6! \cdot 5!} = 462\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{11}{7} = \frac{11!}{7! \cdot (11-7)!} = \frac{11 \cdot 10 \cdot 9 \cdot 8 \cdot 7!}{7! \cdot 4!} = 330\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{11}{8} = \frac{11!}{8! \cdot (11-8)!} = \frac{11 \cdot 10 \cdot 9 \cdot 8!}{8! \cdot 3!} = 165\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{11}{9} = \frac{11!}{9! \cdot (11-9)!} = \frac{11 \cdot 10 \cdot 9!}{9! \cdot 2!} = 55\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{11}{10} = \frac{11!}{10! \cdot (11-10)!} = \frac{11 \cdot 10!}{10! \cdot 1!} = 11\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{11}{11} = \frac{11!}{11! \cdot (11-11)!} = \frac{11!}{11!} = 1\)</span></p>
+</div>
+</details><ol class="arabic simple" start="2">
+<li><p>Use the binomial theorem to find the coefficient of <span class="math notranslate nohighlight">\(x^{8} y^{5}\)</span> in <span class="math notranslate nohighlight">\((x+y)^{13}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">According to the binomial theorem <span class="math notranslate nohighlight">\(\displaystyle (x+y)^{13} = \sum_{k=0}^{13} \binom{13}{k} (x)^{13-k} (y)^{k}\)</span>, the coefficient of the term <span class="math notranslate nohighlight">\(x^{8}y^{5}\)</span> in <span class="math notranslate nohighlight">\((x + y)^{13}\)</span> is thus <span class="math notranslate nohighlight">\(\displaystyle \binom{13}{5} x^{8}y^{5} = \frac{13!}{5! \cdot (13-5)!} = \frac{13 \cdot 12 \cdot 11 \cdot 10 \cdot 9 \cdot 8!}{5! \cdot 8!} = 1287\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="3">
+<li><p>Use the binomial theorem to find the coefficient of <span class="math notranslate nohighlight">\(x^{8}\)</span> in <span class="math notranslate nohighlight">\((x+2)^{13}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">According to the binomial theorem <span class="math notranslate nohighlight">\(\displaystyle (x+2)^{13} = \sum_{k=0}^{13} \binom{13}{k} (x)^{13-k} (2)^{k}\)</span>, the coefficient of the term <span class="math notranslate nohighlight">\(x^{8}y^{5}\)</span> in <span class="math notranslate nohighlight">\((x + y)^{13}\)</span> is thus <span class="math notranslate nohighlight">\(\displaystyle \binom{13}{5} x^{8}y^{5} = \frac{13!}{5! \cdot (13-5)!} = \frac{13 \cdot 12 \cdot 11 \cdot 10 \cdot 9 \cdot 8!}{5! \cdot 8!} = 1287\)</span>.
+Now plug in <span class="math notranslate nohighlight">\(y=2\)</span> in the term <span class="math notranslate nohighlight">\(1287 \cdot x^{8} \cdot y^{5}\)</span> to get the final answer of <span class="math notranslate nohighlight">\(1287 \cdot x^{8} \cdot 2^{5} = 41184x^{8}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="4">
+<li><p>Use the binomial theorem to find the coefficient of <span class="math notranslate nohighlight">\(x^{6} y^{3}\)</span> in <span class="math notranslate nohighlight">\((3x - 2y)^{9}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">According to the binomial theorem <span class="math notranslate nohighlight">\(\displaystyle (3x-2y)^{9} = \sum_{k=0}^{9} \binom{9}{k} (3x)^{9-k} (-2y)^{k}\)</span>, the coefficient of the term <span class="math notranslate nohighlight">\(x^{6}y^{3}\)</span> in <span class="math notranslate nohighlight">\((x + y)^{9}\)</span> is thus <span class="math notranslate nohighlight">\(\displaystyle \binom{9}{3} x^{6}y^{3} = \frac{9!}{3! \cdot (9-3)!} = \frac{9 \cdot 8 \cdot 7 \cdot 6!}{3! \cdot 6!} = 84\)</span>.
+Now plug in <span class="math notranslate nohighlight">\(x=3x\)</span>  and <span class="math notranslate nohighlight">\(y = -2y\)</span> in the term <span class="math notranslate nohighlight">\(84 \cdot x^{6} \cdot y^{3}\)</span> to get the final answer of <span class="math notranslate nohighlight">\(84 \cdot (3x)^{6} \cdot (-2y)^{3} = 84 \cdot 729x^{6} \cdot -8y^{3} = -489888x^{6}y^{3}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="5">
+<li><p>Use the binomial theorem to show <span class="math notranslate nohighlight">\(\displaystyle \sum_{k = 0}^{n} \binom{n}{k} = 2^{n}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The binomial theorem: <span class="math notranslate nohighlight">\(\displaystyle (x+y)^{n} = \sum_{k=0}^{n} \binom{n}{k} (x)^{n-k} (y)^{k} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}\)</span>.
+Observe that <span class="math notranslate nohighlight">\(2^{n} = (1+1)^{n}\)</span>. Now use the binomial theorem to work out <span class="math notranslate nohighlight">\((x + y)^{n}\)</span> and plug in <span class="math notranslate nohighlight">\(x = 1\)</span> and <span class="math notranslate nohighlight">\(y = 1\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle (1+1)^{n} = \sum_{k=0}^{n} \binom{n}{k} \cdot (1)^{n-k} \cdot (1)^{k} = \binom{n}{0} \cdot (1)^{n} \cdot (1)^{0} + \binom{n}{1} \cdot (1)^{n-1} \cdot (1)^{1} + \ldots + \binom{n}{n-1} \cdot (1)^{1} \cdot (1)^{n-1} + \binom{n}{n} \cdot (1)^{0} \cdot (1)^{n} = \binom{n}{0} + \binom{n}{1} + \ldots + \binom{n}{n-1} + \binom{n}{n} = \sum_{k=0}^{n} \binom{n}{k} = 2^{n}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="6">
+<li><p>Use Definition 3.2 (page 85) and Fact 1.3 (page 13) to show <span class="math notranslate nohighlight">\(\displaystyle \sum_{k = 0}^{n} \binom{n}{k} = 2^{n}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Definition 3.2: If <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> are integers, then <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> denotes the number of subsets that can be made by choosing <span class="math notranslate nohighlight">\(k\)</span> elements from an <span class="math notranslate nohighlight">\(n\)</span>-element set. We read <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> as “<span class="math notranslate nohighlight">\(n\)</span> choose <span class="math notranslate nohighlight">\(k\)</span>.”
+Fact 1.3: If a finite set has <span class="math notranslate nohighlight">\(n\)</span> elements, then it has <span class="math notranslate nohighlight">\(2^{n}\)</span> subsets.
+Let <span class="math notranslate nohighlight">\(A\)</span> be a set with <span class="math notranslate nohighlight">\(n\)</span> elements. By fact 1.3, the total number of subset of <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(2^{n}\)</span>. Now group the subsets of <span class="math notranslate nohighlight">\(A\)</span> according to how many elements they contain. For each <span class="math notranslate nohighlight">\(k\)</span> with <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>, let <span class="math notranslate nohighlight">\(S_{k}\)</span> be the set of all <span class="math notranslate nohighlight">\(k\)</span>-element subsets of <span class="math notranslate nohighlight">\(A\)</span>. By definition 3.2, the number of elements of <span class="math notranslate nohighlight">\(S_{k}\)</span> is <span class="math notranslate nohighlight">\(\displaystyle |S_{k}| = \binom{n}{k}\)</span>. Now it holds that every subset of <span class="math notranslate nohighlight">\(A\)</span> has exactly one size, these subsets are pairwise disjoint (<span class="math notranslate nohighlight">\(\displaystyle S_{i} \cap S_{j} = \varnothing\)</span>, for <span class="math notranslate nohighlight">\(i \neq j\)</span>), and the union of all <span class="math notranslate nohighlight">\(S_{k}\)</span> is the set of all subsets of <span class="math notranslate nohighlight">\(A\)</span>. Therefore, by the addition principle, <span class="math notranslate nohighlight">\(\displaystyle 2^{n} = |S_{0}| + |S_{1}| + \ldots + |S_{n}| = \binom{n}{0} + \binom{n}{1} + \ldots + \binom{n}{n} = \sum_{k = 0}^{n} \binom{n}{k}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="7">
+<li><p>Use the binomial theorem to show <span class="math notranslate nohighlight">\(\displaystyle \sum_{k = 0}^{n} 3^{k} \binom{n}{k} = 4^{n}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The binomial theorem: <span class="math notranslate nohighlight">\(\displaystyle (x+y)^{n} = \sum_{k=0}^{n} \binom{n}{k} (x)^{n-k} (y)^{k} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}\)</span>.
+Observe that <span class="math notranslate nohighlight">\(4^{n} = (1+3)^{n}\)</span>. Now use the binomial theorem to work out <span class="math notranslate nohighlight">\((x + y)^{n}\)</span> and plug in <span class="math notranslate nohighlight">\(x = 1\)</span> and <span class="math notranslate nohighlight">\(y = 3\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle (1+3)^{n} = \sum_{k=0}^{n} \binom{n}{k} \cdot (1)^{n-k} \cdot (3)^{k} = \binom{n}{0} \cdot (1)^{n} \cdot (3)^{0} + \binom{n}{1} \cdot (1)^{n-1} \cdot (3)^{1} + \ldots + \binom{n}{n-1} \cdot (1)^{1} \cdot (3)^{n-1} + \binom{n}{n} \cdot (1)^{0} \cdot (3)^{n} = (3)^{0} \cdot \binom{n}{0} + (3)^{1} \cdot \binom{n}{1} + \ldots + (3)^{n-1} \cdot \binom{n}{n-1} + (3)^{n} \cdot \binom{n}{n} = \sum_{k=0}^{n} 3^{k} \binom{n}{k} = 4^{n}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="8">
+<li><p>Use Fact 3.5 (page 87) to derive Equation 3.3 (page 90).</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Fact 3.5: If <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>, then <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \dfrac{n!}{k! \cdot (n-k)!}\)</span>. Otherwise <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = 0\)</span>.
+Equation 3.3: <span class="math notranslate nohighlight">\(\displaystyle \binom {n + 1} {k} = \binom {n} {k - 1} + \binom {n} {k}\)</span> for any integers <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> with <span class="math notranslate nohighlight">\(1 \leq k \leq n\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle \binom {n + 1} {k} = \binom {n} {k - 1} + \binom {n} {k} = \dfrac{n!}{(k-1)! \cdot (n-(k-1))!} + \dfrac{n!}{k! \cdot (n-k)!} = \dfrac{k \cdot n!}{k \cdot (k-1)! \cdot (n-k+1)!} + \dfrac{(n-k+1) \cdot n!}{k! \cdot (n-k+1) \cdot (n-k)!} = \dfrac{n! \cdot (k + (n-k+1))}{k! \cdot (n-k+1)!} = \dfrac{n! \cdot (n+1)}{k! \cdot (n+1-k)!} = \dfrac{(n+1)!}{k! \cdot ((n+1)-k)!} = \binom{n + 1}{k}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="9">
+<li><p>Use the binomial theorem to show <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{0} - \binom{n}{1} + \binom{n}{2} - \binom{n}{3} + \binom{n}{4} - \cdots + (-1)^{n} \binom{n}{n} = 0\)</span>, for <span class="math notranslate nohighlight">\(n &gt; 0\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The binomial theorem: <span class="math notranslate nohighlight">\(\displaystyle (x+y)^{n} = \sum_{k=0}^{n} \binom{n}{k} (x)^{n-k} (y)^{k} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}\)</span>.
+Observe that <span class="math notranslate nohighlight">\(0 = 0^{n} = (1-1)^{n}\)</span>. Now use the binomial theorem to work out <span class="math notranslate nohighlight">\((x + y)^{n}\)</span> and plug in <span class="math notranslate nohighlight">\(x = 1\)</span> and <span class="math notranslate nohighlight">\(y = -1\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle (1-1)^{n} = \sum_{k=0}^{n} \binom{n}{k} \cdot (1)^{n-k} \cdot (-1)^{k} = \binom{n}{0} \cdot (1)^{n} \cdot (-1)^{0} + \binom{n}{1} \cdot (1)^{n-1} \cdot (-1)^{1} + \ldots + \binom{n}{n-1} \cdot (1)^{1} \cdot (-1)^{n-1} + \binom{n}{n} \cdot (1)^{0} \cdot (-1)^{n} = \sum_{k=0}^{n} (-1)^{k} \binom{n}{k} = 0\)</span>.
+Note that <span class="math notranslate nohighlight">\(0^0\)</span> is undetermined/undefined.</p>
+</div>
+</details><ol class="arabic simple" start="10">
+<li><p>Show that the formula <span class="math notranslate nohighlight">\(\displaystyle k \binom{n}{k} = n \binom{n-1}{k-1}\)</span> is true for all integers <span class="math notranslate nohighlight">\(n, k\)</span> with <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle k \binom{n}{k} = k \cdot \frac{n!}{k! \cdot (n-k)!} = \frac{k \cdot n!}{k \cdot (k-1)! \cdot (n-k)!} = \frac{n!}{(k-1)! \cdot (n-k)!}\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle n \binom{n-1}{k-1} =  n \cdot \frac{(n-1)!}{(k-1)! \cdot ((n-1)-(k-1))!} = \frac{n!}{(k-1)! \cdot (n-k)!}\)</span>
+Therefore <span class="math notranslate nohighlight">\(\displaystyle k \binom{n}{k} = n \binom{n-1}{k-1}\)</span>.
+For <span class="math notranslate nohighlight">\(k = 0\)</span>, the formula becomes <span class="math notranslate nohighlight">\(\displaystyle 0 \binom{n}{0} = n \binom{n-1}{-1} = 0\)</span>. Note that <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = 0\)</span> whenever <span class="math notranslate nohighlight">\(k &lt; 0\)</span> or <span class="math notranslate nohighlight">\(k &gt; n\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="11">
+<li><p>Use the binomial theorem to show <span class="math notranslate nohighlight">\(\displaystyle 9^{n} = \sum_{k=0}^{n} (-1)^{k} \binom{n}{k} 10^{n-k}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The binomial theorem: <span class="math notranslate nohighlight">\(\displaystyle (x+y)^{n} = \sum_{k=0}^{n} \binom{n}{k} (x)^{n-k} (y)^{k} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}\)</span>.
+Observe that <span class="math notranslate nohighlight">\(9^{n} = (10-1)^{n}\)</span>. Now use the binomial theorem to work out <span class="math notranslate nohighlight">\((x + y)^{n}\)</span> and plug in <span class="math notranslate nohighlight">\(x = 10\)</span> and <span class="math notranslate nohighlight">\(y = -1\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle 9^{n} = (10-1)^{n} = \binom{n}{0} \cdot (10)^{n} \cdot (-1)^{0} + \binom{n}{1} \cdot (10)^{n-1} \cdot (-1)^{1} + \ldots + \binom{n}{n-1} \cdot (10)^{1} \cdot (-1)^{n-1} + \binom{n}{n} \cdot (10)^{0} \cdot (-1)^{n} = \sum_{k=0}^{n} (-1)^{k} \binom{n}{k} (10)^{n-k}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="12">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} \binom{k}{m} = \binom{n}{m} \binom{n-m}{k-m}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} \binom{k}{m} = \frac{n!}{k! \cdot (n-k)!} \cdot \frac{k!}{m! \cdot (k-m)!} = \frac{n! \cdot k!}{k! \cdot (n-k)! \cdot m! \cdot (k-m)!} = \frac{n!}{m! \cdot (k-m)! \cdot (n-k)!}\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{n}{m} \binom{n-m}{k-m} = \frac{n!}{m! \cdot (n-m)!} \cdot \frac{(n-m)!}{(k-m)! \cdot ((n-m)-(k-m))!} = \frac{n! \cdot (n-m)!}{m! \cdot (n-m)! \cdot (k-m)! \cdot (n-k)!} = \frac{n!}{m! \cdot (k-m)! \cdot (n-k)!}\)</span>
+Therefore <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} \binom{k}{m} = \binom{n}{m} \binom{n-m}{k-m}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="13">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{3} = \binom{2}{2} + \binom{3}{2} + \binom{4}{2} + \binom{5}{2} + \dots + \binom{n-1}{2}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Assume <span class="math notranslate nohighlight">\(n \geq 3\)</span> and note that <span class="math notranslate nohighlight">\(\displaystyle \binom{n + 1}{k} = \binom{n}{k} + \binom{n}{k - 1}\)</span> for any integers <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> with <span class="math notranslate nohighlight">\(1 \leq k \leq n\)</span>.
+If <span class="math notranslate nohighlight">\(\displaystyle \binom{n + 1}{k} = \binom{n}{3}\)</span>, then <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{3} = \binom{n-1}{3} + \binom{n-1}{2} = \binom{n-2}{3} + \binom{n-2}{2} + \binom{n-1}{2} = \ldots = 0 + \binom{2}{2} + \binom{3}{2} + \ldots + \binom{n-2}{2} + \binom{n-1}{2}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="14">
+<li><p>The first five rows of Pascal’s triangle appear in the digits of powers of 11: <span class="math notranslate nohighlight">\(11^{0} = 1\)</span>, <span class="math notranslate nohighlight">\(11^{1}=11\)</span>, <span class="math notranslate nohighlight">\(11^{2} = 121\)</span>, <span class="math notranslate nohighlight">\(11^{3} = 1331\)</span> and <span class="math notranslate nohighlight">\(11^{4} = 14641\)</span>. Why is this so? Why does the pattern not continue with <span class="math notranslate nohighlight">\(11^{5}\)</span>?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Note that <span class="math notranslate nohighlight">\(\displaystyle 11^{n} = (1 + 10)^{n} = \sum_{k=0}^{n} \binom{n}{k} (1)^{n-k} (10)^{k}\)</span>. For <span class="math notranslate nohighlight">\(n=0,1,2,3,4\)</span>, all the binomial coefficients in row <span class="math notranslate nohighlight">\(n\)</span> of Pascal’s triangle are single-digit numbers, so they appear directly as the digits of <span class="math notranslate nohighlight">\(11^{n}\)</span>. The pattern does not continue for <span class="math notranslate nohighlight">\(11^{5}\)</span> because the fifth row of Pascal’s triangle is <span class="math notranslate nohighlight">\((1,\ 5,\ 10,\ 10,\ 5,\ 1)\)</span>, and the numbers <span class="math notranslate nohighlight">\(10\)</span> are not single digits. Therefore carrying occurs in base 10, so the digits are no longer exactly the entries of Pascal’s triangle. The pattern fails because of carrying in base 10 once binomial coefficients become two-digit numbers.
+<span class="math notranslate nohighlight">\(\displaystyle 11^{0} = (1 + 10)^{0} = \sum_{k=0}^{0} \binom{0}{k} (1)^{0-k} (10)^{k} = \binom{0}{0} (1)^{0} (10)^{0} = \mathbf{1} \cdot 1 = 1\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle 11^{1} = (1 + 10)^{1} = \sum_{k=0}^{1} \binom{1}{k} (1)^{1-k} (10)^{k} = \binom{1}{0} (1)^{1} (10)^{0} + \binom{1}{1} (1)^{0} (10)^{1} = \mathbf{1} \cdot 1 + \mathbf{1} \cdot 10 = 11\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle 11^{2} = (1 + 10)^{2} = \sum_{k=0}^{2} \binom{2}{k} (1)^{2-k} (10)^{k} = \binom{2}{0} (1)^{2} (10)^{0} + \binom{2}{1} (1)^{1} (10)^{1} + \binom{2}{2} (1)^{0} (10)^{2} = \mathbf{1} \cdot 1 + \mathbf{2} \cdot 10 + \mathbf{1} \cdot 100 = 121\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle 11^{3} = (1 + 10)^{3} = \sum_{k=0}^{3} \binom{3}{k} (1)^{3-k} (10)^{k} = \binom{3}{0} (1)^{3} (10)^{0} + \binom{3}{1} (1)^{2} (10)^{1} + \binom{3}{2} (1)^{1} (10)^{2} + \binom{3}{3} (1)^{0} (10)^{3} = \mathbf{1} \cdot 1 + \mathbf{3} \cdot 10 + \mathbf{3} \cdot 100 + \mathbf{1} \cdot 1000 = 1331\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle 11^{4} = (1 + 10)^{4} = \sum_{k=0}^{4} \binom{4}{k} (1)^{4-k} (10)^{k} = \binom{4}{0} (1)^{4} (10)^{0} + \binom{4}{1} (1)^{3} (10)^{1} + \binom{4}{2} (1)^{2} (10)^{2} + \binom{4}{3} (1)^{1} (10)^{3} + \binom{4}{4} (1)^{0} (10)^{4} = \mathbf{1} \cdot 1 + \mathbf{4} \cdot 10 + \mathbf{6} \cdot 100 + \mathbf{4} \cdot 1000 + \mathbf{1} \cdot 10000 = 14641\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle 11^{5} = (1 + 10)^{5} = \sum_{k=0}^{5} \binom{5}{k} (1)^{5-k} (10)^{k} = \binom{5}{0} (1)^{5} (10)^{0} + \binom{5}{1} (1)^{4} (10)^{1} + \binom{5}{2} (1)^{3} (10)^{2} + \binom{5}{3} (1)^{2} (10)^{3} + \binom{5}{4} (1)^{1} (10)^{4} + \binom{5}{5} (1)^{0} (10)^{5} = \mathbf{1} \cdot 1 + \mathbf{5} \cdot 10 + \mathbf{10} \cdot 100 + \mathbf{10} \cdot 1000 + \mathbf{5} \cdot 10000 + \mathbf{1} \cdot 100000 = 161051\)</span></p>
+</div>
+</details></section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="03-7-the-inclusion-exclusion-principle.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">3.7 The Inclusion-Exclusion Principle</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="03-5-counting-subsets.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">3.5 Counting Subsets</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">3.6 Pascal’s Triangle and the Binomial Theorem</a><ul>
+<li><a class="reference internal" href="#exercises-for-section-3-6">Exercises for Section 3.6</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

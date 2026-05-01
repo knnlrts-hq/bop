@@ -1,0 +1,146 @@
+# 2.7 Quantifiers
+
+**Using symbols $\land , \lor , \sim , \Rightarrow$ and $\Leftrightarrow$, we can deconstruct many English sentences into a symbolic form. As we have seen, this symbolic form can help us understand the logical structure of sentences and how different sentences may actually have the same meaning (as in logical equivalence).**
+
+But these symbols alone are not powerful enough to capture the full meaning of every statement. To see why, imagine that we are dealing with an infinite set $X = \left\{x_{1}, x_{2}, x_{3}, \ldots \right\}$ of integers. Suppose we want to express the statement “Every element of $X$ is odd.” We would have to write
+
+$$
+P(x_{1}) \wedge P(x_{2}) \wedge P(x_{3}) \wedge P(x_{4}) \wedge \cdots,
+$$
+
+where $P(x)$ is the open sentence "$x$ is odd." And if we wanted to express “There is at least one element of $X$ that is odd,” we’d have to write
+
+$$
+P(x_{1}) \vee P(x_{2}) \vee P(x_{3}) \vee P (x_{4}) \vee \cdots .
+$$
+
+The problem is that these expressions trail on forever.
+
+**To overcome this defect, we will introduce two new symbols $\forall$ and $\exists$. The symbol $\forall$ stands for the phrase “for all” and $\exists$ stands for “there exists.” Thus the statement “Every element of $X$ is odd.” is written symbolically as $\forall \ x \in X, P(x)$ and “There is at least one element of $X$ that is odd,” is written succinctly as $\exists \ x \in X, P(x)$ where $P(x)$ is the open sentence "$x$ is odd."** 
+
+These new symbols are called quantifiers.
+
+**Definition 2.1: The symbols $\forall$ and $\exists$ are called quantifiers. $\forall$ stands for the phrase “For all” or “For every,” or “For each,” $\exists$ stands for the phrase "There exists " or “There is a.”**
+
+Thus the statement
+- For every $n \in \mathbb{Z}$ , $2n$ is even,
+
+can be expressed in either of the following ways:
+- $\forall \ n \in \mathbb{Z}, 2n$ is even,
+- $\forall \ n \in \mathbb{Z}, \ E(2n)$. (Where $E(x)$ means $x$ is even).
+
+Likewise, a statement such as
+- There exists a subset $X$ of $\mathbb{N}$ for which $| X | = 5$.
+
+can be translated as
+
+$$
+\exists \ X, (X \subseteq \mathbb{N}) \wedge (| X | = 5) \quad \text{or} \quad \exists \ X \subseteq \mathbb{N}, | X | = 5 \quad \text{or} \quad \exists \ X \in \mathscr{P} (\mathbb{N}), | X | = 5.
+$$
+
+**The symbols $\forall$ and $\exists$ are called quantifiers because they refer in some sense to the quantity (i.e., all or some) of the variable that follows them. The symbol $\forall$ is called the universal quantifier and $\exists$ is called the existential quantifier. Statements containing them are called quantified statements.** A statement beginning with $\forall$ is called a universally quantified statement, and one beginning with $\exists$ is called an existentially quantified statement.
+
+Example 2.5: The following English statements are paired with their translations into symbolic form.
+- Every integer that is not odd is even. $\forall \ n \in \mathbb{Z}, \ \sim (n \ \text{is odd}) \Rightarrow (n \ \text{is even}), \quad \text{or} \quad \forall \ n \in \mathbb{Z}, \ \sim O(n) \Rightarrow E(n)$.
+- There is an integer that is not even. $\exists \ n \in \mathbb{Z}, \ \sim E(n)$. 
+- For every real number $x$, there is a real number $y$ for which $y^{3} = x$. $\forall \ x \in \mathbb{R}, \ \exists \ y \in \mathbb{R}, \ y^{3} = x$.
+- Given any two rational numbers $a$ and $b$, the product $ab$ is rational. $\forall \ a, b \in \mathbb{Q}, \  ab \in \mathbb {Q}$.
+
+**Given a set $X$ (such as, but not limited to, $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, etc.), a quantified statement of form $\forall \ x \in X, \ P(x)$ is understood to be true if $P(x)$ is true for every $x \in X$. If there is at least one $x \in X$ for which $P(x)$ is false, then $\forall \ x \in X, \ P(x)$ is a false statement. Similarly, $\exists \ x \in X, \ P(x)$ is true provided that $P(x)$ is true for at least one element $x \in X$; otherwise it is false.** Thus each statement in Example 2.5 is true. Here are some examples of quantified statements that are false:
+
+Example 2.6: The following false quantified statements are paired with their translations.
+- Every integer is even. $\forall \ n \in \mathbb{Z}, \ E(n)$.
+- There is an integer $n$ for which $n^{2} = 2$. $\exists \ n \in \mathbb{Z}, \ n^{2} = 2$.
+- For every real number $x$, there is a real number $y$ for which $y^{2} = x$. $\forall \ x \in \mathbb{R}, \ \exists \ y \in \mathbb{R}, \ y^{2} = x$. This is false because the square of any real number is non-negative. For example, no real number squared returns $-1$. $\forall \ x \geq 0 \in \mathbb{R}, \ \exists \ y \in \mathbb{R}, \ y^{2} = x$ is a true statement.
+- Given any two rational numbers $a$ and $b$, the number $\sqrt{ab}$ is rational. $\forall \ a, b \in \mathbb{Q}, \ \sqrt{ab} \in \mathbb{Q}$. This statement is false because multiplying two rational numbers $a$ and $b$ returns a rational product $ab$, but the square root of a rational number is not necessarily rational. A counterexample: $a=2$, $b=3$, then $ab=6$, but $\sqrt{6}$ is irrational: it cannot be expressed as a ratio of integers.
+
+**Example 2.7: When a statement contains two quantifiers you must be very alert to their order, for reversing the order can change the meaning. Consider the following statement from Example 2.5: $\forall \ x \in \mathbb{R}, \ \exists \ y \in \mathbb{R}, \ y^{3} = x$. This statement is true, for no matter what number $x$ is there exists a number $y = \sqrt[3]{x}$ for which $y^{3} = x$. Now reverse the order of the quantifiers to get the new statement $\exists \ y \in \mathbb{R}, \ \forall \ x \in \mathbb{R}, \ y^{3} = x$. This new statement says that there exists a particular number $y$ with the property that $y^{3} = x$ for every real number $x$. Since no number $y$ can have this property, the statement is false. The two statements above have entirely different meanings.**
+
+:::{dropdown} When to use which quantifier?
+Use $\forall \ x, \ \exists \ y$ when the thing called $y$ is allowed to depend on $x$. 
+Use $\exists \ y, \ \forall \ x$ when the same single $y$ must work for every $x$.
+
+The intuition $\forall \ x, \ \exists \ y, \ P(x,y)$ means: For each $x$, you may pick a possibly different $y$.
+But $\exists \ y, \ \forall \ x, \ P(x,y)$ means: There is one particular $y$ that works for all $x$. That is much stronger.
+
+Ask yourself: "After I choose the first variable, is the second allowed to change?" 
+If yes, use the second quantifier inside: $\forall \ x, \ \exists \ y$. 
+If no, and one fixed thing must work for all cases, use: $\exists \ y, \ \forall \ x$.
+
+$\forall\exists$ = "everyone gets their own"
+$\exists\forall$ = "one thing works for all"
+
+Example: 
+“Every lock has a key.” = $\forall \ l, \ \exists \ k, \ \text{Opens}(k,l)$.
+“There is a key that opens every lock.” = $\exists \ k, \ \forall \ l, \ \text{Opens}(k,l)$.
+:::
+
+**Quantified statements are often misused in casual conversation. Maybe you’ve heard someone say “All students do not pay full tuition.” when they mean “Not all students pay full tuition.” While the mistake is perhaps marginally forgivable in casual conversation, it must never be made in a mathematical context. Do not say “All integers are not even.” because that means there are no even integers. Instead, say “Not all integers are even.”**
+
+## Exercises for Section 2.7
+
+Write the following as English sentences. Say whether they are true or false.
+1. $\forall \ x \in \mathbb{R}, x^{2} > 0$ 
+:::{dropdown} Answer
+For every real number $x$, $x^{2}>0$. 
+Also: For every real number $x$, it follows that $x^{2}>0$. 
+Also: The square of any real number is positive. (etc.) 
+This statement is false. Reason: 0 is a real number, but it’s not true that $0^{2}>0$.
+:::
+
+2. $\forall \ x \in \mathbb{R}, \exists \ n \in \mathbb{N}, x^{n} \geq 0$ 
+:::{dropdown} Answer
+For every real number $x$, there exists a natural number $n$ such that $x^n$ is greater than or equal to $0$.
+This statement is true. Reason: If $x \geq 0$, then $x^n \geq 0$ for any natural number $n$. If $x<0$, choose an even natural number, for example $n=2$, such that $x^n \geq 0$.
+
+:::
+
+3. $\exists \ a \in \mathbb{R}, \forall \ x \in \mathbb{R}, a x = x$ 
+:::{dropdown} Answer
+There exists a real number $a$ for which $ax=x$ for every real number $x$. 
+This statement is true. Reason: Consider $a=1$.
+:::
+
+4. $\forall \ X \in \mathscr{P}(\mathbb{N}), X \subseteq \mathbb{R}$ 
+:::{dropdown} Answer
+For every set $X$ in the power set of $\mathbb{N}$, $X$ is a subset of $\mathbb{R}$.
+Also: Every subset of the natural numbers is also a subset of the real numbers.
+This statement is true. Reason: $\mathscr{P}(\mathbb{N})$ is the set of all subsets of $\mathbb{N}$. Since every natural number is also a real number, we have $\mathbb{N} \subseteq \mathbb{R}$. Therefore, any subset of $\mathbb{N}$ must also be a subset of $\mathbb{R}$. Note that $\varnothing$ is a subset of every set.
+:::
+
+5. $\forall \ n \in \mathbb{N}, \exists \ X \in \mathscr{P}(\mathbb{N}), |X| < n$ 
+:::{dropdown} Answer
+For every natural number $n$, there is a subset $X$ of $\mathbb{N}$ with $|X|<n$.
+This statement is true. Reason: Suppose $n \in \mathbb{N} \ (0 \not \in \mathbb{N})$. Let $X = \varnothing$. Then $|X|=0$.
+:::
+
+6. $\exists \ n \in \mathbb{N}, \forall \ X \in \mathscr{P}(\mathbb{N}), |X| < n$ 
+:::{dropdown} Answer
+There exists a particular (finite) natural number $n$ such that for every subset $X$ of $\mathbb{N}$, the size of $X$ is less than $n$.
+This statement is false. Reason: This says there is some specific natural number that is larger than the size of every subset of $\mathbb{N}$. For any natural number $n$, we can find a subset of $\mathbb{N}$ with at least $n$ elements, for example: $X = \{1,2,3,\dots,n\}$. Then $|X| = n$, so $|X| < n$ is false. In fact, $\mathbb{N}$ itself is an infinite subset, so there is certainly no finite natural number bigger than the size of every subset.
+:::
+
+7. $\forall \ X \subseteq \mathbb{N}, \exists \ n \in \mathbb{Z}, |X| = n$ 
+:::{dropdown} Answer
+For any subset $X$ of $\mathbb{N}$, there exists an integer $n$ for which $|X|=n$. 
+This statement is false. Reason: for example, the set $X =\{2,4,6,8,\ldots\}$ of all even natural numbers is infinite, so there does not exist any integer $n$ for which $|X|=n$.
+:::
+
+8.  $\forall \ n \in \mathbb{Z}, \exists \ X \subseteq \mathbb{N}, |X| = n$ 
+:::{dropdown} Answer
+For every integer $n$, there exists a subset $X$ of $\mathbb{N}$ such that the size of $X$ is $n$.
+This statement is false. Reason: A set cannot have a negative number of elements. So if $n=-1$ (or any other negative integer), there is no subset $X \subseteq \mathbb{N}$ with $|X| = -1$. Hence the statement fails for negative integers, so it is false. Note that this statement would be true if it said "for every non-negative integer", instead of "for every integer".
+:::
+
+9. $\forall \ n \in \mathbb{Z}, \exists \ m \in \mathbb{Z}, m = n + 5$ 
+:::{dropdown} Answer
+For every integer $n$ there is another integer $m$ such that $m=n+5$. 
+This statement is true. Reason: you can find an integer $m$ for every integer $n$, such that $m-n$ will always be 5.
+:::
+
+10. $\exists \ m \in \mathbb{Z}, \forall \ n \in \mathbb{Z}, m = n + 5$ 
+:::{dropdown} Answer
+There exists a particular integer $m$ such that for every integer $n$, $m=n+5$.
+This statement is false. Reason: this statement says that one particular fixed integer $m$ must always equal $n+5$ for all integers $n$. But if $n=0$, then $m=5$, and if $n=1$, then $m=6$. So $m$ would have to be both 5 and 6 at the same time, which is impossible. Therefore, no such integer $m$ exists.
+:::
+

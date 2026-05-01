@@ -1,0 +1,390 @@
+# 1.6 Complement
+
+This section introduces yet another set operation, called the set complement. The definition requires the idea of a universal set, which we now discuss. 
+
+**When dealing with a set, we almost always regard it as a subset of some larger set. For example, consider the set of prime numbers $P =$ $\{ 2 , 3 , 5 , 7 , 1 1 , 1 3 , \ldots \}$. If asked to name some things that are not in $P$, we might mention some composite numbers like 4 or 6 or 423. It probably would not occur to us to say that Vladimir Putin is not in $P$. True, Vladimir Putin is not in $P$, but he lies entirely outside of the discussion of what is a prime number and what is not. We have an unstated assumption that $P \subseteq \mathbb {N}$, because $\mathbb { N }$ is the most natural setting in which to discuss prime numbers. In this context, anything not in $P$ should still be in $\mathbb { N }$. This larger set $\mathbb { N }$ is called the universal set or universe for $P$.** 
+
+**Almost every useful set in mathematics can be regarded as having some natural universal set. For instance, the unit circle is the set $C = \left\{ (x, y) \in \mathbb{R}^{2} : x^{2} + y^{2} = 1 \right\}$, and since all these points are in the plane $\mathbb{R}^{2}$ it is natural to regard $\mathbb{R}^{2}$ as the universal set for $C$. In the absence of specifics, if $A$ is a set, then its universal set is often denoted as $U$. We are now ready to define the complement operation.** 
+
+**<mark>Definition 1.6: Let $A$ be a set with a universal set $U$. The complement of A, denoted $\overline{A}$, is the set $\overline{A} = U - A$.</mark>** 
+
+Example 1.10: If $P$ is the set of prime numbers, then 
+
+$$
+\overline {{P}} = \mathbb {N} - P = \{1, 4, 6, 8, 9, 1 0, 1 2, \ldots \}
+$$
+
+Thus $\overline { { P } }$ is the set of composite numbers and 1. 
+
+Example 1.11: Let $A = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}$ be the graph of the equation $y = x^{2}$. Figure 1.6(a) shows $A$ in its universal set $\mathbb{R}^{2}$. The complement of $A$ is ${ \overline { { A } } } =$ $\mathbb { R } ^ { 2 } - A = \left\{ ( x , y ) \in \mathbb{R}^{2} : y \neq x^{2} \right\}$, illustrated by the shaded area in Figure 1.6(b). 
+
+<img src="../assets/Pasted image 20260312095945.png" width="750">
+Figure 1.6. A set and its complement
+
+## Exercises for Section 1.6
+
+1. Let $A = \left\{ 4 , 3 , 6 , 7 , 1 , 9 \right\}$ and $B = \{ 5 , 6 , 8 , 4 \}$ have universal set $U = \left\{ 0 , 1 , 2 , \ldots , 1 0 \right\}$ . Find: 
+(a) $\overline{A}$ 
+:::{dropdown} Answer
+$\overline{A} = U - A =\{0,2,5,8,10\}$
+:::
+
+(b) $\overline{B}$ 
+:::{dropdown} Answer
+$\overline{B} = U - B = \{0,1,2,3,7,9,10\}$
+:::
+
+(c) $A \cap \overline{A}$  
+:::{dropdown} Answer
+$A \cap \overline{A} = \varnothing$
+:::
+
+(d) $A \cup \overline{A}$  
+:::{dropdown} Answer
+$A \cup \overline{A} = U$
+:::
+
+(e) $A - \overline{A}$  
+:::{dropdown} Answer
+$A - \overline{A} = A$
+:::
+
+(f) $A - \overline{B}$ 
+:::{dropdown} Answer
+$A - \overline{B} = \{4,6\}$
+:::
+
+(g) $\overline{A} - \overline{B}$ 
+:::{dropdown} Answer
+$\overline{A} - \overline{B} = \{5,8\}$
+:::
+
+(h) $\overline{A} \cap B$  
+:::{dropdown} Answer
+$\overline{A} \cap B = \{5,8\}$
+:::
+
+(i) $\overline{\overline{A} \cap B}$  
+:::{dropdown} Answer
+$\overline{\overline{A} \cap B} = U - \{5,8\} = \{0,1,2,3,4,6,7,9,10\}$
+:::
+
+2. Let $A = \{ 0 , 2 , 4 , 6 , 8 \}$ and $B = \left\{ 1 , 3 , 5 , 7 \right\}$ have universal set $U = \left\{ 0 , 1 , 2 , . . . , 8 \right\}$ . Find: 
+(a) $\overline{A}$ 
+:::{dropdown} Answer
+$\overline{A} = U - A = \{1,3,5,7\}$
+:::
+
+(b) $\overline{B}$ 
+:::{dropdown} Answer
+$\overline{B} = U - B = \{0,2,4,6,8\}$
+:::
+
+(c) $A \cap \overline{A}$  
+:::{dropdown} Answer
+$A \cap \overline{A} = \varnothing$
+:::
+
+(d) $A \cup \overline{A}$  
+:::{dropdown} Answer
+$A \cup \overline{A} = U$
+:::
+
+(e) $A - \overline{A}$  
+:::{dropdown} Answer
+$A - \overline{A} = A$
+:::
+
+(f) $\overline{A \cup B}$ 
+:::{dropdown} Answer
+$\overline{A \cup B} = \overline{U} = U - U = \varnothing$
+:::
+
+(g) $\overline{A} \cap \overline{B}$ 
+:::{dropdown} Answer
+$\overline{A} \cap \overline{B} = \varnothing$
+:::
+
+(h) $\overline{A \cap B}$ 
+:::{dropdown} Answer
+$\overline{A \cap B} = \overline{\varnothing} = U - \varnothing = U$
+:::
+
+(i) $\overline{A} \times B$ 
+:::{dropdown} Answer
+$\overline{A} \times B = \{1,3,5,7\} \times \{1,3,5,7\}$
+$\overline{A} \times B = \{(1,1), (1,3), (1,5), (1,7), (3,1), (3,3), (3,5), (3,7), (5,1), (5,3), (5,5), (5,7), (7,1), (7,3), (7,5), (7,7)\}$
+:::
+
+3. Sketch the set $X = [ 1 , 3 ] \times [ 1 , 2 ]$ on the plane $\mathbb{R}^{2}$. On separate drawings, shade in the sets $\overline{X}$ and $\overline{X} \cap \left( \left[ 0 , 2 \right] \times \left[ 0 , 3 \right] \right)$. 
+:::{dropdown} Answer
+The rectangle $X$ occupies the region where $1 \le x \le 3$ and $1 \le y \le 2$.
+$\overline{X}$ is the complement of this rectangle in the plane $\mathbb{R}^{2}$.
+$\overline{X} \cap ([0,2] \times [0,3])$ is the part of the complement restricted to the larger rectangle $[0,2] \times [0,3]$.
+
+<img src="../assets/863fa9efdc634887abf79efde205c87d.png" width="750">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle, Polygon
+
+def style_axes(ax, title):
+    ax.axhline(0, color="black", linewidth=0.5)
+    ax.axvline(0, color="black", linewidth=0.5)
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-4, 4)
+    ax.set_ylim(-4, 4)
+    ax.set_xticks(np.arange(-4, 5, 1))
+    ax.set_yticks(np.arange(-4, 5, 1))
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.grid(True, linestyle=":")
+    ax.set_title(title, fontsize=11)
+
+fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+axes = axes.ravel()
+# 1) X = [1,3] x [1,2]
+ax = axes[0]
+ax.add_patch(Rectangle((1, 1), 2, 1, color="blue", fill=True, alpha=0.2))
+ax.add_patch(Rectangle((1, 1), 2, 1, color="blue", fill=False, alpha=0.4))
+style_axes(ax, r"$X = [1,3] \times [1,2]$")
+ax.set_axisbelow(True)
+# 2) complement of X
+ax = axes[1]
+ax.add_patch(Rectangle((-5, -5), 10, 10, color="blue", fill=True, alpha=0.2))
+ax.add_patch(Rectangle((1, 1), 2, 1, color="white", fill=True, alpha=1.0))
+style_axes(ax, r"$\overline{X}$")
+# 3) complement(X) intersect ([0,2] x [0,3])
+ax = axes[2]
+xy = [(0,0),(2,0),(2,1),(1,1),(1,2),(2,2),(2,3),(0,3)]
+ax.add_patch(Polygon(xy, closed=True, facecolor="blue", edgecolor="none", alpha=0.2))
+ax.plot([0,2],[0,0],color="blue", alpha=0.4)
+ax.plot([2,2],[0,1],color="blue", alpha=0.4)
+ax.plot([2,2],[2,3],color="blue", alpha=0.4)
+ax.plot([0,2],[3,3],color="blue", alpha=0.4)
+ax.plot([0,0],[0,3],color="blue", alpha=0.4)
+style_axes(ax, r"$\overline{X} \cap ([0,2] \times [0,3])$")
+ax.set_axisbelow(True)
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+4. Sketch the set $X = [ - 1 , 3 ] \times [ 0 , 2 ]$ on the plane $\mathbb{R}^{2}$. On separate drawings, shade in the sets $\overline { { X } }$ and $\overline { { X } } \cap ( [ - 2 , 4 ] \times [ - 1 , 3 ] )$. 
+:::{dropdown} Answer
+The rectangle $X$ covers the region $-1 \le x \le 3$ and $0 \le y \le 2$.
+$\overline{X}$ is the complement of this rectangle in the plane $\mathbb{R}^{2}$.
+$\overline{X} \cap ([-2,4] \times [-1,3])$ is the part of the complement restricted to the larger rectangle $[-2,4] \times [-1,3]$.
+
+<img src="../assets/23fb6b0144fd480fb4e29093f6e261f5.png" width="750">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+
+def style_axes(ax, title):
+    ax.axhline(0, color="black", linewidth=0.5)
+    ax.axvline(0, color="black", linewidth=0.5)
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-5, 5)
+    ax.set_ylim(-5, 5)
+    ax.set_xticks(np.arange(-5, 6, 1))
+    ax.set_yticks(np.arange(-5, 6, 1))
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.grid(True, linestyle=":")
+    ax.set_title(title, fontsize=11)
+
+fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+axes = axes.ravel()
+# 1) X = [-1,3] x [0,2]
+ax = axes[0]
+ax.add_patch(Rectangle((-1, 0), 4, 2, color="blue", fill=True, alpha=0.2))
+ax.add_patch(Rectangle((-1, 0), 4, 2, color="blue", fill=False, alpha=0.4))
+style_axes(ax, r"$X = [-1,3] \times [0,2]$")
+ax.set_axisbelow(True)
+# 2) complement of X
+ax = axes[1]
+ax.add_patch(Rectangle((-5, -5), 10, 10, color="blue", fill=True, alpha=0.2))
+ax.add_patch(Rectangle((-1, 0), 4, 2, color="white", fill=True, alpha=1.0))
+style_axes(ax, r"$\overline{X}$")
+# 3) complement(X) intersect ([-2,4] x [-1,3])
+ax = axes[2]
+ax.add_patch(Rectangle((-2, -1), 6, 4, color="blue", fill=True, alpha=0.2))
+ax.add_patch(Rectangle((-2, -1), 6, 4, color="blue", fill=False, alpha=0.4))
+ax.add_patch(Rectangle((-1, 0), 4, 2, color="white", fill=True, alpha=1.0))
+style_axes(ax, r"$\overline{X} \cap ([-2,4] \times [-1,3])$")
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+5. Sketch the set $X = \left\{ ( x , y ) \in \mathbb{R}^{2} : 1 \leq x^{2} + y^{2} \leq 4 \right\}$ on the plane $\mathbb{R}^{2}$ . On a separate drawing, shade in the set $\overline{X}$. 
+:::{dropdown} Answer
+The set $X$ is an annulus centered at the origin, bounded by circles of radius 1 and 2.
+The complement $\overline{X}$ consists of points inside the smaller circle $(x^2 + y^2 < 1)$ and outside the larger circle $(x^2 + y^2 > 4)$.
+Equation of a circle with midpoint $(m,n)$ and radius $r$ : $(x-m)^2 + (y-n)^2 = r^2$
+
+<img src="../assets/b89627aa82f34b4d84b4b61eb2af2228.png" width="750">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Rectangle
+
+def style_axes(ax, title):
+    ax.axhline(0, color="black", linewidth=0.5)
+    ax.axvline(0, color="black", linewidth=0.5)
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-3, 3)
+    ax.set_ylim(-3, 3)
+    ax.set_xticks(np.arange(-3, 4, 1))
+    ax.set_yticks(np.arange(-3, 4, 1))
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.grid(True, linestyle=":")
+    ax.set_title(title, fontsize=11)
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+axes = axes.ravel()
+# 1) X = 1 <= x^2 + y^2 <= 4
+ax = axes[0]
+ax.add_patch(Circle((0, 0), 2, color="blue", fill=True, alpha=0.2))
+ax.add_patch(Circle((0, 0), 2, color="blue", fill=False, alpha=0.4))
+ax.add_patch(Circle((0, 0), 1, color="white", fill=True, alpha=1.0))
+ax.add_patch(Circle((0, 0), 1, color="blue", fill=False, alpha=0.6))
+style_axes(ax, r"$X = \{(x,y) \in \mathbb{R}^{2} : 1 \leq x^2 + y^2 \leq 4\}$")
+# 2) complement of X
+ax = axes[1]
+ax.add_patch(Rectangle((-4, -4), 8, 8, color="blue", fill=True, alpha=0.2))
+ax.add_patch(Circle((0, 0), 2, color="white", fill=True, alpha=1.0))
+ax.add_patch(Circle((0, 0), 1, facecolor="blue", edgecolor="none", fill=True, alpha=0.2))
+style_axes(ax, r"$\overline{X}$")
+# ax.set_axisbelow(True)
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+6. Sketch the set $X = \left\{ ( x , y ) \in \mathbb{R}^{2} : y < x^{2} \right\}$ on $\mathbb{R}^{2}$. Shade in the set $\overline{X}$. 
+:::{dropdown} Answer
+The set $X$ is the region below the parabola $y = x^2$.
+The complement $\overline{X}$ is the region on and above the parabola $f(x) = x^2$.
+
+<img src="../assets/ea95428730c9406eb4b2a8f77820337b.png" width="750">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+
+def style_axes(ax, title):
+    ax.axhline(0, color="black", linewidth=0.5)
+    ax.axvline(0, color="black", linewidth=0.5)
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-3, 3)
+    ax.set_ylim(-3, 3)
+    ax.set_xticks(np.arange(-3, 4, 1))
+    ax.set_yticks(np.arange(-3, 4, 1))
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.grid(True, linestyle=":")
+    ax.set_title(title, fontsize=11)
+    ax.set_axisbelow(True)
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+axes = axes.ravel()
+x = np.linspace(-3, 3, 500)
+y = x**2
+# 1) X = y < x^2
+ax = axes[0]
+# shade region below parabola
+ax.fill_between(x, -4, y, color="blue", alpha=0.2)
+# draw parabola as dashed
+ax.plot(x, y, color="blue", linestyle="--")
+style_axes(ax, r"$X = \{(x,y) \in \mathbb{R}^{2} : y < x^2\}$")
+# 2) complement of X
+ax = axes[1]
+ax.fill_between(x, 4, y, color="blue", alpha=0.2)
+# boundary included
+ax.plot(x, y, color="blue", linewidth=1.0)
+style_axes(ax, r"$\overline{X} = \{(x,y) \in \mathbb{R}^{2} : y \geq x^2\}$")
+# ax.set_axisbelow(True)
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+

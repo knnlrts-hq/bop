@@ -1,0 +1,257 @@
+# 2.2 And, Or, Not
+
+**The word “and” can be used to combine two statements to form a new statement.** Consider for example the following sentence.
+- $R_{1}$ : The number 2 is even and the number 3 is odd.
+
+We recognize this as a true statement, based on our ingrained understanding of the meaning of the word “and.” Notice that $R_{1}$ is made up of two simpler statements:
+- $P$ : The number 2 is even.
+- $Q$ : The number 3 is odd.
+
+These are joined together by the word “and” to form the more complex statement $R_{1}$. The statement $R_{1}$ asserts that $P$ and $Q$ are both true. Since both $P$ and $Q$ are in fact true, the statement $R_{1}$ is also true. Had one or both of $P$ and $Q$ been false, then $R_{1}$ would be false. For instance, each of the following statements is false.
+- $R_{2}$ : The number 1 is even and the number 3 is odd.
+- $R_{3}$ : The number 2 is even and the number 4 is odd.
+- $R_{4}$ : The number 3 is even and the number 2 is odd.
+
+From these examples we see that **any two statements $P$ and $Q$ can be combined to form a new statement "$P$ and $Q$." In the spirit of using letters to denote statements, we now introduce the special symbol $\wedge$ to stand for the word “and.” Thus if $P$ and $Q$ are statements, $P \land Q$ stands for the statement "$P$ and $Q$." The statement $P \land Q$ is true if both $P$ and $Q$ are true; otherwise it is false.** This is summarized in the following table, called a truth table.
+
+
+<table style="margin-left: auto; margin-right: auto;">
+	<colgroup>
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="text-align:center;">P</th>
+			<th style="text-align:center;">Q</th>
+			<th style="text-align:center;">P &wedge; Q</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+	</tbody>
+</table>
+
+**In this table, $T$ stands for “True,” and $F$ stands for “False.” ($T$ and $F$ are called truth values. ) Each line lists one of the four possible combinations or truth values for $P$ and $Q$, and the column headed by $P \land Q$ tells whether the statement $P \land Q$ is true or false in each case.**
+
+Statements can also be combined using the word “or.” Consider the following four statements.
+- $S_{1}$ : The number 2 is even or the number 3 is odd.
+- $S_{2}$ : The number 1 is even or the number 3 is odd.
+- $S_{3}$ : The number 2 is even or the number 4 is odd.
+- $S_{4}$ : The number 3 is even or the number 2 is odd.
+
+**In mathematics, the assertion "$P$ or $Q$" is always understood to mean that one or both of $P$ and $Q$ is true.** Thus statements $S_{1}$, $S_{2}$, $S_{3}$ are all true, while $S_{4}$ is false. The symbol $\vee$ is used to stand for the word “or.” So if $P$ and $Q$ are statements, $P \lor Q$ represents the statement "$P$ or $Q$." Here is the truth table.
+
+
+<table style="margin-left: auto; margin-right: auto;">
+	<colgroup>
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="text-align:center;">P</th>
+			<th style="text-align:center;">Q</th>
+			<th style="text-align:center;">P &vee; Q</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+	</tbody>
+</table>
+
+**It is important to be aware that the meaning of “or” expressed in the above table differs from the way it is often used in everyday conversation. For example, suppose a university official makes the following threat:**
+- **You pay your tuition or you will be withdrawn from school.**
+
+**You understand that this means that either you pay your tuition or you will be withdrawn from school, but not both (this is an exclusive or XOR, symbol: $\oplus$). In mathematics we never use the word “or” in such a sense. For us “or” means exactly what is stated in the table for $\lor$. Thus $P \lor Q$ being true means one or both of $P$ and $Q$ is true. If we ever need to express the fact that exactly one of $P$ and $Q$ is true, we use one of the following constructions:**
+- **$P$ or $Q$, but not both.**
+- **Either $P$ or $Q$**
+- **Exactly one of $P$ or $Q$**
+
+If the university official were a mathematician, he might have qualified his statement in one of the following ways.
+- Pay your tuition or you will be withdrawn from school, but not both.
+- Either you pay your tuition or you will be withdrawn from school.
+
+To conclude this section, we mention another way of obtaining new statements from old ones. **Given any statement $P$, we can form the new statement “It is not true that $P$.” For example, consider the following statement.**
+- **The number 2 is even.**
+
+**This statement is true. Now change it by inserting the words “It is not true that” at the beginning:**
+- **It is not true that the number 2 is even.**
+
+**This new statement is false. For another example, starting with the false statement " $2 \in \varnothing$,” we get the true statement “It is not true that $2 \in \varnothing$.”**
+
+**We use the symbol $\sim$ to stand for the words “It’s not true that,” so $\sim P$  means “It’s not true that $P$.” We can read $\sim P$ simply as “not $P$.” Unlike $\wedge$ and $\lor$, which combine two statements, the symbol $\sim$ just alters a single statement.** Thus its truth table has just two lines, one for each possible value of $P$.
+
+
+<table style="margin-left: auto; margin-right: auto;">
+	<colgroup>
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="text-align:center;">P</th>
+			<th style="text-align:center;">~P</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+	</tbody>
+</table>
+
+**The statement $\sim P$ is called the negation of $P$.** The negation of a specific statement can be expressed in numerous ways. Consider
+- $P$ : The number 2 is even.
+
+Here are several ways of expressing its negation.
+- $\sim P$ : It’s not true that the number 2 is even.
+- $\sim P$ : It is false that the number 2 is even.
+- $\sim P$ : The number 2 is not even.
+
+In this section we’ve learned how to combine or modify statements with the operations $\land$, $\lor$ and $\sim$. **Of course we can also apply these operations to open sentences or a mixture of open sentences and statements. For example, ($x$ is an even integer) $\wedge$ (3 is an odd integer) is an open sentence that is a combination of an open sentence and a statement.**
+
+## Exercises for Section 2.2
+
+Express each statement or open sentence in one of the forms $P \land Q$, $P \lor Q$, or $\sim P$. Be sure to also state exactly what statements $P$ and $Q$ stand for.
+1. The number 8 is both even and a power of 2.
+:::{dropdown} Answer
+$P \land Q$
+$P$ : The number 8 is even.
+$Q$ : The number 8 is a power of 2.
+Note: Do not say "$Q$ : a power of 2," because that is not a statement.
+:::
+
+2. The matrix $A$ is not invertible.
+:::{dropdown} Answer
+$\sim P$
+$P$ : The matrix $A$ is invertible.
+:::
+
+3. $x \neq y$ 
+:::{dropdown} Answer
+$\sim P$
+$P$ : $x = y$.
+:::
+
+4. $x < y$ 
+:::{dropdown} Answer
+$\sim P$
+$P$ : $x \geq y$.
+:::
+
+5. $y \geq x$ 
+:::{dropdown} Answer
+$\sim P$ 
+$P$ : $y < x$.
+:::
+
+6. There is a quiz scheduled for Wednesday or Friday.
+:::{dropdown} Answer
+$P \lor Q$
+$P$ : There is a quiz scheduled for Wednesday.
+$Q$ : There is a quiz scheduled for Friday.
+:::
+
+7. The number $x$ equals zero, but the number $y$ does not.
+:::{dropdown} Answer
+$P \land \sim Q$
+$P$ : The number $x$ equals zero.
+$Q$ : The number $y$ equals zero.
+:::
+
+8. At least one of the numbers $x$ and $y$ equals 0.
+:::{dropdown} Answer
+$P \lor Q$
+$P$ : The number $x$ equals 0.
+$Q$ : The number $y$ equals 0. 
+:::
+
+9. $x \in A - B$ 
+:::{dropdown} Answer
+$P \land \sim Q$
+$P$ : $x \in A$.
+$Q$ : $x \in B$.
+:::
+
+10. $x \in A \cup B$ 
+:::{dropdown} Answer
+$P \lor Q$
+$P$ : $x \in A$.
+$Q$ : $x \in B$.
+:::
+
+11. $A \in \left\{ X \in \mathscr{P}(\mathbb{N}) : | \overline{X} | < \infty \right\}$ 
+:::{dropdown} Answer
+$P \land Q$
+$P$ : $A \subseteq \mathbb{N}$. 
+$Q$ : $|\overline{A}| < \infty$.
+:::
+
+12. Happy families are all alike, but each unhappy family is unhappy in its own way. (Leo Tolstoy, Anna Karenina)
+:::{dropdown} Answer
+$P \land Q$
+$P$ : Happy families are all alike.
+$Q$ : Each unhappy family is unhappy in its own way. 
+:::
+
+13. Human beings want to be good, but not too good, and not all the time. (George Orwell)
+:::{dropdown} Answer
+$P \land \sim Q \land \sim R$
+$P$ : Humans beings want to be good.
+$Q$ : Humans beings want to be too good.
+$R$ : Human beings want to be good all the time. 
+:::
+
+14. A man should look for what is, and not for what he thinks should be. (Albert Einstein)
+:::{dropdown} Answer
+$P \land \sim Q$
+$P$ : A man should look for what is.
+$Q$ : A man should look for what he thinks should be.
+:::
+

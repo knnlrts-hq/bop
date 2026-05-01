@@ -1,0 +1,583 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="2.2 And, Or, Not" href="02-2-and-or-not.html"><link rel="prev" title="1.10 Russell’s Paradox" href="01-10-russells-paradox.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
+        <title>2.1 Statements - Book of Proof — Annotated documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Sections</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-1-introduction-to-sets.html">1.1 Introduction to Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-2-the-cartesian-product.html">1.2 The Cartesian Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-3-subsets.html">1.3 Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-4-power-sets.html">1.4 Power Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-5-union-intersection-difference.html">1.5 Union, Intersection, Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-6-complement.html">1.6 Complement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-7-venn-diagrams.html">1.7 Venn Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-8-indexed-sets.html">1.8 Indexed Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-9-sets-that-are-number-systems.html">1.9 Sets That Are Number Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-10-russells-paradox.html">1.10 Russell’s Paradox</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">2.1 Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-2-and-or-not.html">2.2 And, Or, Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-3-conditional-statements.html">2.3 Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-4-biconditional-statements.html">2.4 Biconditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-5-truth-tables-for-statements.html">2.5 Truth Tables for Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-6-logical-equivalence.html">2.6 Logical Equivalence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-7-quantifiers.html">2.7 Quantifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-8-more-on-conditional-statements.html">2.8 More on Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-9-translating-english-to-symbolic-logic.html">2.9 Translating English to Symbolic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-10-negating-statements.html">2.10 Negating Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-11-logical-inference.html">2.11 Logical Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-12-an-important-note.html">2.12 An Important Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-1-lists.html">3.1 Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-2-the-multiplication-principle.html">3.2 The Multiplication Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-3-the-addition-and-subtraction-principles.html">3.3 The Addition and Subtraction Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-4-factorials-and-permutations.html">3.4 Factorials and Permutations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-5-counting-subsets.html">3.5 Counting Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-6-pascals-triangle-and-the-binomial-theorem.html">3.6 Pascal’s Triangle and the Binomial Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-7-the-inclusion-exclusion-principle.html">3.7 The Inclusion-Exclusion Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-8-counting-multisets.html">3.8 Counting Multisets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-9-the-division-and-pigeonhole-principles.html">3.9 The Division and Pigeonhole Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-10-combinatorial-proof.html">3.10 Combinatorial Proof</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/chapters/02-1-statements.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <p><strong>Logic is a systematic way of thinking that allows us to parse the meanings of sentences and to deduce new information from old information. You use logic informally in everyday life and certainly also in doing mathematics. For example, say you are working with a certain circle (call it “Circle X”), and suppose you have available the following two pieces of information.</strong></p>
+<ul class="simple">
+<li><p><strong>1. Circle X has a radius of 3 units.</strong></p></li>
+<li><p><strong>2. If any circle has radius <span class="math notranslate nohighlight">\(r\)</span>, then its area is <span class="math notranslate nohighlight">\(\pi r ^ { 2 }\)</span> square units.</strong>
+<strong>You have no trouble putting these two facts together to get:</strong></p></li>
+<li><p><strong>3. Circle X has area <span class="math notranslate nohighlight">\(9 \pi\)</span> square units.</strong></p></li>
+</ul>
+<p><strong>In doing this you are using logic to combine existing information to produce new information. Because deducing new information is central to mathematics, logic plays a fundamental role.</strong> This chapter is intended to give you a sufficient mastery of it.</p>
+<p><strong><mark>It is important to realize that logic is a process of deducing information correctly, not just deducing correct information.</mark> For example, suppose we were mistaken and Circle X actually had a radius of 4, not 3. Let’s look at our exact same argument again.</strong></p>
+<ul class="simple">
+<li><p><strong>1. Circle X has a radius of 3 units.</strong></p></li>
+<li><p><strong>2. If any circle has radius <span class="math notranslate nohighlight">\(r\)</span>, then its area is <span class="math notranslate nohighlight">\(\pi r ^ { 2 }\)</span> square units.</strong></p></li>
+<li><p><strong>3. Circle X has area <span class="math notranslate nohighlight">\(9 \pi\)</span> square units.</strong></p></li>
+</ul>
+<p><strong>The sentence “Circle X has a radius of 3 units.” is now untrue, and so is our conclusion “Circle X has area <span class="math notranslate nohighlight">\(9\pi\)</span> square units.” But the logic is perfectly correct; the information was combined correctly, even if some of it was false. <mark>This distinction between correct logic and correct information is significant because it is often important to follow the consequences of an incorrect assumption.</mark></strong> Ideally, we want both our logic and our information to be correct, but the point is that they are different things.</p>
+<p><strong>In proving theorems, we apply logic to information that is considered obviously true (such as “Any two points determine exactly one line.”) or is already known to be true (e.g., the Pythagorean theorem). If our logic is correct, then anything we deduce from such information will also be true (or at least as true as the “obviously true” information we began with).</strong></p>
+<section class="tex2jax_ignore mathjax_ignore" id="statements">
+<h1>2.1 Statements<a class="headerlink" href="#statements" title="Link to this heading">¶</a></h1>
+<p><strong>The study of logic begins with statements. A statement is a sentence or a mathematical expression that is either definitely true or definitely false. You can think of statements as pieces of information that are either correct or incorrect.</strong> Thus statements are pieces of information that we might apply logic to in order to produce other pieces of information (which are also statements).</p>
+<p>Example 2.1: Here are some examples of statements. They are all true.</p>
+<ul class="simple">
+<li><p>If a circle has radius <span class="math notranslate nohighlight">\(r\)</span>, then its area is <span class="math notranslate nohighlight">\(\pi r ^ { 2 }\)</span> square units.</p></li>
+<li><p>Every even number is divisible by 2.</p></li>
+<li><p><span class="math notranslate nohighlight">\(2 \in \mathbb {Z}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sqrt {2} \notin \mathbb {Z}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb {N} \subseteq \mathbb {Z}\)</span></p></li>
+<li><p>The set <span class="math notranslate nohighlight">\(\{0,1,2\}\)</span> has three elements.</p></li>
+<li><p>Some right triangles are isosceles (a triangle that has at least 2 sides of equal length and 2 angles of equal measure).</p></li>
+</ul>
+<p>Example 2.2: Here are some additional statements. They are all false.</p>
+<ul class="simple">
+<li><p>All right triangles are isosceles.</p></li>
+<li><p><span class="math notranslate nohighlight">\(5 = 2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sqrt {2} \notin \mathbb {R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb {Z} \subseteq \mathbb {N}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{0, 1, 2 \} \cap \mathbb {N} = \varnothing\)</span></p></li>
+</ul>
+<p>Example 2.3: Here non-statements are paired with similar statements.</p>
+<table style="margin-left: auto; margin-right: auto;">
+	<thead>
+		<tr>
+			<th style="text-align:center;">NOT a statement:</th>
+			<th style="text-align:center;">Statement:</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Add 5 to both sides.</td>
+			<td>Adding 5 to both sides of x - 5 = 37 gives x = 42.</td>
+		</tr>
+		<tr>
+			<td>ℤ</td>
+			<td>42 ∈ ℤ</td>
+		</tr>
+		<tr>
+			<td>42</td>
+			<td>42 is not a number.</td>
+		</tr>
+		<tr>
+			<td>What is the solution of 2x = 84?</td>
+			<td>The solution of 2x = 84 is 42.</td>
+		</tr>
+	</tbody>
+</table>
+<p>Example 2.4: <strong>We will often use the letters <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(Q\)</span>, <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(S\)</span> to stand for specific statements. When more letters are needed we can use subscripts.</strong> Here are more statements, designated with letters. You decide which of them are true and which are false.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P\)</span> : For every integer <span class="math notranslate nohighlight">\(n &gt; 1\)</span>, the number <span class="math notranslate nohighlight">\(2 ^ { n } - 1\)</span> is prime. False. Counterexample: <span class="math notranslate nohighlight">\(2^{4} - 1 = 16-1 = 15\)</span>. 15 is not prime, since <span class="math notranslate nohighlight">\(3 \times 5 = 15\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q\)</span> : Every polynomial of degree <span class="math notranslate nohighlight">\(n\)</span> has at most <span class="math notranslate nohighlight">\(n\)</span> roots. True. Fundamental theorem of algebra: a non-zero polynomial of degree <span class="math notranslate nohighlight">\(n\)</span> over any field (such as <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> or <span class="math notranslate nohighlight">\(\mathbb{C}\)</span>) has at most/maximum <span class="math notranslate nohighlight">\(n\)</span> distinct real or complex roots. Example: <span class="math notranslate nohighlight">\(x^{3} -1\)</span> has degree <span class="math notranslate nohighlight">\(n=3\)</span>, so it can have no more than 3 roots.</p></li>
+<li><p><span class="math notranslate nohighlight">\(R\)</span> : The function <span class="math notranslate nohighlight">\(f(x) = x^{2}\)</span> is continuous. True. A polynomial function is continuous everywhere on <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>. <span class="math notranslate nohighlight">\(\forall \ a \in \mathbb{R} : \lim_{x \rightarrow a} x^{2} = a^{2} = f(a)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_{1}: \mathbb {Z} \subseteq \varnothing\)</span>. False. The empty set <span class="math notranslate nohighlight">\(\varnothing\)</span> has no elements whatsoever. Only <span class="math notranslate nohighlight">\(\varnothing\)</span> itself is a subset of <span class="math notranslate nohighlight">\(\varnothing\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_{2} : \{0, - 1, - 2 \} \cap \mathbb {N} = \varnothing\)</span>. True. The most common convention in mathematics defines <span class="math notranslate nohighlight">\(\mathbb{N} = \{1,2,3,\ldots\}\)</span>, i.e. positive integers only. Therefore the intersection is empty.</p></li>
+</ul>
+<p>Designating statements with letters (as was done above) is a very useful shorthand. In discussing a particular statement, such as “The function <span class="math notranslate nohighlight">\(f ( x ) = x ^ { 2 }\)</span> is continuous,” it is convenient to just refer to it as <span class="math notranslate nohighlight">\(R\)</span> to avoid having to write or say it many times.</p>
+<p>Statements can contain variables. Here is an example.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P\)</span> : If an integer <span class="math notranslate nohighlight">\(x\)</span> is a multiple of 6, then <span class="math notranslate nohighlight">\(x\)</span> is even.</p></li>
+</ul>
+<p>This is a sentence that is true. (All multiples of 6 are even, so no matter which multiple of 6 the integer <span class="math notranslate nohighlight">\(x\)</span> happens to be, it is even.) Since the sentence <span class="math notranslate nohighlight">\(P\)</span> is definitely true, it is a statement. <strong>When a sentence or statement <span class="math notranslate nohighlight">\(P\)</span> contains a variable such as <span class="math notranslate nohighlight">\(x\)</span>, we sometimes denote it as <span class="math notranslate nohighlight">\(P(x)\)</span> to indicate that it is saying something about <span class="math notranslate nohighlight">\(x\)</span>.</strong> Thus the above statement can be denoted as</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(x)\)</span> : If an integer <span class="math notranslate nohighlight">\(x\)</span> is a multiple of 6, then <span class="math notranslate nohighlight">\(x\)</span> is even.</p></li>
+</ul>
+<p>A statement or sentence involving two variables might be denoted <span class="math notranslate nohighlight">\(P(x, y)\)</span> and so on.</p>
+<p><strong>It is quite possible for a sentence containing variables to not be a statement. Consider the following example.</strong></p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(Q(x)\)</span> : The integer <span class="math notranslate nohighlight">\(x\)</span> is even.</strong></p></li>
+</ul>
+<p><strong>Is this a statement? Whether it is true or false depends on just which integer <span class="math notranslate nohighlight">\(x\)</span> is. It is true if <span class="math notranslate nohighlight">\(x = 4\)</span> and false if <span class="math notranslate nohighlight">\(x = 7\)</span>, etc. But without any stipulations on the value of <span class="math notranslate nohighlight">\(x\)</span> it is impossible to say whether <span class="math notranslate nohighlight">\(Q(x)\)</span> is true or false. Since it is neither definitely true nor definitely false, <span class="math notranslate nohighlight">\(Q(x)\)</span> cannot be a statement. A sentence such as this, whose truth depends on the value of one or more variables, is called an open sentence. The variables in an open sentence (or statement) can represent any type of entity, not just numbers. Here is an open sentence where the variables are functions:</strong></p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(R(f, g)\)</span> : The function <span class="math notranslate nohighlight">\(f\)</span> is the derivative of the function <span class="math notranslate nohighlight">\(g\)</span>.</strong></p></li>
+</ul>
+<p><strong>This open sentence is true if <span class="math notranslate nohighlight">\(f(x) = 2x\)</span> and <span class="math notranslate nohighlight">\(g(x) = x^{2}\)</span>. It is false if <span class="math notranslate nohighlight">\(f(x) = x^{3}\)</span> and<span class="math notranslate nohighlight">\(g(x) = x^{2}\)</span>, etc.</strong> A sentence such as <span class="math notranslate nohighlight">\(R(f, g)\)</span> (that involves variables) can be denoted either as <span class="math notranslate nohighlight">\(R(f, g)\)</span> or just <span class="math notranslate nohighlight">\(R\)</span>. We use the expression <span class="math notranslate nohighlight">\(R(f, g)\)</span> when we want to emphasize that the sentence involves variables.</p>
+<p>We will have more to say about open sentences later, but for now let’s return to statements.</p>
+<p><strong>Statements are everywhere in mathematics. Any result or theorem that has been proved true is a statement. The quadratic formula and the Pythagorean theorem are both statements:</strong></p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(P\)</span> : The solutions of the equation <span class="math notranslate nohighlight">\(ax^{2} + bx + c = 0\)</span> are <span class="math notranslate nohighlight">\(\displaystyle x = \frac{-b \pm \sqrt{b^{2} - 4ac}}{2a}\)</span>.</strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(Q\)</span> : If a right triangle has legs of lengths <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> and hypotenuse of length <span class="math notranslate nohighlight">\(c\)</span>, then <span class="math notranslate nohighlight">\(a^{2} + b^{2} = c^{2}\)</span>.</strong></p></li>
+</ul>
+<p><strong>Here is a very famous statement, so famous, in fact, that it has a name. It is called Fermat’s last theorem after Pierre Fermat, a seventeenth- century French mathematician who scribbled it in the margin of a book.</strong></p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(R\)</span> : For all numbers <span class="math notranslate nohighlight">\(a, b, c, n \in \mathbb{N}\)</span> with <span class="math notranslate nohighlight">\(n &gt; 2\)</span>, it is the case that <span class="math notranslate nohighlight">\(a^{n} + b^{n} \neq c^{n}\)</span>.</strong></p></li>
+</ul>
+<p>Fermat believed this statement to be true. He noted that he could prove it was true, except the book’s margin was too narrow to contain his proof. It is doubtful that he really had a correct proof in mind, for after his death many generations of brilliant mathematicians tried unsuccessfully to prove that his statement was true (or false). Finally, in 1993, Andrew Wiles of Princeton University announced that he had devised a proof. Wiles had worked on the problem for over seven years, and his proof runs through hundreds of pages. <strong>The moral of this story is that some true statements are not obviously true.</strong></p>
+<p><strong>Here is another statement famous enough to be named. It was first posed in the eighteenth century by the German mathematician Christian Goldbach, and thus is called the Goldbach conjecture:</strong></p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(S\)</span> : Every even integer greater than 2 is a sum of two prime numbers.</strong></p></li>
+</ul>
+<p><strong>You must agree that <span class="math notranslate nohighlight">\(S\)</span> is either true or false. It appears to be true, because when you examine even numbers that are bigger than 2, they seem to be sums of two primes: <span class="math notranslate nohighlight">\(4 = 2 + 2\)</span>, <span class="math notranslate nohighlight">\(6 = 3 + 3\)</span>, <span class="math notranslate nohighlight">\(8 = 3 + 5\)</span>, <span class="math notranslate nohighlight">\(10 = 5 + 5\)</span>, <span class="math notranslate nohighlight">\(12 = 5 + 7\)</span>, <span class="math notranslate nohighlight">\(100 = 17 + 83\)</span> and so on. But that’s not to say there isn’t some large even number that’s not the sum of two primes. If such a number exists, then <span class="math notranslate nohighlight">\(S\)</span> is false. The thing is, in the over 260 years since Goldbach first posed this problem, no one has been able to determine whether it’s true or false. But since it is clearly either true or false <span class="math notranslate nohighlight">\(S\)</span> is a statement.</strong></p>
+<p>This book is about the methods that can be used to prove that <span class="math notranslate nohighlight">\(S\)</span> (or any other statement) is true or false. <strong>To prove that <span class="math notranslate nohighlight">\(S\)</span> is true, start with obvious statements (or other statements that have been proven true) and use logic to deduce more and more complex statements until finally we obtain the statement <span class="math notranslate nohighlight">\(S\)</span> Of course some statements are more difficult to prove than others, and <span class="math notranslate nohighlight">\(S\)</span> appears to be notoriously difficult</strong>; we will concentrate on statements that are easier to prove.</p>
+<p><strong>But the point is this: In proving that statements are true, we use logic to help us understand statements and to combine pieces of information to produce new pieces of information.</strong> In the next several sections we explore some standard ways that statements can be combined to form new statements, or broken down into simpler statements.</p>
+<section id="exercises-for-section-2-1">
+<h2>Exercises for Section 2.1<a class="headerlink" href="#exercises-for-section-2-1" title="Link to this heading">¶</a></h2>
+<p>Decide whether or not the following are statements. In the case of a statement, say if it is true or false, if possible.</p>
+<ol class="arabic simple">
+<li><p>Every real number is an even integer.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This statement is false. <span class="math notranslate nohighlight">\(\mathbb{R} \not \subseteq \{z \in \mathbb{Z} : 2z\}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="2">
+<li><p>Every even integer is a real number.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This statement is true. <span class="math notranslate nohighlight">\(\{z \in \mathbb{Z} : 2z\} \subseteq \mathbb{R}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="3">
+<li><p>If <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are real numbers and <span class="math notranslate nohighlight">\(5x = 5y\)</span>, then <span class="math notranslate nohighlight">\(x = y\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This statement is true.</p>
+</div>
+</details><ol class="arabic simple" start="4">
+<li><p>Sets <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span> and <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This is not a statement. This is just a sentence, not something that can be either true or false.</p>
+</div>
+</details><ol class="arabic simple" start="5">
+<li><p>Sets <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span> and <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> are infinite.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This statement is true. For every largest number <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> you can think of, there is always a larger number <span class="math notranslate nohighlight">\(n+1\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="6">
+<li><p>Some sets are finite.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This staement is true. For example <span class="math notranslate nohighlight">\(S = \{1,2,3\}\)</span> is a finite set.</p>
+</div>
+</details><ol class="arabic simple" start="7">
+<li><p>The derivative of any polynomial of degree 5 is a polynomial of degree 6.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This statement is false. The derivative of any polynomial of degree 5 is a polynomial of degree 4: <span class="math notranslate nohighlight">\(f(x) = a_{0}x^5 + a_{1}x^4 + a_{2}x^3 + a_{3}x^2 + a_{4}x + a_{5} \rightarrow f'(x) = 5a_{0}x^4 + 4a_{1}x^3 + 3a_{2}x^2 + 2a_{3}x + a_{4}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="8">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{N} \notin \mathscr{P}(\mathbb{N})\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This statement is false. <span class="math notranslate nohighlight">\(\mathbb{N} \in \mathscr{P}(\mathbb{N})\)</span> because <span class="math notranslate nohighlight">\(\mathscr{P}(\mathbb{N})\)</span> is the power set of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>, whose elements are all subsets of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>, and <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> is a subset of itself.</p>
+</div>
+</details><ol class="arabic simple" start="9">
+<li><p><span class="math notranslate nohighlight">\(\cos(x) = - 1\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This is not a statement. A sentence such as this, whose truth depends on the value of one or more variables, is called an open sentence. Whether this statment is true or false depends on just which value <span class="math notranslate nohighlight">\(x\)</span> has. Since it is neither definitely true nor definitely false, the sentence <span class="math notranslate nohighlight">\(\cos(x)=-1\)</span> cannot be a statement.</p>
+</div>
+</details><ol class="arabic simple" start="10">
+<li><p><span class="math notranslate nohighlight">\((\mathbb{R} \times \mathbb{N}) \cap (\mathbb{N} \times \mathbb{R}) = \mathbb{N} \times \mathbb{N}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This statement is true. A pair <span class="math notranslate nohighlight">\((a,b)\)</span> is in both sets exactly when:
+<span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span> and <span class="math notranslate nohighlight">\(b \in \mathbb{N}\)</span>,
+<span class="math notranslate nohighlight">\(a \in \mathbb{N}\)</span> and <span class="math notranslate nohighlight">\(b \in \mathbb{R}\)</span>.
+So both coordinates must be natural numbers, which gives <span class="math notranslate nohighlight">\(\mathbb{N} \times \mathbb{N}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="11">
+<li><p>The integer <span class="math notranslate nohighlight">\(x\)</span> is a multiple of 7.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This is not a statement. A sentence such as this, whose truth depends on the value of one or more variables, is called an open sentence. Whether this statment is true or false depends on just which value <span class="math notranslate nohighlight">\(x\)</span> has. Since it is neither definitely true nor definitely false, this cannot be a statement.</p>
+</div>
+</details><ol class="arabic simple" start="12">
+<li><p>If the integer <span class="math notranslate nohighlight">\(x\)</span> is a multiple of 7, then it is divisible by 7.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This statement is true. Since being a multiple of 7 means exactly that it is divisible by 7.</p>
+</div>
+</details><ol class="arabic simple" start="13">
+<li><p>Either <span class="math notranslate nohighlight">\(x\)</span> is a multiple of 7, or it is not.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This statement is true. This is a statement, because the sentence is true no matter what <span class="math notranslate nohighlight">\(x\)</span> is.</p>
+</div>
+</details><ol class="arabic simple" start="14">
+<li><p>Call me Ishmael.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This is not a statement. This is a sentence, not something that has a truth value.</p>
+</div>
+</details><ol class="arabic simple" start="15">
+<li><p>In the beginning, God created the heaven and the earth.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This is a statement, because it is either definitely true or definitely false. There is some controversy over whether it’s true or false, but no one claims that it is neither true nor false. No one has been able to determine whether it’s true or false.</p>
+</div>
+</details></section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="02-2-and-or-not.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">2.2 And, Or, Not</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="01-10-russells-paradox.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">1.10 Russell’s Paradox</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">2.1 Statements</a><ul>
+<li><a class="reference internal" href="#exercises-for-section-2-1">Exercises for Section 2.1</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

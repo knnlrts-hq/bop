@@ -1,0 +1,202 @@
+# 2.10 Negating Statements
+
+**Given a statement $R$, the statement $\sim R$ is called the negation of $R$. If $R$ is a complex statement, then it is often the case that its negation $\sim R$ can be written in a simpler or more useful form. The process of finding this form is called negating $R$. In proving theorems it is often necessary to negate certain statements.** We now investigate how to do this.
+
+We have already examined part of this topic. DeMorgan’s laws
+
+$$
+\sim (P \wedge Q) = (\sim P) \vee (\sim Q) \tag {2.6}
+$$
+
+$$
+\sim (P \vee Q) = (\sim P) \wedge (\sim Q) \tag {2.7}
+$$
+
+(from Section 2.6) can be viewed as rules that tell us how to negate the statements $P \land Q$ and $P \lor Q$. Here are some examples that illustrate how DeMorgan’s laws are used to negate statements involving “and” or “or.”
+
+Example 2.10: Consider negating the following statement.
+- $R$ : You can solve it by factoring or with the quadratic formula.
+
+Now, $R$ means "(You can solve it by factoring) $\lor$ (You can solve it with the quadratic formula)", which we will denote as $P \lor Q$. The negation of this is $\sim (P \vee Q) = (\sim P) \wedge (\sim Q)$. Therefore, in words, the negation of $R$ is
+- $\sim R$ : You can’t solve it by factoring *and* you can’t solve it with the quadratic formula.
+
+Maybe you can find $\sim R$ without invoking DeMorgan’s laws. That is good; you have internalized DeMorgan’s laws and are using them unconsciously.
+
+Example 2.11: We will negate the following sentence.
+- $R$ : The numbers $x$ and $y$ are both odd.
+
+This statement means "($x$ is odd) $\wedge$ ($y$ is odd)", so its negation is $\sim$ (($x$ is odd) $\wedge$ ($y$ is odd)) = $\sim$ ($x$ is odd) $\vee$ $\sim$ ($y$ is odd) = ($x$ is even) $\vee$ ($y$ is even). Therefore the negation of $R$ can be expressed in the following ways:
+- $\sim R$ : The number $x$ is even or the number $y$ is even.
+- $\sim R$ : At least one of $x$ and $y$ is even. If either $x$ or $y$ is even, then the statement $R$ is false.
+
+Now let’s move on to a slightly different kind of problem. **It’s often necessary to find the negations of quantified statements. For example, consider $\sim (\forall \ x \in \mathbb{N}, \ P(x))$. Reading this in words, we have the following:**
+- **It is not the case that $P ( x )$ is true for all natural numbers $x$.**
+
+**This means $P ( x )$ is false for at least one $x$. In symbols, this is $\exists \ x \in \mathbb{N}, \ \sim P(x)$. Thus $\sim (\forall \ x \in \mathbb{N}, \ P(x)) = \exists \ x \in \mathbb{N}, \ \sim P(x)$. Similarly, you can reason out that $\sim (\exists \ x \in \mathbb{N}, \ P(x)) = \forall \ x \in \mathbb{N}, \ \sim P(x)$. In general:**
+
+$$
+\sim (\forall \ x \in X, \ P(x)) = \exists \ x \in X, \ \sim P(x) \tag{2.8}
+$$
+
+$$
+\sim (\exists \ x \in X, \ P(x)) = \forall \ x \in X, \ \sim P(x) \tag{2.9}
+$$
+
+**Be sure that you understand these two logical equivalences. They conform to our everyday use of language, but they pin down the meaning in a mathematically precise way.**
+
+Example 2.12: Consider negating the following statement.
+- $R$ : The square of every real number is non-negative.
+
+Symbolically, $R$ can be expressed as $\forall \ x \in \mathbb{R}, \ x^{2} \geq 0$, and thus its negation is $\sim (\forall \ x \in \mathbb{R}, \ x^{2} \geq 0) = \exists \ x \in \mathbb{R}, \ \sim (x^{2} \geq 0 ) = \exists \ x \in \mathbb{R}, \ x^{2} < 0$. In words, this is $\sim R$ : "There exists a real number whose square is negative." Observe that $R$ is true and $\sim R$ is false. Maybe you can get $\sim R$ immediately, without using Equation (2.8) as we did above. If so, that is good; if not, you should be there soon.
+
+Example 2.13: If a statement has multiple quantifiers, negating it involves several iterations of Equations (2.8) and (2.9). Consider the following:
+- $S$ : For every real number $x$ there is a real number $y$ for which $y^{3} = x$.
+
+This statement asserts any real number $x$ has a cube root $y$, so it’s true. Symbolically $S$ can be expressed as $\forall \ x \in \mathbb{R}, \ \exists \ y \in \mathbb {R}, \ y^{3} = x$. Let’s work out the negation of this statement.
+
+$$
+\begin{array}{l} \sim (\forall \ x \in \mathbb{R}, \ \exists \ y \in \mathbb{R}, \ y^{3} = x) &= \exists \ x \in \mathbb{R}, \sim (\exists \ y \in \mathbb{R}, \ y^{3} = x) \\[6pt] &= \exists \ x \in \mathbb{R}, \ \forall \ y \in \mathbb{R}, \ \sim (y^{3} = x) \\[6pt] &= \exists \ x \in \mathbb{R}, \ \forall \ y \in \mathbb{R}, \ y^{3} \neq x. \\ \end{array}
+$$
+
+Thus the negation is a (false) statement that can be written in either of the following ways.
+- $\sim S$ : There is a real number $x$ such that for all real numbers $y$, $y^{3} \neq x$.
+- $\sim S$ : There is a real number $x$ for which $y^{3} \neq x$ for all real numbers $y$.
+
+**In writing proofs you will occasionally have to negate a conditional statement $P \Rightarrow Q$. The remainder of this section describes how to do this. To begin, look at the expression $\sim (P \Rightarrow Q)$, which literally says "$P \Rightarrow Q$ is false." You know from the truth table for $\Rightarrow$ that the only way that $P \Rightarrow Q$ can be false is if $P$ is true and $Q$ is false. Therefore**
+
+$$
+\sim (P \Rightarrow Q) = P \ \wedge \sim Q \tag {2.10}
+$$
+
+(In fact, in Exercise 12 of Section 2.6, you used a truth table to verify that these two statements are indeed logically equivalent.)
+
+Example 2.14: Negate the following statement about a particular (i.e., constant) number $a$.
+- $R$ : If $a$ is odd then $a^{2}$ is odd.
+
+Using Equation (2.10), we get the following negation.
+- $\sim R$ : $a$ is odd and $a^{2}$ is not odd.
+
+Example 2.15: This example is like the previous one, but the constant $a$ is replaced by a variable $x$. We will negate the following statement.
+- $R$ : If $x$ is odd then $x^{2}$ is odd.
+
+As in Section 2.8, we interpret this as the universally quantified statement
+- $R$ : $\forall \ x \in \mathbb{Z}$, ( $x$ is odd ) $\Rightarrow$ ( $x^{2}$ is odd).
+
+By Equations (2.8) and (2.10), we get the following negation for $R$:
+
+$$
+\begin{array}{l} \sim \left(\forall \ x \in \mathbb{Z}, \ (x \text{ is odd}) \Rightarrow \left(x^{2} \text { is odd}\right)\right) &= \exists \ x \in \mathbb{Z}, \ \sim \left((x \text{ is odd}) \Rightarrow \left(x^{2} \text{ is odd}\right)\right) \\[6pt] &= \exists \ x \in \mathbb{Z}, \ (x \text{ is odd}) \ \wedge \sim \left(x^{2} \text{ is odd}\right) \\ \end{array}
+$$
+
+Translating back into words, we have
+- $\sim R$ : There is an odd integer $x$ whose square is not odd.
+
+Notice that $R$ is true and $\sim R$ is false. 
+
+The above Example 2.15 showed how to negate a conditional statement $P(x) \Rightarrow Q(x)$. This type of problem can sometimes be embedded in more complex negation. See Exercise 5 below (and its solution).
+
+## Exercises for Section 2.10
+
+Negate the following sentences.
+1. The number $x$ is positive, but the number $y$ is not positive.
+:::{dropdown} Answer
+The "but" can be interpreted as "and." Using DeMorgan’s law, the negation is: The number $x$ is not positive or the number $y$ is positive.
+$\sim \left((x > 0) \land \sim (y > 0)\right) = \ \sim (x > 0) \lor (y > 0)$ 
+:::
+
+2. If $x$ is prime, then $\sqrt{x}$ is not a rational number.
+:::{dropdown} Answer
+Note that if a conditional statement is not explicitly quantified then there is an implied universal quantifier in front of it.
+Negation: There exists an $x$ such that $x$ is prime and $\sqrt{x}$ is a rational number. 
+$\sim (\forall \ x, \ P(x) \Rightarrow \sim Q(x)) = \exists \ x, \ P(x) \land Q(x)$
+- $P$ : $x$ is prime,
+- $Q$ : $\sqrt{x}$ is a rational number.
+:::
+
+3. For every prime number $p$, there is another prime number $q$ with $q > p$. 
+:::{dropdown} Answer
+Negation: There is a prime number $p$ such that for every prime number $q$, $q \leq p$.
+Also: There exists a prime number $p$ for which $q \leq p$ for every prime number $q$.
+$\sim \left(\forall \ p \in P, \ \exists \ q \in P, \ q>p\right) = \exists \ p \in P, \ \forall \ q \in P, \ q \leq p$
+- $P$ is the set of all prime numbers $\{2,3,5,7,11,13,\ldots\}$
+:::
+
+4. For every positive number $\varepsilon$, there is a positive number $\delta$ such that $| x - a | < \delta$ implies $| f(x) - f(a) | < \varepsilon$.
+:::{dropdown} Answer
+To negate this, it may be helpful to first write it in symbolic form. The statement is $\forall \ \varepsilon \in (0, \infty), \ \exists \ \delta \in (0, \infty), \ (|x-a|<\delta) \Rightarrow (|f(x) - f(a)|<\varepsilon)$.
+Working out the negation, we have:
+$\sim \left(\forall \ \varepsilon \in (0, \infty), \ \exists \ \delta \in (0, \infty), \ (|x-a|<\delta) \Rightarrow (|f(x) - f(a)|<\varepsilon)\right) =$
+$\exists \ \varepsilon \in (0, \infty), \ \sim \left(\exists \ \delta \in (0, \infty), \ (|x-a|<\delta) \Rightarrow (|f(x) - f(a)|<\varepsilon)\right) =$
+$\exists \ \varepsilon \in (0, \infty), \ \forall \ \delta \in (0, \infty), \ \sim \left((|x-a|<\delta) \Rightarrow (|f(x) - f(a)|<\varepsilon)\right)$
+Using $\sim(P \Rightarrow Q) = P \land \sim Q$, we can negate the conditional statement that appears here to get:
+$\exists \ \varepsilon \in (0, \infty), \ \forall \ \delta \in (0, \infty), \ (|x-a|<\delta) \land \sim (|f(x) - f(a)|<\varepsilon)$
+Negation: There exists a particular positive number $\varepsilon$ with the property that for every positive number $\delta$, there is a number $x$ for which $|x-a|<\delta$ and $|f(x) - f(a)|\geq\varepsilon$.
+:::
+
+5. For every positive number $\varepsilon$, there is a positive number $M$ for which $| f(x) - b | < \varepsilon$ whenever $x > M$.
+:::{dropdown} Answer
+To negate this, it may be helpful to first write it in symbolic form. The statement is $\forall \ \varepsilon \in (0, \infty), \ \exists \ M \in (0, \infty), \ (x > M) \Rightarrow (|f(x) - b|<\varepsilon)$.
+Working out the negation, we have:
+$\sim \left(\forall \ \varepsilon \in (0, \infty), \ \exists \ M \in (0, \infty), \ (x > M) \Rightarrow (|f(x) - b|<\varepsilon)\right) =$
+$\exists \ \varepsilon \in (0, \infty), \ \sim \left(\exists \ M \in (0, \infty), \ (x > M) \Rightarrow (|f(x) - b|<\varepsilon)\right) =$
+$\exists \ \varepsilon \in (0, \infty), \ \forall \ M \in (0, \infty), \ \sim \left((x > M) \Rightarrow (|f(x) - b|<\varepsilon)\right)$
+Using $\sim(P \Rightarrow Q) = P \land \sim Q$, we can negate the conditional statement that appears here to get:
+$\exists \ \varepsilon \in (0, \infty), \ \forall \ M \in (0, \infty), \ (x > M) \land \sim (|f(x) - b|<\varepsilon)$
+Negation: There exists a particular positive number $\varepsilon$ with the property that for every positive number $M$, there is a number $x$ for which $x > M$ and $|f(x) - b|\geq\varepsilon$.
+:::
+
+6. There exists a real number $a$ for which $a + x = x$ for every real number $x$.
+:::{dropdown} Answer
+$\sim (\exists \ a \in \mathbb{R}, \ \forall \ x \in \mathbb{R}, \ a + x = x) = \forall \ a \in \mathbb{R}, \ \exists \ x \in \mathbb{R}, \ a + x \neq x$
+Negation: For every real number $a$, there exists a real number $x$, such that $a+x \neq x$.
+:::
+
+7. I don’t eat anything that has a face.
+:::{dropdown} Answer
+Negation: I will eat some things that have a face.
+$\sim \left(\forall \ x, \ F(x) \Rightarrow \sim E(x)\right) = \exists \ x, \ F(x) \land E(x)$
+- $F(x)$ : $x$ has a face,
+- $E(x)$ : $x$ is eaten.
+
+(Note: If your answer was "I will eat anything that has a face." then that is wrong, both morally and mathematically.)
+:::
+
+8. If $x$ is a rational number and $x \neq 0$, then $\tan(x)$ is not a rational number.
+:::{dropdown} Answer
+Note that if a conditional statement is not explicitly quantified then there is an implied universal quantifier in front of it.
+$\sim (\forall \ x, \ ((x \in \mathbb{Q} \land (x \neq 0)) \Rightarrow (\tan(x) \not \in \mathbb{Q})) = \exists \ x, \ ((x \in \mathbb{Q} \land (x \neq 0)) \land (\tan(x) \in \mathbb{Q})$
+Negation: There exists a rational number $x$, with $x \neq 0$, such that $\tan(x)$ is rational.
+:::
+
+9. If $\sin(x) < 0$, then it is not the case that $0 \leq x \leq \pi$.
+:::{dropdown} Answer
+Negation: There exists a number $x$ for which $\sin(x) < 0$ and $0 \leq x \leq \pi$.
+$\sim \left(\forall \ x \in \mathbb{R}, \ (\sin(x)<0) \Rightarrow \ \sim (0 \leq x \leq \pi)\right) = \exists \ x \in \mathbb{R}, \ (\sin(x)<0) \land \ (0 \leq x \leq \pi)$
+:::
+
+10. If $f$ is a polynomial and its degree is greater than 2, then $f^{\prime}$ is not constant.
+:::{dropdown} Answer
+Negation: There is a polynomial function $f$, its degree is greater than 2, and $f^{\prime}$ is constant.
+$\sim (\forall \ f, \ (P(f) \land Q(f)) \Rightarrow \sim R(f)) = \exists \ f, \ (P(f) \land Q(f)) \land R(f)$
+- $P(f)$ : $f$ is a polynomial,
+- $Q(f)$ : $f$ has degree greater than 2,
+- $R(f)$ :  $f^{\prime}$ is constant.
+:::
+
+11. You can fool all of the people all of the time.
+:::{dropdown} Answer
+There are several ways to negate this, including: 
+There is a person that you can’t fool all the time. 
+There is a person $x$ and a time $y$ for which $x$ is not fooled at time $y$. (But Abraham Lincoln said it better.)
+$\sim (\forall \ x, \ \forall \ y, \ F(x,y)) = \exists \ x, \ \exists \ y, \ \sim (F(x,y))$
+- $F(x,y)$ : person $x$ can be fooled at time $y$.
+:::
+
+12. Whenever I have to choose between two evils, I choose the one I haven’t tried yet. (Mae West)
+:::{dropdown} Answer
+Negation: There is a time when I have to choose between two evils and I do not choose the one I haven’t tried yet.
+$\sim (\forall \ t, \ C(t) \Rightarrow T(t)) = \exists \ t, \ C(t) \land \sim T(t)$
+- $C(t)$ : Choose between 2 evils at time $t$,
+- $T(t)$ : Choose the evil I have not tried yet at time $t$.
+:::
+

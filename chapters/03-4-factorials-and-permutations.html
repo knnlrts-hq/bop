@@ -1,0 +1,601 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="3.5 Counting Subsets" href="03-5-counting-subsets.html"><link rel="prev" title="3.3 The Addition and Subtraction Principles" href="03-3-the-addition-and-subtraction-principles.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
+        <title>3.4 Factorials and Permutations - Book of Proof — Annotated documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Sections</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-1-introduction-to-sets.html">1.1 Introduction to Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-2-the-cartesian-product.html">1.2 The Cartesian Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-3-subsets.html">1.3 Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-4-power-sets.html">1.4 Power Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-5-union-intersection-difference.html">1.5 Union, Intersection, Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-6-complement.html">1.6 Complement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-7-venn-diagrams.html">1.7 Venn Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-8-indexed-sets.html">1.8 Indexed Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-9-sets-that-are-number-systems.html">1.9 Sets That Are Number Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-10-russells-paradox.html">1.10 Russell’s Paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-1-statements.html">2.1 Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-2-and-or-not.html">2.2 And, Or, Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-3-conditional-statements.html">2.3 Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-4-biconditional-statements.html">2.4 Biconditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-5-truth-tables-for-statements.html">2.5 Truth Tables for Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-6-logical-equivalence.html">2.6 Logical Equivalence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-7-quantifiers.html">2.7 Quantifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-8-more-on-conditional-statements.html">2.8 More on Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-9-translating-english-to-symbolic-logic.html">2.9 Translating English to Symbolic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-10-negating-statements.html">2.10 Negating Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-11-logical-inference.html">2.11 Logical Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-12-an-important-note.html">2.12 An Important Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-1-lists.html">3.1 Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-2-the-multiplication-principle.html">3.2 The Multiplication Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-3-the-addition-and-subtraction-principles.html">3.3 The Addition and Subtraction Principles</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">3.4 Factorials and Permutations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-5-counting-subsets.html">3.5 Counting Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-6-pascals-triangle-and-the-binomial-theorem.html">3.6 Pascal’s Triangle and the Binomial Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-7-the-inclusion-exclusion-principle.html">3.7 The Inclusion-Exclusion Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-8-counting-multisets.html">3.8 Counting Multisets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-9-the-division-and-pigeonhole-principles.html">3.9 The Division and Pigeonhole Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-10-combinatorial-proof.html">3.10 Combinatorial Proof</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/chapters/03-4-factorials-and-permutations.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="factorials-and-permutations">
+<h1>3.4 Factorials and Permutations<a class="headerlink" href="#factorials-and-permutations" title="Link to this heading">¶</a></h1>
+<p><strong>In working examples from the previous two sections you may have noticed that we often need to count the number of non-repetitive lists of length <span class="math notranslate nohighlight">\(n\)</span> that are made from <span class="math notranslate nohighlight">\(n\)</span> symbols. This kind of problem occurs so often that a special idea, called a factorial, is used to handle it.</strong> The table below motivates this. The first column lists successive integer values <span class="math notranslate nohighlight">\(n\)</span>, from 0 onward. The second contains a set <span class="math notranslate nohighlight">\(\{a, b, \ldots \}\)</span> of <span class="math notranslate nohighlight">\(n\)</span> symbols. The third column shows all the possible non-repetitive lists of length <span class="math notranslate nohighlight">\(n\)</span> that can be made from these symbols. Finally, the last column tallies up how many lists there are of that type. <strong>When <span class="math notranslate nohighlight">\(n = 0\)</span> there is only one list of length 0 that can be made from 0 symbols, namely the empty list <span class="math notranslate nohighlight">\(( )\)</span>. Thus the value 1 is entered in the last column of that row.</strong></p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260324165658.png"><img alt="assets/Pastedimage20260324165658.png" src="assets/Pastedimage20260324165658.png" style="width: 850px;" />
+</a>
+<p><strong>For <span class="math notranslate nohighlight">\(n &gt; 0\)</span>, the number that appears in the last column can be computed using the multiplication principle. The number of non-repetitive lists of length <span class="math notranslate nohighlight">\(n\)</span> that can be made from <span class="math notranslate nohighlight">\(n\)</span> symbols is <span class="math notranslate nohighlight">\(n \cdot ( n - 1 ) \cdot ( n - 2 ) \cdots 3 \cdot 2 \cdot 1\)</span>. Thus, for instance, the number in the last column of the row for <span class="math notranslate nohighlight">\(n = 4\)</span> is <span class="math notranslate nohighlight">\(4 \cdot 3 \cdot 2 \cdot 1 = 24\)</span>.</strong> The number that appears in the last column of Row <span class="math notranslate nohighlight">\(n\)</span> is called the factorial of <span class="math notranslate nohighlight">\(n\)</span>. It is denoted with the special symbol <span class="math notranslate nohighlight">\(n!\)</span>, which we pronounce as “<span class="math notranslate nohighlight">\(n\)</span> factorial.” Here is the definition:</p>
+<p><strong><mark>Definition 3.1: If <span class="math notranslate nohighlight">\(n\)</span> is a non-negative integer, then <span class="math notranslate nohighlight">\(n!\)</span> is the number of lists of length <span class="math notranslate nohighlight">\(n\)</span> that can be made from <span class="math notranslate nohighlight">\(n\)</span> symbols, without repetition. Thus <span class="math notranslate nohighlight">\(0! = 1\)</span> (an empty list) and <span class="math notranslate nohighlight">\(1! = 1\)</span>. If <span class="math notranslate nohighlight">\(n &gt; 1\)</span>, then <span class="math notranslate nohighlight">\(n! = n \cdot ( n - 1 ) \cdot ( n - 2 ) \cdots 3 \cdot 2 \cdot 1\)</span>.</mark></strong></p>
+<p>It follows that:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0! = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(1! = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(2! = 2 \cdot 1 = 2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(3! = 3 \cdot 2 \cdot 1 = 6\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(5! = 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 120\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(6! = 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 720\)</span>, and so on.</p></li>
+</ul>
+<p><strong>Students are often tempted to say <span class="math notranslate nohighlight">\(0! = 0\)</span>, but this is wrong. The correct value is <span class="math notranslate nohighlight">\(0 ! = 1\)</span></strong>, as the above definition and table show. <strong>Here is another way to see that <span class="math notranslate nohighlight">\(0!\)</span> must equal 1: notice that<span class="math notranslate nohighlight">\(5! = 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 5 \cdot ( 4 \cdot 3 \cdot 2 \cdot 1 ) = 5 \cdot 4!\)</span>. Also <span class="math notranslate nohighlight">\(4! = 4 \cdot 3 \cdot 2 \cdot 1 = 4 \cdot ( 3 \cdot 2 \cdot 1 ) = 4 \cdot 3!\)</span>. Generalizing this, we get a formula.</strong></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+n! = n \cdot (n - 1)! \tag {3.1}
+\]</div>
+</div>
+<p>Plugging in <span class="math notranslate nohighlight">\(n = 1\)</span> gives <span class="math notranslate nohighlight">\(1! = 1 \cdot (1 - 1)! = 1 \cdot 0!\)</span>, that is, <span class="math notranslate nohighlight">\(1! = 1 \cdot 0!\)</span>. If we mistakenly thought <span class="math notranslate nohighlight">\(0!\)</span> were 0, this would give the incorrect result <span class="math notranslate nohighlight">\(1 ! = 0\)</span>. The result <span class="math notranslate nohighlight">\(1! = 1\)</span> is correct because <span class="math notranslate nohighlight">\(n=1\)</span>.</p>
+<p><strong>Example 3.8: This problem involves making lists of length seven from the letters <span class="math notranslate nohighlight">\(a, b, c, d, e, f\)</span> and <span class="math notranslate nohighlight">\(g\)</span>.</strong></p>
+<ul class="simple">
+<li><p><strong>(a) How many such lists are there if repetition is not allowed?</strong></p></li>
+<li><p><strong>(b) How many such lists are there if repetition is not allowed and the first two entries must be vowels?</strong></p></li>
+<li><p><strong>(c) How many such lists are there in which repetition is allowed, and the list must contain at least one repeated letter?</strong></p></li>
+</ul>
+<p><strong>To answer the first question, note that there are seven letters, so the number of lists is <span class="math notranslate nohighlight">\(7! = 7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 5040\)</span>. To answer the second question, notice that the set <span class="math notranslate nohighlight">\(\{a, b, c, d, e, f, g\}\)</span> contains two vowels and five consonants. Thus in making the list the first two entries must be filled by vowels and the final five must be filled with consonants. By the multiplication principle, the number of such lists is <span class="math notranslate nohighlight">\(2 \cdot 1 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 2! \cdot 5! = 240\)</span>. To answer part (c) we use the subtraction principle. Let <span class="math notranslate nohighlight">\(U\)</span> be the set of all lists made from <span class="math notranslate nohighlight">\(a, b, c, d, e, f, g\)</span>, with repetition allowed. The multiplication principle gives <span class="math notranslate nohighlight">\(|U| = 7 \cdot 7 \cdot 7 \cdot 7 \cdot 7 \cdot 7 \cdot 7 = 7^{7} = 823,543\)</span>. Notice that <span class="math notranslate nohighlight">\(U\)</span> includes lists that are non-repetitive, like <span class="math notranslate nohighlight">\((a, g, f, b, d, c, e)\)</span>, as well as lists that have some repetition, like <span class="math notranslate nohighlight">\((f, g, b, g, a, a, a)\)</span>. We want to find the number of lists that have at least one repeated letter, so we will subtract away from <span class="math notranslate nohighlight">\(U\)</span> all those lists that have no repetition. Let <span class="math notranslate nohighlight">\(X \subseteq U\)</span> be those lists that have no repetition, so <span class="math notranslate nohighlight">\(|X| = 7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 7!\)</span>. Thus the answer to our question is <span class="math notranslate nohighlight">\(|U-X| = |U| - |X| = 7^{7} - 7! = 823,543 - 5040 = 818,503\)</span>.</strong></p>
+<p><strong><mark>In part (a) of Example 3.8 we counted the number of non-repetitive lists made from all seven of the symbols in the set <span class="math notranslate nohighlight">\(X = \{a, b, c, d, e, f, g\}\)</span>, and there were <span class="math notranslate nohighlight">\(7! = 5040\)</span> such lists. Any such list, such as <span class="math notranslate nohighlight">\(bcedagf\)</span>, <span class="math notranslate nohighlight">\(gfedcba\)</span> or <span class="math notranslate nohighlight">\(abcdefg\)</span> is simply an arrangement of the elements of <span class="math notranslate nohighlight">\(X\)</span> in a row. There is a name for such an arrangement. It is called a permutation of <span class="math notranslate nohighlight">\(X\)</span>. A permutation of a set is an arrangement of all of the set’s elements in a row, that is, a list without repetition that uses every element of the set. For example, the permutations of the set <span class="math notranslate nohighlight">\(X = \{1, 2, 3\}\)</span> are the six lists <span class="math notranslate nohighlight">\((1, 2, 3), (1, 3, 2), (2, 1, 3), (2, 3, 1), (3, 1, 2), (3, 2, 1)\)</span>.</mark></strong> That we get six different permutations of <span class="math notranslate nohighlight">\(X\)</span> is predicted by Definition 3.1, which says there are <span class="math notranslate nohighlight">\(3! = 3 \cdot 2 \cdot 1 = 6\)</span> non-repetitive lists that can be made from the three symbols in <span class="math notranslate nohighlight">\(X\)</span>. Think of the numbers 1, 2 and 3 as representing three books. The above shows that there are six ways to arrange them on a shelf.</p>
+<p>From a deck of cards you take the four queens and lay them in a row. By the multiplication principle there are <span class="math notranslate nohighlight">\(4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24\)</span> ways to do this, that is, there are 24 permutations of the set of four Queen cards.</p>
+<img alt="assets/Pastedimage20260324165800.png" src="assets/Pastedimage20260324165800.png" />
+<p><strong>In general, a set with <span class="math notranslate nohighlight">\(n\)</span> elements will have <span class="math notranslate nohighlight">\(n!\)</span> different permutations.</strong> Above, the set <span class="math notranslate nohighlight">\(\{1, 2, 3\}\)</span> has <span class="math notranslate nohighlight">\(3! = 6\)</span> permutations, while <a class="reference internal" href="assets/Pastedimage20260324165849.png"><img alt="assets/Pastedimage20260324165849.png" src="assets/Pastedimage20260324165849.png" style="width: 175px;" /></a>has <span class="math notranslate nohighlight">\(4 ! = 24\)</span> permutations. The set <span class="math notranslate nohighlight">\(\{a, b, c, d, e, f, g\}\)</span> has <span class="math notranslate nohighlight">\(7! = 5040\)</span> permutations, though there’s not much point in listing them all out. <strong>The important thing is that the factorial counts the number of permutations.</strong></p>
+<p>In saying a permutation of a set is an arrangement of its elements in a row, we are speaking informally because sometimes the elements are not literally in a row. Imagine a classroom of 20 desks, in four rows of five desks each. Let <span class="math notranslate nohighlight">\(X\)</span> be a class (set) of 20 students. If the students walk in and seat themselves, one per desk, we can regard this as a permutation of the 20 students because we can number the desks 1,2,3, … ,20 and in this sense the students have arranged themselves in a list of length 20. There are <span class="math notranslate nohighlight">\(20! = 2,432,902,008,176,640,000\)</span> permutations of the students.</p>
+<p><strong><mark>Now we discuss a variation of the idea of a permutation of a set <span class="math notranslate nohighlight">\(X\)</span>. Imagine taking some number <span class="math notranslate nohighlight">\(k \leq |X|\)</span> of elements from the set <span class="math notranslate nohighlight">\(X\)</span> and then arranging them in a row. The result is what we call a <span class="math notranslate nohighlight">\(k\)</span>-permutation of <span class="math notranslate nohighlight">\(X\)</span>. A permutation of <span class="math notranslate nohighlight">\(X\)</span> is a non-repetitive list made from all elements of <span class="math notranslate nohighlight">\(X\)</span>. A <span class="math notranslate nohighlight">\(k\)</span>-permutation of <span class="math notranslate nohighlight">\(X\)</span> is a non-repetitive list made from <span class="math notranslate nohighlight">\(k\)</span> elements of <span class="math notranslate nohighlight">\(X\)</span>.</mark></strong></p>
+<p><strong>For example, take <span class="math notranslate nohighlight">\(X = \{a, b, c, d\}\)</span>. The 1-permutations of <span class="math notranslate nohighlight">\(X\)</span> are the lists we could make with just one element from <span class="math notranslate nohighlight">\(X\)</span>. There are only 4 such lists: <span class="math notranslate nohighlight">\((a), (b), (c), (d)\)</span>. The 2-permutations of <span class="math notranslate nohighlight">\(X\)</span> are the non-repetitive lists that we could make from two elements of <span class="math notranslate nohighlight">\(X\)</span>. There are 12 of them: <span class="math notranslate nohighlight">\((a,b), (a,c), (a,d), (b,a), (b,c), (b,d), (c,a), (c,b), (c,d), (d,a), (d,b), (d,c)\)</span>. Even before writing them all down, we’d know there are 12 of them because in making a non-repetitive length-2 list from <span class="math notranslate nohighlight">\(X\)</span> we have 4 choices for the first element, then 3 choices for the second, so by the multiplication principle the total number of 2-permutations of <span class="math notranslate nohighlight">\(X\)</span> is <span class="math notranslate nohighlight">\(4 \cdot 3 = 12\)</span>. Now let’s count the number of 3-permutations of <span class="math notranslate nohighlight">\(X\)</span>. They are the length-3 non-repetitive lists made from elements of <span class="math notranslate nohighlight">\(X\)</span>. The multiplication principle says there will be <span class="math notranslate nohighlight">\(4 \cdot 3 \cdot 2 = 24\)</span> of them.</strong> Here they are:</p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260324165937.png"><img alt="assets/Pastedimage20260324165937.png" src="assets/Pastedimage20260324165937.png" style="width: 500px;" />
+</a>
+<p><strong>The 4-permutations of <span class="math notranslate nohighlight">\(X\)</span> are the non-repetitive lists made from all 4 elements of <span class="math notranslate nohighlight">\(X\)</span>. These are simply the <span class="math notranslate nohighlight">\(4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24\)</span> permutations of <span class="math notranslate nohighlight">\(X\)</span>. <mark>Let’s go back and think about the <span class="math notranslate nohighlight">\(0\)</span>-permutations of <span class="math notranslate nohighlight">\(X\)</span>. They are the non-repetitive lists of length 0 made from the elements of <span class="math notranslate nohighlight">\(X\)</span>. Of course there is only one such list, namely the empty list <span class="math notranslate nohighlight">\(()\)</span>.</mark></strong></p>
+<p><strong>Now we are going to introduce some notation. The expression <span class="math notranslate nohighlight">\(P(n, k)\)</span> denotes the number of <span class="math notranslate nohighlight">\(k\)</span>-permutations of an <span class="math notranslate nohighlight">\(n\)</span>-element set. By the examples on this page we have <span class="math notranslate nohighlight">\(P(4, 0) = 1\)</span>, <span class="math notranslate nohighlight">\(P(4, 1) = 4\)</span>, <span class="math notranslate nohighlight">\(P(4, 2) = 12\)</span>, <span class="math notranslate nohighlight">\(P(4, 3) = 24\)</span>, and <span class="math notranslate nohighlight">\(P(4, 4) = 24\)</span>. <mark>What about, say, <span class="math notranslate nohighlight">\(P(4, 5)\)</span>? This is the number of 5-permutations of a 4-element set, that is, the number of non-repetitive length-5 lists that can be made from 4 symbols. There is no such list, so <span class="math notranslate nohighlight">\(P(4,5) = 0\)</span>.</mark> If <span class="math notranslate nohighlight">\(n &gt; 0\)</span>, then <span class="math notranslate nohighlight">\(P(n, k)\)</span> can be computed with the multiplication principle. In making a non-repetitive length-<span class="math notranslate nohighlight">\(k\)</span> list from <span class="math notranslate nohighlight">\(n\)</span> symbols we have <span class="math notranslate nohighlight">\(n\)</span> choices for the 1st entry, <span class="math notranslate nohighlight">\(n-1\)</span> for the 2nd, <span class="math notranslate nohighlight">\(n-2\)</span> for the 3rd, and <span class="math notranslate nohighlight">\(n-3\)</span> for the 4th.</strong></p>
+<img alt="../_images/b636d0011e023186fc6e46f219173fe62c7ba9fef7fa0269090de26a09af9c8f.jpg" src="../_images/b636d0011e023186fc6e46f219173fe62c7ba9fef7fa0269090de26a09af9c8f.jpg" />
+<p><strong>Notice that the number of choices for the ith position is <span class="math notranslate nohighlight">\(n-i+1\)</span>. For example, the 5th position has <span class="math notranslate nohighlight">\(n-5+1 = n-4\)</span> choices. Continuing in this pattern, the last (<span class="math notranslate nohighlight">\(k\)</span>th) entry has <span class="math notranslate nohighlight">\(n-k+1\)</span> choices.</strong> Therefore</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+P(n, k) = n \cdot (n - 1) \cdot (n - 2) \cdots (n - k + 1) \tag {3.2}
+\]</div>
+</div>
+<p><strong>All together there are <span class="math notranslate nohighlight">\(k\)</span> factors in this product, so to compute <span class="math notranslate nohighlight">\(P(n, k)\)</span> just perform <span class="math notranslate nohighlight">\(n \cdot ( n - 1 ) \cdot  ( n - 2 ) \cdot  ( n - 3 ) \cdots\)</span> until you’ve multiplied <span class="math notranslate nohighlight">\(k\)</span> numbers.</strong> Examples:</p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260402224310.png"><img alt="assets/Pastedimage20260402224310.png" src="assets/Pastedimage20260402224310.png" style="width: 600px;" />
+</a>
+<p><strong><mark>Note <span class="math notranslate nohighlight">\(P(10, 11) = 0\)</span>, as the 11th factor in the product is 0. This makes sense because <span class="math notranslate nohighlight">\(P(10, 11)\)</span> is the number of non-repetitive length-11 lists made from just 10 symbols. There are no such lists, so <span class="math notranslate nohighlight">\(P(10, 11) = 0\)</span> is right. In fact you can check that Equation (3.2) gives <span class="math notranslate nohighlight">\(P(n, k) = 0\)</span> whenever <span class="math notranslate nohighlight">\(k &gt; n\)</span>. Also notice above that <span class="math notranslate nohighlight">\(P(10, 10) = 10!\)</span>. In general <span class="math notranslate nohighlight">\(P(n, n) = n!\)</span>.</mark></strong></p>
+<p>We now derive another formula for <span class="math notranslate nohighlight">\(P(n, k)\)</span>, one that works for <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>. Using Equation (3.2) with cancellation and the definition of a factorial,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\displaystyle \begin{array}{l} P(n, k) &amp;= n \cdot (n - 1) \cdot (n - 2) \cdots (n - k + 1) \\[12pt] &amp;= \displaystyle \frac {n \cdot (n - 1) \cdot (n - 2) \cdots (n - k + 1) \cdot (n - k) \cdot (n - k - 1) \cdots 3 \cdot 2 \cdot 1}{(n - k) \cdot (n - k - 1) \cdots 3 \cdot 2 \cdot 1} \\ &amp;= \dfrac {n!}{(n - k)!} \end{array}
+\end{split}\]</div>
+</div>
+<p>To illustrate, let’s find <span class="math notranslate nohighlight">\(P(8,5)\)</span> in two ways. Equation (3.2) says <span class="math notranslate nohighlight">\(P(8, 5) = 8 \cdot 7 \cdot 6 \cdot 5 \cdot 4 = 6720\)</span>. By the above formula, <span class="math notranslate nohighlight">\(\displaystyle P(8,5) = \frac{8!}{(8-5)!} = \frac{8!}{3!} = \frac{40320}{6} = 6720\)</span>. We summarize these ideas in the following definition and fact.</p>
+<p><strong><mark>Fact 3.4: A <span class="math notranslate nohighlight">\(k\)</span>-permutation of an <span class="math notranslate nohighlight">\(n\)</span>-element set is a non-repetitive length-<span class="math notranslate nohighlight">\(k\)</span> list made from elements of the set. Informally we think of a <span class="math notranslate nohighlight">\(k\)</span>-permutation as an arrangement of <span class="math notranslate nohighlight">\(k\)</span> of the set’s elements in a row. The number of <span class="math notranslate nohighlight">\(k\)</span>-permutations of an <span class="math notranslate nohighlight">\(n\)</span>-element set is denoted <span class="math notranslate nohighlight">\(P(n,k)\)</span>, and <span class="math notranslate nohighlight">\(P(n,k) = n \cdot (n - 1) \cdot (n - 2) \cdots (n - k + 1)\)</span>. If <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>, then <span class="math notranslate nohighlight">\(\displaystyle P(n,k) = n \cdot ( n - 1 ) \cdot ( n - 2 ) \cdots ( n - k + 1 ) = \frac{n!}{(n-k)!}\)</span>.</mark></strong></p>
+<p><strong>Notice that <span class="math notranslate nohighlight">\(\displaystyle P(n,0) = \frac{n!}{(n-0)!} = \frac{n!}{n!} = 1\)</span>, which makes sense because only one list of length 0 can be made from <span class="math notranslate nohighlight">\(n\)</span> symbols, namely the empty list. Also <span class="math notranslate nohighlight">\(\displaystyle P(0,0) = \frac{0!}{(0-0)!} = \frac{0!}{0!} = \frac{1}{1} = 1\)</span>, which is to be expected because there is only one list of length 0 that can be made with 0 symbols, again the empty list.</strong></p>
+<p>Example 3.9: Ten contestants run a marathon. All finish, and there are no ties. How many different possible rankings are there for first-, second- and third-place?</p>
+<p>Solution: Call the contestants <span class="math notranslate nohighlight">\(A,B,C,D,E,F,G,H,I\)</span> and <span class="math notranslate nohighlight">\(J\)</span>. A ranking of winners can be regarded as a 3-permutation of the set of 10 contestants. For example, <span class="math notranslate nohighlight">\(ECH\)</span> means <span class="math notranslate nohighlight">\(E\)</span> in first-place, <span class="math notranslate nohighlight">\(C\)</span> in second-place and <span class="math notranslate nohighlight">\(H\)</span> in third. Thus there are <span class="math notranslate nohighlight">\(P(10,3) = 10 \cdot 9 \cdot 8 = 720\)</span> possible rankings.</p>
+<p>Example 3.10: You deal five cards off of a standard 52-card deck, and line them up in a row. How many such lineups are there that either consist of all red cards, or all clubs?</p>
+<p>Solution: There are 26 red cards. The number of ways to line up five of them is <span class="math notranslate nohighlight">\(P(26,5) = 26 \cdot 25 \cdot 24 \cdot 23 \cdot 22 = 7,893,600\)</span>. There are 13 club cards (which are black). The number of ways to line up five of them is <span class="math notranslate nohighlight">\(P(13,5) = 13 \cdot 12 \cdot 11 \cdot 10 \cdot 9 = 154,440\)</span>. By the addition principle, the answer to our question is that there are <span class="math notranslate nohighlight">\(P(26,5) + P(13,5) = 7,893,600 + 154,440 = 8,048,040\)</span> lineups that are either all red cards, or all club cards.</p>
+<p>Notice that we do not need to use the notation <span class="math notranslate nohighlight">\(P(n,k)\)</span> to solve the problems on this page. Straightforward applications of the multiplication and addition principles would suffice. However, the <span class="math notranslate nohighlight">\(P(n,k)\)</span> notation often proves to be a convenient shorthand.</p>
+<section id="exercises-for-section-3-4">
+<h2>Exercises for Section 3.4<a class="headerlink" href="#exercises-for-section-3-4" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>What is the smallest <span class="math notranslate nohighlight">\(n\)</span> for which <span class="math notranslate nohighlight">\(n!\)</span> has more than 10 digits?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(n=14\)</span>
+<span class="math notranslate nohighlight">\(13! = 6,227,020,800\)</span> (10 digits)
+<span class="math notranslate nohighlight">\(14! = 87,178,291,200\)</span> (11 digits)</p>
+</div>
+</details><ol class="arabic simple" start="2">
+<li><p>For which values of <span class="math notranslate nohighlight">\(n\)</span> does <span class="math notranslate nohighlight">\(n!\)</span> have <span class="math notranslate nohighlight">\(n\)</span> or fewer digits?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(n \leq 24\)</span>
+<span class="math notranslate nohighlight">\(24!\)</span> has 24 digits.
+<span class="math notranslate nohighlight">\(25!\)</span> has 26 digits.</p>
+</div>
+</details><ol class="arabic simple" start="3">
+<li><p>How many 5-digit positive integers are there in which there are no repeated digits and all digits are odd?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The are 5 odd digits in <span class="math notranslate nohighlight">\(\{0,1,2,3,4,5,6,7,8,9\}\)</span>, so <span class="math notranslate nohighlight">\(5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 5! = 120\)</span></p>
+</div>
+</details><ol class="arabic simple" start="4">
+<li><p>Using only pencil and paper, find the value of <span class="math notranslate nohighlight">\(\displaystyle \frac{100!}{95!}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \frac{100!}{95!} = \frac{100 \cdot 99 \cdot 98 \cdot 97 \cdot 96 \cdot 95!}{95!} = 100 \cdot 99 \cdot 98 \cdot 97 \cdot 96 = 9,034,502,400\)</span></p>
+</div>
+</details><ol class="arabic simple" start="5">
+<li><p>Using only pencil and paper, find the value of <span class="math notranslate nohighlight">\(\displaystyle \frac{120!}{118!}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \frac{120!}{118!} = \frac{120 \cdot 119 \cdot 118!}{118!} = 120 \cdot 119 = 14,280\)</span></p>
+</div>
+</details><ol class="arabic simple" start="6">
+<li><p>There are two 0’s at the end of <span class="math notranslate nohighlight">\(10! = 3,628,800\)</span>. Using only pencil and paper, determine how many 0’s are at the end of the number <span class="math notranslate nohighlight">\(100!\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This is about the prime factorization of a factorial. To find how many trailing zeroes <span class="math notranslate nohighlight">\(100!\)</span> has, you do not need to compute the number <span class="math notranslate nohighlight">\(100!\)</span> itself. The key idea is to ask: what creates a trailing zero? A trailing zero comes from multiplying by a factor of <span class="math notranslate nohighlight">\(10\)</span>. So the question becomes: how many times does the multiplication <span class="math notranslate nohighlight">\(100! = 1 \cdot 2 \cdot 3 \cdots 98 \cdot 99 \cdot 100\)</span> contain a factor of <span class="math notranslate nohighlight">\(10\)</span>? Furthermore, <span class="math notranslate nohighlight">\(10\)</span> itself can be factorized into <span class="math notranslate nohighlight">\(10=2\times5\)</span>, meaning each pair of a 2 and a 5 will cause a trailing zero. So the more specific question becomes: how many pairs of <span class="math notranslate nohighlight">\((2,5)\)</span> can we make from the prime factors of <span class="math notranslate nohighlight">\(100!\)</span>? Each trailing zero uses up one factor of 2 and one factor of 5, so the number of trailing zeroes is <span class="math notranslate nohighlight">\(\min(\text{number of 2s in the factorization},\text{number of 5s in the factorization})\)</span>. In <span class="math notranslate nohighlight">\(100!\)</span> there are far more 2s than 5s, so every time a 5 is found, there will almost certainly be a 2 available to pair it with. So the problem now becomes: how many factors of 5 are there in <span class="math notranslate nohighlight">\(100!\)</span>? The multiples of 5 up to 100 are: <span class="math notranslate nohighlight">\(5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100\)</span>, so there are <span class="math notranslate nohighlight">\(\displaystyle \left\lfloor \frac{100}{5}\right\rfloor = 20\)</span> factors of 5. Note that some numbers contribute more than one factor of 5, for example <span class="math notranslate nohighlight">\(25=5^2\)</span> contributes two factors of 5. Counting all the multiples of 25, there are <span class="math notranslate nohighlight">\(\displaystyle \left\lfloor \frac{100}{5^2}\right\rfloor = 4\)</span> extra factors of 5. continuing on, there are some numbers that contribute three factors of 5: these are mulitples of <span class="math notranslate nohighlight">\(125 = 5^3\)</span>. Counting all multiples of of 125 for 100, there are none: <span class="math notranslate nohighlight">\(\displaystyle \left\lfloor \frac{100}{5^3}\right\rfloor = 0\)</span>. So the total number of 5s in the factorization of <span class="math notranslate nohighlight">\(100!\)</span> can be answered using the simple formula: <span class="math notranslate nohighlight">\(\displaystyle \left\lfloor \frac{100}{5}\right\rfloor+\left\lfloor \frac{100}{25}\right\rfloor+\left\lfloor \frac{100}{125}\right\rfloor+\cdots\)</span> (this is Legendre’s formula for counting prime factors in a factorial). Therefore the number of trailing zeroes in <span class="math notranslate nohighlight">\(100!\)</span> is <span class="math notranslate nohighlight">\(20+4+0=24\)</span>.</p>
+<p class="sd-card-text"><strong>Legendre’s formula</strong> tells us how many times a prime <span class="math notranslate nohighlight">\(p\)</span> appears in the prime factorization of <span class="math notranslate nohighlight">\(n!\)</span>:</p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle v_p(n!)=\left\lfloor \frac{n}{p}\right\rfloor+\left\lfloor \frac{n}{p^2}\right\rfloor+\left\lfloor \frac{n}{p^3}\right\rfloor+\cdots\)</span></p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(v_p(n!)\)</span> means the exponent of the prime <span class="math notranslate nohighlight">\(p\)</span> in <span class="math notranslate nohighlight">\(n!\)</span>, so if <span class="math notranslate nohighlight">\(n! = p^{k} \cdot (\text{something not divisible by } p)\)</span>, then <span class="math notranslate nohighlight">\(v_p(n!) = k\)</span>. Because the powers <span class="math notranslate nohighlight">\(p^{j}\)</span> eventually exceed <span class="math notranslate nohighlight">\(n\)</span>, the sum is actually finite. Take <span class="math notranslate nohighlight">\(n! = 1 \cdot 2 \cdot 3 \cdots n\)</span>. We want to count how many factors of <span class="math notranslate nohighlight">\(p\)</span> appear in that whole product. First layer: every multiple of <span class="math notranslate nohighlight">\(p\)</span> contributes at least one factor of <span class="math notranslate nohighlight">\(p\)</span>, and the number of multiples of <span class="math notranslate nohighlight">\(p\)</span> up to <span class="math notranslate nohighlight">\(n\)</span> are given by the first term <span class="math notranslate nohighlight">\(\displaystyle \left\lfloor \frac{n}{p}\right\rfloor\)</span>. Second layer: some numbers contribute more than one factor of <span class="math notranslate nohighlight">\(p\)</span>. Multiples of <span class="math notranslate nohighlight">\(p^{2}\)</span> contribute an extra factor of <span class="math notranslate nohighlight">\(p\)</span>, so the number of multiples of <span class="math notranslate nohighlight">\(p^{2}\)</span> up to <span class="math notranslate nohighlight">\(n\)</span> are given by the next term <span class="math notranslate nohighlight">\(\displaystyle \left\lfloor \frac{n}{p^{2}}\right\rfloor\)</span>. Multiples of <span class="math notranslate nohighlight">\(p^{3}\)</span> contribute the next term <span class="math notranslate nohighlight">\(\displaystyle \left\lfloor \frac{n}{p^{3}}\right\rfloor\)</span>, and so on.
+For example: compute <span class="math notranslate nohighlight">\(v_{2}(10!)\)</span>. Note that <span class="math notranslate nohighlight">\(10! = 1 \cdot 2\cdot 3\cdot 4\cdot 5\cdot 6\cdot 7\cdot 8\cdot 9\cdot 10\)</span>. Using Legendre’s formula gives us: <span class="math notranslate nohighlight">\(\displaystyle v_{2}(10!) = \left\lfloor \frac{10}{2}\right\rfloor + \left\lfloor \frac{10}{2^{2}}\right\rfloor + \left\lfloor \frac{10}{2^{3}}\right\rfloor = 5 + 2 + 1 = 8\)</span>. Note that <span class="math notranslate nohighlight">\(2\)</span> contributes one factor of 2, <span class="math notranslate nohighlight">\(4 = 2^2\)</span> contributes two factors of 2, <span class="math notranslate nohighlight">\(6\)</span> contributes one factor of 2, <span class="math notranslate nohighlight">\(8=2^3\)</span> contributes three factors of 2, and finally <span class="math notranslate nohighlight">\(10\)</span> contributes one factor of 2. Note that the next term <span class="math notranslate nohighlight">\(\displaystyle \left\lfloor \frac{10}{2^{4}}\right\rfloor\)</span> is 0 and does not contribute meaningfully anymore to <span class="math notranslate nohighlight">\(v_{2}(10!)\)</span>.
+Legendre’s formula is important because it turns a huge multiplicative problem into a simple counting problem. Instead of expanding <span class="math notranslate nohighlight">\(n!\)</span>, which is hopelessly large, it tells you exactly how many times each prime divides it. To count trailing zeros of <span class="math notranslate nohighlight">\(n!\)</span>, you use: <span class="math notranslate nohighlight">\(v_{10}(n!)=\min(v_{2}(n!),v_{5}(n!))\)</span>. Since there are more 2s than 5s in <span class="math notranslate nohighlight">\(n!\)</span>, the answer is usually just <span class="math notranslate nohighlight">\(v_{5}(n!)\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="7">
+<li><p>Find how many 9-digit numbers can be made from the digits <span class="math notranslate nohighlight">\(1, 2, 3, 4, 5, 6, 7, 8, 9\)</span> if repetition is not allowed and all the odd digits occur first (on the left) followed by all the even digits (i.e., as in <span class="math notranslate nohighlight">\(137598264\)</span>, but not <span class="math notranslate nohighlight">\(123456789\)</span>).</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">There are 5 odd digits and 4 even digits in <span class="math notranslate nohighlight">\(\{1,2,3,4,5,6,7,8,9\}\)</span>, so <span class="math notranslate nohighlight">\(5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 5! \cdot 4! = 2880\)</span></p>
+</div>
+</details><ol class="arabic simple" start="8">
+<li><p>Compute how many 7-digit numbers can be made from the digits <span class="math notranslate nohighlight">\(1, 2, 3, 4, 5, 6, 7\)</span> if there is no repetition and the odd digits must appear in an unbroken sequence. (Examples: <span class="math notranslate nohighlight">\(3571264\)</span> or <span class="math notranslate nohighlight">\(2413576\)</span> or <span class="math notranslate nohighlight">\(2467531\)</span>, etc., but not <span class="math notranslate nohighlight">\(7234615\)</span>.)</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Make 4 groups of the forms: <span class="math notranslate nohighlight">\(O O O O E E E\)</span>, <span class="math notranslate nohighlight">\(E O O O O E E\)</span>, <span class="math notranslate nohighlight">\(E E O O O O E\)</span>, and <span class="math notranslate nohighlight">\(E E E O O O O\)</span>. Each group has <span class="math notranslate nohighlight">\(4 \cdot 3 \cdot 2 \cdot 1 \cdot 3 \cdot 2 \cdot 1 = 4! \cdot 3! = 144\)</span> permutations. By the addition principle, the total number of permutations is <span class="math notranslate nohighlight">\(144 \cdot 4 = 576 = 4! \cdot 4!\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="9">
+<li><p>How many permutations of the letters <span class="math notranslate nohighlight">\(A , B , C , D , E , F , G\)</span> are there in which the three letters <span class="math notranslate nohighlight">\(ABC\)</span> appear consecutively, in alphabetical order?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Regard <span class="math notranslate nohighlight">\(ABC\)</span> as a single symbol. Then we are looking for the permutations of five symbols: <span class="math notranslate nohighlight">\(ABC\)</span>, <span class="math notranslate nohighlight">\(D\)</span>, <span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(F\)</span>, and <span class="math notranslate nohighlight">\(G\)</span>. The number of such permutations is <span class="math notranslate nohighlight">\(5! = 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 120\)</span>.</p>
+<p class="sd-card-text">Alternatively, make 5 groups of the forms: <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">B</span> <span class="pre">C</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">A</span> <span class="pre">B</span> <span class="pre">C</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">*</span> <span class="pre">A</span> <span class="pre">B</span> <span class="pre">C</span> <span class="pre">*</span> <span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">A</span> <span class="pre">B</span> <span class="pre">C</span> <span class="pre">*</span></code>, and <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">A</span> <span class="pre">B</span> <span class="pre">C</span></code>. Each group has  <span class="math notranslate nohighlight">\(1 \cdot 1 \cdot 1 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 4! = 24\)</span> permutations. By the addition principle, the total number of permutations across all groups is <span class="math notranslate nohighlight">\(24 \cdot 5 = 120\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="9">
+<li><p>How many permutations of the digits <span class="math notranslate nohighlight">\(0, 1, 2, 3, 4, 5, 6, 7, 8, 9\)</span> are there in which the digits alternate even and odd? (For example, <span class="math notranslate nohighlight">\(2183470965\)</span>.) 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Make 2 groups of the forms: <code class="docutils literal notranslate"><span class="pre">OEOEOEOEOE</span></code> and <code class="docutils literal notranslate"><span class="pre">EOEOEOEOEO</span></code>. Each pattern gives <span class="math notranslate nohighlight">\(5 \cdot 5 \cdot 4 \cdot 4 \cdot 3 \cdot 3 \cdot 2 \cdot 2 \cdot 1 \cdot 1 = 5! \cdot 5! = 14400\)</span> permutations. By the addition principle, <span class="math notranslate nohighlight">\(14400 + 14400 = 28800\)</span>.
+How many permutations of <em>10-digit numbers</em> are there in which the digits alternate even and odd? In this case, the leading <span class="math notranslate nohighlight">\(0\)</span> is forbidden (as numbers are not written with leading zeros), so there are still 2 groups of the forms: <code class="docutils literal notranslate"><span class="pre">OEOEOEOEOE</span></code> and <code class="docutils literal notranslate"><span class="pre">EOEOEOEOEO</span></code>. The first pattern gives <span class="math notranslate nohighlight">\(5 \cdot 5 \cdot 4 \cdot 4 \cdot 3 \cdot 3 \cdot 2 \cdot 2 \cdot 1 \cdot 1 = 5! \cdot 5! = 14400\)</span> permutations. However, the second pattern now gives only <span class="math notranslate nohighlight">\(4 \cdot 5 \cdot 4 \cdot 4 \cdot 3 \cdot 3 \cdot 2 \cdot 2 \cdot 1 \cdot 1 = 4 \cdot 4! \cdot 5! = 11520\)</span> permutations. By the addition principle, <span class="math notranslate nohighlight">\(14400 + 11520 = 25920\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="10">
+<li><p>You deal 7 cards off of a 52-card deck and line them up in a row. How many possible lineups are there in which not all cards are red?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">All together, there are <span class="math notranslate nohighlight">\(|U| = P(52,7) = \dfrac{52!}{(52-7)!} = 674,274,182,400\)</span> 7-card lineups with cards selected from the entire deck. There are <span class="math notranslate nohighlight">\(|X| = P(26,7) = \dfrac{26!}{(26-7)!} = 3,315,312,000\)</span> 7-card lineups with red cards selected from the 26 red cards in the deck. By the subtraction principle, the number of lineups that are not all red is <span class="math notranslate nohighlight">\(|U - X| = P(52,7) - P(26,7) = 674,274,182,400 - 3,315,312,000 = 670,958,870,400\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="11">
+<li><p>You deal 7 cards off of a 52-card deck and line them up in a row. How many possible lineups are there in which no card is a club?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">There are 13 club cards in a standard 52-card deck, so <span class="math notranslate nohighlight">\(|X| = P((52-13),7) = \dfrac{39!}{(39-7)!} = 77,519,922,480\)</span></p>
+</div>
+</details><ol class="arabic simple" start="12">
+<li><p>How many lists of length six (with no repetition) can be made from the 26 letters of the English alphabet?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(P(26,6) = \dfrac{26!}{(26-6)!} = 165,765,600\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="13">
+<li><p>Five of ten books are arranged on a shelf. In how many ways can this be done?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(P(10,5) = \dfrac{10!}{(10-5)!} = 30,240\)</span></p>
+</div>
+</details><ol class="arabic simple" start="14">
+<li><p>In a club of 15 people, we need to choose a president, vice-president, secretary, and treasurer. In how many ways can this be done?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(P(15,4) = \dfrac{15!}{(15-4)!} = 32,760\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="15">
+<li><p>How many 4-permutations are there of the set <span class="math notranslate nohighlight">\(\left\{ A , B , C , D , E , F \right\}\)</span> if whenever <span class="math notranslate nohighlight">\(A\)</span> appears in the permutation, it is followed by <span class="math notranslate nohighlight">\(E\)</span>? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Case 1: <span class="math notranslate nohighlight">\(A\)</span> does not appear. Then we choose and arrange letters from the set <span class="math notranslate nohighlight">\(\{B,C,D,E,F\}\)</span>. <span class="math notranslate nohighlight">\(P(5,4) = \dfrac{5!}{(5-4)!} = 120\)</span>.</p></li>
+<li><p class="sd-card-text">Case 2: if <span class="math notranslate nohighlight">\(A\)</span> appears, then <span class="math notranslate nohighlight">\(AE\)</span> is treated as a block, and we choose and arrange 2 other letters from the set <span class="math notranslate nohighlight">\(\{B,C,D,F\}\)</span>, meaning <span class="math notranslate nohighlight">\(P(4,2) = 12\)</span> permutations. Make 3 groups of the forms: <span class="math notranslate nohighlight">\(A E * *\)</span>, <span class="math notranslate nohighlight">\(* A E *\)</span>, and <span class="math notranslate nohighlight">\(* * A E\)</span>. Each group has  <span class="math notranslate nohighlight">\(1 \cdot 1  \cdot 4 \cdot 3 = 12\)</span> possible permutations. By the addition principle, the total number of permutations across all groups is <span class="math notranslate nohighlight">\(12+12+12 = 36\)</span>.</p></li>
+</ul>
+<p class="sd-card-text">Then by the addition principle, there are <span class="math notranslate nohighlight">\(120 + 36 = 156\)</span> total permutations where if whenever <span class="math notranslate nohighlight">\(A\)</span> appears, it is followed by an <span class="math notranslate nohighlight">\(E\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="16">
+<li><p>Three people in a group of ten line up at a ticket counter to buy tickets. How many lineups are possible?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(P(10,3) = \dfrac{10!}{(10-3)!} = 720\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="17">
+<li><p>There is a very interesting function <span class="math notranslate nohighlight">\(r : [ 0 , \infty ) \to \mathbb{R}\)</span> called the gamma function. It is defined as <span class="math notranslate nohighlight">\(\displaystyle \varGamma(x) = \int_{0}^{\infty} t^{x-1} e^{-t} \ dt\)</span>. It has the remarkable property that if <span class="math notranslate nohighlight">\(x \in \mathbb{N}\)</span>, then <span class="math notranslate nohighlight">\(\varGamma(x) = (x-1)!\)</span>. Check that this is true for <span class="math notranslate nohighlight">\(x = 1 , 2 , 3 , 4\)</span>. Notice that this function provides a way of extending factorials to numbers other than integers. Since <span class="math notranslate nohighlight">\(\displaystyle \varGamma(n) = (n-1)!\)</span> for all <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span>, we have the formula <span class="math notranslate nohighlight">\(n! = \varGamma(n+1)\)</span>. But <span class="math notranslate nohighlight">\(\varGamma\)</span> can be evaluated at any number in <span class="math notranslate nohighlight">\([ 0 , \infty )\)</span>, not just at integers, so we have a formula for <span class="math notranslate nohighlight">\(n!\)</span> for any real number <span class="math notranslate nohighlight">\(n \in [ 0 , \infty )\)</span>. Extra credit: Compute <span class="math notranslate nohighlight">\(\pi!\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The gamma function does not equal <span class="math notranslate nohighlight">\(n!\)</span>, but instead it equals a shifted factorial: <span class="math notranslate nohighlight">\(\varGamma(n) = (n-1)!\)</span> for all <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span>. In order to make the gamma function formula match <span class="math notranslate nohighlight">\(n!\)</span>, we must shift by 1: <span class="math notranslate nohighlight">\(n! = \varGamma(n+1)\)</span>. Also note that <span class="math notranslate nohighlight">\(n! = n \cdot (n-1)!\)</span>, so it follows that <span class="math notranslate nohighlight">\(n! = n \cdot (n-1)! = n \cdot \varGamma(n) = \varGamma(n+1)\)</span>.</p>
+<p class="sd-card-text">The gamma function is <span class="math notranslate nohighlight">\(\displaystyle \varGamma(x) = \int_{0}^{\infty} t^{x-1} e^{-t} \ dt\)</span>, so it follows that <span class="math notranslate nohighlight">\(\displaystyle \varGamma(x+1) = \int_{0}^{\infty} t^{(x+1-1)} e^{-t} \ dt = \int_{0}^{\infty} t^{x} e^{-t} \ dt\)</span>.
+Using integration by parts <span class="math notranslate nohighlight">\(\displaystyle \int u \ dv = uv - \int v \ du\)</span> with <span class="math notranslate nohighlight">\(u = t^{x}\)</span> and <span class="math notranslate nohighlight">\(dv = e^{-t} \ dt\)</span>, gives us <span class="math notranslate nohighlight">\(du = xt^{x-1} \ dt\)</span> and <span class="math notranslate nohighlight">\(v = -e^{-t}\)</span>.
+Therefore <span class="math notranslate nohighlight">\(\displaystyle \varGamma(x+1) = \int_{0}^{\infty} t^{x} e^{-t} \ dt = \left[-t^{x}e^{-t}\right]_{0}^{\infty} + x \cdot \int_0^{\infty} t^{x-1}e^{-t} \ dt\)</span>.
+The boundary term <span class="math notranslate nohighlight">\(\left[-t^{x}e^{-t}\right]_{0}^{\infty}\)</span> resolves to 0, so it follows that <span class="math notranslate nohighlight">\(\displaystyle \boxed{\varGamma(x+1) = x \cdot \int_0^{\infty} t^{x-1}e^{-t} \ dt = x \cdot \varGamma(x)}\)</span>.</p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \varGamma(1) = \int_0^{\infty} t^{(1-1)}e^{-t} \ dt = \int_0^{\infty} e^{-t} \ dt\)</span>
+Using u-substitution <span class="math notranslate nohighlight">\(u = -t\)</span>, gives us <span class="math notranslate nohighlight">\(du = -dt\)</span>.
+Therefore <span class="math notranslate nohighlight">\(\displaystyle \varGamma(1) = \int_0^{\infty} e^{-t} \ dt = -\int_0^{\infty} e^{u} \ du = \left[-e^{-t}\right]_{0}^{\infty} = (-e^{-t}) - (-e^{-0}) = 1 - e^{-t} = 1\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \boxed{\varGamma(1) = 1  = (1-1)! = 0!}\)</span></p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \varGamma(2) = \int_0^{\infty} t^{(2-1)}e^{-t} \ dt = \int_0^{\infty} te^{-t} \ dt\)</span>
+Using integration by parts <span class="math notranslate nohighlight">\(\displaystyle \int u \ dv = uv - \int v \ du\)</span> with <span class="math notranslate nohighlight">\(u = t\)</span> and <span class="math notranslate nohighlight">\(dv = e^{-t} \ dt\)</span>, gives us <span class="math notranslate nohighlight">\(du = dt\)</span> and <span class="math notranslate nohighlight">\(v = -e^{-t}\)</span>.
+Therefore <span class="math notranslate nohighlight">\(\displaystyle \varGamma(2) = \int_0^{\infty} te^{-t} \ dt = \left[-te^{-t}\right]_{0}^{\infty} + \int_0^{\infty} e^{-t} \ dt = \left[-te^{-t}\right]_{0}^{\infty} + \left[-e^{-t}\right]_{0}^{\infty} = 1 - te^{-t} - e^{-t} = 1 - e^{-t} \cdot (t+1) = 1\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \boxed{\varGamma(2) = 1 \cdot \varGamma(1) = 1  = (2-1)! = 1!}\)</span></p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \varGamma(3) = \int_0^{\infty} t^{(3-1)}e^{-t} \ dt = \int_0^{\infty} t^{2}e^{-t} \ dt\)</span>
+Using integration by parts <span class="math notranslate nohighlight">\(\displaystyle \int u \ dv = uv - \int v \ du\)</span> with <span class="math notranslate nohighlight">\(u = t^{2}\)</span> and <span class="math notranslate nohighlight">\(dv = e^{-t} \ dt\)</span>, gives us <span class="math notranslate nohighlight">\(du = 2t \ dt\)</span> and <span class="math notranslate nohighlight">\(v = -e^{-t}\)</span>.
+Therefore <span class="math notranslate nohighlight">\(\displaystyle \varGamma(3) = \int_0^{\infty} t^{2}e^{-t} \ dt = \left[-t^{2}e^{-t}\right]_{0}^{\infty} + 2 \cdot \left( \int_0^{\infty} te^{-t} \ dt \right) = \left[-t^{2}e^{-t}\right]_{0}^{\infty} + 2 \cdot \left( \left[-te^{-t}\right]_{0}^{\infty} + \int_0^{\infty} e^{-t} \ dt \right) = -t^{2}e^{-t} + 2 \cdot \left( 1 - te^{-t} - e^{-t} \right) = 2 - e^{-t} \cdot (t^{2}+2t+2) = 2\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \boxed{\varGamma(3) = 2 \cdot \varGamma(2) = 2  = (3-1)! = 2!}\)</span></p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \varGamma(4) = \int_0^{\infty} t^{(4-1)}e^{-t} \ dt = \int_0^{\infty} t^{3}e^{-t} \ dt\)</span>
+Using integration by parts <span class="math notranslate nohighlight">\(\displaystyle \int u \ dv = uv - \int v \ du\)</span> with <span class="math notranslate nohighlight">\(u = t^{3}\)</span> and <span class="math notranslate nohighlight">\(dv = e^{-t} \ dt\)</span>, gives us <span class="math notranslate nohighlight">\(du = 3t^{2} \ dt\)</span> and <span class="math notranslate nohighlight">\(v = -e^{-t}\)</span>.
+Therefore <span class="math notranslate nohighlight">\(\displaystyle \varGamma(4) = \int_0^{\infty} t^{3}e^{-t} \ dt = \left[-t^{3}e^{-t}\right]_{0}^{\infty} + 3 \cdot \left( \int_0^{\infty} t^{2}e^{-t} \ dt \right) = \left[-t^{3}e^{-t}\right]_{0}^{\infty} + 3 \cdot \left(\left[-t^{2}e^{-t}\right]_{0}^{\infty} + 2 \cdot \left( \int_0^{\infty} te^{-t} \ dt \right)\right) = -t^{3}e^{-t} + 3 \cdot \left( 2 - t^{2}e^{-t} - 2te^{-t} - 2e^{-t} \right) = 6 - e^{-t} \cdot (t^{3}+3t^{2}+6t+6) = 6\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \boxed{\varGamma(4) = 3 \cdot \varGamma(3) = 6  = (4-1)! = 3!}\)</span></p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \pi! = \pi \cdot \varGamma(\pi) = \varGamma(\pi + 1) = \int_{0}^{\infty} t^{(\pi+1-1)} e^{-t} \ dt = \int_{0}^{\infty} t^{\pi} e^{-t} \ dt\)</span>. To get a decimal answer we need to apply numerical analysis/approximation. Use numerical integration software, a graphing calculator, or Stirling’s approximation for the gamma function (<span class="math notranslate nohighlight">\(\varGamma(z) \approx \sqrt{2\pi}z^{z-\frac{1}{2}}e^{-z}\)</span>). This works because (a) near <span class="math notranslate nohighlight">\(t=0\)</span>, the factor <span class="math notranslate nohighlight">\(t^{\pi}\)</span> goes to <span class="math notranslate nohighlight">\(0\)</span>, so there is no problem there, and (b) for large <span class="math notranslate nohighlight">\(t\)</span>, the factor <span class="math notranslate nohighlight">\(e^{-t}\)</span> decays very fast, so the tail becomes tiny.
+<span class="math notranslate nohighlight">\(\pi! = \varGamma(\pi+1) \approx 7.188082729\)</span>.</p>
+</div>
+</details></section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="03-5-counting-subsets.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">3.5 Counting Subsets</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="03-3-the-addition-and-subtraction-principles.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">3.3 The Addition and Subtraction Principles</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">3.4 Factorials and Permutations</a><ul>
+<li><a class="reference internal" href="#exercises-for-section-3-4">Exercises for Section 3.4</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

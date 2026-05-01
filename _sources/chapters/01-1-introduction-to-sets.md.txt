@@ -1,0 +1,1068 @@
+**All of mathematics can be described with sets.** This becomes more and more apparent the deeper into mathematics you go. It will be apparent in most of your upper level courses, and certainly in this course. The theory of sets is a language that is perfectly suited to describing and explaining all types of mathematical structures. 
+
+# 1.1 Introduction to Sets
+
+**A set is a collection of things. The things are called elements of the set. We are mainly concerned with sets whose elements are mathematical entities, such as numbers, points, functions, etc.**
+
+**A set is often expressed by listing its elements between commas, enclosed by braces.** For example, the collection $\{ 2 , 4 , 6 , 8 \}$ is a set which has four elements, the numbers $2,4,6$ and $8$. Some sets have infinitely many elements. For example, consider the collection of all integers,
+
+$$
+\left\{\ldots , - 4, - 3, - 2, - 1, 0, 1, 2, 3, 4, \ldots \right\}.
+$$
+
+Here the dots indicate a pattern of numbers that continues forever in both the positive and negative directions. **A set is called an infinite set if it has infinitely many elements; otherwise it is called a finite set.**
+
+**Two sets are equal if they contain exactly the same elements.** Thus $\{ 2 , 4 , 6 , 8 \} = \{ 4 , 2 , 8 , 6 \}$ because even though they are listed in a different order, the elements are identical; but $\{ 2 , 4 , 6 , 8 \} \neq \{ 2 , 4 , 6 , 7 \}$ . Also
+
+$$
+\left\{\ldots - 4, - 3, - 2, - 1, 0, 1, 2, 3, 4 \ldots \right\} = \left\{0, - 1, 1, - 2, 2, - 3, 3, - 4, 4, \ldots \right\}.
+$$
+
+**We often let uppercase letters stand for sets. In discussing the set $\{ 2 , 4 , 6 , 8 \}$ we might declare $A = \{ 2 , 4 , 6 , 8 \}$ and then use $A$ to stand for $\{ 2 , 4 , 6 , 8 \}$ To express that $2$ is an element of the set $A$, we write $2 \in A$ , and read this as "$2$ is an element of $A$", or "$2$ is in $A$", or just "$2$ in $A$".** We also have $4 \in A$ , $6 \in A$ and $8 \in A$ , but $5 \notin A$ . We read this last expression as "$5$ is not an element of $A$", or "$5$ not in $A$". Expressions like $6 , 2 \in A$ or $2 , 4 , 8 \in A$ are used to indicate that several things are in a set.
+
+Some sets are so significant that we reserve special symbols for them. **The set of natural numbers (i.e., the positive whole numbers) is denoted by $\mathbb{N}$**, that is,
+
+$$
+\mathbb {N} = \{1, 2, 3, 4, 5, 6, 7, \dots \}.
+$$
+$$
+\mathbb{N}_{0} = \{0, 1, 2, 3, 4, 5, 6, 7, \dots \}.
+$$
+The set of integers
+
+$$
+\mathbb {Z} = \{\dots , - 3, - 2, - 1, 0, 1, 2, 3, 4, \dots \}
+$$
+
+is another fundamental set. **The symbol $\mathbb { R }$ stands for the set of all real numbers**, a set that is undoubtedly familiar to you from calculus. Other special sets will be listed later in this section.
+
+Sets need not have just numbers as elements. The set $B = \left\{ { T , F } \right\}$ consists of two letters, perhaps representing the values "true" and "false". The set $C = \{ a , e , i , o , u \}$ consists of the lowercase vowels in the English alphabet. The set $D = \left\{ ( 0 , 0 ) , ( 1 , 0 ) , ( 0 , 1 ) , ( 1 , 1 ) \right\}$ has as elements the four corner points of a square on the $x \text{-} y$ coordinate plane. Thus $( 0 , 0 ) \in D$ , $( 1 , 0 ) \in D$ , etc., but $( 1 , 2 ) \notin D$ (for instance). It is even possible for a set to have other sets as elements. Consider $E = \{ 1 , \{ 2 , 3 \} , \{ 2 , 4 \} \}$ , which has three elements: the number 1, the set $\{ 2 , 3 \}$ and the set $\{ 2 , 4 \}$ . Thus $1 \in E$ and $\{ 2 , 3 \} \in E$ and $\{ 2 , 4 \} \in E$ . But note that $2 \notin E$ , $3 \notin E$ and $4 \notin E$ .
+
+Consider the set $M = \left\{ \left[ { \begin{array} { l } { 0 \ 0 } \\ { 0 \ 0 } \end{array} } \right] , \left[ { \begin{array} { l } { 1 \ 0 } \\ { 0 \ 1 } \end{array} } \right] , \left[ { \begin{array} { l l } { 1 \ 0 } \\ { 1 \ 1 } \end{array} } \right] \right\}$ of three two-by-two matrices. We have $\left[ { \begin{array} { l } { 0 \ 0 } \\ { 0 \ 0 } \end{array} } \right] \in M$ , but $\left[ { \begin{array} { l } { 1 \ 1 } \\ { 0 \ 1 } \end{array} } \right] \not \in M$ . Letters can serve as symbols denoting a set’s elements: If $a = \left[ \begin{array} { l l } { 0 } & { 0 } \\ { 0 } & { 0 } \end{array} \right]$ , $b = \left[ \begin{array} { l l } { 1 } & { 0 } \\ {0 } & { 1 } \end{array} \right]$ and $\begin{array} { r } { c = \left[ \begin{array} { l l } { 1 } & { 0 } \\ { 1 } & { 1 } \end{array} \right] } \end{array}$ , then $M = \left\{ a , b , c \right\}$ .
+
+**If $X$ is a finite set, its cardinality or size is the number of elements it has, and this number is denoted as $\left| X \right|$.** Thus for the sets above, $| A | = 4$ , $| B | = 2$ , $| C | = 5$ , $| D | = 4$ , $| E | = 3$ and $| M | = 3$ .
+
+**There is a special set that, although small, plays a big role. The empty set is the set $\{ \}$ that has no elements.** We denote it as $\varnothing$ , so $\varnothing = \{ \}$ . Whenever you see the symbol $\varnothing$ , it stands for $\{ \}$ . **Observe that $| \varnothing | = 0$ . The empty set is the only set whose cardinality is zero.**
+
+**Be careful in writing the empty set. Don’t write $\{ \varnothing \}$ when you mean $\varnothing$. These sets can’t be equal because $\varnothing$ contains nothing while $\{ \varnothing \}$ contains one thing, namely the empty set $\varnothing$. If this is confusing, think of a set as a box with things in it, so, for example, $\{ 2 , 4 , 6 , 8 \}$ is a "box" containing four numbers. The empty set $\varnothing = \{ \}$ is an empty box. By contrast, $\{ \varnothing \}$ is a box with an empty box inside it. Obviously, there’s a difference: An empty box is not the same as a box with an empty box inside it. Thus $\varnothing \neq \left\{ \varnothing \right\}$ . (You might also note $| \varnothing | = 0$ and $| \{ \varnothing \} | = 1$ as additional evidence that $\varnothing \neq \left\{ \varnothing \right\}$).**
+
+This box analogy can help us think about sets. The set $F = \{ \varnothing , \{ \varnothing \} , \{ \{ \varnothing \} \} \}$ may look strange but it is really very simple. Think of it as a box containing three things: an empty box, a box containing an empty box, and a box containing a box containing an empty box. Thus $| F | = 3$ . **The set $G = \left\{ \mathbb { N } , \mathbb { Z } \right\}$ is a box containing two boxes, the box of natural numbers and the box of integers. Thus $| G | = 2$ .**
+
+**A special notation called set-builder notation is used to describe sets that are too big or complex to list between braces. Consider the infinite set of even integers $E = \left\{ \ldots , - 6 , - 4 , - 2 , 0 , 2 , 4 , 6 , \ldots \right\}$ .** In set-builder notation this set is written as
+
+$$
+E = \left\{2 n: n \in \mathbb {Z} \right\}.
+$$
+
+**We read the first brace as "the set of all things of form," and the colon as "such that". So the expression $E = \left\{ 2 n : n \in \mathbb { Z } \right\}$ reads as "$E$ equals the set of all things of form $2 n$ , such that $n$ is an element of $\mathbb { Z }$ ". The idea is that $E$ consists of all possible values of $2 n$ , where $n$ takes on all values in $\mathbb { Z }$.**
+
+**In general, a set $X$ written with set-builder notation has the syntax** 
+
+
+
+$$
+X = \{ \text{expression} : \text{rule} \}
+$$
+
+**where the elements of $X$ are understood to be all values of “expression” that are specified by “rule”.** For example, above $E$ is the set of all values of the expression $2 n$ that satisfy the rule $n \in \mathbb { Z }$. There can be many ways to express the same set. For example, $E = \left\{ 2 n : n \in \mathbb { Z } \right\}$ = $\left\{ n : n \text{ is an even integer}\right\}$ = $\left\{ n : n = 2 k , k \in \mathbb { Z } \right\}$. Another common way of writing it is 
+
+$$
+E = \left\{n \in \mathbb {Z}: n \text{ is even} \right\},
+$$
+
+read "$E$ is the set of all $n$ in $\mathbb{Z}$ such that $n$ is even". Some writers use a bar instead of a colon; for example, $E = \left\{ n \in \mathbb { Z } \mid n \text{ is even}\right\}$. We use the colon. 
+
+Example 1.1: Here are some further illustrations of set-builder notation. 
+1. $\left\{ n : n \text{ is a prime number}\right\} = \left\{ 2 , 3 , 5 , 7 , 1 1 , 1 3 , 1 7 , \ldots \right\}$
+2. $\left\{ n \in \mathbb { N } : n \text{ is prime} \right\} = \left\{ 2 , 3 , 5 , 7 , 1 1 , 1 3 , 1 7 , \ldots \right\}$ 
+3. $\left\{ n ^ { 2 } : n \in \mathbb { Z } \right\} = \left\{ 0 , 1 , 4 , 9 , 1 6 , 2 5 , \ldots \right\}$ 
+4. $\left\{ x \in \mathbb { R } : x ^ { 2 } - 2 = 0 \right\} = \left\{ { \sqrt { 2 } } , - { \sqrt { 2 } } \right\}$ 
+5. $\left\{ x \in \mathbb { Z } : x ^ { 2 } - 2 = 0 \right\} = \varnothing$ 
+6. $\left\{ x \in \mathbb { Z } : \left| x \right| < 4 \right\} = \left\{ - 3 , - 2 , - 1 , 0 , 1 , 2 , 3 \right\}$ 
+7. $\left\{ 2 x : x \in \mathbb { Z } , | x | < 4 \right\} = { \big \{ } - 6 , - 4 , - 2 , 0 , 2 , 4 , 6 { \big \} }$ 
+8. $\left\{ x \in \mathbb { Z } : | 2 x | < 4 \right\} = { \bigl \{ } - 1 , 0 , 1 { \bigr \} }$ 
+
+Items 6–8 above highlight a conflict of notation that we must always be alert to. **The expression $| X |$ means absolute value if $X$ is a number and cardinality if $X$ is a set. The distinction should always be clear from context.** Consider $\left\{ x \in \mathbb { Z } : \left| x \right| < 4 \right\}$ in Example 1.1 (6) above. Here $x \in \mathbb { Z }$ , so $x$ is a number (not a set), and thus the bars in $| x |$ must mean absolute value, not cardinality. On the other hand, suppose $A = \left\{ \{ 1 , 2 \} , \{ 3 , 4 , 5 , 6 \} , \{ 7 \} \right\}$ and $B = \left\{ X \in A : | X | < 3 \right\}$ . The elements of $A$ are sets (not numbers), so the $| X |$ in the expression for $B$ must mean cardinality. Therefore $B = \{ \{ 1 , 2 \} , \{ 7 \} \}$ . 
+
+Example 1.2: Describe the set $A = \left\{ 7 a + 3 b : a , b \in \mathbb { Z } \right\}$ 
+Solution: This set contains all numbers of form $7 a + 3 b$ , where $a$ and $b$ are integers. Each such number $7 a + 3 b$ is an integer, so $A$ contains only integers. But which integers? If $n$ is any integer, then $n = 7 n + 3 ( - 2 n ) = n$ , so $n = 7 a + 3 b$ where $a = n$ and $b = - 2 n$. Therefore $n \in A$ . We’ve now shown that A contains only integers, and also that every integer is an element of $A = \{\dots , - 3, - 2, - 1, 0, 1, 2, 3, 4, \dots \}$. Consequently $A = \mathbb { Z }$ . 
+
+We close this section with a summary of special sets. These are sets that are so common that they are given special names and symbols. 
+- **The empty set: $\varnothing = \left\{ \right\}$** 
+- **The natural numbers: $\mathbb { N } = \left\{ 1 , 2 , 3 , 4 , 5 , \ldots \right\}$** 
+- **The integers: $\mathbb { Z } = \left\{ . . . , - 3 , - 2 , - 1 , 0 , 1 , 2 , 3 , 4 , 5 , . . . \right\}$** 
+- **The rational numbers: $\mathbb{Q} = \left\{ x : x = \dfrac{m}{n}, \text{ where } m, n \in \mathbb{Z} \text{ and } n \neq 0 \right\}$** 
+- **The real numbers: $\mathbb { R }$** 
+
+**We visualize the set $\mathbb { R }$ of real numbers is as an infinitely long number line.** 
+
+<img src="../assets/63780fde110b1b1afe80364020df48298487b1d56d3a294f646b78654788c380.jpg">
+
+**Notice that $\mathbb { Q }$ is the set of all numbers in $\mathbb { R }$ that can be expressed as a fraction of two integers. You may be aware that $\mathbb { Q } \neq \mathbb { R }$ , as ${ \sqrt { 2 } } \notin \mathbb { Q }$ but ${ \sqrt { 2 } } \in \mathbb { R }$** (If not, this point will be addressed in Chapter 6).
+
+**In calculus you encountered intervals on the number line. Like $\mathbb { R }$, these too are infinite sets of numbers. Any two numbers $a , b \in \mathbb { R }$ with $a < b$ give rise to various intervals. Graphically, they are represented by a darkened segment on the number line between $a$ and $b$. A solid circle at an endpoint indicates that that number is included in the interval. A hollow circle indicates a point that is not included in the interval.** 
+- **Closed interval: $[ a , b ] = \left\{ x \in \mathbb { R } : a \leq x \leq b \right\}$** 
+- **Open interval: $( a , b ) = \left\{ x \in \mathbb { R } : a < x < b \right\}$** 
+- **Half-open interval: $( a , b ] = \left\{ x \in \mathbb { R } : a < x \leq b \right\}$** 
+- **Half-open interval: $[ a , b ) = \left\{ x \in \mathbb { R } : a \leq x < b \right\}$** 
+- **Infinite interval: $( a , \infty ) = \left\{ x \in \mathbb { R } : a < x \right\}$** 
+- **Infinite interval: $[ a , \infty ) = \left\{ x \in \mathbb { R } : a \leq x \right\}$** 
+- **Infinite interval: $( - \infty , b ) = \left\{ x \in \mathbb { R } : x < b \right\}$** 
+- **Infinite interval: $( - \infty , b ] = \left\{ x \in \mathbb { R } : x \leq b \right\}$** 
+
+| </br>• **Closed interval: $[a,b]=\{x\in\mathbb{R}:a\le x\le b\}$**</br></br><br>• **Open interval: $(a,b)=\{x\in\mathbb{R}:a<x<b\}$**</br></br><br>• **Half-open interval: $(a,b]=\{x\in\mathbb{R}:a<x\le b\}$**</br></br><br>• **Half-open interval: $[a,b)=\{x\in\mathbb{R}:a\le x<b\}$**</br></br><br>• **Infinite interval: $(a,\infty)=\{x\in\mathbb{R}:a<x\}$**</br></br><br>• **Infinite interval: $[a,\infty)=\{x\in\mathbb{R}:a\le x\}$**</br></br><br>• **Infinite interval: $(-\infty,b)=\{x\in\mathbb{R}:x<b\}$**</br></br><br>• **Infinite interval: $(-\infty,b]=\{x\in\mathbb{R}:x\le b\}$** | <img src="../assets/15f2ecd81d4d6844074463491705b23c33d89a73c26e55363bcde27177c331f8.jpg"> |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+
+**Each of these intervals is an infinite set containing infinitely many numbers as elements. For example, though its length is short, the interval $(0.1,0.2)$ contains infinitely many numbers, that is, all numbers between $0.1$ and $0.2$. It is an unfortunate notational accident that $( a , b )$ can denote both an open interval on the line and a point on the plane.** The difference is usually clear from context. In the next section we will see yet another meaning of $( a , b )$ . 
+
+## Exercises for Section 1.1
+
+A. Write each of the following sets by listing their elements between braces. 
+1. $\left\{ 5 x - 1 : x \in \mathbb { Z } \right\}$ 
+:::{dropdown} Answer
+$\{\dots,-6,-1,4,9,\dots\}$
+:::
+
+2. $\left\{ 3 x + 2 : x \in \mathbb { Z } \right\}$ 
+:::{dropdown} Answer
+$\{\dots,-4,-1,2,5,8,\dots\}$
+:::
+
+3. $\left\{ x \in \mathbb { Z } : - 2 \leq x < 7 \right\}$ 
+:::{dropdown} Answer
+$\{-2,-1,0,1,2,3,4,5,6\}$
+:::
+
+4. $\left\{ x \in \mathbb { N } : - 2 < x \leq 7 \right\}$ 
+:::{dropdown} Answer
+$\{-1,0,1,2,3,4,5,6,7\}$
+:::
+
+5. $\left\{ x \in \mathbb { R } : x ^ { 2 } = 3 \right\}$ 
+:::{dropdown} Answer
+$\{-\sqrt{3}, \sqrt{3}\}$
+:::
+
+6. $\left\{ x \in \mathbb { R } : x ^ { 2 } = 9 \right\}$ 
+:::{dropdown} Answer
+$\{-3,3\}$
+:::
+
+7. $\left\{ x \in \mathbb { R } : x ^ { 2 } + 5 x = - 6 \right\}$ 
+:::{dropdown} Answer
+$x^2 + 5x + 6 = 0$
+$\dfrac{-b \pm \sqrt{b^{2} - 4ac}}{2a}$
+$\{-3,-2\}$
+:::
+
+8. $\left\{ x \in \mathbb { R } : x ^ { 3 } + 5 x ^ { 2 } = - 6 x \right\}$ 
+:::{dropdown} Answer
+Factorize: $x^{3} + 5x^{2} + 6x = 0$ 
+$x(x^{2} + 5x + 6) = 0$
+$\dfrac{-b \pm \sqrt{b^{2} - 4ac}}{2a}$
+$\{-3,-2,0\}$
+:::
+
+9. $\left\{ x \in \mathbb { R } : \sin \pi x = 0 \right\}$ 
+:::{dropdown} Answer
+$\{\dots,-3,-2,-1,0,1,2,3,\dots\} = \mathbb{Z}$
+:::
+
+10. $\{ x \in \mathbb { R } : \cos x = 1 \}$ 
+:::{dropdown} Answer
+$\{\dots,-6\pi,-4\pi,-2\pi,0,2\pi,4\pi,6\pi,\dots\}$
+:::
+
+11. $\left\{ x \in \mathbb { Z } : \left| x \right| < 5 \right\}$ 
+:::{dropdown} Answer
+$\{-4,-3,-2,-1,0,1,2,3,4\}$
+:::
+
+12. $\left\{ x \in \mathbb { Z } : | 2 x | < 5 \right\}$ 
+:::{dropdown} Answer
+$\{-2,-1,0,1,2\}$
+:::
+
+13. $\left\{ x \in \mathbb { Z } : \left| 6 x \right| < 5 \right\}$ 
+:::{dropdown} Answer
+$\{0\}$
+:::
+
+14. $\left\{ 5 x : x \in \mathbb { Z } , | 2 x | \leq 8 \right\}$ 
+:::{dropdown} Answer
+$\{-20,-15,-10,-5,0,5,10,15,20\}$
+:::
+
+15. $\left\{ 5 a + 2 b : a , b \in \mathbb { Z } \right\}$ 
+:::{dropdown} Answer
+$n = 5(n) + 2(-2n)$
+$\{\dots,-4,-3,-2,-1,0,1,2,3,4,\dots\} = \mathbb{Z}$
+:::
+
+16. $\left\{ 6 a + 2 b : a , b \in \mathbb { Z } \right\}$ 
+:::{dropdown} Answer
+$n = 3(n) + (-2n)$. 
+$\{ \dots,-6,-4,-2,0,2,4,6, \dots \}$ = set of all even integers.
+:::
+
+B. Write each of the following sets in set-builder notation. 
+17. $\{2,4,8,16,32,64, \ldots \}$ 
+:::{dropdown} Answer
+$\{2^x : x \in \mathbb{N}\}$ ($\mathbb{N}$ does not include 0!)
+:::
+
+18. $\{ 0 , 4 , 1 6 , 3 6 , 6 4 , 1 0 0 , \ldots \}$ 
+:::{dropdown} Answer
+$\{(2x)^{2} : x \in \mathbb{N}_{0}\}$ ($\mathbb{N}_{0}$ includes 0!)
+:::
+
+19. $\left\{ \ldots , - 6 , - 3 , 0 , 3 , 6 , 9 , 1 2 , 1 5 , \ldots \right\}$ 
+:::{dropdown} Answer
+$\{3x : x \in \mathbb{Z}\}$
+:::
+
+20. $\{ \dots , - 8 , - 3 , 2 , 7 , 1 2 , 1 7 , \dots \}$ 
+:::{dropdown} Answer
+$\{5x + 2 : x \in \mathbb{Z}\}$
+:::
+
+21. $\left\{ 0 , 1 , 4 , 9 , 1 6 , 2 5 , 3 6 , \ldots \right\}$ 
+:::{dropdown} Answer
+$\{x^{2} : x \in \mathbb{Z}\}$
+:::
+
+22. $\{ 3,6,11,18,27,38,\ldots \}$ 
+:::{dropdown} Answer
+$\{x^{2} + 2 : x \in \mathbb{N}\}$
+:::
+
+23. $\{ 3,4,5,6,7,8 \}$ 
+:::{dropdown} Answer
+$\{3 \le x \le 8 : x \in \mathbb{N}\}$
+:::
+
+24. $\{ - 4 , - 3 , - 2 , - 1 , 0 , 1 , 2 \}$ 
+:::{dropdown} Answer
+$\{-4 \le x < 3 : x \in \mathbb{Z}\}$
+:::
+
+25. $\left\{ \ldots , { \frac { 1 } { 8 } } , { \frac { 1 } { 4 } } , { \frac { 1 } { 2 } } , 1 , 2 , 4 , 8 , \ldots \right\}$ 
+:::{dropdown} Answer
+$\{2^{x} : x \in \mathbb{Z}\}$
+:::
+
+26. $\left\{ \ldots , { \frac { 1 } { 2 7 } } , { \frac { 1 } { 9 } } , { \frac { 1 } { 3 } } , 1 , 3 , 9 , 2 7 , \ldots \right\}$ 
+:::{dropdown} Answer
+$\{3^{x} : x \in \mathbb{Z}\}$
+:::
+
+27. $\left\{ \ldots , - \pi , - { \frac { \pi } { 2 } } , 0 , { \frac { \pi } { 2 } } , \pi , { \frac { 3 \pi } { 2 } } , 2 \pi , { \frac { 5 \pi } { 2 } } , \ldots \right\}$ 
+:::{dropdown} Answer
+$\left\{\dfrac{k\pi}{2} : k \in \mathbb{Z}\right\}$
+:::
+
+28. $\left\{ \ldots , - { \frac { 3 } { 2 } } , - { \frac { 3 } { 4 } } , 0 , { \frac { 3 } { 4 } } , { \frac { 3 } { 2 } } , { \frac { 9 } { 4 } } , 3 , { \frac { 1 5 } { 4 } } , { \frac { 9 } { 2 } } , \ldots \right\}$ 
+:::{dropdown} Answer
+$\left\{\dfrac{3k}{4} : k \in \mathbb{Z}\right\}$
+:::
+
+C. Find the following cardinalities. 
+29. $\left| \{ \{ 1 \} , \{ 2 , \{ 3 , 4 \} \} , \varnothing \} \right|$ 
+:::{dropdown} Answer
+$3$
+:::
+
+30. $\left| \{ \{ 1 , 4 \} ,a, b, \{ \{ 3 , 4 \} \} , \{ \varnothing \}\} \right|$ 
+:::{dropdown} Answer
+$5$
+:::
+
+31. $| \{ \{\{ 1 \} , \{ 2 , \{ 3 , 4 \} \} , \varnothing \} \} |$
+:::{dropdown} Answer
+$1$
+:::
+
+32. $\left| \{ \{ \{ 1 , 4 \} , a , b , \{ \{ 3 , 4 \} \} , \{ \varnothing \} \}\} \right|$ 
+:::{dropdown} Answer
+$1$
+:::
+
+33. $\left| \left\{ x \in \mathbb { Z } : | x | < 1 0 \right\} \right|$ 
+:::{dropdown} Answer
+$19$
+:::
+
+34. $\left| \left\{ x \in \mathbb { N } : \left| x \right| < 1 0 \right\} \right|$ 
+:::{dropdown} Answer
+$9$
+:::
+
+35. $\left| \left\{ x \in \mathbb { Z } : x ^ { 2 } < 1 0 \right\} \right|$  
+:::{dropdown} Answer
+$7$
+:::
+
+36. $\left| \left\{ x \in \mathbb { N } : x ^ { 2 } < 1 0 \right\} \right|$ 
+:::{dropdown} Answer
+$3$
+:::
+
+37. $\left| \left\{ x \in \mathbb { N } : x ^ { 2 } < 0 \right\} \right|$ 
+:::{dropdown} Answer
+$|\varnothing| = 0$
+:::
+
+38. $\left| \left\{ x \in \mathbb { N } : 5 x \leq 2 0 \right\} \right|$ 
+:::{dropdown} Answer
+$4$
+:::
+
+D. Sketch the following sets of points in the $x \text{-} y$ plane. 
+39. $\left\{ ( x , y ) : x \in [ 1 , 2 ] , y \in [ 1 , 2 ] \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/b1168a21c2fd4bb19e751c96a0e3520d.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, y): x in [1,2], y in [1,2]}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+ax = plt.gca()
+rect = plt.Rectangle((1, 1), 1, 1, color='blue', fill=True, alpha=0.15)
+ax.add_patch(rect)
+rect_edge = plt.Rectangle((1, 1), 1, 1, color='blue', fill=False, linewidth=1)
+ax.add_patch(rect_edge)
+ax.set_axisbelow(True)
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-0.5, 2.5)
+plt.ylim(-0.5, 2.5)
+plt.title(r"Set $\{(x,y): x\in[1,2],\ y\in[1,2]\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+40. $\left\{ ( x , y ) : x \in [ 0 , 1 ] , y \in [ 1 , 2 ] \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/1cfa0f6fb58146388f7b397203a9addd.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, y): x in [0,1], y in [1,2]}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+ax = plt.gca()
+rect = plt.Rectangle((0, 1), 1, 1, color='blue', fill=True, alpha=0.15)
+ax.add_patch(rect)
+rect_edge = plt.Rectangle((0, 1), 1, 1, color='blue', fill=False, linewidth=1)
+ax.add_patch(rect_edge)
+ax.set_axisbelow(True)
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-0.5, 2.5)
+plt.ylim(-0.5, 2.5)
+plt.title(r"Set $\{(x,y): x\in[0,1],\ y\in[1,2]\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+41. $\left\{ ( x , y ) : x \in [ - 1 , 1 ] , y = 1 \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/2697e73658b94399ba8e837509853f03.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, y): x in [-1,1], y = 1}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(-1, 1, 300)
+y = np.ones_like(x)
+plt.figure(figsize=(6, 6))
+# Draw the line segment
+plt.plot(x, y, color='blue', linewidth=1)
+# Mark the endpoints (included since x in [-1,1])
+plt.plot([-1, 1], [1, 1], color='blue', marker='.', linestyle='None')
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-2, 2)
+plt.ylim(-2, 2)
+plt.title(r"Set $\{(x,y): x\in[-1,1],\ y=1\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+42. $\left\{ ( x , y ) : x = 2 , y \in [ 0 , 1 ] \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/79c9009f35434d099b9676c8461a1726.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, y): x = 2, y in [0,1]}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+y = np.linspace(0, 1, 300)
+x = np.full_like(y, 2)
+plt.figure(figsize=(6, 6))
+# Draw the line segment
+plt.plot(x, y, color='blue', linewidth=1)
+# Mark the endpoints
+plt.plot([2, 2], [0, 1], color='blue', marker='.', linestyle='None')
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-1, 3)
+plt.ylim(-1, 3)
+plt.title(r"Set $\{(x,y): x = 2,\ y \in [0,1]\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+43. $\left\{ ( x , y ) : | x | = 2 , y \in [ 0 , 1 ] \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/deddd8656ae640da8bcfb84920e31f37.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, y): |x| = 2, y in [0,1]}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+y = np.linspace(0, 1, 300)
+x1 = np.full_like(y, 2)
+x2 = np.full_like(y, -2)
+plt.figure(figsize=(6, 6))
+# Draw the line segment
+plt.plot(x1, y, color="blue", linewidth=1)
+plt.plot(x2, y, color="blue", linewidth=1)
+# Mark the endpoints
+plt.plot([2, 2], [0, 1], color="blue", marker=".", linestyle="None")
+plt.plot([-2, -2], [0, 1], color="blue", marker=".", linestyle="None")
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-3, 3)
+plt.ylim(-2, 2)
+plt.title(r"Set $\{(x,y): |x| = 2,\ y \in [0,1]\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+44. $\left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/e19918260cbd4998bb8652ae48a3e348.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, x^2): x in R^2}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(-4, 4, 800)
+y = x**2
+plt.figure(figsize=(6, 6))
+plt.plot(x, y, color='blue', linewidth=1, label="$y = x^2$")
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-3, 3)
+plt.ylim(-1, 5)
+plt.title(r"Set $\{(x,x^2): x \in\mathbb{R}^2\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+plt.legend(loc="upper right")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+45. $\left\{ ( x , y ) : x , y \in \mathbb { R } , x ^ { 2 } + y ^ { 2 } = 1 \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/08a1fb88d1034f8ba6df3ae1f3d2e843.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, y): x,y in R, x^2 + y^2 = 1}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+# Parameterize the unit circle
+t = np.linspace(0, 2*np.pi, 800)
+x = np.cos(t)
+y = np.sin(t)
+plt.figure(figsize=(6, 6))
+plt.plot(x, y, color='blue', linewidth=1)
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-1.5, 1.5)
+plt.ylim(-1.5, 1.5)
+plt.title(r"Set $\{(x,y): x,y \in \mathbb{R}, x^2 + y^2 = 1\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+46. $\left\{ ( x , y ) : x , y \in \mathbb { R } , x ^ { 2 } + y ^ { 2 } \leq 1 \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/5a1d3909e8f04e058bb5e855e911b5c7.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, y) in R^2 : x^2 + y^2 <= 1}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+# Parameterize the unit circle
+t = np.linspace(0, 2*np.pi, 800)
+x = np.cos(t)
+y = np.sin(t)
+plt.figure(figsize=(6, 6))
+plt.fill(x, y, color='blue', alpha=0.15, linewidth=1)
+plt.plot(x, y, color='blue', linewidth=1)
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-1.5, 1.5)
+plt.ylim(-1.5, 1.5)
+plt.title(r"Set $\{(x,y): x^2 + y^2 \leq 1\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+47. $\left\{ ( x , y ) : x , y \in \mathbb { R } , y \geq x ^ { 2 } - 1 \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/f27f0609f123425cbbe209b1e04a223b.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, y): x,y in R, y >= x^2 - 1}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(-3, 3, 800)
+y = x**2 - 1
+y_top = np.full_like(x, 5.0)
+plt.figure(figsize=(6, 6))
+# Shade the region y >= x^2 - 1
+plt.fill_between(x, y, y_top, color='blue', alpha=0.15)
+# Draw the parabola boundary
+plt.plot(x, y, linewidth=1, color='blue')
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-3, 3)
+plt.ylim(-2, 4)
+plt.title(r"Set $\{(x,y): x,y \in\mathbb{R}, y \geq x^2 - 1\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+48. $\left\{ ( x , y ) : x , y \in \mathbb { R } , x > 1 \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/ccd103c0c19841128c6fd58cf9a49c1a.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, y): x,y in R, x > 1}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+y = np.linspace(-3, 3, 400)
+plt.figure(figsize=(6, 6))
+# Shade the half-plane to the right of x=1
+plt.fill_betweenx(y, 1, 4, color='blue', alpha=0.15)
+# Draw the boundary line x=1 (not included)
+plt.axvline(1, color='blue', linestyle='--', linewidth=1)
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-1, 4)
+plt.ylim(-3, 3)
+plt.title(r"Set $\{(x,y): x,y \in\mathbb{R}, x > 1\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+4
+
+49. $\left\{ ( x , x + y ) : x \in \mathbb { R } , y \in \mathbb { Z } \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/42aeab0f73ea43a4b67ee8a714b89fd4.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, x+y) : x in R, y in Z}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
+xs = np.linspace(-5, 5, 400)
+ks = range(-9, 10)
+cmap = cm.turbo
+norm = mcolors.Normalize(vmin=min(ks), vmax=max(ks))
+plt.figure(figsize=(6, 6))
+for k in ks:
+    color = cmap(norm(k))
+    plt.plot(xs, xs + k, color=color, linewidth=1, label=f"$f(x) = x {"" if k < 0 else "+"} {(k)}$")
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-5, 5)
+plt.ylim(-5, 5)
+plt.title(r"Set $\{(x, x+y): x\in\mathbb{R},\ y\in\mathbb{Z}\}$")
+plt.xlabel("x")
+plt.ylabel("x + y")
+plt.grid(True, which="both", linestyle=":")
+plt.legend(loc="upper right", fontsize=8)
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+49b. $\left\{ ( x , x + n ) : x \in \mathbb { R } , n \in \mathbb { N } \right\}$
+<img src="../assets/63fdfc5514274bc896f835e17f5d1aa3.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, x+n) : x in R, n in N}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
+xs = np.linspace(-5, 5, 400)
+ks = range(1, 10)
+cmap = cm.turbo
+norm = mcolors.Normalize(vmin=min(ks), vmax=max(ks))
+plt.figure(figsize=(6, 6))
+for k in ks:
+      color = cmap(norm(k))
+      plt.plot(xs, xs + k, color=color, linewidth=1, label=f"$y = x {"" if k < 0 else "+"} {(k)}$")
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-5, 5)
+plt.ylim(-5, 5)
+plt.title(r"Set $\{(x, x+n): x\in\mathbb{R},\ n\in\mathbb{N}\}$")
+plt.xlabel("x")
+plt.ylabel("x + n")
+plt.grid(True, which="both", linestyle=":")
+plt.legend(loc="upper right", fontsize=8)
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+50. $\left\{ ( x , { \tfrac { x ^ { 2 } } { y } } ) : x \in \mathbb { R } , y \in \mathbb { N } \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/7008ff431a7e4b3db7ba6b0d763f1fbe.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, x^2 / y) : x in R, y in N}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(-6, 6, 800)
+ns = list(range(1, 20))
+plt.figure(figsize=(6, 6))
+for n in ns:
+    label = fr"$f(x)=\frac{{x^2}}{{{n}}}$" if n < 11 else None
+    plt.plot(x, (x**2)/n, linewidth=1, label=label)
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-6, 6)
+plt.ylim(0, 12)
+plt.title(r"Set $\{(x, \dfrac{x^2}{y}): x\in\mathbb{R},\ y\in\mathbb{N}\}$")
+plt.xlabel("x")
+plt.ylabel(r"$\dfrac{x^2}{y}$")
+plt.grid(True, linestyle=":")
+plt.legend(loc="upper right", fontsize=8)
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+51. $\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : ( y - x ) ( y + x ) = 0 \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/57066fadf1914e72b6433536bf1537bf.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, y) in R^2 : (y - x)(y + x) = 0}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(-5, 5, 400)
+y1 = x
+y2 = -x
+plt.figure(figsize=(6, 6))
+plt.plot(x, y1, linewidth=1, color="blue", label="y = x")
+plt.plot(x, y2, linewidth=1, color="green", label="y = -x")
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-5, 5)
+plt.ylim(-5, 5)
+plt.title(r"Set $\{(x,y)\in\mathbb{R}^2 : (y-x)(y+x)=0\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+plt.legend(loc="upper right")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+52. $\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : ( y - x ^ { 2 } ) ( y + x ^ { 2 } ) = 0 \right\}$ 
+:::{dropdown} Answer
+<img src="../assets/5e623304cce847148376bdbafc75a442.png" width="500">
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+# Sketch the set S = {(x, y) in R^2 : (y - x**2)(y + x**2) = 0}
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(-4, 4, 800)
+y1 = x**2
+y2 = -x**2
+plt.figure(figsize=(6, 6))
+plt.plot(x, y1, linewidth=1, color='blue', label=r"$y = x^2$")
+plt.plot(x, y2, linewidth=1, color='green', label=r"$y = -x^2$")
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-4, 4)
+plt.ylim(-5, 5)
+plt.title(r"Set $\{(x,y)\in\mathbb{R}^2 : (y-x^2)(y+x^2)=0\}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+plt.legend(loc="upper right")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+

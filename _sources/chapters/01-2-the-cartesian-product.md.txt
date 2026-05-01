@@ -1,0 +1,928 @@
+# 1.2 The Cartesian Product
+
+**Given two sets $A$ and $B$ , it is possible to “multiply” them to produce a new set denoted as $A \times B$ . This operation is called the Cartesian product. To understand it, we must first understand the idea of an ordered pair.** 
+
+<mark>**Definition 1.1: An ordered pair is a list $( x , y )$ of two things $x$ and y, enclosed in parentheses and separated by a comma.**</mark> 
+
+**For example, $(2,4)$ is an ordered pair, as is $(4,2)$. These ordered pairs are different because even though they have the same things in them, the order is different. We write $( 2 , 4 ) \neq ( 4 , 2 )$.** Right away you can see that ordered pairs can be used to describe points on the plane, as was done in calculus, but they are not limited to just that. **The things in an ordered pair don’t have to be numbers. You can have ordered pairs of letters, such as $( \ell , m )$, ordered pairs of sets such as $\left( \{ 2 , 5 \} , \{ 3 , 2 \} \right)$, even ordered pairs of ordered pairs like $\big((2,4),(4,2)\big)$. The following are also ordered pairs: $\big( 2 , \{ 1 , 2 , 3 \} \big)$, $( \mathbb { R } , ( 0 , 0 ))$.** Any list of two things enclosed by parentheses is an ordered pair. Now we are ready to define the Cartesian product. 
+
+<mark>**Definition 1.2: The Cartesian product of two sets $A$ and $B$ is another set, denoted as $A \times B$ and defined as $A \times B = \left\{ ( a , b ) : a \in A , b \in B \right\}$.**</mark> 
+
+**Thus $A \times B$ is a set of ordered pairs of elements from $A$ and $B$.** For example, if $A = \left\{ k , \ell , m \right\}$ and $B = \left\{ q , r \right\}$, then 
+
+$$
+A \times B = \big\{(k, q), (k, r), (\ell , q), (\ell , r), (m, q), (m, r) \big\}.
+$$
+
+Figure 1.1 shows how to make a schematic diagram of $A \times B$. Line up the elements of $A$ horizontally and line up the elements of $B$ vertically, as if $A$ and $B$ form an $x$- and $y$ -axis. Then fill in the ordered pairs so that each element $( x , y )$ is in the column headed by $x$ and the row headed by $y$. 
+
+<img src="../assets/4e3db6eb38074c025811e6114be325367086d62e7d2a6f8a0f2647be903a65a4.jpg">
+Figure 1.1. A diagram of a Cartesian product
+
+For another example, $\left\{ 0 , 1 \right\} \times \left\{ 2 , 1 \right\} = \left\{ ( 0 , 2 ) , ( 0 , 1 ) , ( 1 , 2 ) , ( 1 , 1 ) \right\}$. If you are a visual thinker, you may wish to draw a diagram similar to Figure 1.1. The rectangular array of such diagrams give us the following general fact. 
+
+<mark>**Fact 1.1: If $A$ and $B$ are finite sets, then $| A \times B | = | A | \cdot | B |$.**</mark> 
+
+Example 1.3: Let $A = \{ \unicode{x2680}, \unicode{x2681}, \unicode{x2682}, \unicode{x2683}, \unicode{x2684}, \unicode{x2685} \}$ be the set consisting of the six faces of a dice. The Cartesian product $A \times A$ is diagramed below. By Fact 1.1 (or by simple counting), $| A \times A | = 6 \cdot 6 = 3 6$. We might think of $A \times A$ as the set of possible outcomes in rolling a dice two times in a row. Each element of the product is an ordered pair of the form $( \text{result of 1st roll }, \text{ result of 2nd roll})$. Such constructions are useful in the study of probability. 
+
+<img src="../assets/f97548d9c7a63e74cc4c2158271bc8f5e017ae10646d78c00d1be0c310bb1821.jpg">
+
+**The set $\mathbb { R } \times \mathbb { R } = \left\{ ( x , y ) : x , y \in \mathbb { R } \right\}$ should be very familiar. It can be viewed as the set of points on the Cartesian plane, as drawn in Figure 1.2(a). The set $\mathbb { R } \times \mathbb { N } = \left\{ ( x , y ) : x \in \mathbb { R } , y \in \mathbb { N } \right\}$ can be regarded as all of the points on the plane whose second coordinate is a natural number. This is illustrated in Figure 1.2(b), which shows that $\mathbb { R } \times \mathbb { N }$ looks like infinitely many horizontal lines at integer heights above the $x$-axis. The set $\mathbb { N } \times \mathbb { N }$ is the set of all points on the plane whose coordinates are both natural numbers. It looks like a grid of dots in the first quadrant, as illustrated in Figure 1.2(c).** 
+
+<img src="../assets/Pasted image 20260312095254.png" width="1000">
+Figure 1.2. Drawings of some Cartesian products
+
+It is even possible for one factor of a Cartesian product to be a Cartesian product itself, as in $\mathbb { R } \times ( \mathbb { N } \times \mathbb { Z } ) = \left\{ ( x , ( y , z ) ) : x \in \mathbb { R } , ( y , z ) \in \mathbb { N } \times \mathbb { Z } \right\}$ . 
+
+We can also define Cartesian products of three or more sets by moving beyond ordered pairs. **An ordered triple is a list $( x , y , z )$. The Cartesian product of the three sets $\mathbb { R , N }$ and $\mathbb { Z }$ is $\mathbb { R } \times \mathbb { N } \times \mathbb { Z } = \left\{ ( x , y , z ) : x \in \mathbb { R } , y \in \mathbb { N } , z \in \mathbb { Z } \right\}$. Of course there is no reason to stop with ordered triples.** In general, 
+
+
+$$
+A_{1} \times A_{2} \times \dots \times A_{n} = \left\{ \left( x_{1}, x_{2}, \dots , x_{n} \right) : x_{i} \in A_{i} \text{ for each } i = 1, 2, \dots , n \right\}.
+$$
+
+**Be mindful of parentheses. There is a slight difference between $\mathbb { R } \times ( \mathbb { N } \times \mathbb { Z } )$ and $\mathbb { R } \times \mathbb { N } \times \mathbb { Z }$ . The first is a Cartesian product of two sets; its elements are ordered pairs $( x , ( y , z ) )$. The second is a Cartesian product of three sets; its elements are ordered triples $( x , y , z )$.** To be sure, in many situations there is no harm in blurring the distinction between expressions like $( x , ( y , z ) )$ and $( x , y , z )$ , but for now we regard them as different. 
+
+**For any set A and positive integer $n$ , the Cartesian power $A ^ { n }$ is** 
+
+
+$$
+A^{n} = A \times A \times \dots \times A = \left\{ (x_{1}, x_{2}, \ldots , x_{n}) : x_{1}, x_{2}, \ldots , x_{n} \in A \right\}.
+$$
+
+**In this way, $\mathbb { R } ^ { 2 }$ is the familiar Cartesian plane and $\mathbb { R } ^ { 3 }$ is three-dimensional space.** You can visualize how, if $\mathbb { R } ^ { 2 }$ is the plane, then $\mathbb { Z } ^ { 2 } = \left\{ ( m , n ) : m , n \in \mathbb { Z } \right\}$ is a grid of points on the plane. Likewise, as $\mathbb { R } ^ { 3 }$ is 3-dimensional space, $\mathbb { Z } ^ { 3 } = \left\{ ( m , n , p ) : m , n , p \in \mathbb { Z } \right\}$ is a grid of points in space. 
+
+In other courses you may encounter sets that are very similar to $\textstyle \mathbb { R } ^ { n }$, but yet have slightly different shades of meaning. Consider, for example, the set of all two-by-three matrices with entries from $\mathbb { R }$: 
+
+$$
+M = \left\{\left[ \begin{array}{c c c} u & v & w \\ x & y & z \end{array} \right]: u, v, w, x, y, z \in \mathbb {R} \right\}.
+$$
+
+This is not really all that different from the set 
+
+$$
+\mathbb {R} ^ {6} = \left\{(u, v, w, x, y, z): u, v, w, x, y, z \in \mathbb {R} \right\}.
+$$
+
+The elements of these sets are merely certain arrangements of six real numbers. Despite their similarity, we maintain that $M \neq \mathbb { R } ^ { 6 }$, for two-bythree matrices are not the same things as sequences of six numbers. 
+
+Example 1.4: Represent the two sides of a coin by the set $S = \left\{ H, T \right\}$ . The possible outcomes of tossing the coin seven times in a row can be described with the Cartesian power $S ^ { 7 }$. A typical element of $S ^ { 7 }$ looks like $(H,H,T,H,T,T,T)$, meaning a head was tossed first, then another head, then a tail, then a head followed by three tails. Note that $\left| S ^ { 7 } \right| = 2 ^ { 7 } = 1 2 8$ , so there are 128 possible outcomes. If this is not clear, then it will be explained fully in Chapter 3. 
+
+## Exercises for Section 1.2
+
+A. Write out the indicated sets by listing their elements between braces. 
+1. Suppose $A = \left\{ 1 , 2 , 3 , 4 \right\}$ and $B = \left\{ a , c \right\}$. 
+(a) $A \times B$ 
+:::{dropdown} Answer
+$A \times B = \{1,2,3,4\} \times \{a,c\}$
+$A \times B = \{(1,a),(1,c),(2,a),(2,c),(3,a),(3,c),(4,a),(4,c)\}$
+:::
+
+(b) $B \times A$ 
+:::{dropdown} Answer
+$B \times A = \{a,c\} \times \{1,2,3,4\}$
+$B \times A = \{(a,1),(a,2),(a,3),(a,4),(c,1),(c,2),(c,3),(c,4)\}$
+:::
+
+(c) $A \times A$ 
+:::{dropdown} Answer
+$A \times A = \{1,2,3,4\} \times \{1,2,3,4\}$
+$A \times A = \{$
+$\quad (1,1),(1,2),(1,3),(1,4),$
+$\quad (2,1),(2,2),(2,3),(2,4),$
+$\quad (3,1),(3,2),(3,3),(3,4),$
+$\quad (4,1),(4,2),(4,3),(4,4)$
+$\}$
+:::
+
+(d) $B \times B$ 
+:::{dropdown} Answer
+$B \times B = \{a,c\} \times \{a,c\}$
+$B \times B = \{(a,a),(a,c),(c,a),(c,c)\}$
+:::
+
+(e) $\varnothing \times B$ 
+:::{dropdown} Answer
+$\varnothing \times B = \{\} \times \{a,c\} = \{\} = \varnothing$
+:::
+
+(f) $(A \times B) \times B$ 
+:::{dropdown} Answer
+$(A \times B) \times B = (\{1,2,3,4\} \times \{a,c\}) \times \{a,c\}$
+$(A \times B) \times B = (\{(1,a),(1,c),(2,a),(2,c),(3,a),(3,c),(4,a),(4,c)\}) \times \{a,c\}$
+$(A \times B) \times B = \{$
+$\quad ((1,a),a),((1,a),c),((1,c),a),((1,c),c),$
+$\quad ((2,a),a),((2,a),c),((2,c),a),((2,c),c),$
+$\quad ((3,a),a),((3,a),c),((3,c),a),((3,c),c),$
+$\quad ((4,a),a),((4,a),c),((4,c),a),((4,c),c)$
+$\}$
+:::
+
+(g) $A \times (B \times B)$
+:::{dropdown} Answer
+$A \times (B \times B) = \{1,2,3,4\} \times (\{a,c\} \times \{a,c\})$
+$A \times (B \times B) = \{1,2,3,4\} \times \{(a,a),(a,c),(c,a),(c,c)\}$
+$A \times (B \times B) = \{$
+$\quad (1,(a,a)),(1,(a,c)),(1,(c,a)),(1,(c,c)),$
+$\quad (2,(a,a)),(2,(a,c)),(2,(c,a)),(2,(c,c)),$
+$\quad (3,(a,a)),(3,(a,c)),(3,(c,a)),(3,(c,c)),$
+$\quad (4,(a,a)),(4,(a,c)),(4,(c,a)),(4,(c,c))$
+$\}$
+:::
+
+(h) $B^3$ 
+:::{dropdown} Answer
+$B^{3} = B \times B \times B = \{a,c\} \times \{a,c\} \times \{a,c\}$
+$B^{3} = \{(a,a,a),(a,a,c),(a,c,a),(a,c,c),(c,a,a),(c,a,c),(c,c,a),(c,c,c)\}$
+:::
+
+2. Suppose $A = \left\{ \pi , e , 0 \right\}$ and $B = \left\{ 0 , 1 \right\}$ . 
+(a) $A \times B$ 
+:::{dropdown} Answer
+$A \times B = \{\pi,e,0\} \times \{0,1\}$
+$A \times B = \{(\pi,0),(\pi,1),(e,0),(e,1),(0,0),(0,1)\}$
+:::
+
+(b) $B \times A$ 
+:::{dropdown} Answer
+$B \times A = \{0,1\} \times \{\pi,e,0\}$
+$B \times A = \{(0,\pi),(0,e),(0,0),(1,\pi),(1,e),(1,0)\}$
+:::
+
+(c) $A \times A$ 
+:::{dropdown} Answer
+$A \times A = \{\pi,e,0\} \times \{\pi,e,0\}$
+$A \times A = \{$
+$\quad (\pi,\pi),(\pi,e),(\pi,0),$
+$\quad (e,\pi),(e,e),(e,0),$
+$\quad (0,\pi),(0,e),(0,0)$
+$\}$ (9 ordered pairs).
+:::
+
+(d) $B \times B$ 
+:::{dropdown} Answer
+$B \times B = \{0,1\} \times \{0,1\}$
+$B \times B = \{(0,0),(0,1),(1,0),(1,1)\}$
+:::
+
+(e) $A \times \varnothing$ 
+:::{dropdown} Answer
+$A \times \varnothing = \{\pi,e,0\} \times \{\} = \{\} = \varnothing$
+:::
+
+(f) $(A \times B) \times B$ 
+:::{dropdown} Answer
+$(A \times B) \times B = (\{\pi,e,0\} \times \{0,1\}) \times \{0,1\}$
+$(A \times B) \times B = \{(\pi,0),(\pi,1),(e,0),(e,1),(0,0),(0,1)\} \times \{0,1\}$
+$(A \times B) \times B = \{$
+$\quad ((\pi,0),0),((\pi,0),1),$
+$\quad ((\pi,1),0),((\pi,1),1),$
+$\quad ((e,0),0),((e,0),1),$
+$\quad ((e,1),0),((e,1),1),$
+$\quad ((0,0),0),((0,0),1),$
+$\quad ((0,1),0),((0,1),1)$
+$\}$
+:::
+
+(g) $A \times (B \times B)$
+:::{dropdown} Answer
+$A \times (B \times B) = \{\pi,e,0\} \times (\{0,1\} \times \{0,1\})$
+$A \times (B \times B) = \{\pi,e,0\} \times \{(0,0),(0,1),(1,0),(1,1)\}$
+$A \times (B \times B) = \{$
+$\quad (\pi,(0,0)),(\pi,(0,1)),(\pi,(1,0)),(\pi,(1,1)),$
+$\quad (e,(0,0)),(e,(0,1)),(e,(1,0)),(e,(1,1)),$
+$\quad (0,(0,0)),(0,(0,1)),(0,(1,0)),(0,(1,1))$
+$\}$
+:::
+
+(h) $A \times B \times B$
+:::{dropdown} Answer
+$A \times B \times B = \{\pi,e,0\} \times \{0,1\} \times \{0,1\}$ 
+$A \times B \times B = \{$
+$\quad (\pi,0,0),(\pi,0,1),(\pi,1,0),(\pi,1,1),$
+$\quad (e,0,0),(e,0,1),(e,1,0),(e,1,1),$
+$\quad (0,0,0),(0,0,1),(0,1,0),(0,1,1)$
+$\}$ 
+These are 12 ordered triples, i.e. all triples with first coordinate in $\{\pi,e,0\}$ and the other two in $\{0,1\}$.
+:::
+
+3. $\left\{ x \in \mathbb { R } : x ^ { 2 } = 2 \right\} \times \left\{ a , c , e \right\}$ 
+:::{dropdown} Answer
+$\{x\in\mathbb{R}:x^{2}=2\} \times \{a,c,e\} = \{-\sqrt{2},\sqrt{2}\} \times \{a,c,e\}$
+$\{-\sqrt{2},\sqrt{2}\} \times \{a,c,e\} = \{(-\sqrt{2},a),(-\sqrt{2},c),(-\sqrt{2},e),(\sqrt{2},a),(\sqrt{2},c),(\sqrt{2},e)\}$
+:::
+
+4. $\left\{ n \in \mathbb { Z } : 2 < n < 5 \right\} \times \left\{ n \in \mathbb { Z } : | n | = 5 \right\}$ 
+:::{dropdown} Answer
+$\{n\in\mathbb{Z}:2<n<5\} \times \{n\in\mathbb{Z}:|n|=5\} = \{3,4\} \times \{-5,5\}$
+$\{3,4\} \times \{-5,5\} = \{(3,-5),(3,5),(4,-5),(4,5)\}$
+:::
+
+5. $\left\{ x \in \mathbb { R } : x ^ { 2 } = 2 \right\} \times \left\{ x \in \mathbb { R } : \left| x \right| = 2 \right\}$ 
+:::{dropdown} Answer
+$\{x\in\mathbb{R}:x^{2}=2\} \times \{x\in\mathbb{R}:|x|=2\} = \{-\sqrt{2},\sqrt{2}\} \times \{-2,2\}$
+$\{-\sqrt{2},\sqrt{2}\} \times \{-2,2\} = \{(-\sqrt{2},-2),(-\sqrt{2},2), (\sqrt{2},-2),(\sqrt{2},2)\}$
+:::
+
+6. $\left\{ x \in \mathbb { R } : x ^ { 2 } = x \right\} \times \left\{ x \in \mathbb { N } : x ^ { 2 } = x \right\}$ 
+:::{dropdown} Answer
+Note: $0$ is not included in $\mathbb{N}$, and thus $\mathbb{N} = \{1,2,3,\dots\}$.
+$\{x\in\mathbb{R}:x^{2}=x\} \times \{x\in\mathbb{N}:x^{2}=x\} = \{0,1\} \times \{1\}$
+$\{0,1\} \times \{1\} = \{(0,1),(1,1)\}$
+:::
+
+7. $\{ \varnothing \} \times \{ 0 , \varnothing \} \times \{ 0 , 1 \}$ 
+:::{dropdown} Answer
+$\{\varnothing\} \times \{0,\varnothing\} \times \{0,1\} = \{\{\}\} \times \{0,\{\}\} \times \{0,1\}$
+$\{\varnothing\} \times \{0,\varnothing\} \times \{0,1\} = \{(\varnothing,0,0),(\varnothing,0,1), (\varnothing,\varnothing,0),(\varnothing,\varnothing,1)\}$
+:::
+
+8. $\{0,1\}^4$
+:::{dropdown} Answer
+$\{0,1\}^{4} = \{0,1\} \times \{0,1\} \times \{0,1\} \times \{0,1\}$
+$\{0,1\}^{4} = \{$
+$\quad (0,0,0,0),(0,0,0,1),(0,0,1,0),(0,0,1,1),$
+$\quad (0,1,0,0),(0,1,0,1),(0,1,1,0),(0,1,1,1),$
+$\quad (1,0,0,0),(1,0,0,1),(1,0,1,0),(1,0,1,1),$
+$\quad (1,1,0,0),(1,1,0,1),(1,1,1,0),(1,1,1,1)$
+$\}$
+i.e. 16 $4$-tuples of $0$'s and $1$'s.
+:::
+
+B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ (or $\mathbb { R } ^ { 3 }$ for the last two). 
+9. $\{ 1 , 2 , 3 \} \times \{ - 1 , 0 , 1 \}$ 
+:::{dropdown} Answer
+$\{1,2,3\} \times \{-1,0,1\} = \{(1,-1),(1,0),(1,1),(2,-1),(2,0),(2,1),(3,-1),(3,0),(3,1)\}$
+
+<img src="../assets/adcd5e018a1b4f3581fcdc448c018cb7.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product of {1,2,3} x {-1,0,1} in R^2."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+plt.plot([1,1,1,2,2,2,3,3,3], [-1,0,1,-1,0,1,-1,0,1], color='blue', marker='.', linestyle='None')
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-4, 4)
+plt.ylim(-4, 4)
+plt.title(r"Set $\{1,2,3\} \times \{-1,0,1\}$ in $\mathbb{R}^{2}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+10. $\{ - 1 , 0 , 1 \} \times \{ 1 , 2 , 3 \}$ 
+:::{dropdown} Answer
+$\{-1,0,1\} \times \{1,2,3\} = \{(-1,1),(-1,2),(-1,3),(0,1),(0,2),(0,3),(1,1),(1,2),(1,3)\}$
+
+<img src="../assets/93c60db0f6c248a0a401b68864b427cc.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product of {-1,0,1} x {1,2,3} in R^2."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+plt.plot([-1,-1,-1,0,0,0,1,1,1], [1,2,3,1,2,3,1,2,3], color='blue', marker='.', linestyle='None')
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-4, 4)
+plt.ylim(-4, 4)
+plt.title(r"Set $\{-1,0,1\} \times \{1,2,3\}$ in $\mathbb{R}^{2}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+11. $[ 0 , 1 ] \times [ 0 , 1 ]$ 
+:::{dropdown} Answer
+$[0,1] \times [0,1]$ is the closed unit square: all points $(x,y)$ with $0 \le x \le 1$ and $0 \le y \le 1$.
+
+<img src="../assets/6f7ce8ca23b44acb8768aad66316d8fe.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product of [0,1] x [0,1] in R^2."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+ax = plt.gca()
+rect = plt.Rectangle((0, 0), 1, 1, color='blue', fill=True, alpha=0.15)
+ax.add_patch(rect)
+rect_edge = plt.Rectangle((0, 0), 1, 1, color='blue', fill=False, linewidth=1.1)
+ax.add_patch(rect_edge)
+ax.set_axisbelow(True)
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-2, 2)
+plt.ylim(-2, 2)
+plt.title(r"Set $[0,1] \times [0,1]$ in $\mathbb{R}^{2}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+12. $[ - 1 , 1 ] \times [ 1 , 2 ]$ 
+:::{dropdown} Answer
+$[-1,1] \times [1,2]$ is the rectangle of all points $(x,y)$ with $-1 \le x \le 1$ and $1 \le y \le 2$.
+
+<img src="../assets/043403fbfdb84a5e93fed9c8b48daa59.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product of [-1,1] x [1,2] in R^2."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+ax = plt.gca()
+rect = plt.Rectangle((-1, 1), 2, 1, color='blue', fill=True, alpha=0.15)
+ax.add_patch(rect)
+rect_edge = plt.Rectangle((-1, 1), 2, 1, color='blue', fill=False, linewidth=1.1)
+ax.add_patch(rect_edge)
+ax.set_axisbelow(True)
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-3, 3)
+plt.ylim(-3, 3)
+plt.title(r"Set $[-1,1] \times [1,2]$ in $\mathbb{R}^{2}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+13. $\{ 1 , 1 . 5 , 2 \} \times [ 1 , 2 ]$ 
+:::{dropdown} Answer
+Three vertical line segments: for $x=1,1.5,2$ and $1\le y\le2$.
+
+<img src="../assets/306892566b4c442cb323c6483229bb6d.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product of {1,1.5,2} x [1,2] in R^2."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+y = np.linspace(1, 2, 100)
+x1 = np.full_like(y, 1)
+x2 = np.full_like(y, 1.5)
+x3 = np.full_like(y, 2)
+plt.plot(x1, y, color='blue', linewidth=1)
+plt.plot(x2, y, color='blue', linewidth=1)
+plt.plot(x3, y, color='blue', linewidth=1)
+plt.plot([1,1], [1,2], color='blue', marker='.', linestyle='None')
+plt.plot([1.5,1.5], [1,2], color='blue', marker='.', linestyle='None')
+plt.plot([2,2], [1,2], color='blue', marker='.', linestyle='None')
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-3, 3)
+plt.ylim(-3, 3)
+plt.title(r"Set $\{1,1.5,2\} \times [1,2]$ in $\mathbb{R}^{2}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+14. $[ 1 , 2 ] \times \left\{ 1 , 1 . 5 , 2 \right\}$ 
+:::{dropdown} Answer
+Three horizontal line segments: for $y=1,1.5,2$ and $1\le x\le2$.
+
+<img src="../assets/3e021c7631b249c8a1bee52b7758fb55.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product of [1,2] x {1,1.5,2} in R^2."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+x = np.linspace(1, 2, 100)
+y1 = np.full_like(x, 1)
+y2 = np.full_like(x, 1.5)
+y3 = np.full_like(x, 2)
+plt.plot(x, y1, color='blue', linewidth=1)
+plt.plot(x, y2, color='blue', linewidth=1)
+plt.plot(x, y3, color='blue', linewidth=1)
+plt.plot([1,2], [1,1], color='blue', marker='.', linestyle='None')
+plt.plot([1,2], [1.5,1.5], color='blue', marker='.', linestyle='None')
+plt.plot([1,2], [2,2], color='blue', marker='.', linestyle='None')
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-3, 3)
+plt.ylim(-3, 3)
+plt.title(r"Set $[1,2] \times \{1,1.5,2\}$ in $\mathbb{R}^{2}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+15. $\{ 1 \} \times [ 0 , 1 ]$ 
+:::{dropdown} Answer
+The vertical line segment at $x=1$ with $0 \le y \le1$.
+
+<img src="../assets/e82afe96943a478d9dd88198825abc0f.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product of {1} x [0,1] in R^2."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+y = np.linspace(0, 1, 100)
+x = np.full_like(y, 1)
+plt.plot(x, y, color='blue', linewidth=1)
+plt.plot([1,1], [0,1], color='blue', marker='.', linestyle='None')
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-3, 3)
+plt.ylim(-3, 3)
+plt.title(r"Set $\{1\} \times [0,1]$ in $\mathbb{R}^{2}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+16. $[ 0 , 1 ] \times \{ 1 \}$ 
+:::{dropdown} Answer
+The horizontal line segment at $y=1$ with $0 \le x \le 1$.
+
+<img src="../assets/2f47fb69224a469bb14cbcd1dca0ab7f.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product of [0,1] x {1} in R^2."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+x = np.linspace(0, 1, 100)
+y = np.full_like(x, 1)
+plt.plot(x, y, color='blue', linewidth=1)
+plt.plot([0,1], [1,1], color='blue', marker='.', linestyle='None')
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-3, 3)
+plt.ylim(-3, 3)
+plt.title(r"Set $[0,1] \times \{1\}$ in $\mathbb{R}^{2}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+16. $\mathbb{N} \times \mathbb{Z}$ 
+:::{dropdown} Answer
+Note: $0$ is not included in $\mathbb{N}$, and thus $\mathbb{N} = \{1,2,3,\dots\}$.
+A lattice of points $(m,n)$ where $m\in\mathbb{N}$ and $n\in\mathbb{Z}$: vertical columns of integer points for positive integer $x$-coordinates.
+
+<img src="../assets/f6ccfb9a97914075b5b6c484e2fcba2d.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product of N x Z in R^2."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+plt.plot([1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4], [4,3,2,1,0,-1,-2,-3,-4,4,3,2,1,0,-1,-2,-3,-4,4,3,2,1,0,-1,-2,-3,-4,4,3,2,1,0,-1,-2,-3,-4], color='blue', marker='.', linestyle='None')
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-4, 4)
+plt.ylim(-4, 4)
+plt.title(r"Set $\mathbb{N} \times \mathbb{Z}$ in $\mathbb{R}^{2}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+17. $\mathbb{Z} \times \mathbb{Z}$ 
+:::{dropdown} Answer
+The full integer lattice: all points $(m,n)$ with $m,n\in\mathbb{Z}$.
+
+<img src="../assets/6c44e78036824dbab706c9a63bad1fb2.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product of Z x Z in R^2."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(6, 6))
+plt.plot([-4,-4,-4,-4,-4,-4,-4,-4,-4,-3,-3,-3,-3,-3,-3,-3,-3,-3,-2,-2,-2,-2,-2,-2,-2,-2,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4], [4,3,2,1,0,-1,-2,-3,-4,4,3,2,1,0,-1,-2,-3,-4,4,3,2,1,0,-1,-2,-3,-4,4,3,2,1,0,-1,-2,-3,-4,4,3,2,1,0,-1,-2,-3,-4,4,3,2,1,0,-1,-2,-3,-4,4,3,2,1,0,-1,-2,-3,-4,4,3,2,1,0,-1,-2,-3,-4,4,3,2,1,0,-1,-2,-3,-4], color='blue', marker='.', linestyle='None')
+# Axes and formatting
+plt.axhline(0, color="black", linewidth=0.5)
+plt.axvline(0, color="black", linewidth=0.5)
+plt.gca().set_aspect("equal", "box")
+plt.xlim(-4, 4)
+plt.ylim(-4, 4)
+plt.title(r"Set $\mathbb{Z} \times \mathbb{Z}$ in $\mathbb{R}^{2}$")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True, linestyle=":")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+18. $[ 0 , 1 ] \times [ 0 , 1 ] \times [ 0 , 1 ]$ 
+:::{dropdown} Answer
+This is the closed unit cube: all points $(x,y,z)$ with $0 \le x, y, z \le 1$.
+
+<img src="../assets/feff4c63a97a438f82842d900040d351.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product [0,1] × [0,1] × [0,1] in R^3."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+plt.figure(figsize=(6, 6))
+vertices = [(x, y, z) for x in [0, 1] for y in [0, 1] for z in [0, 1]]
+faces_idx = [
+    [0, 1, 3, 2],  # z = 0
+    [4, 5, 7, 6],  # z = 1
+    [0, 1, 5, 4],  # y = 0
+    [2, 3, 7, 6],  # y = 1
+    [0, 2, 6, 4],  # x = 0
+    [1, 3, 7, 5],  # x = 1
+]
+faces = [[vertices[i] for i in face] for face in faces_idx]
+plt.axes(projection='3d')
+poly = Poly3DCollection(
+    faces,
+    facecolor='tab:blue',
+    edgecolor='blue',
+    linewidths=1,
+    alpha=0.25
+)
+plt.gca().add_collection3d(poly)
+# Axes and formatting
+plt.xlim(-1.5, 1.5)
+plt.ylim(-1.5, 1.5)
+plt.gca().set_zlim(-1.5, 1.5)
+plt.gca().set_box_aspect((1, 1, 1))
+plt.plot([-1.5, 1.5], [0, 0], [0, 0], color='black', linewidth=0.5)  # x-axis
+plt.plot([0, 0], [-1.5, 1.5], [0, 0], color='black', linewidth=0.5)  # y-axis
+plt.plot([0, 0], [0, 0], [-1.5, 1.5], color='black', linewidth=0.5)  # z-axis
+plt.gca().quiver(0, 0, 0, 1.5, 0, 0, arrow_length_ratio=0.05, color='black', linewidth=0.5)
+plt.gca().quiver(0, 0, 0, 0, 1.5, 0, arrow_length_ratio=0.05, color='black', linewidth=0.5)
+plt.gca().quiver(0, 0, 0, 0, 0, 1.5, arrow_length_ratio=0.05, color='black', linewidth=0.5)
+plt.gca().text(1.6, 0, 0, 'x', va='center', ha='left')
+plt.gca().text(0, 1.6, 0, 'y', va='bottom', ha='center')
+plt.gca().text(0, 0, 1.6, 'z', va='bottom', ha='center')
+plt.gca().xaxis.pane.set_facecolor((1, 1, 1, 0))
+plt.gca().yaxis.pane.set_facecolor((1, 1, 1, 0))
+plt.gca().zaxis.pane.set_facecolor((1, 1, 1, 0))
+plt.grid(True)
+for axis in (plt.gca().xaxis, plt.gca().yaxis, plt.gca().zaxis):
+    axis._axinfo["grid"]['linestyle'] = ':'
+    axis._axinfo["grid"]['linewidth'] = 0.5
+plt.title(r"Set $[0,1] \times [0,1] \times [0,1]$ in $\mathbb{R}^{3}$ (filled)")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+19. $\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } + y ^ { 2 } \leq 1 \right\} \times [ 0 , 1 ]$ 
+:::{dropdown} Answer
+The set is a solid right circular cylinder of radius $1$ and height $1$:  all points $(x,y,z)$ with $x^{2}+y^{2}\le1$ and $0 \le z\le 1$.
+
+<img src="../assets/ce824ba9609b40569f5f71f1d57fef2a.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+"""Sketch the Cartesian product {(x,y): x^2 + y^2 ≤ 1} × [0,1] in R^3 (filled)."""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+plt.figure(figsize=(6, 6))
+# Discretize the circle
+n = 128  # number of side panels (lower = fewer vertical lines)
+radius = 1.0
+zmin, zmax = 0.0, 1.0
+theta = np.linspace(0, 2*np.pi, n, endpoint=False)
+xb, yb = radius*np.cos(theta), radius*np.sin(theta)
+zb, zt = np.full(n, zmin), np.full(n, zmax)
+bottom = [(xb[i], yb[i], zb[i]) for i in range(n)]
+top    = [(xb[i], yb[i], zt[i]) for i in range(n)]
+side_faces = [[bottom[i], bottom[(i+1) % n], top[(i+1) % n], top[i]] for i in range(n)]
+caps = [bottom, top[::-1]]  # reverse top to keep consistent orientation
+plt.axes(projection='3d')
+plt.gca().add_collection3d(Poly3DCollection(side_faces, facecolor='tab:blue', edgecolor='none', alpha=0.25))
+plt.gca().add_collection3d(Poly3DCollection(caps, facecolor='tab:blue', edgecolor='blue', linewidths=1, alpha=0.25))
+# Axes and formatting
+plt.xlim(-1.5, 1.5)
+plt.ylim(-1.5, 1.5)
+plt.gca().set_zlim(-1.5, 1.5)
+plt.gca().set_box_aspect((1, 1, 1))
+plt.plot([-1.5, 1.5], [0, 0], [0, 0], color='black', linewidth=0.5)  # x-axis
+plt.plot([0, 0], [-1.5, 1.5], [0, 0], color='black', linewidth=0.5)  # y-axis
+plt.plot([0, 0], [0, 0], [-1.5, 1.5], color='black', linewidth=0.5)  # z-axis
+plt.gca().quiver(0, 0, 0, 1.5, 0, 0, arrow_length_ratio=0.05, color='black', linewidth=0.5)
+plt.gca().quiver(0, 0, 0, 0, 1.5, 0, arrow_length_ratio=0.05, color='black', linewidth=0.5)
+plt.gca().quiver(0, 0, 0, 0, 0, 1.5, arrow_length_ratio=0.05, color='black', linewidth=0.5)
+plt.gca().text(1.6, 0, 0, 'x', va='center', ha='left')
+plt.gca().text(0, 1.6, 0, 'y', va='bottom', ha='center')
+plt.gca().text(0, 0, 1.6, 'z', va='bottom', ha='center')
+plt.gca().xaxis.pane.set_facecolor((1, 1, 1, 0))
+plt.gca().yaxis.pane.set_facecolor((1, 1, 1, 0))
+plt.gca().zaxis.pane.set_facecolor((1, 1, 1, 0))
+plt.grid(True)
+for axis in (plt.gca().xaxis, plt.gca().yaxis, plt.gca().zaxis):
+    axis._axinfo["grid"]['linestyle'] = ':'
+    axis._axinfo["grid"]['linewidth'] = 0.5
+plt.title(r"Set $\{(x,y)\in\mathbb{R}^2: x^2+y^2\leq 1\}\times[0,1]$ in $\mathbb{R}^{3}$ (filled)")
+# plt.show()  # for interactive environment (jupyter)
+# Generate UUID filename
+uid = uuid.uuid4().hex
+# Save high-resolution outputs
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+

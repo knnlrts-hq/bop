@@ -1,0 +1,44 @@
+# 2.11 Logical Inference
+
+**Suppose we know that a conditional statement $P \Rightarrow Q$ is true. This tells us that whenever $P$ is true, $Q$ will also be true. By itself, $P \Rightarrow Q$ being true does not tell us that either $P$ or $Q$ is true (they could both be false, or $P$ could be false and $Q$ true). But if in addition we happen to know that $P$ is true, then $Q$ must be true. This is called a logical inference: From two true statements we infer that a third statement is true. In essence, statements $P \Rightarrow Q$ and $P$ are “added together” to get $Q$. We can indicate this by stacking $P \Rightarrow Q$ and $P$ one atop the other with a line separating them from $Q$. The intended meaning is that $P \Rightarrow Q$ combined with $P$ produces $Q$.**
+
+$$
+\begin{array}{l} P \Rightarrow Q \\ P \\ \hline Q \end{array}
+$$
+
+**This is a very frequently-used pattern of thought.** (In fact, it is exactly the pattern we used in the example on page 34.) **This rule even has a name. It is called the modus ponens rule. Two other logical inferences, called modus tollens and elimination are listed below. In each case you should convince yourself (based on your knowledge of the relevant truth tables) that the truth of the statements above the line forces the statement below the line to be true.**
+
+**Modus Ponens**
+
+$$
+\begin{array}{l} P \Rightarrow Q \\ P \\ \hline Q \end{array}
+$$
+
+**Modus Tollens**
+
+$$
+\begin{array}{l} P \Rightarrow Q \\ \sim Q \\ \hline \sim P \end{array}
+$$
+
+**Elimination**
+
+$$
+\begin{array}{l} P \lor Q \\ \sim P \\ \hline Q \end{array}
+$$
+
+**It is important to internalize these rules. (You already use at least modus ponens and elimination in daily life anyway.) But you need not remember their names; few mathematicians can recall the names, though they use the rules constantly. The names are not important, but the rules are. Three additional logical inferences are listed below. The first states the obvious fact that if $P$ and $Q$ are both true, then so is the statement $P \land Q$. On the other hand, $P \land Q$ being true forces $P$ (also $Q$) to be true. Finally, if $P$ is true, then $P \lor Q$ must be true, no matter what statement $Q$ is.**
+
+$$
+\begin{array}{l} P \\ Q \\ \hline P \wedge Q \end{array}
+$$
+
+$$
+\begin{array}{l} P \wedge Q \\ \hline P  \end{array}
+$$
+
+$$
+\begin{array}{l} P  \\ \hline P \vee Q \end{array}
+$$
+
+These inferences are so intuitively obvious that they scarcely need to be mentioned. However, they represent certain patterns of reasoning that we will frequently apply to sentences in proofs, so we should be cognizant of the fact that we are using them.
+

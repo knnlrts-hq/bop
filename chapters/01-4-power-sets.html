@@ -1,0 +1,593 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="1.5 Union, Intersection, Difference" href="01-5-union-intersection-difference.html"><link rel="prev" title="1.3 Subsets" href="01-3-subsets.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
+        <title>1.4 Power Sets - Book of Proof — Annotated documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Sections</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-1-introduction-to-sets.html">1.1 Introduction to Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-2-the-cartesian-product.html">1.2 The Cartesian Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-3-subsets.html">1.3 Subsets</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">1.4 Power Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-5-union-intersection-difference.html">1.5 Union, Intersection, Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-6-complement.html">1.6 Complement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-7-venn-diagrams.html">1.7 Venn Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-8-indexed-sets.html">1.8 Indexed Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-9-sets-that-are-number-systems.html">1.9 Sets That Are Number Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-10-russells-paradox.html">1.10 Russell’s Paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-1-statements.html">2.1 Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-2-and-or-not.html">2.2 And, Or, Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-3-conditional-statements.html">2.3 Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-4-biconditional-statements.html">2.4 Biconditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-5-truth-tables-for-statements.html">2.5 Truth Tables for Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-6-logical-equivalence.html">2.6 Logical Equivalence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-7-quantifiers.html">2.7 Quantifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-8-more-on-conditional-statements.html">2.8 More on Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-9-translating-english-to-symbolic-logic.html">2.9 Translating English to Symbolic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-10-negating-statements.html">2.10 Negating Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-11-logical-inference.html">2.11 Logical Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-12-an-important-note.html">2.12 An Important Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-1-lists.html">3.1 Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-2-the-multiplication-principle.html">3.2 The Multiplication Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-3-the-addition-and-subtraction-principles.html">3.3 The Addition and Subtraction Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-4-factorials-and-permutations.html">3.4 Factorials and Permutations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-5-counting-subsets.html">3.5 Counting Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-6-pascals-triangle-and-the-binomial-theorem.html">3.6 Pascal’s Triangle and the Binomial Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-7-the-inclusion-exclusion-principle.html">3.7 The Inclusion-Exclusion Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-8-counting-multisets.html">3.8 Counting Multisets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-9-the-division-and-pigeonhole-principles.html">3.9 The Division and Pigeonhole Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-10-combinatorial-proof.html">3.10 Combinatorial Proof</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/chapters/01-4-power-sets.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="power-sets">
+<h1>1.4 Power Sets<a class="headerlink" href="#power-sets" title="Link to this heading">¶</a></h1>
+<p><strong>Given a set, you can form a new set with the power set operation.</strong></p>
+<p><strong><mark>Definition 1.4: If <span class="math notranslate nohighlight">\(A\)</span> is a set, the power set of <span class="math notranslate nohighlight">\(A\)</span> is another set, denoted as <span class="math notranslate nohighlight">\(\mathscr { P } ( A )\)</span> and defined to be the set of all subsets of <span class="math notranslate nohighlight">\(A\)</span>. In symbols, <span class="math notranslate nohighlight">\(\mathscr { P } ( A ) = \{ X : X \subseteq A \}\)</span>.</mark></strong></p>
+<p><strong>For example, suppose <span class="math notranslate nohighlight">\(A = \left\{ 1 , 2 , 3 \right\}\)</span>. The power set of <span class="math notranslate nohighlight">\(A\)</span> is the set of all subsets of <span class="math notranslate nohighlight">\(A\)</span>. We learned how to find these subsets in the previous section, and they are <span class="math notranslate nohighlight">\(\{ \} , \{ 1 \} , \{ 2 \} , \{ 3 \} , \{ 1 , 2 \} , \{ 1 , 3 \} , \{ 2 , 3 \}\)</span> and <span class="math notranslate nohighlight">\(\{ 1 , 2 , 3 \}\)</span>.</strong> Therefore the power set of <span class="math notranslate nohighlight">\(A\)</span> is</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+\mathscr{P} (A) = \Big\{\varnothing , \{1 \}, \{2 \}, \{3 \}, \{1, 2 \}, \{1, 3 \}, \{2, 3 \}, \{1, 2, 3 \} \Big\}.
+\]</div>
+</div>
+<p>As we saw in the previous section, if a finite set <span class="math notranslate nohighlight">\(A\)</span> has <span class="math notranslate nohighlight">\(n\)</span> elements, then it has <span class="math notranslate nohighlight">\(\large 2 ^ { n }\)</span> subsets, and thus its power set has <span class="math notranslate nohighlight">\(\large 2 ^ { n }\)</span> elements.</p>
+<p><strong><mark>Fact 1.4: If <span class="math notranslate nohighlight">\(A\)</span> is a finite set, then <span class="math notranslate nohighlight">\(\large | \mathscr { P } ( A ) | = 2 ^ { | A | }\)</span> .</mark></strong></p>
+<p>Example 1.7 You should examine the following statements and make sure you understand how the answers were obtained. In particular, notice that in each instance the equation <span class="math notranslate nohighlight">\(| \mathscr { P } ( A ) | = 2 ^ { | A | }\)</span> is true.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathscr{P}\left(\{0,1,3\}\right) = \big\{ \varnothing, \{0\}, \{1\}, \{3\}, \{0,1\}, \{0,3\}, \{1,3\}, \{0,1,3\} \big\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathscr{P}\left(\{1,2\}\right) = \big\{ \varnothing, \{1\}, \{2\}, \{1,2\} \big\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathscr{P}\left(\{1\}\right) = \big\{ \varnothing, \{1\} \big\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathscr{P}\left(\varnothing\right) = \big\{ \varnothing \big\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathscr{P}\left(\{a\}\right) = \big\{ \varnothing, \{a\} \big\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathscr{P}\left(\{\varnothing\}\right) = \big\{ \varnothing, \{\varnothing\} \big\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathscr{P}\left(\{a\}\right) \times \mathscr{P}\left(\{\varnothing\}\right) = \big\{ \left(\varnothing,\varnothing\right), \left(\varnothing,\{\varnothing\}\right), \left(\{a\},\varnothing\right) \}, \left(\{a\},\{\varnothing\}\right) \big\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathscr{P}\left(\mathscr{P}\left(\{\varnothing\}\right)\right) = \big\{ \varnothing, \{\varnothing\}, \{\{\varnothing\}\}, \{ \varnothing, \{\varnothing\}\} \big\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathscr{P}\left(\{1,\{1,2\}\}\right) = \big\{ \varnothing, \{1\}, \{\{1,2\}\}, \{1,\{1,2\}\} \big\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathscr{P}\left(\{\mathbb{Z}, \mathbb{N}\}\right) = \big\{ \varnothing, \{\mathbb{Z}\}, \{\mathbb{N}\}, \{\mathbb{Z}, \mathbb{N}\} \big\}\)</span></p></li>
+</ol>
+<p>Next are some that are wrong. See if you can determine why they are wrong and make sure you understand the explanation on the right.
+11. <span class="math notranslate nohighlight">\(\mathscr{P}(1) = \big\{ \varnothing , \left\{ 1 \right\} \big\}\)</span> : meaningless because <span class="math notranslate nohighlight">\(1\)</span> is not a set
+12. <span class="math notranslate nohighlight">\(\mathscr{P}\left(\{ 1 , \{ 1 , 2 \} \}\right) = \big\{ \varnothing , \{ 1 \} , \{ 1 , 2 \} , \{ 1 , \{ 1 , 2 \} \} \big\}\)</span> : wrong because <span class="math notranslate nohighlight">\(\{ 1 , 2 \} \not \subseteq \{ 1 , \{ 1 , 2 \} \}\)</span>
+13. <span class="math notranslate nohighlight">\(\mathscr { P } \left( \{ 1 , \{ 1 , 2 \} \} \right) = \big\{ \varnothing , \{ \{ 1 \} \} , \{ \{ 1 , 2 \} \} , \{ 1 , \{ 1 , 2 \} \} \big\}\)</span> : wrong because <span class="math notranslate nohighlight">\(\{ \{ 1 \} \} \not \subseteq \{ 1 , \{ 1 , 2 \} \}\)</span></p>
+<p><strong>If <span class="math notranslate nohighlight">\(A\)</span> is finite, then it is possible (though maybe not practical) to list out <span class="math notranslate nohighlight">\(\mathscr { P } ( A )\)</span> between braces as was done in the above example. That is not possible if <span class="math notranslate nohighlight">\(A\)</span> is infinite. For example, consider <span class="math notranslate nohighlight">\({ \mathscr { P } } ( \mathbb { N } )\)</span>. If you start listing its elements you quickly discover that <span class="math notranslate nohighlight">\(\mathbb { N }\)</span> has infinitely many subsets, and it’s not clear how (or if) they could be arranged in a list with a definite pattern</strong>:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathscr {P} (\mathbb {N}) = \Big\{ \varnothing , \{1 \}, \{2 \}, \ldots , \{1, 2 \}, \{1, 3 \}, \ldots , \{3 9, 4 7 \}, \\ \ldots , \{3, 8 7, 1 3 1 \}, \ldots , \{2, 4, 6, 8, \ldots \}, \ldots \ ? \ \ldots \Big\}
+\end{split}\]</div>
+</div>
+<p><strong>The set <span class="math notranslate nohighlight">\(\mathscr { P } ( \mathbb { R } ^ { 2 } )\)</span> is mind boggling. Think of <span class="math notranslate nohighlight">\(\mathbb { R } ^ { 2 } = \left\{ ( x , y ) : x , y \in \mathbb { R } \right\}\)</span> as the set of all points on the Cartesian plane. A subset of <span class="math notranslate nohighlight">\(\mathbb { R } ^ { 2 }\)</span> (that is, an element of <span class="math notranslate nohighlight">\(\mathscr { P } ( \mathbb { R } ^ { 2 } )\)</span> ) is a set of points in the plane. Let’s look at some of these sets. Since <span class="math notranslate nohighlight">\(\left\{ ( 1 , 2 ) , ( 1 , 1 ) \right\} \subseteq \mathbb { R } ^ { 2 }\)</span>, we know that <span class="math notranslate nohighlight">\(\left\{ ( 1 , 2 ) , ( 1 , 1 ) \right\} \in { \mathscr { P } } ( \mathbb { R } ^ { 2 } )\)</span>. We can even draw a picture of this subset, as in Figure 1.4(a). For another example, the graph of the equation <span class="math notranslate nohighlight">\(y = x ^ { 2 }\)</span> is the set of points <span class="math notranslate nohighlight">\(G = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}\)</span> and this is a subset of <span class="math notranslate nohighlight">\(\mathbb { R } ^ { 2 }\)</span>, so <span class="math notranslate nohighlight">\(G \in { \mathscr { P } } ( \mathbb { R } ^ { 2 } )\)</span> . Figure 1.4(b) is a picture of <span class="math notranslate nohighlight">\(G\)</span>. Because this can be done for any function, the graph of any imaginable function <span class="math notranslate nohighlight">\(f : \mathbb { R } \to \mathbb { R }\)</span> is an element of <span class="math notranslate nohighlight">\(\mathscr { P } ( \mathbb { R } ^ { 2 } )\)</span>.</strong></p>
+<img src="../assets/Pasted image 20260312095628.png" width="1000">
+Figure 1.4. Three of the many, many sets in $\mathscr { P } ( \mathbb { R } ^ { 2 } )$
+<p><strong>In fact, any black-and-white image on the plane can be thought of as a subset of <span class="math notranslate nohighlight">\(\mathbb { R } ^ { 2 }\)</span>, where the black points belong to the subset and the white points do not. So the text “INFINITE” in Figure 1.4(c) is a subset of <span class="math notranslate nohighlight">\(\mathbb { R } ^ { 2 }\)</span> and therefore an element of <span class="math notranslate nohighlight">\(\mathscr { P } ( \mathbb { R } ^ { 2 } )\)</span>. By that token, <span class="math notranslate nohighlight">\(\mathscr { P } ( \mathbb { R } ^ { 2 } )\)</span> contains a copy of the page you are reading now.</strong></p>
+<p><strong><mark>Thus, in addition to containing every imaginable function and every imaginable black-and-white image, <span class="math notranslate nohighlight">\(\mathscr { P } ( \mathbb { R } ^ { 2 } )\)</span> also contains the full text of every book that was ever written, those that are yet to be written and those that will never be written. Inside of <span class="math notranslate nohighlight">\(\mathscr { P } ( \mathbb { R } ^ { 2 } )\)</span> is a detailed biography of your life, from beginning to end, as well as the biographies of all of your unborn descendants. It is startling that the five symbols used to write <span class="math notranslate nohighlight">\(\mathscr { P } ( \mathbb { R } ^ { 2 } )\)</span> can express such an incomprehensibly large set.</mark></strong></p>
+<p>Homework: Think about <span class="math notranslate nohighlight">\(\mathscr { P } ( \mathscr { P } ( \mathbb { R } ^ { 2 } ) )\)</span> .</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\mathbb{R}^{2}\)</span> is the set of all ordered pairs of real numbers: <span class="math notranslate nohighlight">\(\big\{(1,1), (1,2), (\pi, \sqrt{2}), \dots \big\}\)</span>.
+<span class="math notranslate nohighlight">\(|\mathbb{N}|\)</span> is countably infinite, but <span class="math notranslate nohighlight">\(|\mathbb{R}|\)</span> and <span class="math notranslate nohighlight">\(|\mathbb{R}^{2}|\)</span> are uncountably infinite.</p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\mathscr{P}(\mathbb{R}^{2})\)</span> is the set of all subsets of all ordered pairs of real numbers (the Cartesian plane). Examples of elements of this set are a point, a line, a curve, a circle, a square, a region, the entire plain <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, <span class="math notranslate nohighlight">\(\varnothing\)</span>, etc.
+<span class="math notranslate nohighlight">\(\mathscr{P}(\mathbb{R}^{2}) = \big\{\varnothing, \{(1,2), (3,4)\}, \{(1,0), \dots \ \text{(unit circle)} \ \}, \dots \big\}\)</span>.
+<span class="math notranslate nohighlight">\(|\mathscr{P}(\mathbb{R}^{2})| = 2^{|\mathbb{R}^2|}\)</span>.</p>
+<p class="sd-card-text"><strong><span class="math notranslate nohighlight">\(\mathscr{P}(\mathscr{P}(\mathbb{R}^{2}))\)</span> is the set of all subsets of <span class="math notranslate nohighlight">\(\mathscr{P}(\mathbb{R}^{2})\)</span>. This is a higher-order set: the set of all collections of subsets of all ordered pairs of real numbers (families of points or shapes). Examples of elements of this set are the collection/family of all subsets of curves, the collection/family of all subsets of circles, the collection/family of all subsets of lines, etc.</strong>
+<span class="math notranslate nohighlight">\(|\mathscr{P}(\mathscr{P}(\mathbb{R}^{2}))| = 2^{\left(2^{|\mathbb{R}^2|}\right)}\)</span>.</p>
+<p class="sd-card-text"><strong><span class="math notranslate nohighlight">\(\mathscr{P}(\mathscr{P}(\mathscr{P}(\mathbb{R}^{2})))\)</span> is a 3rd order abstraction set: the set of all subsets of <span class="math notranslate nohighlight">\(\mathscr{P}(\mathscr{P}(\mathbb{R}^{2}))\)</span>. The elements in this set are collections/families of collections/families of subsets of all ordered pairs of real numbers. These are meta-collections/families, e.g. all families of shapes sharing a given trait.</strong>
+<span class="math notranslate nohighlight">\(|\mathscr{P}(\mathscr{P}(\mathscr{P}(\mathbb{R}^{2})))| = 2^{\left(2^{\left(2^{|\mathbb{R}^2|}\right)}\right)}\)</span>.</p>
+</div>
+</details><section id="exercises-for-section-1-4">
+<h2>Exercises for Section 1.4<a class="headerlink" href="#exercises-for-section-1-4" title="Link to this heading">¶</a></h2>
+<p>A. Write the following sets by listing their elements between braces.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathscr { P } ( \{ \{ a , b \} , \{ c \} \} )\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\big\{\varnothing, \{\{a,b\}\}, \{\{c\}\}, \{\{a,b\},\{c\}\}\big\}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="2">
+<li><p><span class="math notranslate nohighlight">\(\mathscr { P } \left( \left\{ 1 , 2 , 3 , 4 \right\} \right)\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\{\)</span>
+<span class="math notranslate nohighlight">\(\quad \varnothing,\{1\},\{2\},\{3\},\{4\},\)</span>
+<span class="math notranslate nohighlight">\(\quad \{1,2\},\{1,3\},\{1,4\},\{2,3\},\{2,4\},\{3,4\},\)</span>
+<span class="math notranslate nohighlight">\(\quad \{1,2,3\},\{1,2,4\},\{1,3,4\},\{2,3,4\},\)</span>
+<span class="math notranslate nohighlight">\(\quad \{1,2,3,4\}\)</span>
+<span class="math notranslate nohighlight">\(\}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="3">
+<li><p><span class="math notranslate nohighlight">\(\mathscr { P } \left( \{ \{ \varnothing \} , 5 \} \right)\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\big\{\varnothing, \{\{\varnothing\}\}, \{5\}, \{\{\varnothing\},5\}\big\}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="4">
+<li><p><span class="math notranslate nohighlight">\(\mathscr { P } \left( \left\{ \mathbb { R } , \mathbb { Q } \right\} \right)\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\big\{\varnothing, \{\mathbb{R}\}, \{\mathbb{Q}\}, \{\mathbb{R},\mathbb{Q}\}\big\}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="5">
+<li><p><span class="math notranslate nohighlight">\(\mathscr { P } \left( \mathscr { P } \left( \left\{ 2 \right\} \right) \right)\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\mathscr{P}(\{2\}) = \big\{\varnothing,\{2\}\big\}\)</span>
+<span class="math notranslate nohighlight">\(\mathscr{P}(\mathscr{P}(\{2\})) = \big\{\varnothing, \{\varnothing\}, \{\{2\}\}, \{\varnothing,\{2\}\}\big\}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="6">
+<li><p><span class="math notranslate nohighlight">\(\mathscr { P } \left( \{ 1 , 2 \} \right) \times \mathscr { P } \left( \{ 3 \} \right)\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\mathscr{P}(\{1,2\}) = \big\{\varnothing, \{1\}, \{2\}, \{1,2\}\big\}\)</span>
+<span class="math notranslate nohighlight">\(\mathscr{P}(\{3\}) = \big\{\varnothing, \{3\}\big\}\)</span>
+<span class="math notranslate nohighlight">\(\mathscr{P}(\{1,2\}) \times \mathscr{P}(\{3\}) = \big\{(\varnothing,\varnothing),(\varnothing,\{3\}),(\{1\},\varnothing),(\{1\},\{3\}),(\{2\},\varnothing),(\{2\},\{3\}),(\{1,2\},\varnothing),(\{1,2\},\{3\})\big\}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="7">
+<li><p><span class="math notranslate nohighlight">\(\mathscr { P } \left( \{ a , b \} \right) \times \mathscr { P } \left( \{ 0 , 1 \} \right)\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\{\)</span>
+<span class="math notranslate nohighlight">\(\quad (\varnothing,\varnothing),(\varnothing,\{0\}),(\varnothing,\{1\}),(\varnothing,\{0,1\}),\)</span>
+<span class="math notranslate nohighlight">\(\quad (\{a\},\varnothing),(\{a\},\{0\}),(\{a\},\{1\}),(\{a\},\{0,1\}),\)</span>
+<span class="math notranslate nohighlight">\(\quad (\{b\},\varnothing),(\{b\},\{0\}),(\{b\},\{1\}),(\{b\},\{0,1\}),\)</span>
+<span class="math notranslate nohighlight">\(\quad (\{a,b\},\varnothing),(\{a,b\},\{0\}),(\{a,b\},\{1\}),(\{a,b\},\{0,1\})\)</span>
+<span class="math notranslate nohighlight">\(\}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="8">
+<li><p><span class="math notranslate nohighlight">\(\mathscr { P } ( \{ 1 , 2 \} \times \{ 3 \} )\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\{1,2\}\times\{3\}=\{(1,3),(2,3)\}\)</span>
+<span class="math notranslate nohighlight">\(\mathscr{P}(\{1,2\}\times\{3\})=\big\{\varnothing, \{(1,3)\}, \{(2,3)\}, \{(1,3),(2,3)\}\big\}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="9">
+<li><p><span class="math notranslate nohighlight">\(\mathscr { P } \left( \{ a , b \} \times \{ 0 \} \right)\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\{a,b\}\times\{0\}=\{(a,0),(b,0)\}\)</span>
+<span class="math notranslate nohighlight">\(\mathscr{P}(\{a,b\}\times\{0\})=\big\{\varnothing, \{(a,0)\}, \{(b,0)\}, \{(a,0),(b,0)\}\big\}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="10">
+<li><p><span class="math notranslate nohighlight">\(\left\{ X \in { \mathscr { P } } \left( \left\{ 1 , 2 , 3 \right\} \right) : | X | \leq 1 \right\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\big\{\varnothing,\{1\},\{2\},\{3\}\big\}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="11">
+<li><p><span class="math notranslate nohighlight">\(\left\{ X \subseteq { \mathscr { P } } \left( \left\{ 1 , 2 , 3 \right\} \right) : | X | \leq 1 \right\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\big\{ \varnothing, \{\varnothing\}, \{\{1\}\}, \{\{2\}\}, \{\{3\}\}, \{\{1,2\}\}, \{\{1,3\}\}, \{\{2,3\}\}, \{\{1,2,3\}\} \big\}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="12">
+<li><p><span class="math notranslate nohighlight">\(\left\{ X \in { \mathscr { P } } \left( \left\{ 1 , 2 , 3 \right\} \right) : 2 \in X \right\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\big\{\{2\},\ \{1,2\},\ \{2,3\},\ \{1,2,3\}\big\}\)</span></p>
+</div>
+</details><p>B. Suppose that <span class="math notranslate nohighlight">\(| A | = m\)</span> and <span class="math notranslate nohighlight">\(| B | = n\)</span> . Find the following cardinalities.
+13. <span class="math notranslate nohighlight">\(| \mathscr { P } ( \mathscr { P } ( \mathscr { P } ( A ) ) ) |\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(|\mathscr{P}(X)|=2^{|X|}\)</span>
+<span class="math notranslate nohighlight">\(\large |\mathscr{P}(\mathscr{P}(\mathscr{P}(A)))|=2^{\left(2^{\left(2^{m}\right)}\right)}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="14">
+<li><p><span class="math notranslate nohighlight">\(| \mathscr { P } ( \mathscr { P } ( A ) ) |\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\large |\mathscr{P}(\mathscr{P}(A))|=2^{|\mathscr{P}(A)|}=2^{\left(2^{m}\right)}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="15">
+<li><p><span class="math notranslate nohighlight">\(| { \mathscr { P } } ( A \times B ) |\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(|A\times B|=mn\)</span>
+<span class="math notranslate nohighlight">\(|\mathscr{P}(A\times B)|=2^{mn}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="16">
+<li><p><span class="math notranslate nohighlight">\(| { \mathscr { P } } ( A ) \times { \mathscr { P } } ( B ) |\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(|\mathscr{P}(A)|=2^{m}\)</span>
+<span class="math notranslate nohighlight">\(|\mathscr{P}(B)|=2^{n}\)</span>
+<span class="math notranslate nohighlight">\(|\mathscr{P}(A)\times \mathscr{P}(B)|=2^{m}\cdot 2^{n}=2^{m+n}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="17">
+<li><p><span class="math notranslate nohighlight">\(\left| \left\{ X \in { \mathscr { P } } ( A ) : | X | \leq 1 \right\} \right|\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Such <span class="math notranslate nohighlight">\(X\)</span> are either <span class="math notranslate nohighlight">\(\varnothing\)</span> or a singleton <span class="math notranslate nohighlight">\(\{a\}\)</span> with <span class="math notranslate nohighlight">\(a\in A\)</span>. Hence the count is <span class="math notranslate nohighlight">\(m+1\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="18">
+<li><p><span class="math notranslate nohighlight">\(| { \mathscr { P } } ( A \times { \mathscr { P } } ( B ) ) |\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(|\mathscr{P}(B)|=2^{n}\)</span>, so <span class="math notranslate nohighlight">\(|A\times \mathscr{P}(B)|=m\cdot 2^{n}\)</span>
+Therefore <span class="math notranslate nohighlight">\(|\mathscr{P}(A\times \mathscr{P}(B))|=2^{m \cdot 2^{n}}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="19">
+<li><p><span class="math notranslate nohighlight">\(| \mathscr { P } ( \mathscr { P } ( \mathscr { P } ( A \times \varnothing ) ) ) |\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(A\times\varnothing=\varnothing\)</span>
+<span class="math notranslate nohighlight">\(\mathscr{P}(\varnothing)=\{\varnothing\}\)</span> (size <span class="math notranslate nohighlight">\(1\)</span>)
+<span class="math notranslate nohighlight">\(\mathscr{P}(\mathscr{P}(\varnothing)) = \{\varnothing, \{\varnothing\}\}\)</span> (size <span class="math notranslate nohighlight">\(2\)</span>)
+<span class="math notranslate nohighlight">\(\mathscr{P}(\mathscr{P}(\mathscr{P}(\varnothing))) = \{ \varnothing, \{\varnothing\}, \{\{\varnothing\}\}, \{\varnothing, \{\varnothing\}\} \}\)</span> (size <span class="math notranslate nohighlight">\(4\)</span>)</p>
+</div>
+</details><ol class="arabic simple" start="20">
+<li><p><span class="math notranslate nohighlight">\(\left| \left\{ X \subseteq { \mathscr { P } } ( A ) : | X | \leq 1 \right\} \right|\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The subsets of <span class="math notranslate nohighlight">\(\mathscr{P}(A)\)</span> (this is effectively <span class="math notranslate nohighlight">\(\mathscr{P}(\mathscr{P}(A))\)</span>) with cardinality at most <span class="math notranslate nohighlight">\(1\)</span> are <span class="math notranslate nohighlight">\(\varnothing\)</span> and singleton sets <span class="math notranslate nohighlight">\(\{a\}\)</span> with <span class="math notranslate nohighlight">\(a \in \mathscr{P}(A)\)</span>.
+For example:
+<span class="math notranslate nohighlight">\(\mathscr{P}(\{1\}) = \{\varnothing, \{1\} \}\)</span>
+<span class="math notranslate nohighlight">\(\mathscr{P}(\mathscr{P}(\{1\})) = \mathscr{P}(\{\varnothing, \{1\} \}) = \{\varnothing, \{\varnothing\}, \{\{1\}\}\}, \{\varnothing, \{1\} \}\}\)</span>
+Since <span class="math notranslate nohighlight">\(|\mathscr{P}(A)|=2^{m}\)</span>, the cardinality is <span class="math notranslate nohighlight">\(2^{m}+1\)</span>.</p>
+</div>
+</details></section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="01-5-union-intersection-difference.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">1.5 Union, Intersection, Difference</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="01-3-subsets.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">1.3 Subsets</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">1.4 Power Sets</a><ul>
+<li><a class="reference internal" href="#exercises-for-section-1-4">Exercises for Section 1.4</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

@@ -1,0 +1,519 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="2.8 More on Conditional Statements" href="02-8-more-on-conditional-statements.html"><link rel="prev" title="2.6 Logical Equivalence" href="02-6-logical-equivalence.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
+        <title>2.7 Quantifiers - Book of Proof — Annotated documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Sections</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-1-introduction-to-sets.html">1.1 Introduction to Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-2-the-cartesian-product.html">1.2 The Cartesian Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-3-subsets.html">1.3 Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-4-power-sets.html">1.4 Power Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-5-union-intersection-difference.html">1.5 Union, Intersection, Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-6-complement.html">1.6 Complement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-7-venn-diagrams.html">1.7 Venn Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-8-indexed-sets.html">1.8 Indexed Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-9-sets-that-are-number-systems.html">1.9 Sets That Are Number Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-10-russells-paradox.html">1.10 Russell’s Paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-1-statements.html">2.1 Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-2-and-or-not.html">2.2 And, Or, Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-3-conditional-statements.html">2.3 Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-4-biconditional-statements.html">2.4 Biconditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-5-truth-tables-for-statements.html">2.5 Truth Tables for Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-6-logical-equivalence.html">2.6 Logical Equivalence</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">2.7 Quantifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-8-more-on-conditional-statements.html">2.8 More on Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-9-translating-english-to-symbolic-logic.html">2.9 Translating English to Symbolic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-10-negating-statements.html">2.10 Negating Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-11-logical-inference.html">2.11 Logical Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-12-an-important-note.html">2.12 An Important Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-1-lists.html">3.1 Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-2-the-multiplication-principle.html">3.2 The Multiplication Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-3-the-addition-and-subtraction-principles.html">3.3 The Addition and Subtraction Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-4-factorials-and-permutations.html">3.4 Factorials and Permutations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-5-counting-subsets.html">3.5 Counting Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-6-pascals-triangle-and-the-binomial-theorem.html">3.6 Pascal’s Triangle and the Binomial Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-7-the-inclusion-exclusion-principle.html">3.7 The Inclusion-Exclusion Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-8-counting-multisets.html">3.8 Counting Multisets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-9-the-division-and-pigeonhole-principles.html">3.9 The Division and Pigeonhole Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-10-combinatorial-proof.html">3.10 Combinatorial Proof</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/chapters/02-7-quantifiers.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="quantifiers">
+<h1>2.7 Quantifiers<a class="headerlink" href="#quantifiers" title="Link to this heading">¶</a></h1>
+<p><strong>Using symbols <span class="math notranslate nohighlight">\(\land , \lor , \sim , \Rightarrow\)</span> and <span class="math notranslate nohighlight">\(\Leftrightarrow\)</span>, we can deconstruct many English sentences into a symbolic form. As we have seen, this symbolic form can help us understand the logical structure of sentences and how different sentences may actually have the same meaning (as in logical equivalence).</strong></p>
+<p>But these symbols alone are not powerful enough to capture the full meaning of every statement. To see why, imagine that we are dealing with an infinite set <span class="math notranslate nohighlight">\(X = \left\{x_{1}, x_{2}, x_{3}, \ldots \right\}\)</span> of integers. Suppose we want to express the statement “Every element of <span class="math notranslate nohighlight">\(X\)</span> is odd.” We would have to write</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+P(x_{1}) \wedge P(x_{2}) \wedge P(x_{3}) \wedge P(x_{4}) \wedge \cdots,
+\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(P(x)\)</span> is the open sentence “<span class="math notranslate nohighlight">\(x\)</span> is odd.” And if we wanted to express “There is at least one element of <span class="math notranslate nohighlight">\(X\)</span> that is odd,” we’d have to write</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+P(x_{1}) \vee P(x_{2}) \vee P(x_{3}) \vee P (x_{4}) \vee \cdots .
+\]</div>
+</div>
+<p>The problem is that these expressions trail on forever.</p>
+<p><strong>To overcome this defect, we will introduce two new symbols <span class="math notranslate nohighlight">\(\forall\)</span> and <span class="math notranslate nohighlight">\(\exists\)</span>. The symbol <span class="math notranslate nohighlight">\(\forall\)</span> stands for the phrase “for all” and <span class="math notranslate nohighlight">\(\exists\)</span> stands for “there exists.” Thus the statement “Every element of <span class="math notranslate nohighlight">\(X\)</span> is odd.” is written symbolically as <span class="math notranslate nohighlight">\(\forall \ x \in X, P(x)\)</span> and “There is at least one element of <span class="math notranslate nohighlight">\(X\)</span> that is odd,” is written succinctly as <span class="math notranslate nohighlight">\(\exists \ x \in X, P(x)\)</span> where <span class="math notranslate nohighlight">\(P(x)\)</span> is the open sentence “<span class="math notranslate nohighlight">\(x\)</span> is odd.”</strong></p>
+<p>These new symbols are called quantifiers.</p>
+<p><strong>Definition 2.1: The symbols <span class="math notranslate nohighlight">\(\forall\)</span> and <span class="math notranslate nohighlight">\(\exists\)</span> are called quantifiers. <span class="math notranslate nohighlight">\(\forall\)</span> stands for the phrase “For all” or “For every,” or “For each,” <span class="math notranslate nohighlight">\(\exists\)</span> stands for the phrase “There exists “ or “There is a.”</strong></p>
+<p>Thus the statement</p>
+<ul class="simple">
+<li><p>For every <span class="math notranslate nohighlight">\(n \in \mathbb{Z}\)</span> , <span class="math notranslate nohighlight">\(2n\)</span> is even,</p></li>
+</ul>
+<p>can be expressed in either of the following ways:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\forall \ n \in \mathbb{Z}, 2n\)</span> is even,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\forall \ n \in \mathbb{Z}, \ E(2n)\)</span>. (Where <span class="math notranslate nohighlight">\(E(x)\)</span> means <span class="math notranslate nohighlight">\(x\)</span> is even).</p></li>
+</ul>
+<p>Likewise, a statement such as</p>
+<ul class="simple">
+<li><p>There exists a subset <span class="math notranslate nohighlight">\(X\)</span> of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> for which <span class="math notranslate nohighlight">\(| X | = 5\)</span>.</p></li>
+</ul>
+<p>can be translated as</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+\exists \ X, (X \subseteq \mathbb{N}) \wedge (| X | = 5) \quad \text{or} \quad \exists \ X \subseteq \mathbb{N}, | X | = 5 \quad \text{or} \quad \exists \ X \in \mathscr{P} (\mathbb{N}), | X | = 5.
+\]</div>
+</div>
+<p><strong>The symbols <span class="math notranslate nohighlight">\(\forall\)</span> and <span class="math notranslate nohighlight">\(\exists\)</span> are called quantifiers because they refer in some sense to the quantity (i.e., all or some) of the variable that follows them. The symbol <span class="math notranslate nohighlight">\(\forall\)</span> is called the universal quantifier and <span class="math notranslate nohighlight">\(\exists\)</span> is called the existential quantifier. Statements containing them are called quantified statements.</strong> A statement beginning with <span class="math notranslate nohighlight">\(\forall\)</span> is called a universally quantified statement, and one beginning with <span class="math notranslate nohighlight">\(\exists\)</span> is called an existentially quantified statement.</p>
+<p>Example 2.5: The following English statements are paired with their translations into symbolic form.</p>
+<ul class="simple">
+<li><p>Every integer that is not odd is even. <span class="math notranslate nohighlight">\(\forall \ n \in \mathbb{Z}, \ \sim (n \ \text{is odd}) \Rightarrow (n \ \text{is even}), \quad \text{or} \quad \forall \ n \in \mathbb{Z}, \ \sim O(n) \Rightarrow E(n)\)</span>.</p></li>
+<li><p>There is an integer that is not even. <span class="math notranslate nohighlight">\(\exists \ n \in \mathbb{Z}, \ \sim E(n)\)</span>.</p></li>
+<li><p>For every real number <span class="math notranslate nohighlight">\(x\)</span>, there is a real number <span class="math notranslate nohighlight">\(y\)</span> for which <span class="math notranslate nohighlight">\(y^{3} = x\)</span>. <span class="math notranslate nohighlight">\(\forall \ x \in \mathbb{R}, \ \exists \ y \in \mathbb{R}, \ y^{3} = x\)</span>.</p></li>
+<li><p>Given any two rational numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, the product <span class="math notranslate nohighlight">\(ab\)</span> is rational. <span class="math notranslate nohighlight">\(\forall \ a, b \in \mathbb{Q}, \  ab \in \mathbb {Q}\)</span>.</p></li>
+</ul>
+<p><strong>Given a set <span class="math notranslate nohighlight">\(X\)</span> (such as, but not limited to, <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>, <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>, <span class="math notranslate nohighlight">\(\mathbb{Q}\)</span>, etc.), a quantified statement of form <span class="math notranslate nohighlight">\(\forall \ x \in X, \ P(x)\)</span> is understood to be true if <span class="math notranslate nohighlight">\(P(x)\)</span> is true for every <span class="math notranslate nohighlight">\(x \in X\)</span>. If there is at least one <span class="math notranslate nohighlight">\(x \in X\)</span> for which <span class="math notranslate nohighlight">\(P(x)\)</span> is false, then <span class="math notranslate nohighlight">\(\forall \ x \in X, \ P(x)\)</span> is a false statement. Similarly, <span class="math notranslate nohighlight">\(\exists \ x \in X, \ P(x)\)</span> is true provided that <span class="math notranslate nohighlight">\(P(x)\)</span> is true for at least one element <span class="math notranslate nohighlight">\(x \in X\)</span>; otherwise it is false.</strong> Thus each statement in Example 2.5 is true. Here are some examples of quantified statements that are false:</p>
+<p>Example 2.6: The following false quantified statements are paired with their translations.</p>
+<ul class="simple">
+<li><p>Every integer is even. <span class="math notranslate nohighlight">\(\forall \ n \in \mathbb{Z}, \ E(n)\)</span>.</p></li>
+<li><p>There is an integer <span class="math notranslate nohighlight">\(n\)</span> for which <span class="math notranslate nohighlight">\(n^{2} = 2\)</span>. <span class="math notranslate nohighlight">\(\exists \ n \in \mathbb{Z}, \ n^{2} = 2\)</span>.</p></li>
+<li><p>For every real number <span class="math notranslate nohighlight">\(x\)</span>, there is a real number <span class="math notranslate nohighlight">\(y\)</span> for which <span class="math notranslate nohighlight">\(y^{2} = x\)</span>. <span class="math notranslate nohighlight">\(\forall \ x \in \mathbb{R}, \ \exists \ y \in \mathbb{R}, \ y^{2} = x\)</span>. This is false because the square of any real number is non-negative. For example, no real number squared returns <span class="math notranslate nohighlight">\(-1\)</span>. <span class="math notranslate nohighlight">\(\forall \ x \geq 0 \in \mathbb{R}, \ \exists \ y \in \mathbb{R}, \ y^{2} = x\)</span> is a true statement.</p></li>
+<li><p>Given any two rational numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, the number <span class="math notranslate nohighlight">\(\sqrt{ab}\)</span> is rational. <span class="math notranslate nohighlight">\(\forall \ a, b \in \mathbb{Q}, \ \sqrt{ab} \in \mathbb{Q}\)</span>. This statement is false because multiplying two rational numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> returns a rational product <span class="math notranslate nohighlight">\(ab\)</span>, but the square root of a rational number is not necessarily rational. A counterexample: <span class="math notranslate nohighlight">\(a=2\)</span>, <span class="math notranslate nohighlight">\(b=3\)</span>, then <span class="math notranslate nohighlight">\(ab=6\)</span>, but <span class="math notranslate nohighlight">\(\sqrt{6}\)</span> is irrational: it cannot be expressed as a ratio of integers.</p></li>
+</ul>
+<p><strong>Example 2.7: When a statement contains two quantifiers you must be very alert to their order, for reversing the order can change the meaning. Consider the following statement from Example 2.5: <span class="math notranslate nohighlight">\(\forall \ x \in \mathbb{R}, \ \exists \ y \in \mathbb{R}, \ y^{3} = x\)</span>. This statement is true, for no matter what number <span class="math notranslate nohighlight">\(x\)</span> is there exists a number <span class="math notranslate nohighlight">\(y = \sqrt[3]{x}\)</span> for which <span class="math notranslate nohighlight">\(y^{3} = x\)</span>. Now reverse the order of the quantifiers to get the new statement <span class="math notranslate nohighlight">\(\exists \ y \in \mathbb{R}, \ \forall \ x \in \mathbb{R}, \ y^{3} = x\)</span>. This new statement says that there exists a particular number <span class="math notranslate nohighlight">\(y\)</span> with the property that <span class="math notranslate nohighlight">\(y^{3} = x\)</span> for every real number <span class="math notranslate nohighlight">\(x\)</span>. Since no number <span class="math notranslate nohighlight">\(y\)</span> can have this property, the statement is false. The two statements above have entirely different meanings.</strong></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">When to use which quantifier?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Use <span class="math notranslate nohighlight">\(\forall \ x, \ \exists \ y\)</span> when the thing called <span class="math notranslate nohighlight">\(y\)</span> is allowed to depend on <span class="math notranslate nohighlight">\(x\)</span>.
+Use <span class="math notranslate nohighlight">\(\exists \ y, \ \forall \ x\)</span> when the same single <span class="math notranslate nohighlight">\(y\)</span> must work for every <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p class="sd-card-text">The intuition <span class="math notranslate nohighlight">\(\forall \ x, \ \exists \ y, \ P(x,y)\)</span> means: For each <span class="math notranslate nohighlight">\(x\)</span>, you may pick a possibly different <span class="math notranslate nohighlight">\(y\)</span>.
+But <span class="math notranslate nohighlight">\(\exists \ y, \ \forall \ x, \ P(x,y)\)</span> means: There is one particular <span class="math notranslate nohighlight">\(y\)</span> that works for all <span class="math notranslate nohighlight">\(x\)</span>. That is much stronger.</p>
+<p class="sd-card-text">Ask yourself: “After I choose the first variable, is the second allowed to change?”
+If yes, use the second quantifier inside: <span class="math notranslate nohighlight">\(\forall \ x, \ \exists \ y\)</span>.
+If no, and one fixed thing must work for all cases, use: <span class="math notranslate nohighlight">\(\exists \ y, \ \forall \ x\)</span>.</p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\forall\exists\)</span> = “everyone gets their own”
+<span class="math notranslate nohighlight">\(\exists\forall\)</span> = “one thing works for all”</p>
+<p class="sd-card-text">Example:
+“Every lock has a key.” = <span class="math notranslate nohighlight">\(\forall \ l, \ \exists \ k, \ \text{Opens}(k,l)\)</span>.
+“There is a key that opens every lock.” = <span class="math notranslate nohighlight">\(\exists \ k, \ \forall \ l, \ \text{Opens}(k,l)\)</span>.</p>
+</div>
+</details><p><strong>Quantified statements are often misused in casual conversation. Maybe you’ve heard someone say “All students do not pay full tuition.” when they mean “Not all students pay full tuition.” While the mistake is perhaps marginally forgivable in casual conversation, it must never be made in a mathematical context. Do not say “All integers are not even.” because that means there are no even integers. Instead, say “Not all integers are even.”</strong></p>
+<section id="exercises-for-section-2-7">
+<h2>Exercises for Section 2.7<a class="headerlink" href="#exercises-for-section-2-7" title="Link to this heading">¶</a></h2>
+<p>Write the following as English sentences. Say whether they are true or false.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\forall \ x \in \mathbb{R}, x^{2} &gt; 0\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For every real number <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(x^{2}&gt;0\)</span>.
+Also: For every real number <span class="math notranslate nohighlight">\(x\)</span>, it follows that <span class="math notranslate nohighlight">\(x^{2}&gt;0\)</span>.
+Also: The square of any real number is positive. (etc.)
+This statement is false. Reason: 0 is a real number, but it’s not true that <span class="math notranslate nohighlight">\(0^{2}&gt;0\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="2">
+<li><p><span class="math notranslate nohighlight">\(\forall \ x \in \mathbb{R}, \exists \ n \in \mathbb{N}, x^{n} \geq 0\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For every real number <span class="math notranslate nohighlight">\(x\)</span>, there exists a natural number <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(x^n\)</span> is greater than or equal to <span class="math notranslate nohighlight">\(0\)</span>.
+This statement is true. Reason: If <span class="math notranslate nohighlight">\(x \geq 0\)</span>, then <span class="math notranslate nohighlight">\(x^n \geq 0\)</span> for any natural number <span class="math notranslate nohighlight">\(n\)</span>. If <span class="math notranslate nohighlight">\(x&lt;0\)</span>, choose an even natural number, for example <span class="math notranslate nohighlight">\(n=2\)</span>, such that <span class="math notranslate nohighlight">\(x^n \geq 0\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="3">
+<li><p><span class="math notranslate nohighlight">\(\exists \ a \in \mathbb{R}, \forall \ x \in \mathbb{R}, a x = x\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">There exists a real number <span class="math notranslate nohighlight">\(a\)</span> for which <span class="math notranslate nohighlight">\(ax=x\)</span> for every real number <span class="math notranslate nohighlight">\(x\)</span>.
+This statement is true. Reason: Consider <span class="math notranslate nohighlight">\(a=1\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="4">
+<li><p><span class="math notranslate nohighlight">\(\forall \ X \in \mathscr{P}(\mathbb{N}), X \subseteq \mathbb{R}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For every set <span class="math notranslate nohighlight">\(X\)</span> in the power set of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>, <span class="math notranslate nohighlight">\(X\)</span> is a subset of <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.
+Also: Every subset of the natural numbers is also a subset of the real numbers.
+This statement is true. Reason: <span class="math notranslate nohighlight">\(\mathscr{P}(\mathbb{N})\)</span> is the set of all subsets of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>. Since every natural number is also a real number, we have <span class="math notranslate nohighlight">\(\mathbb{N} \subseteq \mathbb{R}\)</span>. Therefore, any subset of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> must also be a subset of <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>. Note that <span class="math notranslate nohighlight">\(\varnothing\)</span> is a subset of every set.</p>
+</div>
+</details><ol class="arabic simple" start="5">
+<li><p><span class="math notranslate nohighlight">\(\forall \ n \in \mathbb{N}, \exists \ X \in \mathscr{P}(\mathbb{N}), |X| &lt; n\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For every natural number <span class="math notranslate nohighlight">\(n\)</span>, there is a subset <span class="math notranslate nohighlight">\(X\)</span> of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> with <span class="math notranslate nohighlight">\(|X|&lt;n\)</span>.
+This statement is true. Reason: Suppose <span class="math notranslate nohighlight">\(n \in \mathbb{N} \ (0 \not \in \mathbb{N})\)</span>. Let <span class="math notranslate nohighlight">\(X = \varnothing\)</span>. Then <span class="math notranslate nohighlight">\(|X|=0\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="6">
+<li><p><span class="math notranslate nohighlight">\(\exists \ n \in \mathbb{N}, \forall \ X \in \mathscr{P}(\mathbb{N}), |X| &lt; n\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">There exists a particular (finite) natural number <span class="math notranslate nohighlight">\(n\)</span> such that for every subset <span class="math notranslate nohighlight">\(X\)</span> of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>, the size of <span class="math notranslate nohighlight">\(X\)</span> is less than <span class="math notranslate nohighlight">\(n\)</span>.
+This statement is false. Reason: This says there is some specific natural number that is larger than the size of every subset of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>. For any natural number <span class="math notranslate nohighlight">\(n\)</span>, we can find a subset of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> with at least <span class="math notranslate nohighlight">\(n\)</span> elements, for example: <span class="math notranslate nohighlight">\(X = \{1,2,3,\dots,n\}\)</span>. Then <span class="math notranslate nohighlight">\(|X| = n\)</span>, so <span class="math notranslate nohighlight">\(|X| &lt; n\)</span> is false. In fact, <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> itself is an infinite subset, so there is certainly no finite natural number bigger than the size of every subset.</p>
+</div>
+</details><ol class="arabic simple" start="7">
+<li><p><span class="math notranslate nohighlight">\(\forall \ X \subseteq \mathbb{N}, \exists \ n \in \mathbb{Z}, |X| = n\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For any subset <span class="math notranslate nohighlight">\(X\)</span> of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>, there exists an integer <span class="math notranslate nohighlight">\(n\)</span> for which <span class="math notranslate nohighlight">\(|X|=n\)</span>.
+This statement is false. Reason: for example, the set <span class="math notranslate nohighlight">\(X =\{2,4,6,8,\ldots\}\)</span> of all even natural numbers is infinite, so there does not exist any integer <span class="math notranslate nohighlight">\(n\)</span> for which <span class="math notranslate nohighlight">\(|X|=n\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="8">
+<li><p><span class="math notranslate nohighlight">\(\forall \ n \in \mathbb{Z}, \exists \ X \subseteq \mathbb{N}, |X| = n\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For every integer <span class="math notranslate nohighlight">\(n\)</span>, there exists a subset <span class="math notranslate nohighlight">\(X\)</span> of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> such that the size of <span class="math notranslate nohighlight">\(X\)</span> is <span class="math notranslate nohighlight">\(n\)</span>.
+This statement is false. Reason: A set cannot have a negative number of elements. So if <span class="math notranslate nohighlight">\(n=-1\)</span> (or any other negative integer), there is no subset <span class="math notranslate nohighlight">\(X \subseteq \mathbb{N}\)</span> with <span class="math notranslate nohighlight">\(|X| = -1\)</span>. Hence the statement fails for negative integers, so it is false. Note that this statement would be true if it said “for every non-negative integer”, instead of “for every integer”.</p>
+</div>
+</details><ol class="arabic simple" start="9">
+<li><p><span class="math notranslate nohighlight">\(\forall \ n \in \mathbb{Z}, \exists \ m \in \mathbb{Z}, m = n + 5\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For every integer <span class="math notranslate nohighlight">\(n\)</span> there is another integer <span class="math notranslate nohighlight">\(m\)</span> such that <span class="math notranslate nohighlight">\(m=n+5\)</span>.
+This statement is true. Reason: you can find an integer <span class="math notranslate nohighlight">\(m\)</span> for every integer <span class="math notranslate nohighlight">\(n\)</span>, such that <span class="math notranslate nohighlight">\(m-n\)</span> will always be 5.</p>
+</div>
+</details><ol class="arabic simple" start="10">
+<li><p><span class="math notranslate nohighlight">\(\exists \ m \in \mathbb{Z}, \forall \ n \in \mathbb{Z}, m = n + 5\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">There exists a particular integer <span class="math notranslate nohighlight">\(m\)</span> such that for every integer <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(m=n+5\)</span>.
+This statement is false. Reason: this statement says that one particular fixed integer <span class="math notranslate nohighlight">\(m\)</span> must always equal <span class="math notranslate nohighlight">\(n+5\)</span> for all integers <span class="math notranslate nohighlight">\(n\)</span>. But if <span class="math notranslate nohighlight">\(n=0\)</span>, then <span class="math notranslate nohighlight">\(m=5\)</span>, and if <span class="math notranslate nohighlight">\(n=1\)</span>, then <span class="math notranslate nohighlight">\(m=6\)</span>. So <span class="math notranslate nohighlight">\(m\)</span> would have to be both 5 and 6 at the same time, which is impossible. Therefore, no such integer <span class="math notranslate nohighlight">\(m\)</span> exists.</p>
+</div>
+</details></section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="02-8-more-on-conditional-statements.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">2.8 More on Conditional Statements</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="02-6-logical-equivalence.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">2.6 Logical Equivalence</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">2.7 Quantifiers</a><ul>
+<li><a class="reference internal" href="#exercises-for-section-2-7">Exercises for Section 2.7</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

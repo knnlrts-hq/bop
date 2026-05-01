@@ -1,0 +1,603 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="prev" title="3.9 The Division and Pigeonhole Principles" href="03-9-the-division-and-pigeonhole-principles.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
+        <title>3.10 Combinatorial Proof - Book of Proof — Annotated documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Sections</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-1-introduction-to-sets.html">1.1 Introduction to Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-2-the-cartesian-product.html">1.2 The Cartesian Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-3-subsets.html">1.3 Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-4-power-sets.html">1.4 Power Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-5-union-intersection-difference.html">1.5 Union, Intersection, Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-6-complement.html">1.6 Complement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-7-venn-diagrams.html">1.7 Venn Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-8-indexed-sets.html">1.8 Indexed Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-9-sets-that-are-number-systems.html">1.9 Sets That Are Number Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-10-russells-paradox.html">1.10 Russell’s Paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-1-statements.html">2.1 Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-2-and-or-not.html">2.2 And, Or, Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-3-conditional-statements.html">2.3 Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-4-biconditional-statements.html">2.4 Biconditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-5-truth-tables-for-statements.html">2.5 Truth Tables for Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-6-logical-equivalence.html">2.6 Logical Equivalence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-7-quantifiers.html">2.7 Quantifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-8-more-on-conditional-statements.html">2.8 More on Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-9-translating-english-to-symbolic-logic.html">2.9 Translating English to Symbolic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-10-negating-statements.html">2.10 Negating Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-11-logical-inference.html">2.11 Logical Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-12-an-important-note.html">2.12 An Important Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-1-lists.html">3.1 Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-2-the-multiplication-principle.html">3.2 The Multiplication Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-3-the-addition-and-subtraction-principles.html">3.3 The Addition and Subtraction Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-4-factorials-and-permutations.html">3.4 Factorials and Permutations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-5-counting-subsets.html">3.5 Counting Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-6-pascals-triangle-and-the-binomial-theorem.html">3.6 Pascal’s Triangle and the Binomial Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-7-the-inclusion-exclusion-principle.html">3.7 The Inclusion-Exclusion Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-8-counting-multisets.html">3.8 Counting Multisets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-9-the-division-and-pigeonhole-principles.html">3.9 The Division and Pigeonhole Principles</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">3.10 Combinatorial Proof</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/chapters/03-10-combinatorial-proof.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="combinatorial-proof">
+<h1>3.10 Combinatorial Proof<a class="headerlink" href="#combinatorial-proof" title="Link to this heading">¶</a></h1>
+<p><strong><mark>Combinatorial proof is a method of proving two different expressions are equal by showing that they are both answers to the same counting question. We have already used combinatorial proof (without calling it combinatorial proof) in proving Pascal’s formula <span class="math notranslate nohighlight">\(\displaystyle \binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}\)</span> on page 90. There we argued that the left-hand side <span class="math notranslate nohighlight">\(\displaystyle \binom{n+1}{k}\)</span> is, by definition, the number of <span class="math notranslate nohighlight">\(k\)</span>-element subsets of the set <span class="math notranslate nohighlight">\(S = \{0,1,2, \ldots, n \}\)</span> with <span class="math notranslate nohighlight">\(|S| = n + 1\)</span>. But the right- hand side also gives the number of <span class="math notranslate nohighlight">\(k\)</span>-element subsets of <span class="math notranslate nohighlight">\(S\)</span>, because such a subset either contains 0 or it does not. We can make any <span class="math notranslate nohighlight">\(k\)</span>-element subset of <span class="math notranslate nohighlight">\(S\)</span> that contains 0 by starting with 0 and selecting <span class="math notranslate nohighlight">\(k - 1\)</span> other elements from <span class="math notranslate nohighlight">\(\{1,2,\ldots,n\}\)</span>, in <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k-1}\)</span> ways. We can make any <span class="math notranslate nohighlight">\(k\)</span>-element subset that does not contain 0 by selecting <span class="math notranslate nohighlight">\(k\)</span> elements from <span class="math notranslate nohighlight">\(\{1,2,\ldots,n\}\)</span>, and there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> ways to do this.</mark></strong> Thus,</p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260324171311.png"><img alt="assets/Pastedimage20260324171311.png" src="assets/Pastedimage20260324171311.png" style="width: 500px;" />
+</a>
+<p><strong>Both sides count the number of <span class="math notranslate nohighlight">\(k\)</span>-element subsets of <span class="math notranslate nohighlight">\(S\)</span>, so they are equal. This is combinatorial proof.</strong></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Combinatorial proof of the identity <span class="math notranslate nohighlight">\(\binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}\)</span></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">In the combinatorial proof for the identity <span class="math notranslate nohighlight">\(\displaystyle \binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}\)</span>, both sides are counting the same collection of objects, but in two different ways. <span class="math notranslate nohighlight">\(\displaystyle \binom{n+1}{k}\)</span> counts the number of <span class="math notranslate nohighlight">\(k\)</span>-element subsets out of <span class="math notranslate nohighlight">\(n+1\)</span> elements: the number of ways to choose <span class="math notranslate nohighlight">\(k\)</span> elements from a set with <span class="math notranslate nohighlight">\(n+1\)</span> elements (typically the set <span class="math notranslate nohighlight">\(S = \{0,1,2,\ldots,n\}\)</span> is used, which has <span class="math notranslate nohighlight">\(n+1\)</span> elements). Now split the <span class="math notranslate nohighlight">\(\displaystyle \binom{n+1}{k}\)</span> subsets into two types, every <span class="math notranslate nohighlight">\(k\)</span>-element subset of <span class="math notranslate nohighlight">\(S\)</span> must be in exactly one of these categories:</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text">The <span class="math notranslate nohighlight">\(k\)</span>-element subset either contains an arbitrary distinguished element (here we pick <span class="math notranslate nohighlight">\(0\)</span>, but note that this can any other element from <span class="math notranslate nohighlight">\(S\)</span>), or</p></li>
+<li><p class="sd-card-text">The <span class="math notranslate nohighlight">\(k\)</span>-element subset does <em>NOT</em> contain an arbitrary distinguished element (here we pick <span class="math notranslate nohighlight">\(0\)</span>, but note that this can any other element from <span class="math notranslate nohighlight">\(S\)</span>).</p></li>
+</ol>
+<p class="sd-card-text">So instead of counting all <span class="math notranslate nohighlight">\(k\)</span>-element subsets directly, we can (1) count how many subsets contain the element <span class="math notranslate nohighlight">\(0\)</span>, (2) count how many subsets do <em>NOT</em> contain the element <span class="math notranslate nohighlight">\(0\)</span>, and (3) add these two results to get the same total result when counting directly.</p>
+<ul class="simple">
+<li><p class="sd-card-text">Suppose a <span class="math notranslate nohighlight">\(k\)</span>-element subset contains <span class="math notranslate nohighlight">\(0\)</span>, then one of its <span class="math notranslate nohighlight">\(k\)</span> choices is already fixed: it is the element <span class="math notranslate nohighlight">\(0\)</span>. So now you can only choose from the remaining <span class="math notranslate nohighlight">\(k-1\)</span> elements available in <span class="math notranslate nohighlight">\(\{1,2,\ldots,n\}\)</span> (which has <span class="math notranslate nohighlight">\(n\)</span> elements without <span class="math notranslate nohighlight">\(0\)</span> available). This can be done in <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k-1}\)</span> ways. Once you decide the subset must contain the element 0, it is no longer a choice, and so you have already used up one of the <span class="math notranslate nohighlight">\(k\)</span> spots. You can thus only choose the remaining <span class="math notranslate nohighlight">\(k-1\)</span> elements, and you choose them from the remaining <span class="math notranslate nohighlight">\(n\)</span> elements.</p></li>
+<li><p class="sd-card-text">If a subset does not contain <span class="math notranslate nohighlight">\(0\)</span>, then all the <span class="math notranslate nohighlight">\(k\)</span> elements must come from <span class="math notranslate nohighlight">\(\{1,2,\ldots,n\}\)</span> (which has <span class="math notranslate nohighlight">\(n\)</span> elements without <span class="math notranslate nohighlight">\(0\)</span> available). So now we are choosing all <span class="math notranslate nohighlight">\(k\)</span> elements from <span class="math notranslate nohighlight">\(n\)</span> available elements. This can be done in <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> ways.</p></li>
+<li><p class="sd-card-text">Since every <span class="math notranslate nohighlight">\(k\)</span>-element subset is in exactly one of these two groups, that means: <span class="math notranslate nohighlight">\(\displaystyle \binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}\)</span>.</p></li>
+</ul>
+<p class="sd-card-text">The subsets on the left are all the <span class="math notranslate nohighlight">\(k\)</span>-subsets. The two terms on the right divide those subsets into two non-overlapping (exhaustive and disjoint) groups (i.e. one group with the (arbitrary) element <span class="math notranslate nohighlight">\(0\)</span> and without the element <span class="math notranslate nohighlight">\(0\)</span>).</p>
+<p class="sd-card-text">Example: take <span class="math notranslate nohighlight">\(n=4, \ k=2\)</span>, then the identity says: <span class="math notranslate nohighlight">\(\displaystyle \binom{5}{2} = \binom{4}{1} + \binom{4}{2}\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle \binom{5}{2} = 10\)</span>, so there are 10 2-element subsets/ways to choose 2 elements from <span class="math notranslate nohighlight">\(S = \{0,1,2,3,4\}\)</span> (with <span class="math notranslate nohighlight">\(|S| = 5\)</span>). Now split these subsets into two groups: one group with all the subsets that contain the element <span class="math notranslate nohighlight">\(0\)</span>, and one group with all the subsets that do <em>NOT</em> contain the element <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<ul class="simple">
+<li><p class="sd-card-text">The 2-element subsets containing the element <span class="math notranslate nohighlight">\(0\)</span> are: <span class="math notranslate nohighlight">\(\{0,1\}\)</span>, <span class="math notranslate nohighlight">\(\{0,2\}\)</span>, <span class="math notranslate nohighlight">\(\{0,3\}\)</span>, and <span class="math notranslate nohighlight">\(\{0,4\}\)</span>, which totals to <span class="math notranslate nohighlight">\(\displaystyle \binom{4}{1} = 4\)</span>.</p></li>
+<li><p class="sd-card-text">The 2-element subsets <em>NOT</em> containing the element <span class="math notranslate nohighlight">\(0\)</span> are: <span class="math notranslate nohighlight">\(\{1,2\}\)</span>, <span class="math notranslate nohighlight">\(\{1,3\}\)</span>, <span class="math notranslate nohighlight">\(\{1,4\}\)</span>, <span class="math notranslate nohighlight">\(\{2,3\}\)</span>, <span class="math notranslate nohighlight">\(\{2,4\}\)</span> and <span class="math notranslate nohighlight">\(\{3,4\}\)</span>, which totals to <span class="math notranslate nohighlight">\(\displaystyle \binom{4}{2} = 6\)</span>.</p></li>
+<li><p class="sd-card-text">By the adding principle, the total number of 2-element subsets is <span class="math notranslate nohighlight">\(\displaystyle 4+6=10=\binom{5}{2}\)</span></p></li>
+</ul>
+<p class="sd-card-text">Also note that: <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}\)</span></p>
+</div>
+</details><p><strong>Example 3.27: Use combinatorial proof to show <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \binom{n}{n-k}\)</span></strong></p>
+<p><strong>Solution: First, by definition, if <span class="math notranslate nohighlight">\(k &lt; 0\)</span> or <span class="math notranslate nohighlight">\(k &gt; n\)</span>, then both sides are 0, and thus equal. Therefore for the rest of the proof we can assume <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>. The left-hand side <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> is the number of <span class="math notranslate nohighlight">\(k\)</span>-element subsets of <span class="math notranslate nohighlight">\(S = \{1,2,\ldots,n\}\)</span>. <mark>Every <span class="math notranslate nohighlight">\(k\)</span>-element subset <span class="math notranslate nohighlight">\(X \subseteq S\)</span> pairs with a unique <span class="math notranslate nohighlight">\((n-k)\)</span>-element subset <span class="math notranslate nohighlight">\(\overline{X} = S - X \subseteq S\)</span>. Thus the number of <span class="math notranslate nohighlight">\(k\)</span>-element subsets of <span class="math notranslate nohighlight">\(S\)</span> equals the number of <span class="math notranslate nohighlight">\((n-k)\)</span>-element subsets of <span class="math notranslate nohighlight">\(S\)</span>, which is to say <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \binom{n}{n-k}\)</span>.</mark> We could also derive <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \binom{n}{n-k}\)</span> by using the formula for <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> and quickly get <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{n-k} = \dfrac{n!}{(n-k)!(n-(n-k))!} = \dfrac{n!}{(n-k)!k!} = \dfrac{n!}{k!(n-k)!} = \binom{n}{k}\)</span>.</strong> But you may feel that the combinatorial proof is “slicker” because it uses the meanings of the terms. Often it is flat-out easier than using formulas, as in the next example.</p>
+<p>Our next example will prove that <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{n} \binom{n}{k}^{2} = \binom{2n}{n}\)</span>, for any positive integer <span class="math notranslate nohighlight">\(n\)</span> which is to say that <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{0}^{2} + \binom{n}{1}^{2} + \binom{n}{2}^{2} + \cdots + \binom{n}{n}^{2} = \binom{2n}{n}\)</span>. For example, if <span class="math notranslate nohighlight">\(n = 5\)</span>, this statement asserts <span class="math notranslate nohighlight">\(\displaystyle \binom{5}{0}^{2} + \binom{5}{1}^{2} + \binom{5}{2}^{2} + \binom{5}{3}^{2} + \binom{5}{4}^{2} + \binom{5}{5}^{2} = \binom{2\cdot5}{5}\)</span>, that is, <span class="math notranslate nohighlight">\(\displaystyle 1^{2} + 5^{2} + 10^{2} + 10^{2} + 5^{2} + 1^{2} = \binom{10}{5}\)</span>, which is true, as both sides equal <span class="math notranslate nohighlight">\(252\)</span>. In general, the statement says that the squares of the entries in the <span class="math notranslate nohighlight">\(n\)</span>-th row of Pascal’s triangle add up to <span class="math notranslate nohighlight">\(\displaystyle \binom{2n}{n}\)</span>.</p>
+<p><strong>Example 3.28: Use a combinatorial proof to show that <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{n} \binom{n}{k}^{2} = \binom{2n}{n}\)</span>.</strong></p>
+<p><strong>Solution: First, the right-hand side <span class="math notranslate nohighlight">\(\displaystyle \binom{2n}{n}\)</span> is the number of ways to select <span class="math notranslate nohighlight">\(n\)</span> things from a set <span class="math notranslate nohighlight">\(S\)</span> that has <span class="math notranslate nohighlight">\(2n\)</span> elements. Now let’s count this a different way. <mark>Divide <span class="math notranslate nohighlight">\(S\)</span> into two equal-sized parts, <span class="math notranslate nohighlight">\(S = A \cup B\)</span>, where <span class="math notranslate nohighlight">\(|A| = n\)</span> and <span class="math notranslate nohighlight">\(| B | = n\)</span>, and <span class="math notranslate nohighlight">\(A \cap B = \varnothing\)</span>. For any fixed <span class="math notranslate nohighlight">\(k\)</span> with <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>, we can select <span class="math notranslate nohighlight">\(n\)</span> things from <span class="math notranslate nohighlight">\(S\)</span> by taking <span class="math notranslate nohighlight">\(k\)</span> things from <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(n - k\)</span> things from <span class="math notranslate nohighlight">\(B\)</span> for a total of <span class="math notranslate nohighlight">\(k + (n-k) = n\)</span> things. By the multiplication principle, we get <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} \cdot \binom{n}{n-k}\)</span> <span class="math notranslate nohighlight">\(n\)</span>-element subsets of <span class="math notranslate nohighlight">\(S\)</span> this way.</mark> As <span class="math notranslate nohighlight">\(k\)</span> could be any number from 0 to <span class="math notranslate nohighlight">\(n\)</span>, the number of ways to select <span class="math notranslate nohighlight">\(n\)</span> things from <span class="math notranslate nohighlight">\(S\)</span> is thus</strong></p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260324171340.png"><img alt="assets/Pastedimage20260324171340.png" src="assets/Pastedimage20260324171340.png" style="width: 750px;" />
+</a>
+<p><strong>But because <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{n-k} = \binom{n}{k}\)</span>, this expression equals <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{0} \cdot \binom{n}{0} + \binom{n}{1} \cdot \binom{n}{1} + \binom{n}{2} \cdot \binom{n}{2} + \dots + \binom{n}{n} \cdot \binom{n}{n}\)</span>, which is <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{0}^{2} + \binom{n}{1}^{2} + \binom{n}{2}^{2} + \cdots + \binom{n}{n}^{2} = \sum_{k=0}^{n} \binom{n}{k}^{2}\)</span>. In summary, we’ve counted the ways to choose <span class="math notranslate nohighlight">\(n\)</span> elements from the set <span class="math notranslate nohighlight">\(S\)</span> with two methods. One method gives <span class="math notranslate nohighlight">\(\displaystyle \binom{2n}{n}\)</span>, and the other gives <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{n} \binom{n}{k}^{2}\)</span>. Therefore <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{n} \binom{n}{k}^{2} = \binom{2n}{n}\)</span>.</strong></p>
+<p><strong>Be on the lookout for opportunities to use combinatorial proof, and watch for it in your readings outside of this course. Also, try some of the exercises below. Sometimes it takes some creative thinking and false starts before you hit on an idea that works, but once you find it the solution is usually remarkably simple.</strong></p>
+<section id="exercises-for-section-3-10">
+<h2>Exercises for Section 3.10<a class="headerlink" href="#exercises-for-section-3-10" title="Link to this heading">¶</a></h2>
+<p>Use combinatorial proof to solve the following problems. You may assume that any variables <span class="math notranslate nohighlight">\(m , n , k\)</span> and <span class="math notranslate nohighlight">\(p\)</span> are non-negative integers.</p>
+<ol class="arabic simple">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle 1 ( n - 0 ) + 2 ( n - 1 ) + 3 ( n - 2 ) + 4 ( n - 3 ) + \cdots + ( n - 1 ) 2 + ( n - 0 ) 1 = \binom{n+2}{3}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(S=\{0,1,2,3,\ldots,n,n+1\}\)</span>, which is a set with <span class="math notranslate nohighlight">\(n+2\)</span> elements. The right-hand side <span class="math notranslate nohighlight">\(\displaystyle \binom{n+2}{3}\)</span> of the equation is the number of ways to choose 3-element subsets out of the elements of <span class="math notranslate nohighlight">\(S\)</span>. Let’s now count these 3-element subsets in a different way. Any such 3-element subset <span class="math notranslate nohighlight">\(X \subseteq S\)</span> can be written as <span class="math notranslate nohighlight">\(X=\{j,k,l\}\)</span>, where <span class="math notranslate nohighlight">\(0 \leq j &lt; k &lt; l \leq n+1\)</span>. Note that this forces the middle element <span class="math notranslate nohighlight">\(k\)</span> to be in the range <span class="math notranslate nohighlight">\(1 &lt; k &lt; n\)</span>. Given a fixed middle element <span class="math notranslate nohighlight">\(k\)</span>, there are exactly <span class="math notranslate nohighlight">\(k\)</span> choices for the smallest element <span class="math notranslate nohighlight">\(j\)</span> and there are exactly <span class="math notranslate nohighlight">\((n+1 - k)\)</span> choices for the largest element <span class="math notranslate nohighlight">\(l\)</span>.</p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260421190533.png"><img alt="assets/Pastedimage20260421190533.png" src="assets/Pastedimage20260421190533.png" style="width: 750px;" />
+</a>
+<p class="sd-card-text">By the multiplication principle, there are <span class="math notranslate nohighlight">\(k \cdot 1 \cdot (n+1-k)\)</span> possible 3-element subsets <span class="math notranslate nohighlight">\(X\)</span> for a given single fixed middle element <span class="math notranslate nohighlight">\(k\)</span>. For example, if <span class="math notranslate nohighlight">\(k=1\)</span>, there are <span class="math notranslate nohighlight">\(1 \cdot 1 \cdot (n+1-1) = 1 \cdot (n-0)\)</span> subsets <span class="math notranslate nohighlight">\(X\)</span> with middle element “<span class="math notranslate nohighlight">\(1\)</span>”. If <span class="math notranslate nohighlight">\(k=2\)</span>, there are <span class="math notranslate nohighlight">\(2 \cdot 1 \cdot (n+1-2) = 2 \cdot (n-1)\)</span> subsets <span class="math notranslate nohighlight">\(X\)</span> with middle element “<span class="math notranslate nohighlight">\(2\)</span>”. If <span class="math notranslate nohighlight">\(k=3\)</span>, there are <span class="math notranslate nohighlight">\(3 \cdot 1 \cdot (n+1-3) = 3 \cdot (n-2)\)</span> subsets <span class="math notranslate nohighlight">\(X\)</span> with middle element “<span class="math notranslate nohighlight">\(3\)</span>”. Thus the left-hand side of the equation counts up the number of 3-element subsets of <span class="math notranslate nohighlight">\(S\)</span>, so it is equal to the right-hand side.</p>
+<p class="sd-card-text">Equivalently <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=1}^{n} k \cdot 1 \cdot (n+1-k) = \binom{n+2}{3}\)</span>. The same collection is counted in two different ways. This set has <span class="math notranslate nohighlight">\(n+2\)</span> elements, so the total number of 3-element subsets is <span class="math notranslate nohighlight">\(\displaystyle \binom{n+2}{3}\)</span>. Once <span class="math notranslate nohighlight">\(k\)</span> is fixed, then there is one choice for the middle element <span class="math notranslate nohighlight">\(k\)</span>, the smallest element <span class="math notranslate nohighlight">\(j\)</span> must come from <span class="math notranslate nohighlight">\(\{0,1,\ldots,k-1\}\)</span> (there are exactly <span class="math notranslate nohighlight">\(k\)</span> choices for <span class="math notranslate nohighlight">\(j\)</span>), and the largest element <span class="math notranslate nohighlight">\(l\)</span> must come from <span class="math notranslate nohighlight">\(\{k+1,k+2,\ldots,n,n+1\}\)</span> (there are exactly <span class="math notranslate nohighlight">\((n+1-k)\)</span> choices for <span class="math notranslate nohighlight">\(l\)</span>). So for a fixed middle element <span class="math notranslate nohighlight">\(k\)</span>, the number 3-element subsets that can be formed is <span class="math notranslate nohighlight">\(k \cdot 1 \cdot (n+1-k)\)</span>. Now let <span class="math notranslate nohighlight">\(k\)</span> run from 1 to <span class="math notranslate nohighlight">\(n\)</span>, and you get <span class="math notranslate nohighlight">\(1 ( n - 0 ) + 2 ( n - 1 ) + 3 ( n - 2 ) + 4 ( n - 3 ) + \cdots + ( n - 1 ) 2 + ( n - 0 ) 1\)</span>.</p>
+<p class="sd-card-text">For example: let <span class="math notranslate nohighlight">\(n=4\)</span>, then <span class="math notranslate nohighlight">\(n+2=6\)</span> and <span class="math notranslate nohighlight">\(S=\{0_{(n+2)},1,2,3,4_{(n)},5_{(n+1)}\}\)</span>.
+Then there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n+2}{3} = \binom{6}{3} = \frac{6 \cdot 5 \cdot 4 \cdot 3!}{3! \cdot 3!} = 20\)</span> 3-element subsets that can be made from the 6 elements in <span class="math notranslate nohighlight">\(S=\{0,1,2,3,4,5\}\)</span>.
+Likewise, <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=1}^{n} k \cdot 1 \cdot (n+1-k) = \sum_{k=1}^{4} k \cdot 1 \cdot (4+1-k)\)</span> counts the 3-element subsets that can be made from the 6 elements in <span class="math notranslate nohighlight">\(S=\{0,1,2,3,4,5\}\)</span>:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=1\)</span>: there are <span class="math notranslate nohighlight">\(k \cdot 1 \cdot (4+1-k) = 1 \cdot 1 \cdot (4+1-1) = 4\)</span> 3-element subsets that can be made with <span class="math notranslate nohighlight">\(k=1\)</span> in the middle postion: <span class="math notranslate nohighlight">\(\{j,k,l\} = \{0,1,2\}, \{0,1,3\}, \{0,1,4\}, \{0,1,5\}\)</span>. Note that <span class="math notranslate nohighlight">\(j \in \{0\}\)</span> and <span class="math notranslate nohighlight">\(l \in \{2,3,4,5\}\)</span>.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=2\)</span>: there are <span class="math notranslate nohighlight">\(k \cdot 1 \cdot (4+1-k) = 2 \cdot 1 \cdot (4+1-2) = 6\)</span> 3-element subsets that can be made with <span class="math notranslate nohighlight">\(k=2\)</span> in the middle postion: <span class="math notranslate nohighlight">\(\{j,k,l\} = \{0,2,3\}, \{0,2,4\}, \{0,2,5\}, \{1,2,3\}, \{1,2,4\}, \{1,2,5\}\)</span>. Note that <span class="math notranslate nohighlight">\(j \in \{0,1\}\)</span> and <span class="math notranslate nohighlight">\(l \in \{3,4,5\}\)</span>.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=3\)</span>: there are <span class="math notranslate nohighlight">\(k \cdot 1 \cdot (4+1-k) = 3 \cdot 1 \cdot (4+1-3) = 6\)</span> 3-element subsets that can be made with <span class="math notranslate nohighlight">\(k=3\)</span> in the middle postion: <span class="math notranslate nohighlight">\(\{j,k,l\} = \{0,3,4\}, \{0,3,5\}, \{1,3,4\}, \{1,3,5\}, \{2,3,4\}, \{2,3,5\}\)</span>. Note that <span class="math notranslate nohighlight">\(j \in \{0,1,2\}\)</span> and <span class="math notranslate nohighlight">\(l \in \{4,5\}\)</span>.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=4\)</span>: there are <span class="math notranslate nohighlight">\(k \cdot 1 \cdot (4+1-k) = 4 \cdot 1 \cdot (4+1-4) = 4\)</span> 3-element subsets that can be made with <span class="math notranslate nohighlight">\(k=4\)</span> in the middle postion: <span class="math notranslate nohighlight">\(\{j,k,l\} = \{0,4,5\}, \{1,4,5\}, \{2,4,5\}, \{3,4,5\}\)</span>. Note that <span class="math notranslate nohighlight">\(j \in \{0,1,2,3\}\)</span> and <span class="math notranslate nohighlight">\(l \in \{5\}\)</span>.
+Thus, there are <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=1}^{4} k \cdot 1 \cdot (4+1-k) = 4+6+6+4=20\)</span> 3-element subsets that can be made from the 6 elements in <span class="math notranslate nohighlight">\(S=\{0,1,2,3,4,5\}\)</span>.</p></li>
+</ul>
+<p class="sd-card-text"><em>Note: the same reasoning applies to 4-element, 5-element, etc. subsets:</em></p>
+<ul class="simple">
+<li><p class="sd-card-text">For an odd number of elements in the subsets, fix the unique middle element. For example, <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=2}^{n-1} \binom{k}{2} \cdot 1 \cdot \binom{n+1-k}{2} = \binom{n+2}{5}\)</span>, i.e. for a 5-element subset <span class="math notranslate nohighlight">\(\{a,b,k,c,d\}\)</span> (with <span class="math notranslate nohighlight">\(0 \leq a &lt; b &lt; k &lt; c &lt; d \leq n+1\)</span>), choose 2 elements from the <span class="math notranslate nohighlight">\(k\)</span> elements to the left of <span class="math notranslate nohighlight">\(k\)</span>, and choose 2 elements from the <span class="math notranslate nohighlight">\((n+1-k)\)</span> elements to the right of <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+<li><p class="sd-card-text">For an even number of elements in the subsets, fix the two middle elements. Then choose the remaining elements from the left and right sides. For example, <span class="math notranslate nohighlight">\(\displaystyle \sum_{1 \leq b &lt; c \leq n} b \cdot (n+1-c) = \binom{n+2}{4}\)</span>, i.e. for a 4-element subset <span class="math notranslate nohighlight">\(\{a,b,c,d\}\)</span> (with <span class="math notranslate nohighlight">\(0 \leq a &lt; b &lt; c &lt; d \leq n+1\)</span> (note that a 4-element subset does not have a unique middle element, it has 2 middle elements <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span>), choose 1 element to the left of <span class="math notranslate nohighlight">\(b\)</span> (there are exactly <span class="math notranslate nohighlight">\(b\)</span> choices for <span class="math notranslate nohighlight">\(a\)</span>, namely <span class="math notranslate nohighlight">\(\{0,1,2,\ldots,b-2,b-1\}\)</span>), and choose 1 element to the right of <span class="math notranslate nohighlight">\(c\)</span> (there are exactly <span class="math notranslate nohighlight">\(n+1-c\)</span> choices for <span class="math notranslate nohighlight">\(d\)</span>, namely <span class="math notranslate nohighlight">\(\{c+1,c+2,\ldots,n,n+1\}\)</span>).</p></li>
+</ul>
+</div>
+</details><ol class="arabic simple" start="2">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle 1 + 2 + 3 + \cdots + n = \binom{n+1}{2}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{n+1}{2}\)</span> means: the number of ways to choose 2 elements from a set of <span class="math notranslate nohighlight">\(n+1\)</span> elements (i.e. the number of 2-element subsets that can be made from an <span class="math notranslate nohighlight">\(n+1\)</span>-element set). If we label the <span class="math notranslate nohighlight">\(n+1\)</span> elements as <span class="math notranslate nohighlight">\(S = \{1,2,3,\ldots,n-1,n,n+1\}\)</span>, then every 2-element subset <span class="math notranslate nohighlight">\(X \subseteq S\)</span> can be written uniquely as <span class="math notranslate nohighlight">\(X = \{i,j\}\)</span> with <span class="math notranslate nohighlight">\(1 \leq i &lt; j \leq n+1\)</span>. Note that this is the standard way to describe all unordered pairs <span class="math notranslate nohighlight">\((i,j)\)</span> chosen from <span class="math notranslate nohighlight">\(\{1,2,3,\ldots,n-1,n,n+1\}\)</span>. <span class="math notranslate nohighlight">\(i&lt;j\)</span> is imposed because we want each 2-element subset to be counted exactly once (i.e. <span class="math notranslate nohighlight">\(\{2,5\}\)</span> could be written as <span class="math notranslate nohighlight">\((2,5)\)</span> or <span class="math notranslate nohighlight">\((5,2)\)</span> which represents the same chosen pair. But if <span class="math notranslate nohighlight">\(i&lt;j\)</span> is imposed, then <span class="math notranslate nohighlight">\((2,5)\)</span> is allowed and <span class="math notranslate nohighlight">\((5,2)\)</span> is not allowed). Now we can group the 2-element subsets of <span class="math notranslate nohighlight">\(S\)</span> by their largest element <span class="math notranslate nohighlight">\(j\)</span>:</p>
+<ul class="simple">
+<li><p class="sd-card-text">if <span class="math notranslate nohighlight">\(j = 1\)</span>, then <span class="math notranslate nohighlight">\(1 \leq i &lt; 1\)</span>, so there is no subset possible in this case. Note that <span class="math notranslate nohighlight">\(i \in \varnothing\)</span> and <span class="math notranslate nohighlight">\(j \in \{1\}\)</span>.</p></li>
+<li><p class="sd-card-text">if <span class="math notranslate nohighlight">\(j = 2\)</span>, then <span class="math notranslate nohighlight">\(1 \leq i &lt; 2\)</span>, so there is only 1 subset possible: <span class="math notranslate nohighlight">\(\{1,2\}\)</span>. Note that <span class="math notranslate nohighlight">\(i \in \{1\}\)</span> and <span class="math notranslate nohighlight">\(j \in \{2\}\)</span>.</p></li>
+<li><p class="sd-card-text">if <span class="math notranslate nohighlight">\(j = 3\)</span>, then <span class="math notranslate nohighlight">\(1 \leq i &lt; 3\)</span>, so there are 2 subsets possible: <span class="math notranslate nohighlight">\(\{1,3\}\)</span> and <span class="math notranslate nohighlight">\(\{2,3\}\)</span>. Note that <span class="math notranslate nohighlight">\(i \in \{1,2\}\)</span> and <span class="math notranslate nohighlight">\(j \in \{3\}\)</span>.</p></li>
+<li><p class="sd-card-text">if <span class="math notranslate nohighlight">\(j = 4\)</span>, then <span class="math notranslate nohighlight">\(1 \leq i &lt; 4\)</span>, so there are 3 subsets possible: <span class="math notranslate nohighlight">\(\{1,4\}\)</span>, <span class="math notranslate nohighlight">\(\{2,4\}\)</span>, and <span class="math notranslate nohighlight">\(\{3,4\}\)</span>. Note that <span class="math notranslate nohighlight">\(i \in \{1,2,3\}\)</span> and <span class="math notranslate nohighlight">\(j \in \{4\}\)</span>.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\ldots\)</span> (every time we move to a new largest <span class="math notranslate nohighlight">\(j\)</span>, we create exactly one more possible partner to pair with)
+Therefore, if we let <span class="math notranslate nohighlight">\(j\)</span> run from 2 to <span class="math notranslate nohighlight">\(n+1\)</span>, then the total number of 2-element subsets is <span class="math notranslate nohighlight">\(\displaystyle \sum_{j=2}^{n+1} (j-1) = 1 + 2 + 3 + \cdots + n-1 + n\)</span>. Since we now have 2 counts of the same collection of subsets, they must be equal: <span class="math notranslate nohighlight">\(\displaystyle 1 + 2 + 3 + \cdots + n = \binom{n+1}{2}\)</span>.</p></li>
+</ul>
+</div>
+</details><ol class="arabic simple" start="3">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2} \binom{n-2}{k-2} = \binom{n}{k} \binom{k}{2}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Consider the following problem. From a group of <span class="math notranslate nohighlight">\(n\)</span> people, you need to select <span class="math notranslate nohighlight">\(k\)</span> people to serve on a committee, and then you also need to select 2 of these <span class="math notranslate nohighlight">\(k\)</span> people to lead the committee’s discussion. In how many ways can this be done?
+One approach is to first select <span class="math notranslate nohighlight">\(k\)</span> people from <span class="math notranslate nohighlight">\(n\)</span>, and then select 2 of these <span class="math notranslate nohighlight">\(k\)</span> people to lead the discussion. By the multiplication principle, there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} \cdot \binom{k}{2}\)</span> ways to make this selection.
+Another approach is to first select 2 of the <span class="math notranslate nohighlight">\(n\)</span> people to be the discussion leaders, and there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2}\)</span> ways to do this. Next we need to fill out the committee by selecting <span class="math notranslate nohighlight">\(k-2\)</span> people from the remaining <span class="math notranslate nohighlight">\(n-2\)</span> people, and there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n-2}{k-2}\)</span> ways to do this. By the multiplication principle, there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2} \cdot \binom{n-2}{k-2}\)</span> ways to make the selection.
+By the previous two paragraphs, <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2} \cdot \binom{n-2}{k-2}\)</span> and <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} \cdot \binom{k}{2}\)</span> are both answers to the same counting problem, so they are equal.</p>
+</div>
+</details><ol class="arabic simple" start="4">
+<li><p>Show that <span class="math notranslate nohighlight">\(P(n,k) = P(n-1,k) + k \cdot P(n-1,k-1)\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(P(n,k)\)</span> counts the <span class="math notranslate nohighlight">\(k\)</span>-permutations of an <span class="math notranslate nohighlight">\(n\)</span>-element set (<span class="math notranslate nohighlight">\(k\)</span>-permutation of an <span class="math notranslate nohighlight">\(n\)</span>-element set is an ordered non-repetitive length-<span class="math notranslate nohighlight">\(k\)</span> list made from elements of the set; for example, if <span class="math notranslate nohighlight">\(S = \{a, b, c, d\}\)</span>, then the 2-permutations of <span class="math notranslate nohighlight">\(X\)</span> are the non-repetitive lists that we can make from two elements of <span class="math notranslate nohighlight">\(X\)</span>, of which there are 12: <span class="math notranslate nohighlight">\((a,b), (a,c), (a,d), (b,a), (b,c), (b,d), (c,a), (c,b), (c,d), (d,a), (d,b), (d,c)\)</span>). Every <span class="math notranslate nohighlight">\(k\)</span>-permutation of <span class="math notranslate nohighlight">\(S = \{1,2,3,\ldots,n\}\)</span> falls exactly into one of 2 (disjoint and exhaustive) cases:</p>
+<ul class="simple">
+<li><p class="sd-card-text">the <span class="math notranslate nohighlight">\(k\)</span>-permutation does NOT use the element <span class="math notranslate nohighlight">\(n\)</span> (since the <span class="math notranslate nohighlight">\(k\)</span>-length list does not include the element <span class="math notranslate nohighlight">\(n\)</span>, all <span class="math notranslate nohighlight">\(k\)</span>-permutations must come from <span class="math notranslate nohighlight">\(\{1,2,3,\ldots,n-1\}\)</span> and this is therefore counted in <span class="math notranslate nohighlight">\(P(n-1,k)\)</span> ways)</p></li>
+<li><p class="sd-card-text">the <span class="math notranslate nohighlight">\(k\)</span>-permutation does use the element <span class="math notranslate nohighlight">\(n\)</span> (since the <span class="math notranslate nohighlight">\(k\)</span>-length list must contain the element <span class="math notranslate nohighlight">\(n\)</span>, we must get the remaining <span class="math notranslate nohighlight">\((k-1)\)</span> distinct elements from the other <span class="math notranslate nohighlight">\(n-1\)</span> elements, which can be done in <span class="math notranslate nohighlight">\(P(n-1,k-1)\)</span> ways; then we must place <span class="math notranslate nohighlight">\(n\)</span> somewhere in the final list of length <span class="math notranslate nohighlight">\(k\)</span>, and in a list of length <span class="math notranslate nohighlight">\((k-1)\)</span>, there are exactly <span class="math notranslate nohighlight">\(k\)</span> possible positions for inserting the new element <span class="math notranslate nohighlight">\(n\)</span>: <span class="math notranslate nohighlight">\(k \cdot P(n-1,k-1)\)</span>)
+Therefore <span class="math notranslate nohighlight">\(P(n,k) = P(n-1,k) + k \cdot P(n-1,k-1)\)</span>.</p></li>
+</ul>
+<p class="sd-card-text">Alternatively, using algebra:
+<span class="math notranslate nohighlight">\(P(n,k) = \dfrac{n!}{(n-k)!}\)</span>
+<span class="math notranslate nohighlight">\(P(n-1,k) + k \cdot P(n-1,k-1) = \dfrac{(n-1)!}{((n-1)-k)!} + k \cdot \dfrac{(n-1)!}{((n-1)-(k-1))!} = \dfrac{(n-1)!}{(n-1-k)!} + k \cdot \dfrac{(n-1)!}{(n-k)!} = \dfrac{(n-1)! \cdot \big((n-k) \cdot (n-k-1)! + k \cdot (n-1-k)! \big)}{(n-1-k)! \cdot (n-k)!} = \dfrac{(n-1)! \cdot \big((n-k) + k \big)}{(n-k)!} = \dfrac{n!}{(n-k)!}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="5">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle \binom{2n}{2} = 2 \binom{n}{2} + n^{2}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(S\)</span> be a set with <span class="math notranslate nohighlight">\(2n\)</span> elements. Then the left-hand side counts the number of <span class="math notranslate nohighlight">\(2\)</span>-element subsets made from the elements in <span class="math notranslate nohighlight">\(S\)</span>. Let’s now count this in a different way. Split up <span class="math notranslate nohighlight">\(S\)</span> (disjoint and exhaustively) as <span class="math notranslate nohighlight">\(S = A \cup B\)</span>, where <span class="math notranslate nohighlight">\(|A| = n = |B|\)</span>. We can now choose a <span class="math notranslate nohighlight">\(2\)</span>-element subset from the elements in <span class="math notranslate nohighlight">\(S\)</span> in 3 ways:</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text">we could choose both elements from <span class="math notranslate nohighlight">\(A\)</span>, and there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2}\)</span> ways to do this.</p></li>
+<li><p class="sd-card-text">we could choose both elements from <span class="math notranslate nohighlight">\(B\)</span>, and there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2}\)</span> ways to do this.</p></li>
+<li><p class="sd-card-text">we could choose one element from <span class="math notranslate nohighlight">\(A\)</span> and then another element from <span class="math notranslate nohighlight">\(B\)</span>, and by the multiplication principle there are <span class="math notranslate nohighlight">\(n \cdot n = n^{2}\)</span> ways to do this.
+Thus the number of <span class="math notranslate nohighlight">\(2\)</span>-element subsets made from the elements in <span class="math notranslate nohighlight">\(S\)</span> is <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2} + \binom{n}{2} + n^{2} = 2 \cdot \binom{n}{2} + n^{2}\)</span>, and this is the right-hand side. Therefore the equation holds because both sides count the same thing.</p></li>
+</ol>
+</div>
+</details><ol class="arabic simple" start="6">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle \binom{3n}{3} = 3 \binom{n}{3} + 6n \binom{n}{2} + n^{3}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(S\)</span> be a set with <span class="math notranslate nohighlight">\(3n\)</span> elements. Then the left-hand side counts the number of <span class="math notranslate nohighlight">\(3\)</span>-element subsets made from the elements in <span class="math notranslate nohighlight">\(S\)</span>. Let’s now count this in a different way. Split up <span class="math notranslate nohighlight">\(S\)</span> (disjoint and exhaustively) as <span class="math notranslate nohighlight">\(S = A \cup B \cup C\)</span>, where <span class="math notranslate nohighlight">\(|A| = |B| = |C| = n\)</span>. We can now choose a <span class="math notranslate nohighlight">\(3\)</span>-element subset from the elements in <span class="math notranslate nohighlight">\(S\)</span> in 10 ways:</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text">we could choose all 3 elements from <span class="math notranslate nohighlight">\(A\)</span>, and there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{3}\)</span> ways to do this.</p></li>
+<li><p class="sd-card-text">we could choose all 3 elements from <span class="math notranslate nohighlight">\(B\)</span>, and there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{3}\)</span> ways to do this.</p></li>
+<li><p class="sd-card-text">we could choose all 3 elements from <span class="math notranslate nohighlight">\(C\)</span>, and there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{3}\)</span> ways to do this.</p></li>
+<li><p class="sd-card-text">we could choose 2 elements from <span class="math notranslate nohighlight">\(A\)</span> and 1 element from <span class="math notranslate nohighlight">\(B\)</span>, and by the multiplication principle there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2} \cdot n\)</span> ways to do this.</p></li>
+<li><p class="sd-card-text">we could choose 2 elements from <span class="math notranslate nohighlight">\(A\)</span> and 1 element from <span class="math notranslate nohighlight">\(C\)</span>, and by the multiplication principle there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2} \cdot n\)</span> ways to do this.</p></li>
+<li><p class="sd-card-text">we could choose 2 elements from <span class="math notranslate nohighlight">\(B\)</span> and 1 element from <span class="math notranslate nohighlight">\(A\)</span>, and by the multiplication principle there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2} \cdot n\)</span> ways to do this.</p></li>
+<li><p class="sd-card-text">we could choose 2 elements from <span class="math notranslate nohighlight">\(B\)</span> and 1 element from <span class="math notranslate nohighlight">\(C\)</span>, and by the multiplication principle there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2} \cdot n\)</span> ways to do this.</p></li>
+<li><p class="sd-card-text">we could choose 2 elements from <span class="math notranslate nohighlight">\(C\)</span> and 1 element from <span class="math notranslate nohighlight">\(A\)</span>, and by the multiplication principle there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2} \cdot n\)</span> ways to do this.</p></li>
+<li><p class="sd-card-text">we could choose 2 elements from <span class="math notranslate nohighlight">\(C\)</span> and 1 element from <span class="math notranslate nohighlight">\(B\)</span>, and by the multiplication principle there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{2} \cdot n\)</span> ways to do this.</p></li>
+<li><p class="sd-card-text">we could choose 1 element from <span class="math notranslate nohighlight">\(A\)</span>, 1 element from <span class="math notranslate nohighlight">\(B\)</span>, and 1 element from <span class="math notranslate nohighlight">\(C\)</span>, and by the multiplication principle there are <span class="math notranslate nohighlight">\(n \cdot n \cdot n = n^{3}\)</span> ways to do this.
+Thus the number of <span class="math notranslate nohighlight">\(3\)</span>-element subsets made from the elements in <span class="math notranslate nohighlight">\(S\)</span> is <span class="math notranslate nohighlight">\(\displaystyle 3 \cdot \binom{n}{3} + 6 \cdot n \cdot \binom{n}{2} + n^{3}\)</span>, and this is the right-hand side. Therefore the equation holds because both sides count the same thing.</p></li>
+</ol>
+</div>
+</details><ol class="arabic simple" start="7">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{p} \binom{m}{k} \binom{n}{p-k} = \binom{m+n}{p}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Take three non-negative integers <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>. Let <span class="math notranslate nohighlight">\(S\)</span> be a set with <span class="math notranslate nohighlight">\(|S|=m+n\)</span>, so the right-hand side counts the number of <span class="math notranslate nohighlight">\(p\)</span>-element subsets made from the elements in <span class="math notranslate nohighlight">\(S\)</span>. Now let’s count this in a different way. Split <span class="math notranslate nohighlight">\(S\)</span> as <span class="math notranslate nohighlight">\(S = A \cup B\)</span>, where <span class="math notranslate nohighlight">\(|A|=m\)</span> and <span class="math notranslate nohighlight">\(|B|=n\)</span>. We can make any <span class="math notranslate nohighlight">\(p\)</span>-element subset from <span class="math notranslate nohighlight">\(S\)</span> by choosing <span class="math notranslate nohighlight">\(k\)</span> of its elements from <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(p - k\)</span> of its elements from <span class="math notranslate nohighlight">\(B\)</span>, for any <span class="math notranslate nohighlight">\(0 \leq k \leq p\)</span>. There are <span class="math notranslate nohighlight">\(\displaystyle \binom{m}{k}\)</span> ways to choose <span class="math notranslate nohighlight">\(k\)</span> elements from <span class="math notranslate nohighlight">\(A\)</span>, and <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{p-k}\)</span> ways to choose <span class="math notranslate nohighlight">\(p-k\)</span> elements from <span class="math notranslate nohighlight">\(B\)</span>, so there are <span class="math notranslate nohighlight">\(\displaystyle \binom{m}{k} \binom{n}{p-k}\)</span> ways to make a <span class="math notranslate nohighlight">\(p\)</span>-element subset of <span class="math notranslate nohighlight">\(S\)</span> that has <span class="math notranslate nohighlight">\(k\)</span> elements from <span class="math notranslate nohighlight">\(A\)</span>. As <span class="math notranslate nohighlight">\(k\)</span> could be any number between 0 and <span class="math notranslate nohighlight">\(p\)</span>, the left-hand side of our equation sums up the <span class="math notranslate nohighlight">\(p\)</span>-element subsets of <span class="math notranslate nohighlight">\(S\)</span>. Thus the left- and right-hand sides count the same thing, so they are equal.</p>
+<p class="sd-card-text">For example: suppose <span class="math notranslate nohighlight">\(m=n=p=3\)</span>, then <span class="math notranslate nohighlight">\(|S| = 3+3 = 6\)</span> with <span class="math notranslate nohighlight">\(S = \{1,2,3,4,5,6\}\)</span>, <span class="math notranslate nohighlight">\(A = \{1,2,3\}\)</span>, and <span class="math notranslate nohighlight">\(B = \{4,5,6\}\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle \binom{m+n}{p} = \binom{6}{3} = 20\)</span>, counts the number of <span class="math notranslate nohighlight">\(3\)</span>-element subsets made from the elements in <span class="math notranslate nohighlight">\(S\)</span>.
+Likewise, <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{p} \binom{m}{k} \binom{n}{p-k} = \sum_{k=0}^{3} \binom{3}{k} \binom{3}{3-k}\)</span> counts the number of <span class="math notranslate nohighlight">\(3\)</span>-element subsets made from the elements in <span class="math notranslate nohighlight">\(A \cup B\)</span>:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=0\)</span>: there is only <span class="math notranslate nohighlight">\(\displaystyle \binom{3}{k} \cdot \binom{3}{3-k} = \binom{3}{0} \cdot \binom{3}{3-0} = 1 \cdot 1 = 1\)</span> 3-element subset that can be made by selecting all 3 elements from <span class="math notranslate nohighlight">\(A\)</span> and no elements from <span class="math notranslate nohighlight">\(B\)</span>: <span class="math notranslate nohighlight">\(\{1,2,3\}\)</span>.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=1\)</span>: there are <span class="math notranslate nohighlight">\(\displaystyle \binom{3}{k} \cdot \binom{3}{3-k} = \binom{3}{1} \cdot \binom{3}{3-1} = 3 \cdot 3 = 9\)</span> 3-element subsets that can be made by selecting 2 elements from <span class="math notranslate nohighlight">\(A\)</span> and 1 element from <span class="math notranslate nohighlight">\(B\)</span>: <span class="math notranslate nohighlight">\(\{1,2,4\}\)</span>, <span class="math notranslate nohighlight">\(\{1,2,5\}\)</span>, <span class="math notranslate nohighlight">\(\{1,2,6\}\)</span>, <span class="math notranslate nohighlight">\(\{1,3,4\}\)</span>, <span class="math notranslate nohighlight">\(\{1,3,5\}\)</span>, <span class="math notranslate nohighlight">\(\{1,3,6\}\)</span>, <span class="math notranslate nohighlight">\(\{2,3,4\}\)</span>, <span class="math notranslate nohighlight">\(\{2,3,5\}\)</span>, and <span class="math notranslate nohighlight">\(\{2,3,6\}\)</span>.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=2\)</span>: there are <span class="math notranslate nohighlight">\(\displaystyle \binom{3}{k} \cdot \binom{3}{3-k} = \binom{3}{2} \cdot \binom{3}{3-2} = 3 \cdot 3 = 9\)</span> 3-element subsets that can be made by selecting 1 element from <span class="math notranslate nohighlight">\(A\)</span> and 2 elements from <span class="math notranslate nohighlight">\(B\)</span>: <span class="math notranslate nohighlight">\(\{1,4,5\}\)</span>, <span class="math notranslate nohighlight">\(\{1,4,6\}\)</span>, <span class="math notranslate nohighlight">\(\{1,5,6\}\)</span>, <span class="math notranslate nohighlight">\(\{2,4,5\}\)</span>, <span class="math notranslate nohighlight">\(\{2,4,6\}\)</span>, <span class="math notranslate nohighlight">\(\{2,5,6\}\)</span>, <span class="math notranslate nohighlight">\(\{3,4,5\}\)</span>, <span class="math notranslate nohighlight">\(\{3,4,6\}\)</span>, and <span class="math notranslate nohighlight">\(\{3,5,6\}\)</span>.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=3\)</span>: there is only <span class="math notranslate nohighlight">\(\displaystyle \binom{3}{k} \cdot \binom{3}{3-k} = \binom{3}{3} \cdot \binom{3}{3-3} = 1 \cdot 1 = 1\)</span> 3-element subset that can be made by selecting no elements from <span class="math notranslate nohighlight">\(A\)</span> and all 3 elements from <span class="math notranslate nohighlight">\(B\)</span>: <span class="math notranslate nohighlight">\(\{4,5,6\}\)</span>.
+Thus, there are <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{3} \binom{3}{k} \binom{3}{3-k} = 1+9+9+1=20\)</span> 3-element subsets that can be made from the 6 elements in <span class="math notranslate nohighlight">\(A \cup B = S=\{1,2,3,4,5,6\}\)</span>.</p></li>
+</ul>
+</div>
+</details><ol class="arabic simple" start="8">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{m} \binom{m}{k} \binom{n}{p+k} = \binom{m+n}{m+p}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Take three non-negative integers <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>. Let <span class="math notranslate nohighlight">\(S\)</span> be a set with <span class="math notranslate nohighlight">\(|S|=m+n\)</span>, so the right-hand side counts the number of <span class="math notranslate nohighlight">\((m+p)\)</span>-element subsets made from the elements in <span class="math notranslate nohighlight">\(S\)</span>. Now let’s count this in a different way. Split <span class="math notranslate nohighlight">\(S\)</span> as <span class="math notranslate nohighlight">\(S = A \cup B\)</span>, where <span class="math notranslate nohighlight">\(|A|=m\)</span> and <span class="math notranslate nohighlight">\(|B|=n\)</span>. We can make any <span class="math notranslate nohighlight">\((m+p)\)</span>-element subset from <span class="math notranslate nohighlight">\(S\)</span> by choosing <span class="math notranslate nohighlight">\(k\)</span> of its elements from <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\((p + k)\)</span> of its elements from <span class="math notranslate nohighlight">\(B\)</span>. Following this through, the chosen size of the subsets is <span class="math notranslate nohighlight">\(k+(p+k) = p+2k\)</span>, which depends on <span class="math notranslate nohighlight">\(k\)</span> and is false, because it does not equal the predetermined size of <span class="math notranslate nohighlight">\((m+p)\)</span>! We can resolve this by re-interpreting <span class="math notranslate nohighlight">\(\displaystyle \binom{m}{k}\)</span> as follows: “choose <span class="math notranslate nohighlight">\(k\)</span> elements from <span class="math notranslate nohighlight">\(A\)</span> that will be left out”. Choosing <span class="math notranslate nohighlight">\(k\)</span> elements that are excluded is equivalent to choosing <span class="math notranslate nohighlight">\((m-k)\)</span> elements that are included in order to get to the total subset size of <span class="math notranslate nohighlight">\((m+p)\)</span>. Therefore <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{m} \binom{m}{m-k} \binom{n}{(m+p)-(m-k)} = \sum_{k=0}^{m} \binom{m}{k} \binom{n}{p+k}\)</span>. Thus the left- and right-hand sides count the same thing, so they are equal.</p>
+<p class="sd-card-text">For example: suppose <span class="math notranslate nohighlight">\(m=2\)</span>, <span class="math notranslate nohighlight">\(n=3\)</span>, and <span class="math notranslate nohighlight">\(p=1\)</span>, then <span class="math notranslate nohighlight">\(|S| = 2+3 = 5\)</span> with <span class="math notranslate nohighlight">\(S = \{1,2,3,4,5\}\)</span>, <span class="math notranslate nohighlight">\(A = \{1,2\}\)</span>, and <span class="math notranslate nohighlight">\(B = \{3,4,5\}\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle \binom{m+n}{m+p} = \binom{5}{3} = 10\)</span>, counts the number of <span class="math notranslate nohighlight">\(3\)</span>-element subsets made from the elements in <span class="math notranslate nohighlight">\(S\)</span>.
+Likewise, <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{m} \binom{m}{k} \binom{n}{p+k} = \sum_{k=0}^{2} \binom{2}{k} \binom{3}{1+k}\)</span> counts the number of <span class="math notranslate nohighlight">\(3\)</span>-element subsets made from the elements in <span class="math notranslate nohighlight">\(A \cup B\)</span>:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=0\)</span>: there are <span class="math notranslate nohighlight">\(\displaystyle \binom{2}{k} \cdot \binom{3}{1+k} = \binom{2}{0} \cdot \binom{3}{1} = 1 \cdot 3 = 3\)</span> 3-element subsets that can be made by excluding no elements from <span class="math notranslate nohighlight">\(A\)</span> and selecting 1 element from <span class="math notranslate nohighlight">\(B\)</span>: <span class="math notranslate nohighlight">\(\{1,2,3\}\)</span>, <span class="math notranslate nohighlight">\(\{1,2,4\}\)</span>, and <span class="math notranslate nohighlight">\(\{1,2,5\}\)</span>.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=1\)</span>: there are <span class="math notranslate nohighlight">\(\displaystyle \binom{2}{k} \cdot \binom{3}{1+k} = \binom{2}{1} \cdot \binom{3}{2} = 2 \cdot 3 = 6\)</span> 3-element subsets that can be made by excluding 1 element from <span class="math notranslate nohighlight">\(A\)</span> and selecting 2 elements from <span class="math notranslate nohighlight">\(B\)</span>: <span class="math notranslate nohighlight">\(\{1,3,4\}\)</span>, <span class="math notranslate nohighlight">\(\{1,3,5\}\)</span>, <span class="math notranslate nohighlight">\(\{1,4,5\}\)</span>, <span class="math notranslate nohighlight">\(\{2,3,4\}\)</span>, <span class="math notranslate nohighlight">\(\{2,3,5\}\)</span>, and <span class="math notranslate nohighlight">\(\{2,4,5\}\)</span>.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=2\)</span>: there is only <span class="math notranslate nohighlight">\(\displaystyle \binom{2}{k} \cdot \binom{3}{1+k} = \binom{2}{2} \cdot \binom{3}{3} = 1 \cdot 1 = 1\)</span> 3-element subset that can be made by excluding all elements from <span class="math notranslate nohighlight">\(A\)</span> and selecting all elements from <span class="math notranslate nohighlight">\(B\)</span>: <span class="math notranslate nohighlight">\(\{3,4,5\}\)</span>.
+Thus, there are <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{2} \binom{2}{k} \binom{3}{1+k} = 3+6+1=10\)</span> 3-element subsets that can be made from the 5 elements in <span class="math notranslate nohighlight">\(A \cup B = S=\{1,2,3,4,5\}\)</span>.</p></li>
+</ul>
+<p class="sd-card-text">Note that <span class="math notranslate nohighlight">\(\displaystyle \binom{m}{k}\)</span> does not have to mean “choose <span class="math notranslate nohighlight">\(k\)</span> elements to be included”; it can also mean (a) “choose <span class="math notranslate nohighlight">\(k\)</span> elements to be excluded”, (b) “choose <span class="math notranslate nohighlight">\(k\)</span> special elements”, (c) “choose <span class="math notranslate nohighlight">\(k\)</span> elements of a certain type”, (d) “choose <span class="math notranslate nohighlight">\(k\)</span> elements with some property”.</p>
+</div>
+</details><ol class="arabic simple" start="9">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=m}^{n} \binom{k}{m} = \binom{n+1}{m+1}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(S = \{0_{(n+1)},1,2,\ldots,n\}\)</span>, so <span class="math notranslate nohighlight">\(|S|=n+1\)</span>. The right-hand side of our equation counts the number of subsets <span class="math notranslate nohighlight">\(X \subseteq S\)</span> with size <span class="math notranslate nohighlight">\(m+1\)</span> elements. Now let’s think of a way to make such an <span class="math notranslate nohighlight">\(X \subseteq S\)</span> with <span class="math notranslate nohighlight">\(|X| = m+1\)</span>. We could begin by selecting a largest element <span class="math notranslate nohighlight">\(k\)</span> for <span class="math notranslate nohighlight">\(X\)</span>. Now, once we have chosen <span class="math notranslate nohighlight">\(k\)</span>, there are <span class="math notranslate nohighlight">\(k\)</span> elements in <span class="math notranslate nohighlight">\(S\)</span> to the left of <span class="math notranslate nohighlight">\(k\)</span>, and we need to choose <span class="math notranslate nohighlight">\(m\)</span> of them to go in <span class="math notranslate nohighlight">\(X\)</span> (so these, along with <span class="math notranslate nohighlight">\(k\)</span>, form the set <span class="math notranslate nohighlight">\(X\)</span>).</p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260423095750.png"><img alt="assets/Pastedimage20260423095750.png" src="assets/Pastedimage20260423095750.png" style="width: 750px;" />
+</a>
+<p class="sd-card-text">There are <span class="math notranslate nohighlight">\(\displaystyle \binom{k}{m}\)</span> ways to choose these <span class="math notranslate nohighlight">\(m\)</span> numbers, so there are <span class="math notranslate nohighlight">\(\displaystyle \binom{k}{m}\)</span> subsets of <span class="math notranslate nohighlight">\(S\)</span> whose largest element is <span class="math notranslate nohighlight">\(k\)</span>. Notice that we must have <span class="math notranslate nohighlight">\(m \leq k \leq n\)</span>. (The largest element <span class="math notranslate nohighlight">\(k\)</span> of <span class="math notranslate nohighlight">\(X\)</span> cannot be smaller than <span class="math notranslate nohighlight">\(m\)</span> because we need at least <span class="math notranslate nohighlight">\(m\)</span> elements on its left.) Summing over all possible largest values in <span class="math notranslate nohighlight">\(X\)</span>, we see that <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=m}^{n} \binom{k}{m}\)</span> equals the number of subsets of <span class="math notranslate nohighlight">\(S\)</span> with <span class="math notranslate nohighlight">\(m+1\)</span> elements.
+The previous two paragraphs show that <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=m}^{n} \binom{k}{m}\)</span> and <span class="math notranslate nohighlight">\(\displaystyle \binom{n+1}{m+1}\)</span> are answers to the same counting question, so they are equal.</p>
+<p class="sd-card-text">This is called the hockey-stick identity.</p>
+</div>
+</details><ol class="arabic simple" start="10">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=1}^{n} k \binom{n}{k} = n 2^{n-1}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Think about forming a non-empty committee from <span class="math notranslate nohighlight">\(n\)</span> people, and then choosing a captain from among the people on that committee.
+First count by committee size. If the committee has size <span class="math notranslate nohighlight">\(k\)</span>, there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> ways to choose the committee and <span class="math notranslate nohighlight">\(k\)</span> ways to choose its captain. Summing over <span class="math notranslate nohighlight">\(k\)</span> gives every possible combination of a committee of size <span class="math notranslate nohighlight">\(k\)</span> and a captain within that committee: <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=1}^n k\binom{n}{k}\)</span>. Think of <span class="math notranslate nohighlight">\(\displaystyle k \cdot \binom{n}{k}\)</span> as choosing a <span class="math notranslate nohighlight">\(k\)</span>-element subset and then marking one of its elements.
+Now count another way. First choose the captain: <span class="math notranslate nohighlight">\(n\)</span> choices. Then each of the remaining <span class="math notranslate nohighlight">\(n−1\)</span> people independently either joins or does not join the committee, giving <span class="math notranslate nohighlight">\(2^{n-1}\)</span> choices. By the multiplication principle, <span class="math notranslate nohighlight">\(n \cdot 2^{n-1}\)</span> gives every possible combination of a captain and a committee of size <span class="math notranslate nohighlight">\(k\)</span>.
+Thus the same set of objects is counted in two ways, so <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=1}^{n} k \binom{n}{k} = n 2^{n-1}\)</span>. Same process, two counts, same answer.</p>
+<p class="sd-card-text">Example: suppose <span class="math notranslate nohighlight">\(n=3\)</span> and 3 people in set <span class="math notranslate nohighlight">\(S = \{A,B,C\}\)</span>. We want to count all ways to form a nonempty committee and choose a captain from inside it.
+Count by committee size: <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=1}^{n} k \cdot \binom{n}{k} = \sum_{k=1}^{3} k \cdot \binom{3}{k}\)</span>:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=1\)</span>: there are 3 possible size 1 committees: <span class="math notranslate nohighlight">\(\{A\}\)</span>, <span class="math notranslate nohighlight">\(\{B\}\)</span>, and <span class="math notranslate nohighlight">\(\{C\}\)</span>, and each one has 1 possible captain, so by the multiplication principle there are <span class="math notranslate nohighlight">\(\displaystyle k \cdot \binom{3}{k} = 1 \cdot \binom{3}{1} = 1 \cdot 3 = 3\)</span> possible combinations.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=2\)</span>: there are 3 possible size 2 committees: <span class="math notranslate nohighlight">\(\{A,B\}\)</span>, <span class="math notranslate nohighlight">\(\{A,C\}\)</span>, and <span class="math notranslate nohighlight">\(\{B,C\}\)</span>, and each one has 2 possible captains, so by the multiplication principle there are <span class="math notranslate nohighlight">\(\displaystyle k \cdot \binom{3}{k} = 2 \cdot \binom{3}{2} = 2 \cdot 3 = 6\)</span> possible combinations.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=3\)</span>: there is only 1 possible size 3 committee: <span class="math notranslate nohighlight">\(\{A,B,C\}\)</span>, and for this committee there are 3 possible captains, so by the multiplication principle there are <span class="math notranslate nohighlight">\(\displaystyle k \cdot \binom{3}{k} = 3 \cdot \binom{3}{3} = 3 \cdot 1 = 3\)</span> possible combinations.
+Therefore <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=1}^{3} k \cdot \binom{3}{k} = 3 + 6 + 3 = 12\)</span>.</p></li>
+</ul>
+<p class="sd-card-text">Count by choosing the captain: there are 3 choices for a captain when <span class="math notranslate nohighlight">\(n=3\)</span>. Then the other 2 people each either join the committee or not, so there are <span class="math notranslate nohighlight">\(2^{n-1} = 2^{2} = 4\)</span> possible committees. By the multiplication principle, there are <span class="math notranslate nohighlight">\(3\cdot 4 = 12\)</span> possible combinations.</p>
+<ul class="simple">
+<li><p class="sd-card-text">if <span class="math notranslate nohighlight">\(A\)</span> is captain, then the possible committees from <span class="math notranslate nohighlight">\(\{B,C\}\)</span> are <span class="math notranslate nohighlight">\(\mathscr{P}(\{B,C\}) = 2^{2} = 4\)</span>: <span class="math notranslate nohighlight">\(\{\}\)</span>, <span class="math notranslate nohighlight">\(\{B\}\)</span>, <span class="math notranslate nohighlight">\(\{C\}\)</span>, and <span class="math notranslate nohighlight">\(\{B,C\}\)</span>. All possible combinations are therefore: <span class="math notranslate nohighlight">\((A, \{\})\)</span>, <span class="math notranslate nohighlight">\((A, \{B\})\)</span>, <span class="math notranslate nohighlight">\((A, \{C\})\)</span>, and <span class="math notranslate nohighlight">\((A, \{B,C\})\)</span>.</p></li>
+<li><p class="sd-card-text">if <span class="math notranslate nohighlight">\(B\)</span> is captain, then the possible committees from <span class="math notranslate nohighlight">\(\{A,C\}\)</span> are <span class="math notranslate nohighlight">\(\mathscr{P}(\{A,C\}) = 2^{2} = 4\)</span>: <span class="math notranslate nohighlight">\(\{\}\)</span>, <span class="math notranslate nohighlight">\(\{A\}\)</span>, <span class="math notranslate nohighlight">\(\{C\}\)</span>, and <span class="math notranslate nohighlight">\(\{A,C\}\)</span>. All possible combinations are therefore: <span class="math notranslate nohighlight">\((B, \{\})\)</span>, <span class="math notranslate nohighlight">\((B, \{A\})\)</span>, <span class="math notranslate nohighlight">\((B, \{C\})\)</span>, and <span class="math notranslate nohighlight">\((B, \{A,C\})\)</span>.</p></li>
+<li><p class="sd-card-text">if <span class="math notranslate nohighlight">\(C\)</span> is captain, then the possible committees from <span class="math notranslate nohighlight">\(\{A,B\}\)</span> are <span class="math notranslate nohighlight">\(\mathscr{P}(\{A,B\}) = 2^{2} = 4\)</span>: <span class="math notranslate nohighlight">\(\{\}\)</span>, <span class="math notranslate nohighlight">\(\{A\}\)</span>, <span class="math notranslate nohighlight">\(\{B\}\)</span>, and <span class="math notranslate nohighlight">\(\{A,B\}\)</span>. All possible combinations are therefore: <span class="math notranslate nohighlight">\((C, \{\})\)</span>, <span class="math notranslate nohighlight">\((C, \{A\})\)</span>, <span class="math notranslate nohighlight">\((C, \{B\})\)</span>, and <span class="math notranslate nohighlight">\((C, \{A,B\})\)</span>.</p></li>
+</ul>
+</div>
+</details><ol class="arabic simple" start="11">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle \sum_{k=0}^{n} 2^{k} \binom{n}{k} = 3^{n}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Consider the problem of counting the number of length-<span class="math notranslate nohighlight">\(n\)</span> lists made from the symbols <span class="math notranslate nohighlight">\(\{a, b, c\}\)</span>, with repetition allowed. Each list has <span class="math notranslate nohighlight">\(n\)</span> positions and 3 possible symbols for each position, so there are <span class="math notranslate nohighlight">\(3 \cdot 3 \cdot 3 \cdot \ldots \cdot 3 \ (\text{with } n \text{ positions}) = 3^{n}\)</span> such lists, and thus the right-hand side counts the total number of such length-<span class="math notranslate nohighlight">\(n\)</span> lists (with repetition allowed).
+On the other hand, <strong>given <span class="math notranslate nohighlight">\(k\)</span> with <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>, count the number of length-<span class="math notranslate nohighlight">\(n\)</span> lists that have exactly <span class="math notranslate nohighlight">\(k\)</span> entries unequal to the symbol <span class="math notranslate nohighlight">\(a\)</span>. There are <span class="math notranslate nohighlight">\(\displaystyle 2^{k} \binom{n}{k}\)</span> such lists.</strong> (First choose <span class="math notranslate nohighlight">\(k\)</span> of the <span class="math notranslate nohighlight">\(n\)</span> list positions to be filled with either the symbol <span class="math notranslate nohighlight">\(b\)</span> or <span class="math notranslate nohighlight">\(c\)</span>, in <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> ways. Then fill these <span class="math notranslate nohighlight">\(k\)</span> positions with <span class="math notranslate nohighlight">\(b\)</span>’s and <span class="math notranslate nohighlight">\(c\)</span>’s in <span class="math notranslate nohighlight">\(2^{k}\)</span> ways. Fill any remaining positions with the symbol <span class="math notranslate nohighlight">\(a\)</span>.) As <span class="math notranslate nohighlight">\(k\)</span> could be any number between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(n\)</span>, the left-hand side of our equation counts up the number of length-<span class="math notranslate nohighlight">\(n\)</span> lists made from the symbols <span class="math notranslate nohighlight">\(\{a, b, c\}\)</span>. Thus the right- and left-hand sides count the same thing, so they are equal.</p>
+<p class="sd-card-text">For example: take <span class="math notranslate nohighlight">\(n=2\)</span>. The number of length-<span class="math notranslate nohighlight">\(2\)</span> lists with repetition allowed, made from 3 symbols <span class="math notranslate nohighlight">\(\{a, b, c\}\)</span> is <span class="math notranslate nohighlight">\(3 \cdot 3 = 3^{2} = 9\)</span> : <span class="math notranslate nohighlight">\((a,a)\)</span>, <span class="math notranslate nohighlight">\((a,b)\)</span>, <span class="math notranslate nohighlight">\((a,c)\)</span>, <span class="math notranslate nohighlight">\((b,a)\)</span>, <span class="math notranslate nohighlight">\((b,b)\)</span>, <span class="math notranslate nohighlight">\((b,c)\)</span>, <span class="math notranslate nohighlight">\((c,a)\)</span>, <span class="math notranslate nohighlight">\((c,b)\)</span>, and <span class="math notranslate nohighlight">\((c,c)\)</span>.
+We can also count this total number of length-<span class="math notranslate nohighlight">\(2\)</span> lists by splitting into 3 groups:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=0\)</span>: choose 0 of the 2 list positions to be filled with the symbols <span class="math notranslate nohighlight">\(b\)</span> or <span class="math notranslate nohighlight">\(c\)</span>, and fill the remaining positions (<span class="math notranslate nohighlight">\(n-k = 2\)</span>) with the symbol <span class="math notranslate nohighlight">\(a\)</span>. There is <span class="math notranslate nohighlight">\(\displaystyle 2^{0} \cdot \binom{2}{0} = 1 \cdot 1 = 1\)</span> such list: <span class="math notranslate nohighlight">\((a,a)\)</span>.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=1\)</span>: choose 1 of the 2 list positions to be filled with the symbols <span class="math notranslate nohighlight">\(b\)</span> or <span class="math notranslate nohighlight">\(c\)</span>, and fill the remaining positions (<span class="math notranslate nohighlight">\(n-k = 1\)</span>) with the symbol <span class="math notranslate nohighlight">\(a\)</span>. There are <span class="math notranslate nohighlight">\(\displaystyle 2^{1} \cdot \binom{2}{1} = 2 \cdot 2 = 4\)</span> such lists: <span class="math notranslate nohighlight">\((b,a)\)</span>, <span class="math notranslate nohighlight">\((c,a)\)</span>, <span class="math notranslate nohighlight">\((a,b)\)</span>, and <span class="math notranslate nohighlight">\((a,c)\)</span>.</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(k=2\)</span>: choose 2 of the 2 list positions to be filled with the symbols <span class="math notranslate nohighlight">\(b\)</span> or <span class="math notranslate nohighlight">\(c\)</span>, and fill the remaining positions (<span class="math notranslate nohighlight">\(n-k = 0\)</span>) with the symbol <span class="math notranslate nohighlight">\(a\)</span>. There are <span class="math notranslate nohighlight">\(\displaystyle 2^{2} \cdot \binom{2}{2} = 4 \cdot 1 = 4\)</span> such lists: <span class="math notranslate nohighlight">\((b,b)\)</span>, <span class="math notranslate nohighlight">\((b,c)\)</span>, <span class="math notranslate nohighlight">\((c,c)\)</span>, and <span class="math notranslate nohighlight">\((c,b)\)</span>.
+Thus <span class="math notranslate nohighlight">\(\displaystyle \sum_{k = 0}^{2} 2^{k} \cdot \binom{2}{k} = 2^{0} \cdot \binom{2}{0} + 2^{1} \cdot \binom{2}{1} + 2^{2} \cdot \binom{2}{2} = 1 + 4 + 4 = 9 = 3^{2}\)</span>.</p></li>
+</ul>
+</div>
+</details><ol class="arabic simple" start="12">
+<li><p>Show that <span class="math notranslate nohighlight">\(\displaystyle \sum_{k = 0}^{n} \binom{n}{k} \binom{k}{m} = \binom{n}{m} 2^{n-m}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The factor <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} \binom{k}{m}\)</span> naturally describes a nested 2-step choice: first choose a <span class="math notranslate nohighlight">\(k\)</span>-element subset from an <span class="math notranslate nohighlight">\(n\)</span>-element set, then from that chosen <span class="math notranslate nohighlight">\(k\)</span>-element subset, choose an <span class="math notranslate nohighlight">\(m\)</span>-element subset. The sum over <span class="math notranslate nohighlight">\(k\)</span> suggests that we are counting all the ways to make a nested choice, regardless of the intermediate size <span class="math notranslate nohighlight">\(k\)</span>.
+Let <span class="math notranslate nohighlight">\(S = \{1,2,3,\ldots,n\}\)</span>, so <span class="math notranslate nohighlight">\(|S| = n\)</span>. Now consider counting all ordered pairs <span class="math notranslate nohighlight">\((A,B)\)</span> such that <span class="math notranslate nohighlight">\(B \subseteq A \subseteq S\)</span> and <span class="math notranslate nohighlight">\(|B| = m\)</span>. So <span class="math notranslate nohighlight">\(A\)</span> is some subset of <span class="math notranslate nohighlight">\(S\)</span>, and <span class="math notranslate nohighlight">\(B\)</span> is an <span class="math notranslate nohighlight">\(m\)</span>-element subset contained inside <span class="math notranslate nohighlight">\(A\)</span>.
+Suppose <span class="math notranslate nohighlight">\(|A| = k\)</span>, then there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> ways to choose subset <span class="math notranslate nohighlight">\(A\)</span> from <span class="math notranslate nohighlight">\(S\)</span>. And once the subset <span class="math notranslate nohighlight">\(A\)</span> is chosen, there are <span class="math notranslate nohighlight">\(\displaystyle \binom{k}{m}\)</span> ways to choose <span class="math notranslate nohighlight">\(B \subseteq A\)</span> with <span class="math notranslate nohighlight">\(|B|=m\)</span>. So for a fixed <span class="math notranslate nohighlight">\(k\)</span>, the number of pairs <span class="math notranslate nohighlight">\((A,B)\)</span> is <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} \binom{k}{m}\)</span>. Now let <span class="math notranslate nohighlight">\(k\)</span> run from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(n\)</span>, then the total number of pairs is <span class="math notranslate nohighlight">\(\displaystyle \sum_{k = 0}^{n} \binom{n}{k} \binom{k}{m}\)</span>.
+Now counting the same objects <span class="math notranslate nohighlight">\((A,B)\)</span> in a different order: by choosing the subset <span class="math notranslate nohighlight">\(B\)</span> first. Since <span class="math notranslate nohighlight">\(B\)</span> must have size <span class="math notranslate nohighlight">\(m\)</span>, there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{m}\)</span> ways to choose <span class="math notranslate nohighlight">\(B \subseteq S\)</span>. Once <span class="math notranslate nohighlight">\(B\)</span> is fixed, <span class="math notranslate nohighlight">\(A\)</span> must contain all elements of <span class="math notranslate nohighlight">\(B\)</span>, because <span class="math notranslate nohighlight">\(B \subseteq A\)</span>. Each of the remaining <span class="math notranslate nohighlight">\(n-m\)</span> elements has exactly 2 choices: either be included in <span class="math notranslate nohighlight">\(A\)</span>, or NOT included in <span class="math notranslate nohighlight">\(A\)</span> (these elements are available but optional when building <span class="math notranslate nohighlight">\(A\)</span>, but because <span class="math notranslate nohighlight">\(B \subseteq A\)</span> every element in <span class="math notranslate nohighlight">\(B\)</span> is forced to be in <span class="math notranslate nohighlight">\(A\)</span>). These choices are independent (include or not), so the number of possible sets <span class="math notranslate nohighlight">\(A\)</span> containing <span class="math notranslate nohighlight">\(B\)</span> is <span class="math notranslate nohighlight">\(2 \cdot 2 \cdot 2 \cdot \ldots 2 \ (\text{with } n-m \text{ elements}) = 2^{n-m}\)</span>. Therefore the total number of pairs <span class="math notranslate nohighlight">\((A,B)\)</span> is <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{m} 2^{n-m}\)</span>.
+Since both expressions count the same set of pairs <span class="math notranslate nohighlight">\((A,B)\)</span>, they must be equal: <span class="math notranslate nohighlight">\(\displaystyle \sum_{k = 0}^{n} \binom{n}{k} \binom{k}{m} = \binom{n}{m} 2^{n-m}\)</span>.</p>
+<p class="sd-card-text">For example: take <span class="math notranslate nohighlight">\(S = \{1,2,3,4,5\}\)</span> and <span class="math notranslate nohighlight">\(B = \{2,5\}\)</span>, so <span class="math notranslate nohighlight">\(n=5\)</span> and <span class="math notranslate nohighlight">\(m=2\)</span>. Now <span class="math notranslate nohighlight">\(A\)</span> must contain <span class="math notranslate nohighlight">\(\{2,5\}\)</span> because <span class="math notranslate nohighlight">\(B \subseteq A\)</span>. Therefore every valid <span class="math notranslate nohighlight">\(A\)</span> looks like <span class="math notranslate nohighlight">\(A = \{2,5\} \cup \mathscr{P}(S-B)\)</span> where the powerset of all the remaining elements is any subset from <span class="math notranslate nohighlight">\(\{1,3,4\}\)</span>:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\varnothing\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\{1\}\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\{3\}\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\{4\}\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\{1,3\}\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\{1,4\}\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\{3,4\}\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\{1,3,4\}\)</span></p></li>
+</ul>
+<p class="sd-card-text">So there are <span class="math notranslate nohighlight">\(2 \cdot 2 \cdot 2 = 2^{5-2} = 2^{3} = 8\)</span> such subsets in the powerset. Furthermore, there are <span class="math notranslate nohighlight">\(\displaystyle \binom{5}{2} = 10\)</span> ways to select 2 elements out of the 5 elements in <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p class="sd-card-text">It follows that <span class="math notranslate nohighlight">\(\displaystyle \sum_{k = 0}^{5} \binom{5}{k} \binom{k}{2} = \binom{5}{0} \binom{0}{2} + \binom{5}{1} \binom{1}{2} + \binom{5}{2} \binom{2}{2} + \binom{5}{3} \binom{3}{2} + \binom{5}{4} \binom{4}{2} + \binom{5}{5} \binom{5}{2} = 1 \cdot 0 + 5 \cdot 0 + 10 \cdot 1 + 10 \cdot 3 + 5 \cdot 6 + 1 \cdot 10 = 80 = 10 \cdot 8 = \binom{5}{2} 2^{5-3}\)</span>.</p>
+</div>
+</details></section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="03-9-the-division-and-pigeonhole-principles.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">3.9 The Division and Pigeonhole Principles</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">3.10 Combinatorial Proof</a><ul>
+<li><a class="reference internal" href="#exercises-for-section-3-10">Exercises for Section 3.10</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

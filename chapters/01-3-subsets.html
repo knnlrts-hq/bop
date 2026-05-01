@@ -1,0 +1,681 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="1.4 Power Sets" href="01-4-power-sets.html"><link rel="prev" title="1.2 The Cartesian Product" href="01-2-the-cartesian-product.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
+        <title>1.3 Subsets - Book of Proof — Annotated documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Sections</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-1-introduction-to-sets.html">1.1 Introduction to Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-2-the-cartesian-product.html">1.2 The Cartesian Product</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">1.3 Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-4-power-sets.html">1.4 Power Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-5-union-intersection-difference.html">1.5 Union, Intersection, Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-6-complement.html">1.6 Complement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-7-venn-diagrams.html">1.7 Venn Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-8-indexed-sets.html">1.8 Indexed Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-9-sets-that-are-number-systems.html">1.9 Sets That Are Number Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-10-russells-paradox.html">1.10 Russell’s Paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-1-statements.html">2.1 Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-2-and-or-not.html">2.2 And, Or, Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-3-conditional-statements.html">2.3 Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-4-biconditional-statements.html">2.4 Biconditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-5-truth-tables-for-statements.html">2.5 Truth Tables for Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-6-logical-equivalence.html">2.6 Logical Equivalence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-7-quantifiers.html">2.7 Quantifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-8-more-on-conditional-statements.html">2.8 More on Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-9-translating-english-to-symbolic-logic.html">2.9 Translating English to Symbolic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-10-negating-statements.html">2.10 Negating Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-11-logical-inference.html">2.11 Logical Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-12-an-important-note.html">2.12 An Important Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-1-lists.html">3.1 Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-2-the-multiplication-principle.html">3.2 The Multiplication Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-3-the-addition-and-subtraction-principles.html">3.3 The Addition and Subtraction Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-4-factorials-and-permutations.html">3.4 Factorials and Permutations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-5-counting-subsets.html">3.5 Counting Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-6-pascals-triangle-and-the-binomial-theorem.html">3.6 Pascal’s Triangle and the Binomial Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-7-the-inclusion-exclusion-principle.html">3.7 The Inclusion-Exclusion Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-8-counting-multisets.html">3.8 Counting Multisets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-9-the-division-and-pigeonhole-principles.html">3.9 The Division and Pigeonhole Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-10-combinatorial-proof.html">3.10 Combinatorial Proof</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/chapters/01-3-subsets.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="subsets">
+<h1>1.3 Subsets<a class="headerlink" href="#subsets" title="Link to this heading">¶</a></h1>
+<p><strong>It can happen that every element of a set <span class="math notranslate nohighlight">\(A\)</span> is an element of another set <span class="math notranslate nohighlight">\(B\)</span>. For example, each element of <span class="math notranslate nohighlight">\(A = \left\{ 0 , 2 , 4 \right\}\)</span> is also an element of <span class="math notranslate nohighlight">\(B = \left\{ 0 , 1 , 2 , 3 , 4 \right\}\)</span>. When <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are related this way we say that <span class="math notranslate nohighlight">\(A\)</span> is a subset of <span class="math notranslate nohighlight">\(B\)</span>.</strong></p>
+<p><strong><mark>Definition 1.3: Suppose <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are sets. If every element of <span class="math notranslate nohighlight">\(A\)</span> is also an element of <span class="math notranslate nohighlight">\(B\)</span>, then we say <span class="math notranslate nohighlight">\(A\)</span> is a subset of <span class="math notranslate nohighlight">\(B\)</span>, and we denote this as <span class="math notranslate nohighlight">\(A \subseteq B\)</span>. We write <span class="math notranslate nohighlight">\(A \not \subseteq B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> is not a subset of <span class="math notranslate nohighlight">\(B\)</span>, that is, if it is not true that every element of <span class="math notranslate nohighlight">\(A\)</span> is also an element of <span class="math notranslate nohighlight">\(B\)</span>. Thus <span class="math notranslate nohighlight">\(A \not \subseteq B\)</span> means that there is at least one element of <span class="math notranslate nohighlight">\(A\)</span> that is not an element of <span class="math notranslate nohighlight">\(B\)</span>.</mark></strong></p>
+<p>Example 1.5: Be sure you understand why each of the following is true.</p>
+<ol class="arabic simple">
+<li><p><strong><span class="math notranslate nohighlight">\(\{ 2 , 3 , 7 \} \subseteq \{ 2 , 3 , 4 , 5 , 6 , 7 \}\)</span></strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{ 2 , 3 , 7 \} \not \subseteq \{ 2 , 4 , 5 , 6 , 7 \}\)</span></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\{ 2 , 3 , 7 \} \subseteq \{ 2 , 3 , 7 \}\)</span></strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(\left\{ ( x , \sin ( x ) ) : x \in \mathbb { R } \right\} \subseteq \mathbb { R } ^ { 2 }\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\left\{ 1 , 3 , 5 , 7 , 1 1 , 1 3 , 1 7 , \ldots \right\} \subseteq \mathbb { N }\)</span></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}\)</span></strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\mathbb{R} \times \mathbb{N} \subseteq \mathbb{R} \times \mathbb{R}\)</span></strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(A \subseteq A\)</span> for any set <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\varnothing \subseteq \varnothing\)</span></strong></p></li>
+</ol>
+<p><strong><mark>This brings us to a significant fact: If <span class="math notranslate nohighlight">\(B\)</span> is any set whatsoever, then <span class="math notranslate nohighlight">\(\varnothing \subseteq B\)</span>. To see why this is true, look at the last sentence of Definition 1.3. It says that <span class="math notranslate nohighlight">\(\varnothing \not \subseteq B\)</span> would mean that there is at least one element of <span class="math notranslate nohighlight">\(\varnothing\)</span> that is not an element of <span class="math notranslate nohighlight">\(B\)</span>. But this cannot be so because <span class="math notranslate nohighlight">\(\varnothing\)</span> contains no elements! Thus it is not the case that <span class="math notranslate nohighlight">\(\varnothing \not \subseteq B\)</span> , so it must be that <span class="math notranslate nohighlight">\(\varnothing \subseteq B\)</span>.</mark></strong></p>
+<p><strong><mark>Fact 1.2: The empty set is a subset of all sets, that is, <span class="math notranslate nohighlight">\(\varnothing \subseteq B\)</span> for any set <span class="math notranslate nohighlight">\(B\)</span>.</mark></strong></p>
+<p><strong>Here is another way to look at it. Imagine a subset of <span class="math notranslate nohighlight">\(B\)</span> as a thing you make by starting with braces <span class="math notranslate nohighlight">\(\{ \}\)</span>, then filling them with selections from <span class="math notranslate nohighlight">\(B\)</span>. For example, to make one particular subset of <span class="math notranslate nohighlight">\(B = \left\{ a , b , c \right\}\)</span> , start with <span class="math notranslate nohighlight">\(\{ \}\)</span>, select <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span> from <span class="math notranslate nohighlight">\(B\)</span> and insert them into <span class="math notranslate nohighlight">\(\{ \}\)</span> to form the subset <span class="math notranslate nohighlight">\(\{ b , c \}\)</span>. Alternatively, you could have chosen just <span class="math notranslate nohighlight">\(a\)</span> to make <span class="math notranslate nohighlight">\(\{ a \}\)</span>, and so on. But one option is to simply select nothing from <span class="math notranslate nohighlight">\(B\)</span>. This leaves you with the subset <span class="math notranslate nohighlight">\(\{ \}\)</span>. Thus <span class="math notranslate nohighlight">\(\{ \} \subseteq B\)</span>. More often we write it as <span class="math notranslate nohighlight">\(\varnothing \subseteq B\)</span>.</strong></p>
+<p><strong>This idea of “making” a subset can help us list out all the subsets of a given set <span class="math notranslate nohighlight">\(B\)</span>. As an example, let <span class="math notranslate nohighlight">\(B = \{ a , b , c \}\)</span>. Let’s list all of its subsets. One way of approaching this is to make a tree-like structure. Begin with the subset <span class="math notranslate nohighlight">\(\{ \}\)</span>, which is shown on the left of Figure 1.3. Considering the element <span class="math notranslate nohighlight">\(a\)</span> of <span class="math notranslate nohighlight">\(B\)</span>, we have a choice: insert it into <span class="math notranslate nohighlight">\(\{ \}\)</span>, or not. The lines from <span class="math notranslate nohighlight">\(\{ \}\)</span> point to what we get depending whether or not we insert <span class="math notranslate nohighlight">\(a\)</span>, either <span class="math notranslate nohighlight">\(\{ \}\)</span> or <span class="math notranslate nohighlight">\(\{ a \}\)</span>. Now move on to the element <span class="math notranslate nohighlight">\(b\)</span> of <span class="math notranslate nohighlight">\(B\)</span>. For each of the sets just formed we can either insert or not insert <span class="math notranslate nohighlight">\(b\)</span>, and the lines on the diagram point to the resulting sets <span class="math notranslate nohighlight">\(\{ \} , \{ b \} , \{ a \}\)</span>, or <span class="math notranslate nohighlight">\(\{ a , b \}\)</span>. Finally, to each of these sets, we can either insert <span class="math notranslate nohighlight">\(c\)</span> or not insert it, and this gives us, on the far right-hand column, the sets <span class="math notranslate nohighlight">\(\{ \} , \{ c \} , \{ b \} , \{ b , c \} , \{ a \} , \{ a , c \} , \{ a , b \}\)</span> and <span class="math notranslate nohighlight">\(\{ a , b , c \}\)</span>. These are the eight subsets of <span class="math notranslate nohighlight">\(B = \{ a , b , c \}\)</span>.</strong></p>
+<img src="../assets/225c12d1dcc8f3968d20b7fb097aed60b93dab251a12da9f1e990697c292aef2.jpg">
+Figure 1.3. A “tree” for listing subsets
+<p><strong><mark>We can see from the way this tree branches that if it happened that <span class="math notranslate nohighlight">\(B = \left\{ a \right\}\)</span> , then <span class="math notranslate nohighlight">\(B\)</span> would have just two subsets, those in the second column of the diagram. If it happened that <span class="math notranslate nohighlight">\(B = \left\{ a , b \right\}\)</span> , then <span class="math notranslate nohighlight">\(B\)</span> would have four subsets, those in the third column, and so on. At each branching of the tree, the number of subsets doubles. So in general, if <span class="math notranslate nohighlight">\(| B | = n\)</span> , then <span class="math notranslate nohighlight">\(B\)</span> has <span class="math notranslate nohighlight">\(2 ^ { n }\)</span> subsets.</mark></strong></p>
+<p><strong><mark>Fact 1.3: If a finite set has <span class="math notranslate nohighlight">\(n\)</span> elements, then it has <span class="math notranslate nohighlight">\(2 ^ { n }\)</span> subsets.</mark></strong></p>
+<p>For a slightly more complex example, consider listing the subsets of <span class="math notranslate nohighlight">\(B = \{ 1 , 2 , \{ 1 , 3 \} \}\)</span>. This <span class="math notranslate nohighlight">\(B\)</span> has just three elements: <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(\{1,3\}\)</span>. At this point you probably don’t even have to draw a tree to list out B’s subsets. You just make all the possible selections from <span class="math notranslate nohighlight">\(B\)</span> and put them between braces to get</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+\{\}, \{1 \}, \{2 \}, \{\{1, 3 \} \}, \{1, 2 \}, \{1, \{1, 3 \} \}, \{2, \{1, 3 \} \}, \{1, 2, \{1, 3 \} \}
+\]</div>
+</div>
+<p>These are the eight subsets of <span class="math notranslate nohighlight">\(B\)</span>. Exercises like this help you identify what is and isn’t a subset. You know immediately that a set such as <span class="math notranslate nohighlight">\(\{ 1 , 3 \}\)</span> is not a subset of <span class="math notranslate nohighlight">\(B\)</span> because it can’t be made by inserting elements from <span class="math notranslate nohighlight">\(B\)</span> into <span class="math notranslate nohighlight">\(\{ \}\)</span>, as the <span class="math notranslate nohighlight">\(3\)</span> is not an element of <span class="math notranslate nohighlight">\(B\)</span> and thus is not a valid selection. <strong>Notice that although <span class="math notranslate nohighlight">\(\{ 1 , 3 \} \not \subseteq B\)</span> , it is true that <span class="math notranslate nohighlight">\(\{ 1 , 3 \} \in B\)</span> . Also, <span class="math notranslate nohighlight">\(\{ \{ 1 , 3 \} \} \subseteq B\)</span> .</strong></p>
+<p>Example 1.6: Be sure you understand why the following statements are true. Each illustrates an aspect of set theory that you’ve learned so far.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(1 \in \left\{ 1 , \left\{ 1 \right\} \right\}\)</span> : <span class="math notranslate nohighlight">\(1\)</span> is the first element listed in <span class="math notranslate nohighlight">\(\{ 1 , \{ 1 \} \}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(1 \not \subseteq \left\{ 1 , \left\{ 1 \right\} \right\}\)</span> : because <span class="math notranslate nohighlight">\(1\)</span> is not a set</p></li>
+<li><p><span class="math notranslate nohighlight">\(\{ 1 \} \in \{ 1 , \{ 1 \} \}\)</span> : <span class="math notranslate nohighlight">\(\{ 1 \}\)</span> is the second element listed in <span class="math notranslate nohighlight">\(\{ 1 , \{ 1 \} \}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{ 1 \} \subseteq \{ 1 , \{ 1 \} \}\)</span> : make subset <span class="math notranslate nohighlight">\(\{ 1 \}\)</span> by selecting <span class="math notranslate nohighlight">\(1\)</span> from <span class="math notranslate nohighlight">\(\{ 1 , \{ 1 \} \}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{\{1\}\} \not \in \left\{ 1 , \left\{ 1 \right\} \right\}\)</span> : because <span class="math notranslate nohighlight">\(\{ 1 , \{ 1 \} \}\)</span> contains only the elements <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(\{ 1 \}\)</span>, and not <span class="math notranslate nohighlight">\(\{ \{ 1 \} \}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{ \{ 1 \} \} \subseteq \{ 1 , \{ 1 \} \}\)</span> : make subset <span class="math notranslate nohighlight">\(\{ \{ 1 \} \}\)</span> by selecting <span class="math notranslate nohighlight">\(\{ 1 \}\)</span> from <span class="math notranslate nohighlight">\(\{ 1 , \{ 1 \} \}\)</span></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\mathbb{N} \not \in \mathbb{N}\)</span> : <span class="math notranslate nohighlight">\(\mathbb { N }\)</span> is a set (not a number) and <span class="math notranslate nohighlight">\(\mathbb { N }\)</span> contains only numbers</strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\mathbb{N} \subseteq \mathbb{N}\)</span> : because <span class="math notranslate nohighlight">\(X \subseteq X\)</span> for every set <span class="math notranslate nohighlight">\(X\)</span></strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\varnothing \not \in \mathbb{N}\)</span> : because the set <span class="math notranslate nohighlight">\(\mathbb { N }\)</span> contains only numbers and no sets</strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\varnothing \subseteq \mathbb{N}\)</span> : because <span class="math notranslate nohighlight">\(\varnothing\)</span> is a subset of every set</strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\mathbb{N} \in \{\mathbb{N}\}\)</span> : because <span class="math notranslate nohighlight">\(\{ \mathbb { N } \}\)</span> has just one element, the set <span class="math notranslate nohighlight">\(\mathbb { N }\)</span></strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\mathbb { N } \not \subseteq \{ \mathbb { N } \}\)</span> : because, for instance, <span class="math notranslate nohighlight">\(1 \in \mathbb { N }\)</span> but <span class="math notranslate nohighlight">\(1 \notin \{ \mathbb { N } \}\)</span></strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\varnothing \not \in \{\mathbb{N}\}\)</span> : note that the only element of <span class="math notranslate nohighlight">\(\{ \mathbb { N } \}\)</span> is <span class="math notranslate nohighlight">\(\mathbb { N }\)</span>, and <span class="math notranslate nohighlight">\(\mathbb { N } \neq \varnothing\)</span></strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\varnothing \subseteq \{ \mathbb { N } \}\)</span> : because <span class="math notranslate nohighlight">\(\varnothing\)</span> is a subset of every set</strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\varnothing \in \{ \varnothing, \mathbb { N } \}\)</span> :  <span class="math notranslate nohighlight">\(\varnothing\)</span> is the first element listed in <span class="math notranslate nohighlight">\(\{ \varnothing , \mathbb { N } \}\)</span></strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\varnothing \subseteq \{ \varnothing, \mathbb { N } \}\)</span> : because <span class="math notranslate nohighlight">\(\varnothing\)</span> is a subset of every set</strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\mathbb{N} \subseteq \{ \varnothing, \mathbb { N } \}\)</span> : make subset <span class="math notranslate nohighlight">\(\{ \mathbb { N } \}\)</span> by selecting <span class="math notranslate nohighlight">\(\mathbb { N }\)</span> from <span class="math notranslate nohighlight">\(\{ \varnothing , \mathbb { N } \}\)</span></strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\{\mathbb{N}\} \not \subseteq \{ \varnothing, \{\mathbb { N }\} \}\)</span> : because <span class="math notranslate nohighlight">\(\mathbb { N } \notin \{ \varnothing , \{ \mathbb { N } \} \}\)</span></strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\{\mathbb{N}\} \in \{ \varnothing, \{\mathbb { N }\} \}\)</span> : <span class="math notranslate nohighlight">\(\{\mathbb{N}\}\)</span> is the second element listed in <span class="math notranslate nohighlight">\(\{ \varnothing , \{ \mathbb { N } \} \}\)</span></strong></p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\left\{ ( 1 , 2 ) , ( 2 , 2 ) , ( 7 , 1 ) \right\} \subseteq \mathbb { N } \times \mathbb { N }\)</span> : each of <span class="math notranslate nohighlight">\((1, 2)\)</span>, <span class="math notranslate nohighlight">\((2, 2)\)</span>, <span class="math notranslate nohighlight">\((7, 1)\)</span> is in <span class="math notranslate nohighlight">\(\mathbb { N } \times \mathbb { N }\)</span></strong></p></li>
+</ol>
+<p>Though they should help you understand the concept of subset, the above examples are somewhat artificial. But in general, subsets arise very naturally. For instance, consider the unit circle <span class="math notranslate nohighlight">\(C = \left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } + y ^ { 2 } = 1 \right\}\)</span>. This is a subset <span class="math notranslate nohighlight">\(C \subseteq \mathbb { R } ^ { 2 }\)</span> . Likewise the graph of a function <span class="math notranslate nohighlight">\(y = f ( x )\)</span> is a set of points <span class="math notranslate nohighlight">\(G = \left\{ ( x , f ( x ) ) : x \in \mathbb { R } \right\}\)</span>, and <span class="math notranslate nohighlight">\(G \subseteq \mathbb { R } ^ { 2 }\)</span>. Surely sets such as <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(G\)</span> are more easily understood or visualized when regarded as subsets of <span class="math notranslate nohighlight">\(\mathbb { R } ^ { 2 }\)</span>. <strong>Mathematics is filled with such instances where it is important to regard one set as a subset of another.</strong></p>
+<section id="exercises-for-section-1-3">
+<h2>Exercises for Section 1.3<a class="headerlink" href="#exercises-for-section-1-3" title="Link to this heading">¶</a></h2>
+<p>A. List all the subsets of the following sets.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\{1,2,3,4\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\mathscr{P}(\{1,2,3,4\}) = \{ \varnothing, \{1\}, \{2\}, \{3\}, \{4\}, \{1,2\}, \{1,3\}, \{1,4\}, \{2,3\}, \{2,4\}, \{3,4\}, \{1,2,3\}, \{1,2,4\}, \{1,3,4\}, \{2,3,4\}, \{1,2,3,4\} \}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="2">
+<li><p><span class="math notranslate nohighlight">\(\{1,2,\varnothing\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\mathscr{P}(\{1,2,\varnothing\}) = \{ \varnothing, \{1\}, \{2\}, \{\varnothing\}, \{1,2\}, \{1,\varnothing\}, \{2,\varnothing\}, \{1,2,\varnothing\} \}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="3">
+<li><p><span class="math notranslate nohighlight">\(\{\{\mathbb{R}\}\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\mathscr{P}(\{\{\mathbb{R}\}\}) = \{ \varnothing, \{\{\mathbb{R}\}\} \}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="4">
+<li><p><span class="math notranslate nohighlight">\(\varnothing\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\mathscr{P}(\varnothing) = \{ \varnothing \}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="5">
+<li><p><span class="math notranslate nohighlight">\(\{\varnothing\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\mathscr{P}(\{ \varnothing \}) = \{ \varnothing, \{ \varnothing \} \}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="6">
+<li><p><span class="math notranslate nohighlight">\(\{\mathbb{R}, \mathbb{Q}, \mathbb{N}\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\mathscr{P}(\{ \mathbb{R}, \mathbb{Q}, \mathbb{N} \}) = \{ \varnothing, \{\mathbb{R}\}, \{\mathbb{Q}\}, \{\mathbb{N}\}, \{\mathbb{R},\mathbb{Q}\}, \{\mathbb{R},\mathbb{N}\}, \{\mathbb{Q},\mathbb{N}\}, \{\mathbb{R},\mathbb{Q},\mathbb{N}\} \}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="7">
+<li><p><span class="math notranslate nohighlight">\(\{\mathbb{R}, \{ \mathbb{Q}, \mathbb{N}\}\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\mathscr{P}(\{ \mathbb{R}, \{ \mathbb{Q}, \mathbb{N} \} \}) = \{ \varnothing, \{\mathbb{R}\}, \{\{\mathbb{Q},\mathbb{N}\}\}, \{\mathbb{R},\{\mathbb{Q},\mathbb{N}\}\} \}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="8">
+<li><p><span class="math notranslate nohighlight">\(\{\{0,1\},\{0,1,\{2\}\}, \{0\}\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">With elements <span class="math notranslate nohighlight">\(A=\{0,1\}\)</span>, <span class="math notranslate nohighlight">\(B=\{0,1,\{2\}\}\)</span>, <span class="math notranslate nohighlight">\(C=\{0\}\)</span>, the subsets are:
+<span class="math notranslate nohighlight">\(\{ \varnothing, \{A\}, \{B\}, \{C\}, \{A,B\}, \{A,C\}, \{B,C\}, \{A,B,C\} \}\)</span>, i.e.,
+<span class="math notranslate nohighlight">\(\{ \varnothing, \{\{0,1\}\}, \{\{0,1,\{2\}\}\}, \{\{0\}\}, \{\{0,1\},\{0,1,\{2\}\}\}, \{\{0,1\},\{0\}\}, \{\{0,1,\{2\}\},\{0\}\}, \{\{0,1\},\{0,1,\{2\}\},\{0\}\} \}\)</span></p>
+</div>
+</details><p>B. Write out the following sets by listing their elements between braces.
+9. <span class="math notranslate nohighlight">\(\{ X : X \subseteq \{ 3 , 2 , a \} \text{ and } | X | = 2 \}\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\{\{3,2\},\{3,a\},\{2,a\}\}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="10">
+<li><p><span class="math notranslate nohighlight">\(\{ X \subseteq \mathbb { N } : | X | \leq 1 \}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\{ \varnothing, \{1\}, \{2\}, \{3\}, \ldots \}\)</span> (assuming <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> does not include <span class="math notranslate nohighlight">\(0\)</span>)</p>
+</div>
+</details><ol class="arabic simple" start="11">
+<li><p><span class="math notranslate nohighlight">\(\{ X : X \subseteq \{ 3 , 2 , a \} \text{ and } | X | = 4 \}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\varnothing = \{\}\)</span> (there are no <span class="math notranslate nohighlight">\(4\)</span>-element subsets of a <span class="math notranslate nohighlight">\(3\)</span>-element set)</p>
+</div>
+</details><ol class="arabic simple" start="12">
+<li><p><span class="math notranslate nohighlight">\(\{ X : X \subseteq \{ 3 , 2 , a \} \text{ and } | X | = 1 \}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\{ \{3\}, \{2\}, \{a\} \}\)</span></p>
+</div>
+</details><p>C. Decide if the following statements are true or false. Explain.
+13. <span class="math notranslate nohighlight">\(\mathbb { R } ^ { 3 } \subseteq \mathbb { R } ^ { 3 }\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">True. Every element of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> is (trivially) an element of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>: a complete set is always a subset of itself.</p>
+</div>
+</details><ol class="arabic simple" start="14">
+<li><p><span class="math notranslate nohighlight">\(\mathbb { R } ^ { 2 } \subseteq \mathbb { R } ^ { 3 }\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">False. As sets, <span class="math notranslate nohighlight">\(\mathbb{R}^2 = \{(x,y):x,y \in \mathbb{R} \}\)</span> and <span class="math notranslate nohighlight">\(\mathbb{R}^3 = \{(x,y,z):x,y,z \in \mathbb{R} \}\)</span> have elements of different lengths; no <span class="math notranslate nohighlight">\((x,y)\)</span> equals any <span class="math notranslate nohighlight">\((x,y,z)\)</span>, so <span class="math notranslate nohighlight">\(\mathbb{R}^2 \nsubseteq \mathbb{R}^3\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="15">
+<li><p><span class="math notranslate nohighlight">\(\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x - 1 = 0 \right\} \subseteq \left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } - x = 0 \right\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>True.</strong>
+The left-hand set is the vertical line <span class="math notranslate nohighlight">\(x=1\)</span>. Thus <span class="math notranslate nohighlight">\(\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x - 1 = 0 \} = \{\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}\)</span>. Every tuple <span class="math notranslate nohighlight">\((x,y)\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> with <span class="math notranslate nohighlight">\(x = 1\)</span>.
+The right-hand set consists of two vertical lines in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>: <span class="math notranslate nohighlight">\(\{ (x,y) : x(x-1)=0 \}\)</span>, i.e. <span class="math notranslate nohighlight">\(x=0\)</span> or <span class="math notranslate nohighlight">\(x=1\)</span>. Thus <span class="math notranslate nohighlight">\(\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } - x = 0 \} = \{\ldots,(0,-1),\ldots, (0, -0.5),\ldots, (0,0),\ldots, (0,0.5),\ldots,(0,1),\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}\)</span>. Every tuple <span class="math notranslate nohighlight">\((x,y)\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> with <span class="math notranslate nohighlight">\(x = 0\)</span> or <span class="math notranslate nohighlight">\(x = 1\)</span>.
+Every point with <span class="math notranslate nohighlight">\(x=1\)</span> lies in the right set.</p>
+<a class="reference internal image-reference" href="../_images/1e9c3f57391e482cb70ba4cd573c1a59.png"><img alt="../_images/1e9c3f57391e482cb70ba4cd573c1a59.png" src="../_images/1e9c3f57391e482cb70ba4cd573c1a59.png" style="width: 750px;" />
+</a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env -S uv run</span>
+<span class="c1"># /// script</span>
+<span class="c1"># dependencies = [</span>
+<span class="c1">#   &quot;numpy&quot;,</span>
+<span class="c1">#   &quot;matplotlib&quot;,</span>
+<span class="c1">#   &quot;uuid&quot;,</span>
+<span class="c1"># ]</span>
+<span class="c1"># ///</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;Agg&quot;</span><span class="p">)</span>  <span class="c1"># non-interactive backend</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># x = 1, plotted as (x,y) = (1,y)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span>            <span class="c1"># y = x^2 - x</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># Subplot 1: x = 1 and f(x) = x^2 - x</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$x = 1$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$y = x^2 - x$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x=1$ and $f(x) = x^2-x$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="c1"># Subplot 2: sets x - 1 = 0 and x^2 - x = 0 in R^2</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Set 1: x - 1 = 0  -&gt; vertical line x = 1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\{(x,y)\in\mathbb</span><span class="si">{R}</span><span class="s2">^2:x-1=0\}$&quot;</span><span class="p">)</span>
+<span class="c1"># Set 2: x^2 - x = 0 -&gt; x(x-1)=0 -&gt; two vertical lines x=0 or x=1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\{(x,y)\in\mathbb</span><span class="si">{R}</span><span class="s2">^2:x^2-x=0\}$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s2">&quot;$\left\{(x,y)\in\mathbb</span><span class="si">{R}</span><span class="s2">^2:x-1=0\right\}\subseteq&quot;</span>
+    <span class="sa">r</span><span class="s2">&quot;\left\{(x,y)\in\mathbb</span><span class="si">{R}</span><span class="s2">^2:x^2-x=0\right\}$&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Generate UUID filename</span>
+<span class="n">uid</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
+<span class="c1"># Save high-resolution outputs</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">.svg&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>plot.py
+uv<span class="w"> </span>run<span class="w"> </span>plot.py
+</pre></div>
+</div>
+</div>
+</details><ol class="arabic simple" start="16">
+<li><p><span class="math notranslate nohighlight">\(\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } - x = 0 \right\} \subseteq \left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x - 1 = 0 \right\}\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>False.</strong>
+The left-hand set consists of two vertical lines in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>: <span class="math notranslate nohighlight">\(\{ (x,y) : x(x-1)=0 \}\)</span>, i.e. <span class="math notranslate nohighlight">\(x=0\)</span> or <span class="math notranslate nohighlight">\(x=1\)</span>. Thus <span class="math notranslate nohighlight">\(\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } - x = 0 \} = \{\ldots,(0,-1),\ldots, (0, -0.5),\ldots, (0,0),\ldots, (0,0.5),\ldots,(0,1),\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}\)</span>. Every tuple <span class="math notranslate nohighlight">\((x,y)\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> with <span class="math notranslate nohighlight">\(x = 0\)</span> or <span class="math notranslate nohighlight">\(x = 1\)</span>.
+The right-hand set is the vertical line <span class="math notranslate nohighlight">\(x=1\)</span>. Thus <span class="math notranslate nohighlight">\(\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x - 1 = 0 \} = \{\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}\)</span>. Every tuple <span class="math notranslate nohighlight">\((x,y)\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> with <span class="math notranslate nohighlight">\(x = 1\)</span>.
+Points with <span class="math notranslate nohighlight">\(x=0\)</span> (e.g. <span class="math notranslate nohighlight">\((0,0)\)</span>) are not in the right-hand set representing <span class="math notranslate nohighlight">\(x=1\)</span>.</p>
+<a class="reference internal image-reference" href="../_images/3b17cae42f3e47c7bbe1c3cde73de857.png"><img alt="../_images/3b17cae42f3e47c7bbe1c3cde73de857.png" src="../_images/3b17cae42f3e47c7bbe1c3cde73de857.png" style="width: 750px;" />
+</a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env -S uv run</span>
+<span class="c1"># /// script</span>
+<span class="c1"># dependencies = [</span>
+<span class="c1">#   &quot;numpy&quot;,</span>
+<span class="c1">#   &quot;matplotlib&quot;,</span>
+<span class="c1">#   &quot;uuid&quot;,</span>
+<span class="c1"># ]</span>
+<span class="c1"># ///</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;Agg&quot;</span><span class="p">)</span>  <span class="c1"># non-interactive backend</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># x = 1, plotted as (x,y) = (1,y)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span>            <span class="c1"># y = x^2 - x</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># Subplot 1: x = 1 and f(x) = x^2 - x</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$x = 1$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$y = x^2 - x$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x=1$ and $f(x) = x^2-x$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="c1"># Subplot 2: sets x - 1 = 0 and x^2 - x = 0 in R^2</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Set 1: x - 1 = 0  -&gt; vertical line x = 1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\{(x,y)\in\mathbb</span><span class="si">{R}</span><span class="s2">^2:x-1=0\}$&quot;</span><span class="p">)</span>
+<span class="c1"># Set 2: x^2 - x = 0 -&gt; x(x-1)=0 -&gt; two vertical lines x=0 or x=1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\{(x,y)\in\mathbb</span><span class="si">{R}</span><span class="s2">^2:x^2-x=0\}$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s2">&quot;$\left\{(x,y)\in\mathbb</span><span class="si">{R}</span><span class="s2">^2:x-1=0\right\}\subseteq&quot;</span>
+    <span class="sa">r</span><span class="s2">&quot;\left\{(x,y)\in\mathbb</span><span class="si">{R}</span><span class="s2">^2:x^2-x=0\right\}$&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Generate UUID filename</span>
+<span class="n">uid</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span>
+<span class="c1"># Save high-resolution outputs</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">.svg&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>plot.py
+uv<span class="w"> </span>run<span class="w"> </span>plot.py
+</pre></div>
+</div>
+</div>
+</details></section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="01-4-power-sets.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">1.4 Power Sets</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="01-2-the-cartesian-product.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">1.2 The Cartesian Product</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">1.3 Subsets</a><ul>
+<li><a class="reference internal" href="#exercises-for-section-1-3">Exercises for Section 1.3</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

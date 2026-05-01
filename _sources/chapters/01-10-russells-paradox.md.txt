@@ -1,0 +1,55 @@
+# 1.10 Russell’s Paradox
+
+This section contains some background information that may be interesting, but is not used in the remainder of the book. 
+
+**The philosopher and mathematician Bertrand Russell (1872–1970) did groundbreaking work on the theory of sets and the foundations of mathematics. He was probably among the first to understand how the misuse of sets can lead to bizarre and paradoxical situations. He is famous for an idea that has come to be known as Russell’s paradox.** 
+
+**<mark>Russell’s paradox involves the following set of sets:</mark>** 
+
+
+$$
+A = \{X: X \text{ is a set and } X \notin X \}. \tag {1.1}
+$$
+
+**<mark>In words, $A$ is the set of all sets that do not include themselves as elements. Most sets we can think of are in $A$ . The set $\mathbb { Z }$ of integers is not an integer (i.e., $\mathbb { Z } \notin \mathbb { Z } )$ and therefore $\mathbb { Z } \in A$ . Also $\varnothing \in A$ because $\varnothing$ is a set and $\varnothing \notin \varnothing$.</mark>** 
+
+**Is there a set that is not in $A$? Consider $B = \{ \{ \{ \{ \ldots \} \} \} \}$ . Think of $B$ as a box containing a box, containing a box, containing a box, and so on, forever. Or a set of identical Russian dolls, nested one inside the other, endlessly. The curious thing about $B$ is that it has just one element, namely $B$ itself:** 
+
+
+$$
+B = \{ \ \underbrace{\{\{\{\{\ldots \} \} \} \}}_{B} \ \}
+$$
+
+**Thus $B \in B$. As $B$ does not satisfy $B \notin B$, Equation (1.1) says $B \notin A$ ($A$ is the set of all sets that do not contain themselves).** 
+
+**<mark>Russell’s paradox arises from the question "Is A an element of A?", i.e. "Is the set of all sets that do not contain themselves an element of the set of all sets that do not contain themselves?"</mark>**
+
+**<mark>For a set $X$ , Equation (1.1) says $X \in A$ means the same thing as $X \notin X$. So for $X = A$, the previous line says $A \in A$ which means the same thing as $A \notin A$. Conclusions: If $A \in A$ is true, then it is false (because if $A \in A$, then by definition it holds that $A \notin A$, which is a contradiction). If $A \in A$ is false, then it is true (because if $A \notin A$, then by definition it holds that $A \in A$, which is a contradiction; $A$ cannot at the same time be an element of itself and not an element of itself). This is Russell’s paradox.</mark>** 
+
+**Initially Russell’s paradox sparked a crisis among mathematicians. How could a mathematical statement be both true and false? This seemed to be in opposition to the very essence of mathematics. The paradox instigated a very careful examination of set theory and an evaluation of what can and cannot be regarded as a set. Eventually mathematicians settled upon a collection of axioms for set theory—the so-called Zermelo-Fraenkel axioms. One of these axioms is the well-ordering principle of the previous section. Another, the axiom of foundation, states that no non-empty set $X$ is allowed to have the property $X \cap x \neq \varnothing$ for all its elements $x$ (in every non-empty set, there should be at least one element $x \in X$ such that $X \cap x = \varnothing$). This rules out such circularly defined “sets” as $B = \left\{ B \right\}$ mentioned above. If we adhere to these axioms, then situations like Russell’s paradox disappear. Most mathematicians accept all this on faith and happily ignore the Zermelo-Fraenkel axioms. Paradoxes like Russell’s do not tend to come up in everyday mathematics—you have to go out of your way to construct them.** 
+
+:::{dropdown} Axiom of foundation/regularity
+The axiom of foundation says: self-containing or circular boxes are forbidden. Ordinary sets are like well-built boxes stacked on smaller boxes, eventually ending in an empty box. 
+$X \cap x$ only makes sense if both $X$ and $x$ are sets. If $X = \{1,2,3\}$, then $X \cap 3$ is not meaningful, as the element $3$ is just a number, not a "container" with elements of their own. However, in set theory, natural numbers are often defined as sets (the von Neumann naturals), and then the expression does make sense. In standard set theory, the natural numbers are defined as:
+$0 = \varnothing = \{\}$
+$1 = \{0\} = \{\varnothing\}$
+$2 = \{0,1\} = \{\varnothing, \{\varnothing\}\}$
+$3 = \{0,1,2\} = \{\varnothing, \{\varnothing\}, \{\varnothing, \{\varnothing\}\}\}$
+$\ldots$
+
+Compute $X \cap x$ for each element in $X = \{1,2,3\}$:
+$X \cap 1 = \{1,2,3\} \cap \{0\} = \{\{0\},\{0,1\},\{0,1,2\}\} \cap \{0\} = \varnothing$, so $X \cap 1 = \varnothing$ (there is no common element, so the intersection is empty)
+$X \cap 2 = \{1,2,3\} \cap \{ 0,1 \} = \{\{0\},\{0,1\},\{0,1,2\}\} \cap \{ 0, \{0\} \} = \{1\}$, so $X \cap 2 \neq \varnothing$
+$X \cap 3 = \{1,2,3\} \cap \{ 0,1,2 \} = \{\{0\},\{0,1\},\{0,1,2\}\} \cap \{ 0, \{0\}, \{0,1\}\} = \{1,2\}$, so $X \cap 3 \neq \varnothing$
+This makes $1$ the minimal or "bottom" element of $X$.
+Another example with explicit sets: $X = \{\{1\},\{2,3\},\{4\}\}$. This is well-founded set, because each element of $x \in X$ has an empty intersection with $X$ and nothing loops back to anything else: $\forall x \in X : x \cap X = \varnothing$. 
+
+In circular situation like $B = \{B\}$, if we take $X = B$, then the only element is $x = B$, so:
+$X \cap x = B \cap B = B \neq \varnothing$
+This is forbidden because every element of $X$ points back into $X$ and there is not "bottom".
+Another pathological example: $X = \{a,b\}$ where $a = \{b\}$ and $b = \{a\}$.
+:::
+
+**Still, Russell’s paradox reminds us that precision of thought and language is an important part of doing mathematics.** The next chapter deals with the topic of logic, a codification of thought and language. 
+
+Additional Reading on Sets. For a lively account of Bertrand Russell’s life and work (including his paradox), see the graphic novel Logicomix: An Epic Search For Truth, by Apostolos Doxiadis and Christos Papadimitriou. Also see cartoonist Jessica Hagy’s online strip Indexed—it is based largely on Venn diagrams. 

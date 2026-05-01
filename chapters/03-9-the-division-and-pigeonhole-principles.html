@@ -1,0 +1,431 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="3.10 Combinatorial Proof" href="03-10-combinatorial-proof.html"><link rel="prev" title="3.8 Counting Multisets" href="03-8-counting-multisets.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
+        <title>3.9 The Division and Pigeonhole Principles - Book of Proof — Annotated documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Sections</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-1-introduction-to-sets.html">1.1 Introduction to Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-2-the-cartesian-product.html">1.2 The Cartesian Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-3-subsets.html">1.3 Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-4-power-sets.html">1.4 Power Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-5-union-intersection-difference.html">1.5 Union, Intersection, Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-6-complement.html">1.6 Complement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-7-venn-diagrams.html">1.7 Venn Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-8-indexed-sets.html">1.8 Indexed Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-9-sets-that-are-number-systems.html">1.9 Sets That Are Number Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-10-russells-paradox.html">1.10 Russell’s Paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-1-statements.html">2.1 Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-2-and-or-not.html">2.2 And, Or, Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-3-conditional-statements.html">2.3 Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-4-biconditional-statements.html">2.4 Biconditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-5-truth-tables-for-statements.html">2.5 Truth Tables for Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-6-logical-equivalence.html">2.6 Logical Equivalence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-7-quantifiers.html">2.7 Quantifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-8-more-on-conditional-statements.html">2.8 More on Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-9-translating-english-to-symbolic-logic.html">2.9 Translating English to Symbolic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-10-negating-statements.html">2.10 Negating Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-11-logical-inference.html">2.11 Logical Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-12-an-important-note.html">2.12 An Important Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-1-lists.html">3.1 Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-2-the-multiplication-principle.html">3.2 The Multiplication Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-3-the-addition-and-subtraction-principles.html">3.3 The Addition and Subtraction Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-4-factorials-and-permutations.html">3.4 Factorials and Permutations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-5-counting-subsets.html">3.5 Counting Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-6-pascals-triangle-and-the-binomial-theorem.html">3.6 Pascal’s Triangle and the Binomial Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-7-the-inclusion-exclusion-principle.html">3.7 The Inclusion-Exclusion Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-8-counting-multisets.html">3.8 Counting Multisets</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">3.9 The Division and Pigeonhole Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-10-combinatorial-proof.html">3.10 Combinatorial Proof</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/chapters/03-9-the-division-and-pigeonhole-principles.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="the-division-and-pigeonhole-principles">
+<h1>3.9 The Division and Pigeonhole Principles<a class="headerlink" href="#the-division-and-pigeonhole-principles" title="Link to this heading">¶</a></h1>
+<p>Our final fundamental counting principle is called the division principle. Before discussing it, we need some notation. <strong>Given a number <span class="math notranslate nohighlight">\(x\)</span>, its floor <span class="math notranslate nohighlight">\(\lfloor x \rfloor\)</span> is <span class="math notranslate nohighlight">\(x\)</span> rounded down to the nearest integer. Thus <span class="math notranslate nohighlight">\(\left\lfloor \dfrac{10}{4} \right\rfloor = 2\)</span>, and <span class="math notranslate nohighlight">\(\lfloor 9.31 \rfloor = 9\)</span>, and <span class="math notranslate nohighlight">\(\lfloor 7 \rfloor = 7\)</span>, etc. The ceiling of <span class="math notranslate nohighlight">\(x\)</span>, denoted <span class="math notranslate nohighlight">\(\lceil x \rceil\)</span>, is <span class="math notranslate nohighlight">\(x\)</span> rounded up to the nearest integer. Thus <span class="math notranslate nohighlight">\(\left\lceil \dfrac{10}{4} \right\rceil = 3\)</span>, and <span class="math notranslate nohighlight">\(\lceil 9.31 \rceil = 10\)</span>, and <span class="math notranslate nohighlight">\(\lceil 7 \rceil = 7\)</span>.</strong></p>
+<p>**The division principle is often illustrated by a simple situation involving pigeons. Imagine <span class="math notranslate nohighlight">\(n\)</span> pigeons that live in <span class="math notranslate nohighlight">\(k\)</span> pigeonholes, or boxes. (Possibly <span class="math notranslate nohighlight">\(n \neq k\)</span>.) At night all the pigeons fly into the boxes. When this happens, some of the <span class="math notranslate nohighlight">\(k\)</span> boxes may contain more than one pigeon, and some may be empty. But no matter what, the average number of pigeons per box is <span class="math notranslate nohighlight">\(\dfrac{n}{k}\)</span>. Obviously, at least one of the boxes contains <span class="math notranslate nohighlight">\(\dfrac{n}{k}\)</span> or more pigeons. (Because not all the boxes can contain fewer than the average number of pigeons per box.) And because a box must contain a whole number of pigeons, we round up to conclude that at least one box contains <span class="math notranslate nohighlight">\(\left\lceil \dfrac{n}{k} \right\rceil\)</span> or more pigeons. <strong>Similarly, at least one box must contain <span class="math notranslate nohighlight">\(\dfrac{n}{k}\)</span> or fewer pigeons, because not all boxes can contain more than the average number of pigeons per box. Rounding down, at least one box contains <span class="math notranslate nohighlight">\(\left\lfloor \dfrac{n}{k} \right\rfloor\)</span> or fewer pigeons. We call this line of reasoning the division principle. (Some texts call it the strong form of the pigeonhole principle.)</strong></p>
+<p><strong><mark>Fact 3.9: (Division Principle) Suppose <span class="math notranslate nohighlight">\(n\)</span> objects are placed into <span class="math notranslate nohighlight">\(k\)</span> boxes. Then at least one box contains <span class="math notranslate nohighlight">\(\left\lceil \dfrac{n}{k} \right\rceil\)</span> or more objects, and at least one box contains <span class="math notranslate nohighlight">\(\left\lfloor \dfrac{n}{k} \right\rfloor\)</span> or fewer objects.</mark></strong></p>
+<p><strong>This has a useful variant. If <span class="math notranslate nohighlight">\(n &gt; k\)</span>, then <span class="math notranslate nohighlight">\(\dfrac{n}{k} &gt; 1\)</span>, so <span class="math notranslate nohighlight">\(\left\lceil \dfrac{n}{k} \right\rceil &gt; 1\)</span>, and this means some box contains more than one object. On the other hand, if <span class="math notranslate nohighlight">\(n &lt; k\)</span> then <span class="math notranslate nohighlight">\(\dfrac{n}{k} &lt; 1\)</span>, so <span class="math notranslate nohighlight">\(\left\lfloor \dfrac{n}{k} \right\rfloor &lt; 1\)</span>, meaning at least one box is empty. Thus the division principle yields the following consequence, called the pigeonhole principle.</strong></p>
+<p><strong><mark>Fact 3.10: (Pigeonhole Principle) Suppose <span class="math notranslate nohighlight">\(n\)</span> objects are placed into <span class="math notranslate nohighlight">\(k\)</span> boxes. If <span class="math notranslate nohighlight">\(n &gt; k\)</span>, then at least one box contains more than one object. If <span class="math notranslate nohighlight">\(n &lt; k\)</span>, then at least one box is empty.</mark></strong></p>
+<p><strong>The pigeonhole principle is named for the scenario in which <span class="math notranslate nohighlight">\(n\)</span>pigeons fly into <span class="math notranslate nohighlight">\(k\)</span> pigeonholes (or boxes). If there are more pigeons than boxes <span class="math notranslate nohighlight">\((n &gt; k)\)</span> then some box gets more than one pigeon. And if there are fewer pigeons than boxes <span class="math notranslate nohighlight">\((n &lt; k)\)</span> then there must be at least one empty box. Like the multiplication, addition and subtraction principles, the division and pigeonhole principles are intuitive and obvious, but they can prove things that are not obvious. The challenge is seeing where and how to apply them.</strong> Our examples will start simple and get progressively more complex.</p>
+<p><strong>For an extremely simple application, notice that in any group of 13 people, at least two of them were born on the same month. Although this is obvious, it really does follow from the pigeonhole principle. Think of the 13 people as objects, and put each person in the “box” that is his birth month. As there are more people than boxes (months), at least one box (month) has two or more people in it, meaning at least two of the 13 people were born in the same month. Further, for any group of 100 people, the division principle says that there is a month in which <span class="math notranslate nohighlight">\(\left\lceil \dfrac{100}{12} \right\rceil = 9\)</span> or more of the people were born. It also guarantees a month in which <span class="math notranslate nohighlight">\(\left\lfloor \dfrac{100}{12} \right\rfloor = 8\)</span> or fewer of the people were born.</strong></p>
+<p><strong>Example 3.24: Pick six integers between 0 and 9 (inclusive). Show that two of them must add up to 9.</strong> For example, suppose you picked <span class="math notranslate nohighlight">\(0, 1, 3, 5, 7\)</span> and <span class="math notranslate nohighlight">\(8\)</span>. Then <span class="math notranslate nohighlight">\(1 + 8 = 9\)</span>. If you picked <span class="math notranslate nohighlight">\(4, 5, 6, 7, 8, 9\)</span>, then <span class="math notranslate nohighlight">\(4 + 5 = 9\)</span>. The problem asks us to show that this happens no matter how we pick the numbers.</p>
+<p><strong>Solution: Pick six numbers between 0 and 9. Here’s why two of them sum to 9: Imagine five boxes, each marked with two numbers, as shown below. Each box is labeled so that the two numbers written on it sum to 9.</strong></p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260324171156.png"><img alt="assets/Pastedimage20260324171156.png" src="assets/Pastedimage20260324171156.png" style="width: 800px;" />
+</a>
+<p><strong>For each number that was picked, put it in the box having that number written on it. For example, if we picked 7, it goes in the box labeled “2, 7.” (The number 2, if picked, would go in that box too.) In this way we place the six chosen numbers in five boxes. As there are more numbers than boxes, the pigeonhole principle says that some box has more than one (hence two) of the picked numbers in it. Those two numbers sum to 9. Notice that if we picked only five numbers from 0 to 9, then it’s possible that no two sum to 9: we could be unlucky and pick 0, 1, 2, 3, 4. But the pigeonhole principle ensures that if six are picked then two do sum to 9.</strong></p>
+<p><strong>Example 3.25: A store has a gumball machine containing a large number of red, green, blue and white gumballs. You get one gumball for each nickel you put into the machine. The store offers the following deal: You agree to buy some number of gumballs, and if 13 or more of them have the same color you get <span class="math notranslate nohighlight">\(\$ 5\)</span>. What is the fewest number of gumballs you need to buy to be <span class="math notranslate nohighlight">\(100 \%\)</span> certain that you will make money on the deal?</strong></p>
+<p><strong>Solution: Let <span class="math notranslate nohighlight">\(n\)</span> be the number of gumballs that you buy. Imagine sorting your <span class="math notranslate nohighlight">\(n\)</span> gumballs into four boxes labeled RED, GREEN, BLUE, and WHITE. (That is, red balls go in the red box, green balls go in the green box, etc.)</strong></p>
+<a class="reference internal image-reference" href="../_images/9d3a81d4528013fc957f064676c1eaaaee0f8d91aa4c89e36bf67b9b392dbbf3.jpg"><img alt="../_images/9d3a81d4528013fc957f064676c1eaaaee0f8d91aa4c89e36bf67b9b392dbbf3.jpg" src="../_images/9d3a81d4528013fc957f064676c1eaaaee0f8d91aa4c89e36bf67b9b392dbbf3.jpg" style="width: 600px;" />
+</a>
+<p><strong>The division principle says that one box contains <span class="math notranslate nohighlight">\(\left\lceil \dfrac{n}{4} \right\rceil\)</span> or more gumballs. Provided <span class="math notranslate nohighlight">\(\left\lceil \dfrac{n}{4} \right\rceil \geq 13\)</span>, you will know you have 13 gumballs of the same color. This happens if <span class="math notranslate nohighlight">\(\dfrac{n}{4} &gt; 12\)</span> (so the ceiling of <span class="math notranslate nohighlight">\(\dfrac{n}{4}\)</span> rounds to a value larger than 12). Therefore you need <span class="math notranslate nohighlight">\(n &gt; 4 \cdot 12 = 48\)</span> , so if <span class="math notranslate nohighlight">\(n = 49\)</span> you know you have at least <span class="math notranslate nohighlight">\(\left\lceil \dfrac{49}{4} \right\rceil = \left\lceil 12.25 \right\rceil = 13\)</span> gumballs of the same color. Answer: Buy 49 gumballs for 49 nickels, which is <span class="math notranslate nohighlight">\(49 \times 0.05 = \$ 2.45\)</span>. You get <span class="math notranslate nohighlight">\(\$ 5\)</span>, and therefore have made <span class="math notranslate nohighlight">\(\$ 2.55\)</span>. Note that if you bought just 48 gumballs, you might win, but there is a chance that you’d get 12 gumballs of each color and miss out on the <span class="math notranslate nohighlight">\(\$ 5\)</span>. And if you bought more than 49, you’d still get the <span class="math notranslate nohighlight">\(\$ 5\)</span>, but you would have spent more nickels.</strong></p>
+<p>Explicitly mentioning the boxes in the above solution is not necessary. Some people prefer to draw a conclusion based on averaging alone. They might solve the problem by letting <span class="math notranslate nohighlight">\(n\)</span> be the number of gumballs bought, so <span class="math notranslate nohighlight">\(n = r + g + b + w\)</span>, where <span class="math notranslate nohighlight">\(r\)</span> is the number of them that are red, <span class="math notranslate nohighlight">\(g\)</span> is the number that are green, <span class="math notranslate nohighlight">\(b\)</span> is the number of blues and <span class="math notranslate nohighlight">\(w\)</span> is the number of whites. Then the average number of gumballs of a particular color is <span class="math notranslate nohighlight">\(\dfrac{r+g+b+w}{4} = \dfrac{n}{4}\)</span>. We need this to be greater than 12 to ensure 13 of the same color, and the smallest number that does the job is <span class="math notranslate nohighlight">\(n = 49\)</span>. This is still the division principle, in a pure form.</p>
+<p>Example 3.26: Nine points are randomly placed on the right triangle shown below. Show that three of these points form a triangle whose area is <span class="math notranslate nohighlight">\(\dfrac{1}{8}\)</span> square unit or less. (We allow triangles with zero area, in which case the three points lie on a line.)</p>
+<img alt="../_images/c1cdb107f56510742c5c6a40a57e41f363fb6bbb63d2351f1932012cd793f6cc.jpg" src="../_images/c1cdb107f56510742c5c6a40a57e41f363fb6bbb63d2351f1932012cd793f6cc.jpg" />
+<p>Solution: Divide the triangle into four smaller triangles, as indicated by the dashed lines below. Each of these four triangles has an area of <span class="math notranslate nohighlight">\(\dfrac{1}{2} \cdot b \cdot h = \dfrac{1}{2} \cdot \dfrac{1}{2} \cdot \dfrac{1}{2} = \dfrac{1}{8}\)</span> square units. Think of these smaller triangles as “boxes.” So we have placed 9 points in 4 boxes. (If one of the 9 points happens to be on a dashed line, say it belongs to the box below or to its left.)</p>
+<img alt="../_images/2775b0de2a33e833f876c867e7a54b65dcaf0c3e16939144d06fb52b53cfa988.jpg" src="../_images/2775b0de2a33e833f876c867e7a54b65dcaf0c3e16939144d06fb52b53cfa988.jpg" />
+<p><strong>The division principle says one of the boxes has at least <span class="math notranslate nohighlight">\(\left\lceil \dfrac{9}{4} \right\rceil = 3\)</span> of the points in it. Those three points form a triangle whose area is no larger than the area of the “box” that it is in. Thus these three points form a triangle whose area is <span class="math notranslate nohighlight">\(\dfrac{1}{8}\)</span> or less.</strong></p>
+<section id="exercises-for-section-3-9">
+<h2>Exercises for Section 3.9<a class="headerlink" href="#exercises-for-section-3-9" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Show that if six integers are chosen at random, then at least two of them will have the same remainder when divided by 5.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Pick six integers <span class="math notranslate nohighlight">\(n_{1}\)</span>, <span class="math notranslate nohighlight">\(n_{2}\)</span>, <span class="math notranslate nohighlight">\(n_{3}\)</span>, <span class="math notranslate nohighlight">\(n_{4}\)</span>, <span class="math notranslate nohighlight">\(n_{5}\)</span>, and <span class="math notranslate nohighlight">\(n_{6}\)</span> at random. Imagine five boxes, labeled <code class="docutils literal notranslate"><span class="pre">REMAINDER</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">REMAINDER</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">REMAINDER</span> <span class="pre">=</span> <span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">REMAINDER</span> <span class="pre">=</span> <span class="pre">3</span></code>, and <code class="docutils literal notranslate"><span class="pre">REMAINDER</span> <span class="pre">=</span> <span class="pre">4</span></code>. Each of the picked integers has a remainder when divided by 5, and that remainder is always either 0, 1, 2, 3 or 4. For each <span class="math notranslate nohighlight">\(n_{i}\)</span>, let <span class="math notranslate nohighlight">\(r_{i}\)</span> be its remainder when divided by 5. Put <span class="math notranslate nohighlight">\(n_{i}\)</span> in the box labeled <code class="docutils literal notranslate"><span class="pre">REMAINDER</span> <span class="pre">=</span> </code><span class="math notranslate nohighlight">\(r_{i}\)</span>. We have now put six numbers in five boxes, so by the pigeonhole principle at least one box contains <span class="math notranslate nohighlight">\(\left\lceil \dfrac{6}{5} \right\rceil = 2\)</span> or more of the picked numbers in it. Those two numbers have the same remainder when divided by 5.
+Note that when we choose 4 integers at random, then we put 4 numbers in 5 boxes, so by the pigeonhole principle at least one box is empty and contains <span class="math notranslate nohighlight">\(\left\lfloor \dfrac{4}{5} \right\rfloor = 0\)</span> or less of the picked numbers in it.</p>
+</div>
+</details><ol class="arabic simple" start="2">
+<li><p>You deal a pile of cards, face down, from a standard 52-card deck. What is the least number of cards the pile must have before you can be assured that it contains at least five cards of the same suit?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(n\)</span> be the number of cards you need to deal before you can be assured that it contains at least five cards of the same suit. Imagine sorting the <span class="math notranslate nohighlight">\(n\)</span> cards into four boxes labeled <code class="docutils literal notranslate"><span class="pre">DIAMONDS</span></code>, <code class="docutils literal notranslate"><span class="pre">HEARTS</span></code>, <code class="docutils literal notranslate"><span class="pre">SPADES</span></code>, and <code class="docutils literal notranslate"><span class="pre">CLUBS</span></code> (one box for each of the 4 suits in a standard 52-card deck). The division principle says that at least one box contains <span class="math notranslate nohighlight">\(\left\lceil \dfrac{n}{4} \right\rceil\)</span> or more cards of the same suit. Provided that <span class="math notranslate nohighlight">\(\left\lceil \dfrac{n}{4} \right\rceil \geq 5\)</span>, you will know you have 5 cards of the same suit in the pile. This happens if <span class="math notranslate nohighlight">\(\dfrac{n}{4} &gt; 4\)</span> (so the ceiling of <span class="math notranslate nohighlight">\(\dfrac{n}{4}\)</span> rounds to a value larger than 4). Therefore you need <span class="math notranslate nohighlight">\(n &gt; 4 \cdot 4 = 16\)</span> , so if <span class="math notranslate nohighlight">\(n = 16\)</span> you know you have at least <span class="math notranslate nohighlight">\(\left\lceil \dfrac{16}{4} \right\rceil = \left\lceil 4.0 \right\rceil = 4\)</span> cards of the same suit. Adding just one card so that <span class="math notranslate nohighlight">\(n &gt; 16\)</span>, we get <span class="math notranslate nohighlight">\(\left\lceil \dfrac{17}{4} \right\rceil = \left\lceil 4.25 \right\rceil = 5\)</span>, so <span class="math notranslate nohighlight">\(n=17\)</span> is the least number of cards a pile must have before you can be assured that it contains at least five cards of the same suit.
+Alternatively: to avoid having 5 cards of the same suit for as long as possible, you could have at most: 4 <code class="docutils literal notranslate"><span class="pre">DIAMONDS</span></code> + 4 <code class="docutils literal notranslate"><span class="pre">HEARTS</span></code> + 4 <code class="docutils literal notranslate"><span class="pre">SPADES</span></code>+ 4 <code class="docutils literal notranslate"><span class="pre">CLUBS</span></code> which totals <span class="math notranslate nohighlight">\(4+4+4+4 = 16\)</span> cards. At this point, it is still possible that no suit has 5 cards. But the next card (the 17th card) must belong to one of the 4 suits, forcing one suit to have at least 5 cards.</p>
+</div>
+</details><ol class="arabic simple" start="3">
+<li><p>What is the fewest number of times you must roll a six-sided dice before you can be assured that 10 or more of the rolls resulted in the same number?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Imagine six boxes, labeled 1 through 6. Every time you roll a <span style="font-size: 25px; color: black;">⚀</span>, put an object in Box 1. Every time you roll a <span style="font-size: 25px; color: black;">⚁</span>, put an object in Box 2, etc. After <span class="math notranslate nohighlight">\(n\)</span> rolls, the division principle says that at least one box contains <span class="math notranslate nohighlight">\(\left\lceil \dfrac{n}{6} \right\rceil\)</span> or more objects, and this means you rolled the same number <span class="math notranslate nohighlight">\(\left\lceil \dfrac{n}{6} \right\rceil\)</span> times. We seek the smallest <span class="math notranslate nohighlight">\(n\)</span> for which <span class="math notranslate nohighlight">\(\left\lceil \dfrac{n}{6} \right\rceil \geq 10\)</span>. This is the smallest <span class="math notranslate nohighlight">\(n\)</span> for which <span class="math notranslate nohighlight">\(\dfrac{n}{6} &gt; 9\)</span>, that is <span class="math notranslate nohighlight">\(n &gt; 9 \cdot 6 = 54\)</span>. Thus the answer is <span class="math notranslate nohighlight">\(n = 55\)</span>. You need to roll the dice 55 times.</p>
+</div>
+</details><ol class="arabic simple" start="4">
+<li><p>Select any five points on a square whose side-length is one unit. Show that at least two of these points are within <span class="math notranslate nohighlight">\(\displaystyle \frac{\sqrt{2}}{2}\)</span> units of each other.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Divide the unit square into four congruent subsquares of side length <span class="math notranslate nohighlight">\(\dfrac{1}{2}\)</span>​. Each subsquare now has diagonal <span class="math notranslate nohighlight">\(\displaystyle \sqrt{\left(\frac12\right)^2+\left(\frac12\right)^2} = \frac{\sqrt2}{2}\)</span>. Since 5 points are placed into 4 subsquares, by the pigeonhole principle at least one subsquare contains at least <span class="math notranslate nohighlight">\(\left\lceil \dfrac{5}{4} \right\rceil = 2\)</span> points. Any two points in the same subsquare are at most the length of the diagonal apart, so those two points are within <span class="math notranslate nohighlight">\(\dfrac{\sqrt{2}}{2}\)</span> units of each other.</p>
+<!-- TODO: missing image: Drawing 2026-04-28 09.54.04.excalidraw -->
+<p class="sd-card-text">Note that “within <span class="math notranslate nohighlight">\(\dfrac{\sqrt{2}}{2}\)</span> units of each other” means that the distance is less than or equal to <span class="math notranslate nohighlight">\(\dfrac{\sqrt2}{2}\)</span>​​, so saying the maximum distance is exactly the diagonal is fine.</p>
+</div>
+</details><ol class="arabic simple" start="5">
+<li><p>Prove that any set of seven distinct natural numbers contains a pair of numbers whose sum or difference is divisible by 10.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(S = \{a_{1}, a_{2}, a_{3}, a_{4}, a_{5}, a_{6}, a_{7}\}\)</span> be any set of 7 natural numbers. Let’s say that <span class="math notranslate nohighlight">\(a_{1} &lt; a_{2} &lt; a_{3} &lt; \cdots &lt; a_{7}\)</span>. Consider the set <span class="math notranslate nohighlight">\(A = \{a_{1} - a_{2}, a_{1} - a_{3}, a_{1} - a_{4}, a_{1} - a_{5}, a_{1} - a_{6}, a_{1} - a_{7}, a_{1} + a_{2}, a_{1} + a_{3}, a_{1} + a_{4}, a_{1} + a_{5}, a_{1} + a_{6}, a_{1} + a_{7}\}\)</span>. Thus <span class="math notranslate nohighlight">\(|A| = 12\)</span>. Now imagine 10 boxes numbered <span class="math notranslate nohighlight">\(0,1,2,\ldots,9\)</span>. For each number <span class="math notranslate nohighlight">\(a_{1} \pm a_{i} \in A\)</span>, put it in the box whose number is the last digit of <span class="math notranslate nohighlight">\(a_{1} \pm a_{i}\)</span>. (For example, if <span class="math notranslate nohighlight">\(a_{1} \pm a_{i} = 4\)</span>, put it in Box 4. If <span class="math notranslate nohighlight">\(a_{1} \pm a_{i} = 8\)</span>, put it in Box 8, etc.) Now we have placed the 12 numbers in <span class="math notranslate nohighlight">\(A\)</span> into 10 boxes, so the pigeonhole principle says at least one box contains two elements <span class="math notranslate nohighlight">\(a_{1} \pm a_{i}\)</span> and <span class="math notranslate nohighlight">\(a_{1} \pm a_{j}\)</span> from <span class="math notranslate nohighlight">\(A\)</span>. This means the last digit of <span class="math notranslate nohighlight">\(a_{1} \pm a_{i}\)</span> is the same as the last digit of <span class="math notranslate nohighlight">\(a_{1} \pm a_{j}\)</span>. Thus the last digit of the difference <span class="math notranslate nohighlight">\((a_{1} \pm a_{i}) - (a_{1} \pm a_{j}) = \pm a_{i} \pm a_{j}\)</span> is 0. Hence <span class="math notranslate nohighlight">\(\pm a_{i} \pm a_{j}\)</span> is a sum or difference of elements of <span class="math notranslate nohighlight">\(S\)</span> that is divisible by 10.</p>
+<p class="sd-card-text">Alternatively: look at each number modulo 10. Put the possible remainders into these 6 boxes: <span class="math notranslate nohighlight">\(\{0\}, \{5\}, \{1,9\}, \{2,8\}, \{3,7\}, \{4,6\}\)</span>. These boxes are chosen because: (a) if two numbers have the same remainder, then their difference is divisible by 10, and (b) if two numbers have opposite remainders, like 1 and 9, then their sum is divisible by 10. There are 7 natural numbers and only 6 boxes. By the pigeonhole principle, two numbers must fall into the same box. If they have the same remainder modulo 10, their difference is divisible by 10. If their remainders are paired opposites, their sum is divisible by 10. Therefore, any set of 7 distinct natural numbers contains a pair whose sum or difference is divisible by 10.</p>
+</div>
+</details><ol class="arabic simple" start="6">
+<li><p>Given a sphere <span class="math notranslate nohighlight">\(S\)</span>, a great circle of <span class="math notranslate nohighlight">\(S\)</span> is the intersection of <span class="math notranslate nohighlight">\(S\)</span> with a plane through its center. Every great circle divides <span class="math notranslate nohighlight">\(S\)</span> into two parts. A hemisphere is the union of the great circle and one of these two parts. Show that if five points are placed arbitrarily on <span class="math notranslate nohighlight">\(S\)</span>, then there is a hemisphere that contains four of them.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Start by choosing any 2 of the 5 points on the sphere <span class="math notranslate nohighlight">\(S\)</span>. There is a great circle passing through both of them. This great circle divides the sphere into 2 closed hemispheres, and the chosen 2 points lie on the boundary, so they belong to both hemispheres.</p>
+<!-- TODO: missing image: Drawing 2026-04-28 10.39.23.excalidraw -->
+<p class="sd-card-text">The remaining 3 points now lie in the 2 hemispheres. By the pigeonhole principle, at least one hemisphere contains at least <span class="math notranslate nohighlight">\(\left\lceil \dfrac{3}{2} \right\rceil = 2\)</span> of the remaining points. Since that same hemisphere also contains the original 2 boundary points on the great circle, it contains at least <span class="math notranslate nohighlight">\(2+2=4\)</span> points in total. Therefore, there is a hemisphere that contains at least 4 of the 5 points on the sphere <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p class="sd-card-text">Note that it is always possible to draw a unique great circle through any two distinct points on the surface of a sphere, if the two chosen points are not antipodal. Through two non-antipodal points and the center, there is a unique plane, and hence a great circle containing them. If the two points are antipodal (two points on a sphere are antipodal if they are opposite through the centre), there are infinitely many great circles through them.</p>
+</div>
+</details></section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="03-10-combinatorial-proof.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">3.10 Combinatorial Proof</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="03-8-counting-multisets.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">3.8 Counting Multisets</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">3.9 The Division and Pigeonhole Principles</a><ul>
+<li><a class="reference internal" href="#exercises-for-section-3-9">Exercises for Section 3.9</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

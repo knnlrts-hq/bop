@@ -1,0 +1,537 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="3.8 Counting Multisets" href="03-8-counting-multisets.html"><link rel="prev" title="3.6 Pascal’s Triangle and the Binomial Theorem" href="03-6-pascals-triangle-and-the-binomial-theorem.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
+        <title>3.7 The Inclusion-Exclusion Principle - Book of Proof — Annotated documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Sections</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-1-introduction-to-sets.html">1.1 Introduction to Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-2-the-cartesian-product.html">1.2 The Cartesian Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-3-subsets.html">1.3 Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-4-power-sets.html">1.4 Power Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-5-union-intersection-difference.html">1.5 Union, Intersection, Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-6-complement.html">1.6 Complement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-7-venn-diagrams.html">1.7 Venn Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-8-indexed-sets.html">1.8 Indexed Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-9-sets-that-are-number-systems.html">1.9 Sets That Are Number Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-10-russells-paradox.html">1.10 Russell’s Paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-1-statements.html">2.1 Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-2-and-or-not.html">2.2 And, Or, Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-3-conditional-statements.html">2.3 Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-4-biconditional-statements.html">2.4 Biconditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-5-truth-tables-for-statements.html">2.5 Truth Tables for Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-6-logical-equivalence.html">2.6 Logical Equivalence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-7-quantifiers.html">2.7 Quantifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-8-more-on-conditional-statements.html">2.8 More on Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-9-translating-english-to-symbolic-logic.html">2.9 Translating English to Symbolic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-10-negating-statements.html">2.10 Negating Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-11-logical-inference.html">2.11 Logical Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-12-an-important-note.html">2.12 An Important Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-1-lists.html">3.1 Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-2-the-multiplication-principle.html">3.2 The Multiplication Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-3-the-addition-and-subtraction-principles.html">3.3 The Addition and Subtraction Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-4-factorials-and-permutations.html">3.4 Factorials and Permutations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-5-counting-subsets.html">3.5 Counting Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-6-pascals-triangle-and-the-binomial-theorem.html">3.6 Pascal’s Triangle and the Binomial Theorem</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">3.7 The Inclusion-Exclusion Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-8-counting-multisets.html">3.8 Counting Multisets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-9-the-division-and-pigeonhole-principles.html">3.9 The Division and Pigeonhole Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-10-combinatorial-proof.html">3.10 Combinatorial Proof</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/chapters/03-7-the-inclusion-exclusion-principle.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="the-inclusion-exclusion-principle">
+<h1>3.7 The Inclusion-Exclusion Principle<a class="headerlink" href="#the-inclusion-exclusion-principle" title="Link to this heading">¶</a></h1>
+<p><strong>Many counting problems involve computing the cardinality of a union <span class="math notranslate nohighlight">\(A \cup B\)</span> of two finite sets. We examine this kind of problem now. First we develop a formula for <span class="math notranslate nohighlight">\(|A \cup B|\)</span>. It is tempting to say that <span class="math notranslate nohighlight">\(|A \cup B|\)</span> must equal <span class="math notranslate nohighlight">\(|A| + |B|\)</span>, but that is not quite right. If we count the elements of <span class="math notranslate nohighlight">\(A\)</span> and then count the elements of <span class="math notranslate nohighlight">\(B\)</span> and add the two figures together, we get <span class="math notranslate nohighlight">\(|A| + |B|\)</span>. But if <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> have some elements in common, then we have counted each element in <span class="math notranslate nohighlight">\(A \cap B\)</span> twice.</strong></p>
+<img alt="../_images/9730b5eeb7b63dc9d22be314221a0431d4d688c9cbc78558acf30f9b6250b4cc.jpg" src="../_images/9730b5eeb7b63dc9d22be314221a0431d4d688c9cbc78558acf30f9b6250b4cc.jpg" />
+<p><strong>Therefore <span class="math notranslate nohighlight">\(|A| + |B|\)</span> exceeds <span class="math notranslate nohighlight">\(|A \cup B|\)</span> by <span class="math notranslate nohighlight">\(|A \cap B|\)</span>, and consequently <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B| - |A \cap B|\)</span>. This can be a useful equation.</strong></p>
+<p><strong><mark>Fact 3.6: (Inclusion-Exclusion Formula) If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are finite sets, then <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B| - |A \cap B|\)</span>.</mark></strong></p>
+<p><strong><mark>Notice that the sets <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(A \cap B\)</span> are all generally smaller than <span class="math notranslate nohighlight">\(A \cup B\)</span>, so Fact 3.6 has the potential of reducing the problem of determining <span class="math notranslate nohighlight">\(|A \cup B|\)</span> to three simpler counting problems. It is called the inclusion-exclusion formula because elements in <span class="math notranslate nohighlight">\(A \cap B\)</span> are included (twice) in <span class="math notranslate nohighlight">\(|A| + |B|\)</span>, then excluded when <span class="math notranslate nohighlight">\(|A \cap B|\)</span> is subtracted. Notice that if <span class="math notranslate nohighlight">\(A \cap B = \varnothing\)</span>, then we do in fact get <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B|\)</span>. (This is an instance of the addition principle!) Conversely, if <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B|\)</span>, then it must be that <span class="math notranslate nohighlight">\(A \cap B = \varnothing\)</span>.</mark></strong></p>
+<p><strong>Example 3.17: A 3-card hand is dealt off of a standard 52-card deck. How many different such hands are there for which all three cards are red or all three cards are face cards?</strong></p>
+<p><strong>Solution: Let <span class="math notranslate nohighlight">\(A\)</span> be the set of 3-card hands where all three cards are red (i.e., either <span class="math notranslate nohighlight">\(\heartsuit\)</span> or <span class="math notranslate nohighlight">\(\diamondsuit\)</span>). Let <span class="math notranslate nohighlight">\(B\)</span> be the set of 3-card hands in which all three cards are face cards (i.e., <span class="math notranslate nohighlight">\(J\)</span>, <span class="math notranslate nohighlight">\(Q\)</span> or <span class="math notranslate nohighlight">\(K\)</span> of any suit). These sets are illustrated below.</strong></p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260324170610.png"><img alt="assets/Pastedimage20260324170610.png" src="assets/Pastedimage20260324170610.png" style="width: 1000px;" />
+</a>
+<p><strong>We seek the number of 3-card hands that are all red or all face cards, and this number is <span class="math notranslate nohighlight">\(|A \cup B|\)</span>. By Fact 3.6, <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B| - |A \cap B|\)</span>. Let’s examine <span class="math notranslate nohighlight">\(|A|, |B|\)</span> and <span class="math notranslate nohighlight">\(|A \cap B|\)</span> separately. Any hand in <span class="math notranslate nohighlight">\(A\)</span> is formed by selecting three cards from the 26 red cards in the deck, so <span class="math notranslate nohighlight">\(\displaystyle |A| = \binom{26}{3}\)</span>. Similarly, any hand in <span class="math notranslate nohighlight">\(B\)</span> is formed by selecting three cards from the 12 face cards in the deck (<span class="math notranslate nohighlight">\(4J + 4Q + 4K\)</span>), so <span class="math notranslate nohighlight">\(\displaystyle |B| = \binom{12}{3}\)</span>. Now think about <span class="math notranslate nohighlight">\(A \cap B\)</span>. It contains all the 3-card hands made up of cards that are red face cards.</strong></p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260324170636.png"><img alt="assets/Pastedimage20260324170636.png" src="assets/Pastedimage20260324170636.png" style="width: 1000px;" />
+</a>
+<p><strong>The deck has only 6 red face cards, so <span class="math notranslate nohighlight">\(\displaystyle |A \cap B| = \binom{6}{3}\)</span>. Now we can answer our question. The number of 3-card hands that are all red or all face cards is <span class="math notranslate nohighlight">\(\displaystyle |A \cup B| = |A| + |B| - |A \cap B| = \binom{26}{3} + \binom{12}{3} - \binom{6}{3} = 2600 + 220 - 20 = 2800\)</span>.</strong></p>
+<p>Example 3.18: A 3-card hand is dealt off of a standard 52-card deck. How many different such hands are there for which it is not the case that all 3 cards are red or all three cards are face cards?</p>
+<p>Solution: We will use the subtraction principle combined with our answer to Example 3.17, above. The total number of 3-card hands is <span class="math notranslate nohighlight">\(\displaystyle \binom{52}{3} = \dfrac{52!}{3! \cdot (52-3)!} = \dfrac{52!}{3! \cdot 49!} = \dfrac{52 \cdot 51 \cdot 50}{3!} = 26 \cdot 17 \cdot 50 = 22,100\)</span>. To get our answer, we must subtract from this the number of 3-card hands that are all red or all face cards, that is, we must subtract the answer from Example 3.17. Thus the answer to our question is <span class="math notranslate nohighlight">\(22,100 - 2800 = 19,300\)</span>.</p>
+<p><strong><mark>There is an analogue of Fact 3.6 that involves three sets. Consider three sets <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(C\)</span>, as represented in the following Venn Diagram.</mark></strong></p>
+<img alt="../_images/c3899e681f7120a098b1e2a4337384d8d12cb42b084dab5944111c7c57f4cb9a.jpg" src="../_images/c3899e681f7120a098b1e2a4337384d8d12cb42b084dab5944111c7c57f4cb9a.jpg" />
+<p><strong><mark>Using the same kind of reasoning that resulted in Fact 3.6, you can convince yourself that</mark></strong></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C| \tag {3.5}
+\]</div>
+</div>
+<p>Note in <span class="math notranslate nohighlight">\(|A| + |B| + |C|\)</span> that any element that is common to 2 sets is counted twice, and that any element that is common to all 3 sets is counted 3 times! As such, each pairwise, triple, quadruple, etc. intersection corrects the previous step, and that is why the sign alternates, i.e.: the <span class="math notranslate nohighlight">\(- |A \cap B| - |A \cap C| - |B \cap C|\)</span> pairwise intersections exclude all of the elements that were included twice, while <span class="math notranslate nohighlight">\(+ |A \cap B \cap C|\)</span> includes again all the elements from the triple intersection that were excluded in the previous step.</p>
+<p><strong>There’s probably not much harm in ignoring this one for now, but if you find this kind of thing intriguing you should definitely take a course in combinatorics. (Ask your instructor!)</strong></p>
+<section id="exercises-for-section-3-7">
+<h2>Exercises for Section 3.7<a class="headerlink" href="#exercises-for-section-3-7" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>At a certain university 523 of the seniors are history majors or math majors (or both). There are 100 senior math majors, and 33 seniors are majoring in both history and math. How many seniors are majoring in history?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of senior math majors and <span class="math notranslate nohighlight">\(B\)</span> be the set of senior history majors. From <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B| - |A \cap B|\)</span> we get <span class="math notranslate nohighlight">\(523 = 100 + |B| - 33\)</span>, so <span class="math notranslate nohighlight">\(|B| = 523 + 33 - 100 = 456\)</span>. There are 456 history majors.</p>
+</div>
+</details><ol class="arabic simple" start="2">
+<li><p>How many 4-digit positive integers are there for which there are no repeated digits, or for which there may be repeated digits, but all digits are odd?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of 4-digit positive integers for which there are no repeated digits, and let <span class="math notranslate nohighlight">\(B\)</span> be the set of 4-digit positive integers for which there may be repeated digits, but all digits are odd. We seek <span class="math notranslate nohighlight">\(|A \cup B|\)</span>. By the multiplication principle <span class="math notranslate nohighlight">\(|A| = 9 \cdot 9 \cdot 8 \cdot 7 = 4536\)</span>. (Note the first digit cannot be 0.) Also <span class="math notranslate nohighlight">\(|B| = 5 \cdot 5 \cdot 5 \cdot 5 = 625\)</span>. Further, <span class="math notranslate nohighlight">\(A \cap B\)</span> consists of all 4-digit positive integers for which there are no repeated digits and all digits are odd. It follows that <span class="math notranslate nohighlight">\(|A \cap B| = 5 \cdot 4 \cdot 3 \cdot 2 = 120\)</span>. Then the answer to our question is <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B| - |A \cap B|=  4536 + 625 - 120 = 5041\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="3">
+<li><p>How many 4-digit positive integers are there that are even or contain no 0’s? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of 4-digit even positive integers, and let <span class="math notranslate nohighlight">\(B\)</span> be the set of 4-digit positive integers that contain no 0’s. We seek <span class="math notranslate nohighlight">\(|A \cup B|\)</span>. By the multiplication principle <span class="math notranslate nohighlight">\(|A| = 9 \cdot 10 \cdot 10 \cdot 5 = 4500\)</span>. (Note the first digit cannot be 0 and the last digit must be even. Also note that <span class="math notranslate nohighlight">\(10000 \div 2 = 5000\)</span> is not correct here, because it also counts the NON-4-digit even numbers!) Also <span class="math notranslate nohighlight">\(|B| = 9 \cdot 9 \cdot 9 \cdot 9 = 6561\)</span>. Further, <span class="math notranslate nohighlight">\(A \cap B\)</span> consists of all even 4-digit integers that have no 0’s. It follows that <span class="math notranslate nohighlight">\(|A \cap B| = 9 \cdot 9 \cdot 9 \cdot 4 = 2916\)</span>. Then the answer to our question is <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B| - |A \cap B|=  4500 + 6561 - 2916 = 8145\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="4">
+<li><p>This problem involves lists made from the letters <span class="math notranslate nohighlight">\(T , H , E , O , R , Y\)</span>, with repetition allowed.
+(a) How many 4-letter lists are there that don’t begin with <span class="math notranslate nohighlight">\(T\)</span>, or don’t end in <span class="math notranslate nohighlight">\(Y\)</span>? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of 4-letter lists that don’t begin with <span class="math notranslate nohighlight">\(T\)</span>, and let <span class="math notranslate nohighlight">\(B\)</span> be the set of 4-letter lists that don’t end in <span class="math notranslate nohighlight">\(Y\)</span>. We seek <span class="math notranslate nohighlight">\(|A \cup B|\)</span>. By the multiplication principle <span class="math notranslate nohighlight">\(|A| = 5 \cdot 6 \cdot 6 \cdot 6 = 1080\)</span>. Also <span class="math notranslate nohighlight">\(|B| = 6 \cdot 6 \cdot 6 \cdot 5 = 1080\)</span>. Further, <span class="math notranslate nohighlight">\(A \cap B\)</span> consists of all 4-letter lists that don’t begin with <span class="math notranslate nohighlight">\(T\)</span> AND don’t end in <span class="math notranslate nohighlight">\(Y\)</span>. It follows that <span class="math notranslate nohighlight">\(|A \cap B| = 5 \cdot 6 \cdot 6 \cdot 5 = 900\)</span>. Then the answer to our question is <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B| - |A \cap B|=  1080 + 1080 - 900 = 1260\)</span>.</p>
+</div>
+</details><p>(b) How many 4-letter lists are there in which the sequence of letters <span class="math notranslate nohighlight">\(T , H , E\)</span> appears consecutively (in that order)?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The 4-letter lists we want to make can be divided into 2 types. They have the forms:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(A_{1}\)</span> : <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">H</span> <span class="pre">E</span> <span class="pre">*</span></code></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(A_{2}\)</span> : <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">T</span> <span class="pre">H</span> <span class="pre">E</span></code></p></li>
+</ul>
+<p class="sd-card-text">where <code class="docutils literal notranslate"><span class="pre">*</span></code> indicates any letter from the set <span class="math notranslate nohighlight">\(\{T , H , E , O , R , Y\}\)</span>. By the multiplication principle, there are <span class="math notranslate nohighlight">\(|A_{1}| = 1 \cdot 1 \cdot 1 \cdot 6 = 6\)</span> lists of form <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">H</span> <span class="pre">E</span> <span class="pre">*</span></code>. Similarly there are <span class="math notranslate nohighlight">\(|A_{2}| = 6 \cdot 1 \cdot 1 \cdot 1 = 6\)</span> lists of form <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">T</span> <span class="pre">H</span> <span class="pre">E</span></code>. Thus by the addition principle, the answer to the question is <span class="math notranslate nohighlight">\(|A| = |A_{1}| + |A_{2}| = 6 + 6 = 12\)</span>.</p>
+</div>
+</details><p>(c) How many 6-letter lists are there in which the sequence of letters <span class="math notranslate nohighlight">\(T, H, E\)</span> appears consecutively (in that order)?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The 6-letter lists we want to make can be divided into 4 types. They have the forms:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(A_{1}\)</span> : <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">H</span> <span class="pre">E</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span></code></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(A_{2}\)</span> : <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">T</span> <span class="pre">H</span> <span class="pre">E</span> <span class="pre">*</span> <span class="pre">*</span></code></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(A_{3}\)</span> : <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">*</span> <span class="pre">T</span> <span class="pre">H</span> <span class="pre">E</span> <span class="pre">*</span></code></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(A_{4}\)</span> : <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">T</span> <span class="pre">H</span> <span class="pre">E</span></code></p></li>
+</ul>
+<p class="sd-card-text">where <code class="docutils literal notranslate"><span class="pre">*</span></code> indicates any letter from the set <span class="math notranslate nohighlight">\(\{T , H , E , O , R , Y\}\)</span>. By the multiplication principle, there are <span class="math notranslate nohighlight">\(|A_{1}| = 1 \cdot 1 \cdot 1 \cdot 6 \cdot 6 \cdot 6 = 216\)</span> lists of form <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">H</span> <span class="pre">E</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span></code>. Similarly there are <span class="math notranslate nohighlight">\(|A_{2}| = |A_{3}| = |A_{4}| = 216\)</span> lists of the other forms. Thus by the addition principle, the answer to the question is <span class="math notranslate nohighlight">\(|A| = |A_{1}| + |A_{2}| + |A_{3}| + |A_{4}| = 4 \cdot 216 = 864\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="5">
+<li><p>How many 7-digit binary strings begin in 1 or end in 1 or have exactly four 1’s? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of such strings that begin in 1. Let <span class="math notranslate nohighlight">\(B\)</span> be the set of such strings that end in 1. Let <span class="math notranslate nohighlight">\(C\)</span> be the set of such strings that have exactly four 1’s. Then the answer to our question is <span class="math notranslate nohighlight">\(|A \cup B \cup C|\)</span>. Using Equation (3.5) to compute this number, we have <span class="math notranslate nohighlight">\(\displaystyle |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C| = 2^{6} + 2^{6} + \binom{7}{4} - 2^{5} - \binom{6}{3} - \binom{6}{3} + \binom{5}{2} = 64 + 64 + 35 - 32 - 20 - 20 + 10 = 101\)</span>.
+Note that <span class="math notranslate nohighlight">\(|C| = \displaystyle \binom{7}{4}\)</span> counts the number of 7-digit binary strings that have exactly four 1’s (order does not matter): we choose 4 positions out of 7 for placing the 1’s, and the remaining positions are automatically filled with 0’s. Likewise <span class="math notranslate nohighlight">\(|A \cap C| = |B \cap C| = \displaystyle \binom{6}{3}\)</span>: we choose 3 out of 6 positions for placing the 1’s, because the 1 in the first position (in the case of <span class="math notranslate nohighlight">\(A\)</span>) OR the 1 in the last position (in the case of <span class="math notranslate nohighlight">\(B\)</span>) is already fixed.  <span class="math notranslate nohighlight">\(|A \cap B \cap C| = \displaystyle \binom{5}{2}\)</span>: we choose 2 out of 5 positions for placing the 1’s, because the 1 in the first position AND the 1 in the last position is already fixed.</p>
+</div>
+</details><ol class="arabic simple" start="6">
+<li><p>Is the following statement true or false? Explain. If <span class="math notranslate nohighlight">\(A_{1} \cap A_{2} \cap A_{3} = \varnothing\)</span>, then <span class="math notranslate nohighlight">\(| A_{1} \cup A_{2} \cup A_{3} | = | A_{1} | + | A_{2} | + | A_{3} |\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This statement is false. By Equation (3.5), we have: <span class="math notranslate nohighlight">\(|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|\)</span>. Even if the triple intersection <span class="math notranslate nohighlight">\(|A \cap B \cap C|\)</span> is empty, then the same pairwise intersections <span class="math notranslate nohighlight">\(|A \cap B|\)</span>, <span class="math notranslate nohighlight">\(|A \cap C|\)</span>, or <span class="math notranslate nohighlight">\(|B \cap C|\)</span> may still be non-empty! If there is no element that is common to all 3 sets, that does not say anything about any elements that are common to 2  of the 3 sets.
+Take the counterexample: let <span class="math notranslate nohighlight">\(A = \{1\}\)</span>, <span class="math notranslate nohighlight">\(B = \{1\}\)</span>, and <span class="math notranslate nohighlight">\(C = \{2\}\)</span>, then <span class="math notranslate nohighlight">\(A \cap B \cap C = \varnothing\)</span>, but <span class="math notranslate nohighlight">\(A \cap B = \{1\}\)</span>.
+Note that the other way around is always true: if all pairwise intersections are empty <span class="math notranslate nohighlight">\(A_{1} \cap A_{2} = A_{1} \cap A_{3} = A_{2} \cap A_{3} = \varnothing\)</span>, then the triple intersection must always be empty as well <span class="math notranslate nohighlight">\(A_{1} \cap A_{2} \cap A_{3} = \varnothing\)</span> and thus it follows that <span class="math notranslate nohighlight">\(| A_{1} \cup A_{2} \cup A_{3} | = | A_{1} | + | A_{2} | + | A_{3} |\)</span>. This is always true, because <span class="math notranslate nohighlight">\((A \cap B \cap C) \subseteq (A \cap B)\)</span>, but not the other way around: <span class="math notranslate nohighlight">\((A \cap B) \not \subseteq (A \cap B \cap C)\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="7">
+<li><p>Consider 4-card hands dealt off of a standard 52-card deck. How many hands are there for which all 4 cards are of the same suit or all 4 cards are red? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of 4-card hands for which all four cards are of the same suit. Let <span class="math notranslate nohighlight">\(B\)</span> be the set of 4-card hands for which all four cards are red. Then <span class="math notranslate nohighlight">\(A \cap B\)</span> is the set of 4-card hands for which the four cards are either all hearts or all diamonds. The answer to our question is <span class="math notranslate nohighlight">\(\displaystyle |A \cup B| = |A| + |B| - |A \cap B| = 4 \cdot \binom{13}{4} + \binom{26}{4} - 2 \cdot \binom{13}{4} = 2 \cdot \binom{13}{4} + \binom{26}{4} = 1430 + 14,950 = 16,380\)</span>.
+Note that <span class="math notranslate nohighlight">\(\displaystyle |A| = 4 \cdot \binom{13}{4}\)</span>, as there are <span class="math notranslate nohighlight">\(\displaystyle \binom{13}{4}\)</span> ways to choose 4 cards from the same suit (each suit has 13 cards), and there are 4 suits in a standard deck of cards. <span class="math notranslate nohighlight">\(\displaystyle |B| = \binom{26}{4}\)</span>, as there are <span class="math notranslate nohighlight">\(\displaystyle \binom{26}{4}\)</span> ways to choose 4 cards out of all red cards (there are 26 red cards in a standard deck of cards). <span class="math notranslate nohighlight">\(\displaystyle |A \cap B| = 2 \cdot \binom{13}{4}\)</span>, as there are <span class="math notranslate nohighlight">\(\displaystyle \binom{13}{4}\)</span> ways to choose 4 cards from the same suit (each suit has 13 cards), and there are 2 red suits in a standard deck of cards.</p>
+</div>
+</details><ol class="arabic simple" start="8">
+<li><p>Consider 4-card hands dealt off of a standard 52-card deck. How many hands are there for which all 4 cards are of different suits or all 4 cards are red?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of 4-card hands for which all four cards are of differerent suits. <span class="math notranslate nohighlight">\(|A| = 13 \cdot 13 \cdot 13 \cdot 13 = 13^{4} = 28,561\)</span>. Let <span class="math notranslate nohighlight">\(B\)</span> be the set of 4-card hands for which all four cards are red. <span class="math notranslate nohighlight">\(\displaystyle |B| = \binom{26}{4} = 14,950\)</span>. Then <span class="math notranslate nohighlight">\(A \cap B\)</span> is the set of 4-card hands for which all four cards are from different suits AND all four cards are red. <span class="math notranslate nohighlight">\(A \cap B = \varnothing\)</span>, so <span class="math notranslate nohighlight">\(|A \cap B| = 0\)</span> (a four-card hand cannot have both all four cards from different suits AND have all four cards be red, because only hearts and diamonds are red). The answer to our question is <span class="math notranslate nohighlight">\(\displaystyle |A \cup B| = |A| + |B| - |A \cap B| = 13^{4} + \binom{26}{4} - 0 = 28,561 + 14,950 = 43,511\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="9">
+<li><p>A 4-letter list is made from the letters <span class="math notranslate nohighlight">\(L , I , S , T , E , D\)</span> according to the following rule: Repetition is allowed, and the first two letters on the list are vowels or the list ends in <span class="math notranslate nohighlight">\(D\)</span>. How many such lists are possible? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Note that repetition is allowed. Let <span class="math notranslate nohighlight">\(A\)</span> be the set of such 4-letter lists for which the first two letters are vowels, so <span class="math notranslate nohighlight">\(|A| = 2 \cdot 2 \cdot 6 \cdot 6 = 144\)</span>. Let <span class="math notranslate nohighlight">\(B\)</span> be the set of such 4-letter lists that end in <span class="math notranslate nohighlight">\(D\)</span>, so <span class="math notranslate nohighlight">\(|B| = 6 \cdot 6 \cdot 6 \cdot 1 = 216\)</span>. Then <span class="math notranslate nohighlight">\(A \cap B\)</span> is the set of such 4-letter lists for which the first two entries are vowels and the list ends in <span class="math notranslate nohighlight">\(D\)</span>. Thus <span class="math notranslate nohighlight">\(|A \cap B| = 2 \cdot 2 \cdot 6 \cdot 1 = 24\)</span>. The answer to our question is <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B| - |A \cap B| =  144 + 216 - 24 = 336\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="10">
+<li><p>How many 6-digit numbers are even or are divisible by 5?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of 6-digit numbers that are even, and let <span class="math notranslate nohighlight">\(B\)</span> be the set of 6-digit that are divisible by 5. We seek <span class="math notranslate nohighlight">\(|A \cup B|\)</span>. By the multiplication principle <span class="math notranslate nohighlight">\(|A| = 9 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 5 = 450,000\)</span> (note the first digit cannot be 0 and the last digit must be even. Even means that the last digit is one of: <span class="math notranslate nohighlight">\(\{0,2,4,6,8\}\)</span>. Also note that <span class="math notranslate nohighlight">\(1,000,000 \div 2 = 500,000\)</span> is not correct here, because it also counts the NON-6-digit even numbers!). <span class="math notranslate nohighlight">\(|B| = 9 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 2 = 180,000\)</span> (note the first digit cannot be 0 and the last digit must be divisible by 5, which means that the last digit is one of: <span class="math notranslate nohighlight">\(\{0,5\}\)</span>). Further, <span class="math notranslate nohighlight">\(A \cap B\)</span> consists of all 6-digit numbers that are even and divisible by 5. It follows that <span class="math notranslate nohighlight">\(|A \cap B| = 9 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 1 = 90,000\)</span> (note the first digit cannot be 0 and the last digit must be even AND divisible by 5, which means that the last digit can only be: <span class="math notranslate nohighlight">\(\{0\}\)</span>). Then the answer to our question is <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B| - |A \cap B|=  450,000 + 180,000 - 90,000 = 540,000\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="11">
+<li><p>How many 7-digit numbers are even or have exactly three digits equal to 0? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of 7-digit numbers that are even. By the multiplication principle, <span class="math notranslate nohighlight">\(|A| = 9 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 5 = 4,500,000\)</span> (note that the first digit cannot be 0 and the last digit must be even. Even means that the last digit is one of: <span class="math notranslate nohighlight">\(\{0,2,4,6,8\}\)</span>. Also note that <span class="math notranslate nohighlight">\(10,000,000 \div 2 = 5,000,000\)</span> is not correct here, because it also counts the NON-7-digit even numbers!). Let <span class="math notranslate nohighlight">\(B\)</span> be the set of 7-digit numbers that have exactly three digits equal to 0. Then <span class="math notranslate nohighlight">\(\displaystyle |B| = 9 \cdot \binom{6}{3} \cdot 9 \cdot 9 \cdot 9\)</span> (note that the first digit is anything but 0. Then choose 3 of 6 of the remaining places in the number for the 0’s. Finally the remaining 3 places can be anything but 0.)
+Note <span class="math notranslate nohighlight">\(A \cap B\)</span> is the set of 7-digit numbers that are even AND contain exactly three 0’s. We can compute <span class="math notranslate nohighlight">\(|A \cap B|\)</span> with the addition principle, by dividing <span class="math notranslate nohighlight">\(A \cap B\)</span> into two parts: the even 7-digit numbers with three digits 0 and the last digit is not 0, and the even 7-digit numbers with three digits 0 and the last digit is 0. The first part has <span class="math notranslate nohighlight">\(\displaystyle 9 \cdot \binom{5}{3} \cdot 9 \cdot 9 \cdot 4\)</span> elements. The second part has <span class="math notranslate nohighlight">\(\displaystyle 9 \cdot \binom{5}{2} \cdot 9 \cdot 9 \cdot 9 \cdot 1\)</span> elements. Thus <span class="math notranslate nohighlight">\(\displaystyle |A \cap B| = 9 \cdot \binom{5}{3} \cdot 9 \cdot 9 \cdot 4 + 9 \cdot \binom{5}{2} \cdot 9 \cdot 9 \cdot 9\)</span>.
+By the inclusion-exclusion formula, the answer to our question is <span class="math notranslate nohighlight">\(\displaystyle |A \cup B| = |A| + |B| - |A \cap B| =  4,500,000 + 9^{4} \binom{6}{3} - 9^{3} \binom{5}{3} \cdot 4 - 9^{4} \binom{5}{2} =  4,536,450\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="12">
+<li><p>How many 5-digit numbers are there in which three of the digits are 7, or two of the digits are 2?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of 5-digit numbers in which three of the digits are 7. We can compute <span class="math notranslate nohighlight">\(|A|\)</span> with the addition principle, by dividing <span class="math notranslate nohighlight">\(A\)</span> into two parts: the 5-digit numbers with three of the digits equal to 7 and the first digit is not 7 (<span class="math notranslate nohighlight">\(A_{1}\)</span>), and the 5-digit numbers with three of the digits equal to 7 and the first digit is 7 (<span class="math notranslate nohighlight">\(A_{2}\)</span>). <span class="math notranslate nohighlight">\(\displaystyle |A_{1}| = 8 \cdot \binom{4}{3} \cdot 9 = 288\)</span> elements (note that the first position cannot be 0 and cannot be 7; we choose 3 positions out of the 4 positions left to put 7’s; the remaining position cannot be 7). <span class="math notranslate nohighlight">\(\displaystyle |A_{2}| = 1 \cdot \binom{4}{2} \cdot 9 \cdot 9 = 486\)</span> elements (note that the first position is 7; we choose 2 positions out of the 4 positions left to put 7’s; the remaining positions cannot be 7). Thus <span class="math notranslate nohighlight">\(\displaystyle |A| = |A_{1}| + |A_{2}| = 288 + 486 = 774\)</span>.
+Let <span class="math notranslate nohighlight">\(B\)</span> be the set of 5-digit numbers in which two of the digits are 2. We can compute <span class="math notranslate nohighlight">\(|B|\)</span> with the addition principle, by dividing <span class="math notranslate nohighlight">\(B\)</span> into two parts: the 5-digit numbers with two of the digits equal to 2 and the first digit is not 2 (<span class="math notranslate nohighlight">\(B_{1}\)</span>), and the 5-digit numbers with two of the digits equal to 2 and the first digit is 2 (<span class="math notranslate nohighlight">\(B_{2}\)</span>). <span class="math notranslate nohighlight">\(\displaystyle |B_{1}| = 8 \cdot \binom{4}{2} \cdot 9 \cdot 9 = 3888\)</span> elements (note that the first position cannot be 0 and cannot be 2; we choose 2 positions out of the 4 positions left to put 2’s; the remaining positions cannot be 2). <span class="math notranslate nohighlight">\(\displaystyle |B_{2}| = 1 \cdot \binom{4}{1} \cdot 9 \cdot 9 \cdot 9 = 2916\)</span> elements (note that the first position is 2; we choose 1 position out of the 4 positions left to put a 2; the remaining positions cannot be 2). Thus <span class="math notranslate nohighlight">\(\displaystyle |B| = |B_{1}| + |B_{2}| = 3888 + 2916 = 6804\)</span>.
+Note <span class="math notranslate nohighlight">\(A \cap B\)</span> is the set of 5-digit numbers that have three of the digits equal to 7 AND two of the digits equal to 2. <span class="math notranslate nohighlight">\(\displaystyle |A \cap B| = \binom{5}{3} \cdot \binom{2}{2} = \binom{5}{2} \cdot \binom{3}{3} = 10\)</span> elements.
+By the inclusion-exclusion formula, the answer to our question is <span class="math notranslate nohighlight">\(\displaystyle |A \cup B| = |A| + |B| - |A \cap B| =  774 + 6804 - 10 =  7568\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="13">
+<li><p>How many 8-digit binary strings end in 1 or have exactly four 1’s? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of strings that end in 1. By the multiplication principle <span class="math notranslate nohighlight">\(|A| = 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 1 = 2^{7}\)</span>. Let <span class="math notranslate nohighlight">\(B\)</span> be the number of strings with exactly four 1’s. Then <span class="math notranslate nohighlight">\(\displaystyle |B| =  \binom{8}{4}\)</span> because we can make such a string by choosing 4 of 8 spots for the 1’s and automatically filling the remaining spots with 0’s (there are no other choices than 0). Then <span class="math notranslate nohighlight">\(A \cap B\)</span> is the set of strings that end with 1 and have exactly four 1’s. Note that <span class="math notranslate nohighlight">\(\displaystyle |A \cap B| =  \binom{7}{4} \cdot 1\)</span> (make the last entry a 1 and choose 3 of the remaining 7 spots to fill with 1’s). By the inclusion-exclusion formula, the 8-digit binary strings that end in 1 or have exactly four 1’s is <span class="math notranslate nohighlight">\(\displaystyle |A \cup B| = |A| + |B| - |A \cap B| = 2^{7} + \binom{8}{4} - \binom{7}{3} = 163\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="14">
+<li><p>How many 3-card hands (from a standard 52-card deck) have the property that it is not the case that all cards are black or all cards are of the same suit?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(U\)</span> be the universal set of all possible 3-card hands. <span class="math notranslate nohighlight">\(\displaystyle |U| = \binom{52}{3} = \frac{52 \cdot 51 \cdot 50 \cdot 49!}{3! \cdot 49!} = 22,100\)</span>.
+Let <span class="math notranslate nohighlight">\(A\)</span> be the set 3-card hands that have all cards black. <span class="math notranslate nohighlight">\(\displaystyle |A| = \binom{26}{3} = \frac{26 \cdot 25 \cdot 24 \cdot 23!}{3! \cdot 23!} = 2600\)</span>.
+Let <span class="math notranslate nohighlight">\(B\)</span> be the set 3-card hands that have all cards of the same suit (note that there are 4 suits in a standard deck of cards). <span class="math notranslate nohighlight">\(\displaystyle |B| = 4 \cdot \binom{13}{3} = 4 \cdot \frac{13 \cdot 12 \cdot 11 \cdot 10!}{3! \cdot 10!} = 4 \cdot 286 = 1144\)</span>.
+<span class="math notranslate nohighlight">\(A \cap B\)</span> is the set of 3-card hands that have all cards black AND all cards of the same suit (note that there are 2 black suits in a standard deck of cards: spades and clubs). <span class="math notranslate nohighlight">\(\displaystyle |A \cap B| = 2 \cdot \binom{13}{3} = 2 \cdot \frac{13 \cdot 12 \cdot 11 \cdot 10!}{3! \cdot 10!} = 2 \cdot 286 = 572\)</span>.
+By the inclusion-exclusion formula, the set of 3-card hands that have all cards black OR all cards of the same suit is <span class="math notranslate nohighlight">\(\displaystyle |A \cup B| = |A| + |B| - |A \cap B| = 2600 + 1144 - 572 = 3172\)</span>.
+By taking the complement of <span class="math notranslate nohighlight">\(A \cup B\)</span>, we get the set of 3-card hands that have the property that it is not the case that all cards are black or all cards are of the same suit: <span class="math notranslate nohighlight">\(\displaystyle |\overline{A \cup B}| = |U| - |A \cup B| = 22,100 - 3172 = 18,928\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="15">
+<li><p>How many 10-digit binary strings begin in 1 or end in 1?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A\)</span> be the set of strings that begin with 1. By the multiplication principle <span class="math notranslate nohighlight">\(|A| = 1 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 = 2^{9}\)</span>. Let <span class="math notranslate nohighlight">\(B\)</span> be the number of strings that end with 1. By the multiplication principle <span class="math notranslate nohighlight">\(|B| = 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 1 = 2^{9}\)</span>. Then <span class="math notranslate nohighlight">\(A \cap B\)</span> is the set of strings that begin and end with 1. By the multiplication principle <span class="math notranslate nohighlight">\(|A \cap B| = 1 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 1 = 2^{8}\)</span>. By the inclusion-exclusion formula, the number 10-digit binary strings begin in 1 or end in 1 is <span class="math notranslate nohighlight">\(|A \cup B| = |A| + |B| - |A \cap B| = 2^{9} + 2^{9} - 2^{8} = 768\)</span>.</p>
+</div>
+</details></section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="03-8-counting-multisets.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">3.8 Counting Multisets</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="03-6-pascals-triangle-and-the-binomial-theorem.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">3.6 Pascal’s Triangle and the Binomial Theorem</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">3.7 The Inclusion-Exclusion Principle</a><ul>
+<li><a class="reference internal" href="#exercises-for-section-3-7">Exercises for Section 3.7</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

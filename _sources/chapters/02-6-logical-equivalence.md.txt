@@ -1,0 +1,354 @@
+# 2.6 Logical Equivalence
+
+**In contemplating the truth table for $P \Leftrightarrow Q$, you probably noticed that $P \Leftrightarrow Q$ is true exactly when $P$ and $Q$ are both true or both false. In other words, $P \Leftrightarrow Q$ is true precisely when at least one of the statements $P \land Q$ or $\sim P \ \land \sim Q$ is true. This may tempt us to say that $P \Leftrightarrow Q$ means the same thing as $( P \land Q ) \lor ( \sim P \ \land \sim Q )$.**
+
+To see if this is really so, we can write truth tables for $P \Leftrightarrow Q$ and $( P \land Q ) \lor ( \sim P \ \land \sim Q )$. In doing this, it is more efficient to put these two statements into the same table, as follows. (This table has helper columns for the intermediate expressions $\sim P$, $\sim Q$, $( P \land Q )$ and $( \sim P \ \land \sim Q )$.)
+
+
+<table style="margin-left: auto; margin-right: auto;">
+	<colgroup>
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 200px;">
+		<col style="width: 120px;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="text-align:center;">P</th>
+			<th style="text-align:center;">Q</th>
+			<th style="text-align:center;">&sim; P</th>
+			<th style="text-align:center;">&sim; Q</th>
+			<th style="text-align:center;">(P &wedge; Q)</th>
+			<th style="text-align:center;">(&sim; P &wedge; &sim; Q)</th>
+			<th style="text-align:center;">(P &wedge; Q) &vee; (&sim; P &wedge; &sim; Q)</th>
+			<th style="text-align:center;">P &Leftrightarrow; Q</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+	</tbody>
+</table>
+
+The table shows that $P \Leftrightarrow Q$ and $( P \land Q ) \lor ( \sim P \ \land \sim Q )$ have the same truth value, no matter the values $P$ and $Q$. It is as if $P \Leftrightarrow Q$ and $( P \land Q ) \lor ( \sim P \ \land \sim Q )$ are algebraic expressions that are equal no matter what is “plugged into” variables $P$ and $Q$. We express this state of affairs by writing
+
+$$
+P \Leftrightarrow Q = (P \wedge Q) \vee (\sim P \ \wedge \sim Q)
+$$
+
+and saying that **$P \Leftrightarrow Q$ and $( P \land Q ) \lor ( \sim P \land \sim Q )$ are logically equivalent. In general, two statements are logically equivalent if their truth values match up line-for-line in a truth table. Logical equivalence is important because it can give us different (and potentially useful) ways of looking at the same thing. As an example, the following table shows that $P \Rightarrow Q$ is logically equivalent to $( \sim Q ) \Rightarrow ( \sim P )$.**
+
+
+<table style="margin-left: auto; margin-right: auto;">
+	<colgroup>
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="text-align:center;">P</th>
+			<th style="text-align:center;">Q</th>
+			<th style="text-align:center;">&sim; P</th>
+			<th style="text-align:center;">&sim; Q</th>
+			<th style="text-align:center;">(&sim; Q) &Rightarrow; (&sim; P)</th>
+			<th style="text-align:center;">P &Rightarrow; Q</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+	</tbody>
+</table>
+
+**<mark>The fact $P \Rightarrow Q \ = \ ( \sim Q ) \Rightarrow ( \sim P )$ is useful because so many theorems have the form $P \Rightarrow Q$. As we will see in Chapter 5, proving such a theorem may be easier if we express it in the logically equivalent form $( \sim Q ) \Rightarrow ( \sim P )$.</mark>**
+
+Two pairs of logically equivalent statements in particular are significant enough to have a special name: DeMorgan’s laws.
+
+**<mark>Fact 2.1: (DeMorgan’s Laws)</mark>**
+- **<mark>1. $\sim (P \wedge Q) = (\sim P) \vee (\sim Q)$</mark>** 
+- **<mark>2. $\sim (P \vee Q) = (\sim P) \wedge (\sim Q)$</mark>** 
+
+The first of DeMorgan’s laws is verified by the following table. You are asked to verify the second in one of the exercises.
+
+
+<table style="margin-left: auto; margin-right: auto;">
+	<colgroup>
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="text-align:center;">P</th>
+			<th style="text-align:center;">Q</th>
+			<th style="text-align:center;">&sim; P</th>
+			<th style="text-align:center;">&sim; Q</th>
+			<th style="text-align:center;">P &wedge; Q</th>
+			<th style="text-align:center;">&sim; (P &wedge; Q)</th>
+			<th style="text-align:center;">(&sim; P) &vee; (&sim; Q)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+	</tbody>
+</table>
+
+**DeMorgan’s laws are actually very natural and intuitive. Consider the statement $\sim ( P \land Q )$, which we can interpret as meaning that it is not the case that both $P$ and $Q$ are true. If it is not the case that both $P$ and $Q$ are true, then at least one of $P$ or $Q$ or both is false, in which case $( \sim P ) \lor ( \sim Q )$ is true. Thus $\sim ( P \land Q )$ means the same thing as $( \sim P ) \lor ( \sim Q )$.**
+
+**<mark>DeMorgan’s laws can be very useful. Suppose we happen to know that some statement of form $\sim ( P \lor Q )$ is true. The second of DeMorgan’s laws tells us that $( \sim Q ) \land ( \sim P )$ is also true, hence $\sim P$ and $\sim Q$ are both true as well.</mark>** Quickly obtaining this additional information can be extremely useful.
+
+Here is a summary of some significant logical equivalences. Those that are not immediately obvious can be verified with truth tables.
+
+$$
+P \Rightarrow Q = (\sim Q) \Rightarrow (\sim P) \qquad \text{Contrapositive} \tag {2.1}
+$$
+
+$$
+\left. \begin{array}{l} \sim (P \wedge Q) = \sim P \ \vee \sim Q \\ \sim (P \vee Q) = \sim P \ \wedge \sim Q \end{array} \ \ \right\} \qquad \text{DeMorgan's laws} \tag {2.2}
+$$
+
+$$
+\left. \begin{array}{l} P \wedge Q = Q \wedge P \\ P \vee Q = Q \vee P \end{array} \ \ \right\} \qquad \text{Commutative laws} \tag {2.3}
+$$
+
+$$
+\left. \begin{array}{l} P \wedge (Q \vee R) = (P \wedge Q) \vee (P \wedge R) \\ P \vee (Q \wedge R) = (P \vee Q) \wedge (P \vee R) \end{array} \ \ \right\} \qquad \text{Distributive laws} \tag {2.4}
+$$
+
+$$
+\left. \begin{array}{l} P \wedge (Q \wedge R) = (P \wedge Q) \wedge R \\ P \vee (Q \vee R) = (P \vee Q) \vee R \end{array} \ \ \right\} \qquad \text{Associative laws} \tag {2.5}
+$$
+
+Notice how the distributive law $P \land ( Q \lor R ) = ( P \land Q ) \lor ( P \land R )$ has the same structure as the distributive law $p \cdot ( q + r ) = p \cdot q + p \cdot r$ from algebra. Concerning the associative laws, the fact that $P \land ( Q \land R ) = ( P \land Q ) \land R$ means that the position of the parentheses is irrelevant, and we can write this as $P \land Q \land R$ without ambiguity. Similarly, we may drop the parentheses in an expression such as $P \lor ( Q \lor R )$.
+
+But **parentheses are essential when there is a mix of $\wedge$ and $\vee$, as in $P \lor ( Q \land R )$. Indeed, $P \lor ( Q \land R )$ and $( P \lor Q ) \land R$ are not logically equivalent.** (See Exercise 13 for Section 2.6, below.)
+
+## Exercises for Section 2.6
+
+A. Use truth tables to show that the following statements are logically equivalent.
+1. $P \land ( Q \lor R ) = ( P \land Q ) \lor ( P \land R )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 180px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">R</th><th style="text-align:center;">Q &vee; R</th><th style="text-align:center;">P &wedge; Q</th><th style="text-align:center;">P &wedge; R</th><th style="text-align:center;">P &wedge; (Q &vee; R)</th><th style="text-align:center;">(P &wedge; Q) &vee; (P &wedge; R)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr></tbody></table>
+
+Since the last two columns agree, the two statements are logically equivalent. Note that this is the distributive law of $\wedge$ over $\vee$.
+:::
+
+2. $P \lor ( Q \land R ) = ( P \lor Q ) \land ( P \lor R )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 180px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">R</th><th style="text-align:center;">Q &wedge; R</th><th style="text-align:center;">P &vee; Q</th><th style="text-align:center;">P &vee; R</th><th style="text-align:center;">P &vee; (Q &wedge; R)</th><th style="text-align:center;">(P &vee; Q) &wedge; (P &vee; R)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr></tbody></table>
+
+Since the last two columns agree, the two statements are logically equivalent. Note that this is the distributive law of $\vee$ over $\wedge$.
+:::
+
+3. $P \Rightarrow Q = ( \sim P ) \lor Q$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"> <colgroup> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> </colgroup> <thead> <tr> <th style="text-align:center;">P</th> <th style="text-align:center;">Q</th> <th style="text-align:center;">&sim; P</th> <th style="text-align:center;">P &Rightarrow; Q</th> <th style="text-align:center;">(&sim; P) &vee; Q</th> </tr> </thead> <tbody> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> </tr> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> </tr> </tbody> </table>
+
+Since the last two columns agree, the two statements are logically equivalent. 
+:::
+
+4. $\sim ( P \lor Q ) = ( \sim P ) \land ( \sim Q )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">&sim; P</th><th style="text-align:center;">&sim; Q</th><th style="text-align:center;">P &vee; Q</th><th style="text-align:center;">&sim; (P &vee; Q)</th><th style="text-align:center;">(&sim; P) &wedge; (&sim; Q)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr></tbody></table>
+
+Since the last two columns agree, the two statements are logically equivalent. Note that this is DeMorgan's law.
+:::
+
+5. $\sim ( P \lor Q \lor R ) ~ = ~ ( \sim P ) \land ( \sim Q ) \land ( \sim R )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"> <colgroup> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 180px;"> </colgroup> <thead> <tr> <th style="text-align:center;">P</th> <th style="text-align:center;">Q</th> <th style="text-align:center;">R</th> <th style="text-align:center;">&sim; P</th> <th style="text-align:center;">&sim; Q</th> <th style="text-align:center;">&sim; R</th> <th style="text-align:center;">P &vee; Q &vee; R</th> <th style="text-align:center;">&sim; (P &vee; Q &vee; R)</th> <th style="text-align:center;">(&sim; P) &wedge; (&sim; Q) &wedge; (&sim; R)</th> </tr> </thead> <tbody> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> </tr> </tbody> </table>
+
+Since the last two columns agree, the two statements are logically equivalent. 
+:::
+
+5. $\sim ( P \wedge Q \wedge R ) ~ = ~ ( \sim P ) \vee ( \sim Q ) \vee ( \sim R )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 180px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">R</th><th style="text-align:center;">&sim; P</th><th style="text-align:center;">&sim; Q</th><th style="text-align:center;">&sim; R</th><th style="text-align:center;">P &wedge; Q &wedge; R</th><th style="text-align:center;">&sim; (P &wedge; Q &wedge; R)</th><th style="text-align:center;">(&sim; P) &vee; (&sim; Q) &vee; (&sim; R)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr></tbody></table>
+
+Since the last two columns agree, the two statements are logically equivalent. Note that this is the three-variable version of DeMorgan's law.
+:::
+
+5. $P \Rightarrow Q \ = \ ( P \ \land \sim Q ) \Rightarrow ( Q \ \land \sim Q )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"> <colgroup> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 200px;"> </colgroup> <thead> <tr> <th style="text-align:center;">P</th> <th style="text-align:center;">Q</th> <th style="text-align:center;">&sim; Q</th> <th style="text-align:center;">P &wedge; &sim; Q</th> <th style="text-align:center;">Q &wedge; &sim; Q</th> <th style="text-align:center;">P &Rightarrow; Q</th> <th style="text-align:center;">(P &wedge; &sim; Q) &Rightarrow; (Q &wedge; &sim; Q)</th> </tr> </thead> <tbody> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> </tr> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> </tr> </tbody> </table>
+
+Since the last two columns agree, the two statements are logically equivalent. 
+:::
+
+5. $\sim P \Leftrightarrow Q = ( P \Rightarrow \sim Q ) \land ( \sim Q \Rightarrow P )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 200px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">&sim; P</th><th style="text-align:center;">&sim; Q</th><th style="text-align:center;">P &Rightarrow; &sim; Q</th><th style="text-align:center;">&sim; Q &Rightarrow; P</th><th style="text-align:center;">&sim; P &Leftrightarrow; Q</th><th style="text-align:center;">(P &Rightarrow; &sim; Q) &wedge; (&sim; Q &Rightarrow; P)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr></tbody></table>
+
+Since the last two columns agree, the two statements are logically equivalent. 
+:::
+
+B. Decide whether or not the following pairs of statements are logically equivalent.
+9. $P \land Q$ and $\sim ( \sim P \ \lor \sim Q )$ 
+:::{dropdown} Answer
+By DeMorgan’s law, we have $\sim (\sim P \ \lor \sim Q) = \sim \sim P \ \land \sim \sim Q = P \land Q$. Thus the two statements are logically equivalent.
+
+<table style="margin-left: auto; margin-right: auto;"> <colgroup> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> </colgroup> <thead> <tr> <th style="text-align:center;">P</th> <th style="text-align:center;">Q</th> <th style="text-align:center;">&sim; P</th> <th style="text-align:center;">&sim; Q</th> <th style="text-align:center;">&sim; P &vee; &sim; Q</th> <th style="text-align:center;">P &wedge; Q</th> <th style="text-align:center;">&sim; (&sim; P &vee; &sim; Q)</th> </tr> </thead> <tbody> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> </tr> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> </tbody> </table>
+:::
+
+10. $( P \Rightarrow Q ) \lor R$ and $\sim ( ( P \ \land \sim Q ) \ \land \sim R )$ 
+:::{dropdown} Answer
+Right-hand side: $(P \Rightarrow Q ) = (\sim P \vee Q)$ 
+Left-hand side: apply DeMorgan's laws, $\sim ( ( P \ \land \sim Q ) \ \land \sim R ) = \ \sim P \ \vee \sim \sim Q \ \vee \sim \sim R$ 
+Both statements simplify to the same formula: $\sim P \vee Q \vee R = \ \sim P \vee Q \vee R$ 
+Thus the two statements are logically equivalent.
+
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 180px;"><col style="width: 120px;"><col style="width: 180px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">R</th><th style="text-align:center;">&sim; Q</th><th style="text-align:center;">&sim; R</th><th style="text-align:center;">P &Rightarrow; Q</th><th style="text-align:center;">P &wedge; &sim; Q</th><th style="text-align:center;">(P &wedge; &sim; Q) &wedge; &sim; R</th><th style="text-align:center;">(P &Rightarrow; Q) &vee; R</th><th style="text-align:center;">&sim; ((P &wedge; &sim; Q) &wedge; &sim; R)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr></tbody></table>
+:::
+
+11. $( \sim P ) \land ( P \Rightarrow Q )$ and $\sim ( Q \Rightarrow P )$ 
+:::{dropdown} Answer
+The columns for the two statements do not agree, thus the two statements are not logically equivalent.
+
+<table style="margin-left: auto; margin-right: auto;"> <colgroup> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> <col style="width: 120px;"> </colgroup> <thead> <tr> <th style="text-align:center;">P</th> <th style="text-align:center;">Q</th> <th style="text-align:center;">&sim; P</th> <th style="text-align:center;">&sim; Q</th> <th style="text-align:center;">P &Rightarrow; Q</th> <th style="text-align:center;">Q &Rightarrow; P</th> <th style="text-align:center;">&sim; P &wedge; (P &Rightarrow; Q)</th> <th style="text-align:center;">&sim; (Q &Rightarrow; P)</th> </tr> </thead> <tbody> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> </tr> <tr> <td style="text-align:center;">F</td> <td style="text-align:center;">F</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">T</td> <td style="text-align:center;">F</td> </tr> </tbody> </table>
+
+Note that $P \Rightarrow Q = \sim P \vee Q$ 
+Thus $\sim (Q \Rightarrow P) = \ \sim (\sim Q \vee P)$ and by DeMorgan's law we have $\sim (\sim Q \vee P) = \ \sim \sim Q \ \wedge \sim P = Q \ \wedge \sim P$
+$\sim P \ \wedge (\sim P \vee Q) = \ \sim P$
+$\sim P \neq Q \ \wedge \sim P$
+:::
+
+12. $\sim ( P \Rightarrow Q$) and $P \wedge \sim Q$ 
+:::{dropdown} Answer
+We know $P \Rightarrow Q = \ \sim P \vee Q$
+So $\sim (P \Rightarrow Q) = \ \sim (\sim P \vee Q)$
+By DeMorgan's law: $\sim (\sim P \vee Q) = \ \sim \sim P \ \wedge \sim Q$
+Thus the two statements are logically equivalent: $P \ \wedge \sim Q = P \ \wedge \sim Q$
+
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">&sim; P</th><th style="text-align:center;">&sim; Q</th><th style="text-align:center;">P &Rightarrow; Q</th><th style="text-align:center;">&sim; (P &Rightarrow; Q)</th><th style="text-align:center;">P &wedge; &sim; Q</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr></tbody></table>
+:::
+
+13. $P \lor ( Q \land R )$ and $( P \lor Q ) \land R$ 
+:::{dropdown} Answer
+$P \vee (Q \wedge R)$ and $(P \vee Q) \wedge R$ are not logically equivalent because if $P =T$ and $Q=R=F$, then the first statement is true and the second is false.
+
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">R</th><th style="text-align:center;">Q &wedge; R</th><th style="text-align:center;">P &vee; Q</th><th style="text-align:center;">P &vee; (Q &wedge; R)</th><th style="text-align:center;">(P &vee; Q) &wedge; R</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr></tbody></table>
+:::
+
+14. $P \land ( Q \ \lor \sim Q )$ and $( \sim P ) \Rightarrow ( Q \ \land \sim Q )$ 
+:::{dropdown} Answer
+Since $Q \vee \sim Q$ is always true (law of the excluded middle), $P \wedge (Q \vee \sim Q) = P \wedge T = P$ 
+Since $Q \wedge \sim Q$ is always false (law of the excluded middle), $\sim P \Rightarrow (Q \wedge \sim Q) = \ \sim (\sim P) \vee (Q \wedge \sim Q) = P \vee F = P$ 
+
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 180px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">&sim; P</th><th style="text-align:center;">&sim; Q</th><th style="text-align:center;">Q &vee; &sim; Q</th><th style="text-align:center;">Q &wedge; &sim; Q</th><th style="text-align:center;">P &wedge; (Q &vee; &sim; Q)</th><th style="text-align:center;">&sim; P &Rightarrow; (Q &wedge; &sim; Q)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr></tbody></table>
+:::
+

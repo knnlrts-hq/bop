@@ -1,0 +1,576 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="3.6 Pascal’s Triangle and the Binomial Theorem" href="03-6-pascals-triangle-and-the-binomial-theorem.html"><link rel="prev" title="3.4 Factorials and Permutations" href="03-4-factorials-and-permutations.html">
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
+        <title>3.5 Counting Subsets - Book of Proof — Annotated documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Sections</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-1-introduction-to-sets.html">1.1 Introduction to Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-2-the-cartesian-product.html">1.2 The Cartesian Product</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-3-subsets.html">1.3 Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-4-power-sets.html">1.4 Power Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-5-union-intersection-difference.html">1.5 Union, Intersection, Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-6-complement.html">1.6 Complement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-7-venn-diagrams.html">1.7 Venn Diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-8-indexed-sets.html">1.8 Indexed Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-9-sets-that-are-number-systems.html">1.9 Sets That Are Number Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-10-russells-paradox.html">1.10 Russell’s Paradox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-1-statements.html">2.1 Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-2-and-or-not.html">2.2 And, Or, Not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-3-conditional-statements.html">2.3 Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-4-biconditional-statements.html">2.4 Biconditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-5-truth-tables-for-statements.html">2.5 Truth Tables for Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-6-logical-equivalence.html">2.6 Logical Equivalence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-7-quantifiers.html">2.7 Quantifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-8-more-on-conditional-statements.html">2.8 More on Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-9-translating-english-to-symbolic-logic.html">2.9 Translating English to Symbolic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-10-negating-statements.html">2.10 Negating Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-11-logical-inference.html">2.11 Logical Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-12-an-important-note.html">2.12 An Important Note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-1-lists.html">3.1 Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-2-the-multiplication-principle.html">3.2 The Multiplication Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-3-the-addition-and-subtraction-principles.html">3.3 The Addition and Subtraction Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-4-factorials-and-permutations.html">3.4 Factorials and Permutations</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">3.5 Counting Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-6-pascals-triangle-and-the-binomial-theorem.html">3.6 Pascal’s Triangle and the Binomial Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-7-the-inclusion-exclusion-principle.html">3.7 The Inclusion-Exclusion Principle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-8-counting-multisets.html">3.8 Counting Multisets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-9-the-division-and-pigeonhole-principles.html">3.9 The Division and Pigeonhole Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-10-combinatorial-proof.html">3.10 Combinatorial Proof</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/chapters/03-5-counting-subsets.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="counting-subsets">
+<h1>3.5 Counting Subsets<a class="headerlink" href="#counting-subsets" title="Link to this heading">¶</a></h1>
+<p><strong>The previous section dealt with counting lists made by selecting <span class="math notranslate nohighlight">\(k\)</span> entries from a set of <span class="math notranslate nohighlight">\(n\)</span> elements. We turn now to a related question: How many subsets can be made by selecting <span class="math notranslate nohighlight">\(k\)</span> elements from a set with <span class="math notranslate nohighlight">\(n\)</span> elements? To see the difference between these two problems, take <span class="math notranslate nohighlight">\(A = \{ a , b , c , d , e \}\)</span>. Consider the non-repetitive lists made from selecting two elements from <span class="math notranslate nohighlight">\(A\)</span>. Fact 3.4 says there are <span class="math notranslate nohighlight">\(P(5,2) = 5 \cdot 4 = 20\)</span> such lists, namely <span class="math notranslate nohighlight">\((a,b), (a,c), (a,d), (a,e), (b,c), (b,d), (b,e), (c,d), (c,e), (d,e), (b, a), (c, a), (d, a), (e, a), (c, b), (d, b), (e, b), (d, c), (e, c), (e, d)\)</span>. But there are only ten 2-element subsets of <span class="math notranslate nohighlight">\(A\)</span>. They are <span class="math notranslate nohighlight">\(\{a, b \}, \{a, c \}, \{a, d \}, \{a, e \}, \{b, c \}, \{b, d \}, \{b, e \}, \{c, d \}, \{c, e \}, \{d, e \}\)</span>. The reason that there are more lists than subsets is that changing the order of the entries of a list produces a different list, but changing the order of the elements of a set does not change the set. Using elements <span class="math notranslate nohighlight">\(a , b \in A\)</span>, we can make two lists <span class="math notranslate nohighlight">\((a,b)\)</span> and <span class="math notranslate nohighlight">\((b,a)\)</span>, but only one subset <span class="math notranslate nohighlight">\(\left\{a,b\right\}\)</span>. This section is concerned with counting subsets, not lists. As noted above, the basic question is this: How many subsets can be made by choosing <span class="math notranslate nohighlight">\(k\)</span> elements from an <span class="math notranslate nohighlight">\(n\)</span>-element set?</strong> We begin with some notation that gives a name to the answer to this question.</p>
+<p><strong><mark>Definition 3.2: If <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> are integers, then <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> denotes the number of subsets that can be made by choosing <span class="math notranslate nohighlight">\(k\)</span> elements from an <span class="math notranslate nohighlight">\(n\)</span>-element set. We read <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> as “<span class="math notranslate nohighlight">\(n\)</span> choose <span class="math notranslate nohighlight">\(k\)</span>.” (Some textbooks write <span class="math notranslate nohighlight">\(C(n,k)\)</span> instead of <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span>.)</mark></strong></p>
+<p>This is illustrated in the following table that tallies the <span class="math notranslate nohighlight">\(k\)</span>-element subsets of the 4-element set <span class="math notranslate nohighlight">\(A = \{a,b,c,d\}\)</span>, for various values of <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<a class="reference internal image-reference" href="assets/Pastedimage20260324170144.png"><img alt="assets/Pastedimage20260324170144.png" src="assets/Pastedimage20260324170144.png" style="width: 750px;" />
+</a>
+<p>The values of <span class="math notranslate nohighlight">\(k\)</span> appear in the far-left column of the table. To the right of each <span class="math notranslate nohighlight">\(k\)</span> are all of the subsets (if any) of <span class="math notranslate nohighlight">\(A\)</span> of size <span class="math notranslate nohighlight">\(k\)</span>. For example, when <span class="math notranslate nohighlight">\(k = 1\)</span>, set <span class="math notranslate nohighlight">\(A\)</span> has four subsets of size <span class="math notranslate nohighlight">\(k\)</span>, namely <span class="math notranslate nohighlight">\(\{a\}, \{b\}, \{c\}\)</span> and <span class="math notranslate nohighlight">\(\{d\}\)</span>. Therefore <span class="math notranslate nohighlight">\(\displaystyle \binom{4}{1} = 4\)</span>. When <span class="math notranslate nohighlight">\(k = 2\)</span> there are six subsets of size <span class="math notranslate nohighlight">\(k\)</span> so <span class="math notranslate nohighlight">\(\displaystyle \binom{4}{2} = 6\)</span>. <strong>When <span class="math notranslate nohighlight">\(k = 0\)</span>, there is only one subset of <span class="math notranslate nohighlight">\(A\)</span> that has cardinality <span class="math notranslate nohighlight">\(k\)</span>, namely the empty set <span class="math notranslate nohighlight">\(\varnothing\)</span>. Therefore <span class="math notranslate nohighlight">\(\displaystyle \binom{4}{0} = 1\)</span>. Notice that if <span class="math notranslate nohighlight">\(k\)</span> is negative or greater than <span class="math notranslate nohighlight">\(|A|\)</span>, then <span class="math notranslate nohighlight">\(A\)</span> has no subsets of cardinality <span class="math notranslate nohighlight">\(k\)</span>, so <span class="math notranslate nohighlight">\(\displaystyle \binom{4}{k} = 0\)</span> in these cases. In general <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = 0\)</span> whenever <span class="math notranslate nohighlight">\(k &lt; 0\)</span> or <span class="math notranslate nohighlight">\(k &gt; n\)</span>. In particular this means <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = 0\)</span> if <span class="math notranslate nohighlight">\(n\)</span> is negative.</strong></p>
+<p>Although it was not hard to work out the values of <span class="math notranslate nohighlight">\(\displaystyle \binom{4}{k}\)</span> by writing out subsets in the above table, this method of actually listing sets would not be practical for computing <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> when <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> are large. We need a formula. To find one, we will now carefully work out the value of <span class="math notranslate nohighlight">\(\displaystyle \binom{5}{3}\)</span> in a way that highlights a pattern that points the way to a formula for any <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span>. To begin, note that <span class="math notranslate nohighlight">\(\displaystyle \binom{5}{3}\)</span> is the number of 3-element subsets of <span class="math notranslate nohighlight">\(\{a,b,c,d,e\}\)</span>. These are listed in the top row of the table below, where we see <span class="math notranslate nohighlight">\(\displaystyle \binom{5}{3} = 10\)</span>. The column under each subset tallies the <span class="math notranslate nohighlight">\(3! = 6\)</span> permutations of that subset. The first subset <span class="math notranslate nohighlight">\(\{a,b,c\}\)</span> has <span class="math notranslate nohighlight">\(3 ! = 6\)</span> permutations; these are listed below it. The second column tallies the permutations of <span class="math notranslate nohighlight">\(\{a,b,d\}\)</span>, and so on.</p>
+<img alt="../_images/b57b9da16299bc5597b6e6ae63d1fcc0f80c51e8fe458df8cbde668d9ee9158b.jpg" src="../_images/b57b9da16299bc5597b6e6ae63d1fcc0f80c51e8fe458df8cbde668d9ee9158b.jpg" />
+<p><strong>The body of this table has <span class="math notranslate nohighlight">\(\displaystyle \binom{5}{3}\)</span> columns and <span class="math notranslate nohighlight">\(3!\)</span> rows, so it has a total of <span class="math notranslate nohighlight">\(\displaystyle 3! \cdot \binom{5}{3}\)</span> lists. But notice also that the table consists of every 3-permutation of <span class="math notranslate nohighlight">\(\{a,b,c,d,e\}\)</span>. Fact 3.4 says that there are <span class="math notranslate nohighlight">\(P(5,3) = \dfrac{5!}{(5-3)!}\)</span> such 3-permutations. Thus the total number of lists in the table can be written as either <span class="math notranslate nohighlight">\(\displaystyle 3! \cdot \binom{5}{3}\)</span> or <span class="math notranslate nohighlight">\(\dfrac{5!}{(5-3)!}\)</span>. Dividing both sides by <span class="math notranslate nohighlight">\(3!\)</span> yields <span class="math notranslate nohighlight">\(\displaystyle \binom{5}{3} = \dfrac {5!}{3! \cdot (5 - 3)!}\)</span>. Working this out, you will find that it does give the correct value of 10. But there was nothing special about the values 5 and 3. We could do the above analysis for any <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> instead of <span class="math notranslate nohighlight">\(\displaystyle \binom{5}{3}\)</span>. <mark>The table would have <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> columns and <span class="math notranslate nohighlight">\(k!\)</span> rows.</mark> We would get</strong></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left( \begin{array}{c} n \\ k \end{array} \right) = \frac {n!}{k! \cdot (n - k)!}
+\end{split}\]</div>
+</div>
+<p><strong><mark>We have established the following fact, which holds for all <span class="math notranslate nohighlight">\(k,n \in \mathbb{Z}\)</span></mark>.</strong></p>
+<p><strong><mark>Fact 3.5: If <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>, then <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \dfrac{n!}{k! \cdot (n-k)!}\)</span>. Otherwise <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = 0\)</span>.</mark></strong></p>
+<p>Let’s now use our new knowledge to work some exercises.</p>
+<p>Example 3.11: How many size-4 subsets does <span class="math notranslate nohighlight">\(\{1,2,3,4,5,6,7,8,9\}\)</span> have? The answer is <span class="math notranslate nohighlight">\(\displaystyle \binom{9}{4} = \dfrac{9!}{4! \cdot (9-4)!} = \dfrac{9!}{4! \cdot 5!} = \dfrac{9 \cdot 8 \cdot 7 \cdot 6 \cdot 5!}{4! \cdot 5!} = \dfrac{9 \cdot 8 \cdot 7 \cdot 6}{4!} = \dfrac{9 \cdot 8 \cdot 7 \cdot 6}{24} = 126\)</span>. The number of non-repeating lists/permutations is <span class="math notranslate nohighlight">\(\displaystyle \dfrac{9!}{(9-4)!} = 4! \cdot \binom{9}{4} = 3024\)</span>.</p>
+<p><strong>Example 3.12: How many 5-element subsets of <span class="math notranslate nohighlight">\(A = \{1,2,3,4,5,6,7,8,9\}\)</span> have exactly two even elements?</strong></p>
+<p><strong>Solution: Making a 5-element subset of <span class="math notranslate nohighlight">\(A\)</span> with exactly two even elements is a 2-step process. First select two of the four even elements from <span class="math notranslate nohighlight">\(A\)</span>. There are <span class="math notranslate nohighlight">\(\displaystyle \binom{4}{2} = 6\)</span> ways to do this. Next, there are <span class="math notranslate nohighlight">\(\displaystyle \binom{5}{3} = 10\)</span> ways select three of the five odd elements of <span class="math notranslate nohighlight">\(A\)</span>. By the multiplication principle, there are <span class="math notranslate nohighlight">\(\displaystyle \binom{4}{2} \cdot \binom{5}{3} = 6 \cdot 10 = 60\)</span> ways to select two even and three odd elements from <span class="math notranslate nohighlight">\(A\)</span>. So there are 60 5-element subsets of <span class="math notranslate nohighlight">\(A\)</span> with exactly two even elements.</strong></p>
+<p><strong>Example 3.13: A single 5-card hand is dealt off of a standard 52-card deck. How many different 5-card hands are possible?</strong></p>
+<p><strong>Solution: Think of the deck as a set <span class="math notranslate nohighlight">\(D\)</span> of 52 cards.</strong> <strong>Then a 5-card hand is just a 5-element subset of <span class="math notranslate nohighlight">\(D\)</span>.</strong> <strong>There are many such subsets, such as <a class="reference internal" href="assets/Pastedimage20260324170244.png"><img alt="assets/Pastedimage20260324170244.png" src="assets/Pastedimage20260324170244.png" style="width: 200px;" /></a> Thus the number of 5-card hands is the number of 5-element subsets of <span class="math notranslate nohighlight">\(D\)</span>, which is <span class="math notranslate nohighlight">\(\displaystyle \binom{52}{5} = \dfrac{52!}{5! \cdot 47!} = \dfrac{52 \cdot 51 \cdot 50 \cdot 49 \cdot 48 \cdot 47!}{5! \cdot 47!} = \dfrac {52 \cdot 51 \cdot 50 \cdot 49 \cdot 48}{5!} = 2,598,960\)</span>.</strong> Answer: There are 2,598,960 different five-card hands that can be dealt from a deck of 52 cards.</p>
+<p><strong>Example 3.14: This problem concerns 5-card hands that can be dealt off of a 52-card deck. How many such hands are there in which two of the cards are clubs and three are hearts?</strong></p>
+<p><strong>Solution: Such a hand is described by a list of length two of the form <a class="reference internal" href="assets/Pastedimage20260324170320.png"><img alt="assets/Pastedimage20260324170320.png" src="assets/Pastedimage20260324170320.png" style="width: 250px;" /></a> where the first entry is a 2-element subset of the set of 13 club cards, and the second entry is a 3-element subset of the set of 13 heart cards. There are <span class="math notranslate nohighlight">\(\displaystyle \binom{13}{2}\)</span> choices for the first entry and <span class="math notranslate nohighlight">\(\displaystyle \binom{13}{3}\)</span> choices for the second, so by the multiplication principle there are <span class="math notranslate nohighlight">\(\displaystyle \binom{13}{2} \cdot \binom{13}{3} = \dfrac{13!}{2! \cdot 11!} \cdot \dfrac{13!}{3! \cdot 10!} = 22,308\)</span>. such lists.</strong> Thus there are 22,308 such 5-card hands.</p>
+<p>Example 3.15: A lottery features a bucket of 36 balls numbered 1 through 36. Six balls will be drawn randomly. For <span class="math notranslate nohighlight">\(\$ 1\)</span> you buy a ticket with six blanks: <a class="reference internal" href="assets/Pastedimage20260324170408.png"><img alt="assets/Pastedimage20260324170408.png" src="assets/Pastedimage20260324170408.png" style="width: 150px;" /></a>. You fill in the blanks with six different numbers between 1 and 36. You win <span class="math notranslate nohighlight">\(\$ 1,000,000\)</span> if you chose the same numbers that are drawn, <em>regardless of order</em>. What are your chances of winning?</p>
+<p>Solution: In filling out the ticket you are choosing six numbers from a set of 36 numbers. Thus there are <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \binom{36}{6} = \dfrac{36!}{6! \cdot (36-6)!} = 1,947,792\)</span> different combinations of numbers you might write. Only one of these will be a winner. Your chances of winning are one in 1,947,792. If the six number you pick need to be in the exact same order as they are drawn, then your chances of winning are one in 1,402,410,240: <span class="math notranslate nohighlight">\(\dfrac{n!}{(n-k)!} = \dfrac{36!}{(36-6)!} = 1,402,410,240\)</span>.</p>
+<p><strong>Example 3.16: How many 7-digit binary strings (0010100, 1101011, etc.) have an odd number of 1’s?</strong></p>
+<p><strong>Solution: Let <span class="math notranslate nohighlight">\(A\)</span> be the set of all 7-digit binary strings with an odd number of 1’s, so the answer will be <span class="math notranslate nohighlight">\(|A|\)</span>. To find <span class="math notranslate nohighlight">\(|A|\)</span>, we break <span class="math notranslate nohighlight">\(A\)</span> into smaller parts. Notice any string in <span class="math notranslate nohighlight">\(A\)</span> will have either one, three, five or seven 1’s. Let <span class="math notranslate nohighlight">\(A_{1}\)</span> be the set of 7-digit binary strings with only one 1. Let <span class="math notranslate nohighlight">\(A_{3}\)</span> be the set of 7-digit binary strings with three 1’s. Let <span class="math notranslate nohighlight">\(A_{5}\)</span> be the set of 7-digit binary strings with five 1’s, and let <span class="math notranslate nohighlight">\(A_{7}\)</span> be the set of 7-digit binary strings with seven 1’s. Then <span class="math notranslate nohighlight">\(A = A_{1} \cup A_{3} \cup A_{5} \cup A_{7}\)</span>. Any two of the sets <span class="math notranslate nohighlight">\(A_{i}\)</span> have empty intersection, so the addition principle gives <span class="math notranslate nohighlight">\(|A| = |A_{1}| + |A_{3}| + |A_{5}| + |A_{7}|\)</span>. Now we must compute the individual terms of this sum. Take <span class="math notranslate nohighlight">\(A_{3}\)</span>, the set of 7-digit binary strings with three 1’s. Such a string can be formed by selecting three out of seven positions for the 1’s and putting 0’s in the other spaces. Thus <span class="math notranslate nohighlight">\(\displaystyle |A_{3}| = \binom{7}{3}\)</span>. Similarly <span class="math notranslate nohighlight">\(\displaystyle |A_{1}| = \binom{7}{1}\)</span>, <span class="math notranslate nohighlight">\(\displaystyle A_{5} = \binom{7}{5}\)</span>, and <span class="math notranslate nohighlight">\(\displaystyle |A_{7}| = \binom {7}{7}\)</span>. Answer: <span class="math notranslate nohighlight">\(\displaystyle |A| = |A_{1}| + |A_{3}| + |A_{5}| + |A_{7}| = \binom{7}{1} + \binom{7}{3} + \binom{7}{5} + \binom{7}{7} = 7 + 35 + 21 + 1 = 64\)</span>. There are 64 7-digit binary strings with an odd number of 1’s.</strong></p>
+<section id="exercises-for-section-3-5">
+<h2>Exercises for Section 3.5<a class="headerlink" href="#exercises-for-section-3-5" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Suppose a set A has 37 elements. How many subsets of A have 10 elements? How many subsets have 30 elements? How many have 0 elements?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{37}{10} = \dfrac{37!}{10! \cdot (37-10)!} = \dfrac{37 \cdot 36 \cdot 35 \cdot 34 \cdot 33 \cdot 32 \cdot 31 \cdot 30 \cdot 29 \cdot 28 \cdot 27!}{10! \cdot 27!} = 348,330,136\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{37}{30} = \dfrac{37!}{30! \cdot (37-30)!} = \dfrac{37 \cdot 36 \cdot 35 \cdot 34 \cdot 33 \cdot 32 \cdot 31 \cdot 30!}{30! \cdot 7!} = 10,295,472\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{37}{0} = \dfrac{37!}{0! \cdot (37-0)!} = \dfrac{37!}{37!} = 1\)</span></p></li>
+</ul>
+</div>
+</details><ol class="arabic simple" start="2">
+<li><p>Suppose <span class="math notranslate nohighlight">\(A\)</span> is a set for which <span class="math notranslate nohighlight">\(|A| = 100\)</span>. How many subsets of <span class="math notranslate nohighlight">\(A\)</span> have 5 elements? How many subsets have 10 elements? How many have 99 elements?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{100}{5} = \dfrac{100!}{5! \cdot (100-5)!} = \dfrac{100 \cdot 99 \cdot 98 \cdot 97 \cdot 96 \cdot 95!}{5! \cdot 95!} = 75,287,520\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{100}{10} = \dfrac{100!}{10! \cdot (100-10)!} = \dfrac{100 \cdot 99 \cdot 98 \cdot 97 \cdot 96 \cdot 95 \cdot 94 \cdot 93 \cdot 92 \cdot 91 \cdot 90!}{10! \cdot 90!} = 17,310,309,456,440\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{100}{99} = \dfrac{100!}{99! \cdot (100-99)!} = \dfrac{100 \cdot 99!}{99! \cdot 1!} = 100\)</span></p></li>
+</ul>
+</div>
+</details><ol class="arabic simple" start="3">
+<li><p>A set <span class="math notranslate nohighlight">\(X\)</span> has exactly 56 subsets with 3 elements. What is the cardinality of <span class="math notranslate nohighlight">\(X\)</span>? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The answer will be the <span class="math notranslate nohighlight">\(n\)</span> for which <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{3} = 56\)</span>. After some trial and error, you will discover <span class="math notranslate nohighlight">\(\displaystyle \binom{8}{3} = 56\)</span>, so <span class="math notranslate nohighlight">\(|X|=8\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle \binom{|X|}{3} = \dfrac{|X|!}{3! \cdot (|X|-3)!} = 56\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle \dfrac{|X|!}{(|X|-3)!} = P(|X|,3) = 3! \cdot 56 = 336\)</span>.
+Factorize <span class="math notranslate nohighlight">\(336 = 2^{4} \cdot 3 \cdot 7 = 8 \cdot 7 \cdot 6\)</span>. This means <span class="math notranslate nohighlight">\(|X| = 8\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="4">
+<li><p>Suppose a set <span class="math notranslate nohighlight">\(B\)</span> has the property that <span class="math notranslate nohighlight">\(\left| \left\{X : X \in \mathscr{P}(B), | X | = 6 \right\} \right| = 28\)</span>. Find <span class="math notranslate nohighlight">\(|B|\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{|B|}{6} = \dfrac{|B|!}{6! \cdot (|B|-6)!} = 28\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle \dfrac{|B|!}{(|B|-6)!} = P(|B|,6) = 6! \cdot 28 = 20,160\)</span>.
+Factorize <span class="math notranslate nohighlight">\(20,160 = 2^{6} \cdot 3^{2} \cdot 5 \cdot 7 = 8 \cdot 7 \cdot 6 \cdot 5 \cdot 4 \cdot 3\)</span>. This means <span class="math notranslate nohighlight">\(|B| = 8\)</span>.
+<span class="math notranslate nohighlight">\(\mathscr{P}(B) = 2^{|B|} = 2^{8} = 256\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="5">
+<li><p>How many 16-digit binary strings contain exactly seven 1’s? (Examples of such strings include <span class="math notranslate nohighlight">\(0111000011110000\)</span> and <span class="math notranslate nohighlight">\(0011001100110010\)</span>, etc.)</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Make such a string as follows: start with a list of 16 blank spots. Choose 7 of the blank spots for the 1’s and put 0’s in the other spots. There are 11,440 ways to do this.
+<span class="math notranslate nohighlight">\(\displaystyle \binom{16}{7} = \dfrac{16!}{7! \cdot (16-7)!} = \dfrac{16 \cdot 15 \cdot 14 \cdot 13 \cdot 12 \cdot 11 \cdot 10 \cdot 9!}{7! \cdot 9!} = 11,440\)</span></p>
+</div>
+</details><ol class="arabic simple" start="6">
+<li><p><span class="math notranslate nohighlight">\(\left| \left\{ X \in \mathscr{P}(\left\{ 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 \right\}) : | X | = 4 \right\} \right| =\)</span></p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{10}{4} = \dfrac{10!}{4! \cdot (10-4)!} = \dfrac{10 \cdot 9 \cdot 8 \cdot 7 \cdot 6!}{4! \cdot 6!} = 210\)</span></p>
+</div>
+</details><ol class="arabic simple" start="7">
+<li><p><span class="math notranslate nohighlight">\(\left| \left\{ X \in \mathscr{P}(\left\{ 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 \right\}) : | X | &lt; 4 \right\} \right| =\)</span> 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{10}{3} = \dfrac{10!}{3! \cdot (10-3)!} = \dfrac{10 \cdot 9 \cdot 8 \cdot 7!}{3! \cdot 7!} = 120\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{10}{2} = \dfrac{10!}{2! \cdot (10-2)!} = \dfrac{10 \cdot 9 \cdot 8!}{2! \cdot 8!} = 45\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{10}{1} = \dfrac{10!}{1! \cdot (10-1)!} = \dfrac{10 \cdot 9!}{1! \cdot 9!} = 10\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{10}{0} = \dfrac{10!}{0! \cdot (10-0)!} = \dfrac{10!}{10!} = 1\)</span></p></li>
+</ul>
+<p class="sd-card-text">By the addition principle, <span class="math notranslate nohighlight">\(\displaystyle \left| \left\{ X \in \mathscr{P}(\left\{ 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 \right\}) : | X | &lt; 4 \right\} \right| = \binom{10}{3} + \binom{10}{2} + \binom{10}{1} + \binom{10}{0} = 120 + 45 + 10 + 1 = 176\)</span></p>
+</div>
+</details><ol class="arabic simple" start="8">
+<li><p>This problem concerns lists made from the symbols <span class="math notranslate nohighlight">\(A, B, C, D, E, F, G, H, I\)</span>.
+(a) How many length-5 lists can be made if there is no repetition and the list is in alphabetical order? (Example: <span class="math notranslate nohighlight">\(BDEFI\)</span> or <span class="math notranslate nohighlight">\(ABCGH\)</span>, but not <span class="math notranslate nohighlight">\(BACGH\)</span>.) 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Binomial coefficients count unordered selections, but here each unordered selection determines exactly one allowed ordered list, because there is a one-to-one match between: (1) a 5-element subset of <span class="math notranslate nohighlight">\(\{A, B, C, D, E, F, G, H, I\}\)</span> and (2) a length-5 list with no repetition written in alphabetical order. For example, take the subset <span class="math notranslate nohighlight">\(\{B,D,E,F,I\}\)</span>, then there is exactly one alphabetical list you can make from it: <span class="math notranslate nohighlight">\(BDEFI\)</span>. If order were arbitrary, the subset <span class="math notranslate nohighlight">\(\{B,D,E,F,I\}\)</span> could give many lists: <span class="math notranslate nohighlight">\(BDEFI\)</span>, <span class="math notranslate nohighlight">\(IFDEB\)</span>, <span class="math notranslate nohighlight">\(DEBIF\)</span>, etc. But with the condition “in alphabetical order,” only one of those is allowed: <span class="math notranslate nohighlight">\(BDEFI\)</span>. You do not get multiple alphabetical arrangements from the same subset, because once the letters are required to be in alphabetical order, the order is forced.
+<span class="math notranslate nohighlight">\(\displaystyle \binom{9}{5} = \dfrac{9!}{5! \cdot (9-5)!} = \dfrac{9 \cdot 8 \cdot 7 \cdot 6 \cdot 5!}{5! \cdot 4!} = 126\)</span></p>
+</div>
+</details><p>(b) How many length-5 lists can be made if repetition is not allowed and the list is not in alphabetical order? 🔴</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">With no repetition, the total number of length-5 lists is <span class="math notranslate nohighlight">\(\displaystyle P(9,5) = \dfrac{9!}{(9-5)!} = 15,120\)</span>. The question says the list is not in alphabetical order, so the 126 alphabetical lists must be excluded from this total. By the subtraction principle, the number of length-5 lists that can be made if repetition is not allowed and the list is not in alphabetical order is <span class="math notranslate nohighlight">\(15,120-126 = 14,994\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="9">
+<li><p>This problem concerns lists of length 6 made from the letters <span class="math notranslate nohighlight">\(A , B , C , D , E , F\)</span> without repetition. How many such lists have the property that the <span class="math notranslate nohighlight">\(D\)</span> occurs before the <span class="math notranslate nohighlight">\(A\)</span>? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Make such a list as follows. Begin with six blank spaces and select two of these spaces. Put the <span class="math notranslate nohighlight">\(D\)</span> in the first selected space and the <span class="math notranslate nohighlight">\(A\)</span> in the second. There are <span class="math notranslate nohighlight">\(\displaystyle \binom{6}{2} = 15\)</span> ways of doing this. For each of these 15 choices there are <span class="math notranslate nohighlight">\(4! = 24\)</span> ways of filling in the remaining spaces. Thus the answer to the question is <span class="math notranslate nohighlight">\(15 \cdot 24 = 360\)</span> such lists.</p>
+</div>
+</details><ol class="arabic simple" start="10">
+<li><p>A department consists of 5 men and 7 women. From this department you select a committee with 3 men and 2 women. In how many ways can you do this?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{5}{3} \cdot \binom{7}{2} = \dfrac{5!}{3! \cdot (5-3)!} \cdot \dfrac{7!}{2! \cdot (7-2)!} = \dfrac{5 \cdot 4 \cdot 3!}{3! \cdot 2!} \cdot \dfrac{7 \cdot 6 \cdot 5!}{2! \cdot 5!} = \dfrac{5 \cdot 4}{2!} \cdot \dfrac{7 \cdot 6}{2!} = 10 \cdot 21 = 210\)</span></p>
+</div>
+</details><ol class="arabic simple" start="11">
+<li><p>How many positive 10-digit integers contain no 0’s and exactly three 6’s? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Make such a number as follows: start with 10 blank spaces and choose three of these spaces for the 6’s. There are <span class="math notranslate nohighlight">\(\displaystyle \binom{10}{3} = \dfrac{10!}{3! \cdot (10-3)!} = \dfrac{10 \cdot 9 \cdot 8 \cdot 7!}{3! \cdot 7!} = 120\)</span> ways of doing this. For each of these 120 choices we can fill in the remaining seven blanks with choices from the digits in <span class="math notranslate nohighlight">\(\{1,2,3,4,5,7,8,9\}\)</span>, and there are <span class="math notranslate nohighlight">\(8^{7}\)</span> ways to do this. Thus the answer to the question is <span class="math notranslate nohighlight">\(\displaystyle \binom{10}{3} \cdot 8^{7} = 251,658,240\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="12">
+<li><p>Twenty-one people are to be divided into two teams, the Red Team and the Blue Team. There will be 10 people on Red Team and 11 people on Blue Team. In how many ways can this be done?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle \binom{21}{10} = \binom{21}{11}\)</span> counts the same split from opposite perspectives: choose the 10 people who will be on the Red Team, then the remaining 11 people automatically go to the Blue Team. You could also choose the 11 people for Blue Team, then the remaining 10 people automatically go to the Red Team. These are equivalent ways to count the ways requested.
+<span class="math notranslate nohighlight">\(\displaystyle \binom{21}{10} = \dfrac{21!}{10! \cdot (21-10)!} = \dfrac{21 \cdot 20 \cdot 19 \cdot 18 \cdot 17 \cdot 16 \cdot 15 \cdot 14 \cdot 13 \cdot 12 \cdot 11!}{10! \cdot 11!} = 352,716\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle \binom{21}{11} = \dfrac{21!}{11! \cdot (21-11)!} = \dfrac{21 \cdot 20 \cdot 19 \cdot 18 \cdot 17 \cdot 16 \cdot 15 \cdot 14 \cdot 13 \cdot 12 \cdot 11!}{11! \cdot 10!} = 352,716\)</span></p>
+</div>
+</details><ol class="arabic simple" start="13">
+<li><p>Suppose <span class="math notranslate nohighlight">\(n, k \in \mathbb{Z}\)</span>, and <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>. Use Fact 3.5, the formula <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \frac{n!}{k! \cdot (n-k)!}\)</span>, to show that <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \binom{n}{n-k}\)</span>.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Fact 3.5: If <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>, then <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \dfrac{n!}{k! \cdot (n-k)!}\)</span>. Otherwise <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = 0\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \frac{n!}{k! \cdot (n-k)!} = \frac{n!}{(n-k)! \cdot k!} = \frac{n!}{(n-k)! \cdot (n-(n-k))!} = \binom{n}{n-k}\)</span></p>
+</div>
+</details><ol class="arabic simple" start="14">
+<li><p>Suppose <span class="math notranslate nohighlight">\(n, k \in \mathbb{Z}\)</span>, and <span class="math notranslate nohighlight">\(0 \leq k \leq n\)</span>. Use Definition 3.2 alone (without using Fact 3.5) to show that <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \binom{n}{n-k}\)</span>. 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Definition 3.2: If <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> are integers, then <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> denotes the number of subsets that can be made by choosing <span class="math notranslate nohighlight">\(k\)</span> elements from an <span class="math notranslate nohighlight">\(n\)</span>-element set. We read <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> as “<span class="math notranslate nohighlight">\(n\)</span> choose <span class="math notranslate nohighlight">\(k\)</span>.” Some textbooks write <span class="math notranslate nohighlight">\(C(n,k)\)</span> instead of <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span>.
+Let <span class="math notranslate nohighlight">\(S\)</span> be an <span class="math notranslate nohighlight">\(n\)</span>-element set. By Definition 3.2, <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k}\)</span> is the number of <span class="math notranslate nohighlight">\(k\)</span>-element subsets of <span class="math notranslate nohighlight">\(S\)</span>, and <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{n-k}\)</span> is the number of <span class="math notranslate nohighlight">\((n−k)\)</span>-element subsets of <span class="math notranslate nohighlight">\(S\)</span>. For every <span class="math notranslate nohighlight">\(k\)</span>-element subset <span class="math notranslate nohighlight">\(A \subseteq S\)</span>, its complement <span class="math notranslate nohighlight">\(S - A\)</span> has exactly <span class="math notranslate nohighlight">\(n−k\)</span> elements. So each <span class="math notranslate nohighlight">\(k\)</span>-element subset corresponds exacly to one <span class="math notranslate nohighlight">\((n-k)\)</span>-element subset, namely it’s complement. Conversely, every <span class="math notranslate nohighlight">\((n-k)\)</span>-element subset is the complement of exactly one <span class="math notranslate nohighlight">\(k\)</span>-element subset. This gives a one-to-one correspondence between <span class="math notranslate nohighlight">\(k\)</span>-element subsets and <span class="math notranslate nohighlight">\((n−k)\)</span>-element subsets. Therefore, <span class="math notranslate nohighlight">\(\displaystyle \binom{n}{k} = \binom{n}{n-k}\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="15">
+<li><p>How many 10-digit binary strings are there that do not have exactly four 1’s?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">All together, there are <span class="math notranslate nohighlight">\(|A| = 2^{10} = 1024\)</span> different 10-digit binary strings. The number of 10-digit binary strings with exactly four 1’s is <span class="math notranslate nohighlight">\(\displaystyle |A_{4}| = \binom{10}{4} = \frac{10!}{4! \cdot (10-4)!} = \frac{10 \cdot 9 \cdot 8 \cdot 7 \cdot 6!}{4! \cdot 6!} = 210\)</span>, because to make one we need to choose 4 out of 10 positions for the 1’s and fill the rest in with 0’s. By the subtraction principle, the answer to our questions is <span class="math notranslate nohighlight">\(|A - A_{4}| = 1024-210 = 814\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="16">
+<li><p>How many 6-element subsets of <span class="math notranslate nohighlight">\(A = \left\{ 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 \right\}\)</span> have exactly three even elements? How many do not have exactly three even elements?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Note that <span class="math notranslate nohighlight">\(0\)</span> is an even number, because it is divisible by <span class="math notranslate nohighlight">\(2\)</span> and there is no remainder in the result: <span class="math notranslate nohighlight">\(0 \div 2 = 0\)</span>. The set <span class="math notranslate nohighlight">\(A = \{ 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9\}\)</span> has five even elements <span class="math notranslate nohighlight">\(\{0,2,4,6,8\}\)</span> and five odd elements <span class="math notranslate nohighlight">\(\{1,3,5,7,9\}\)</span>. To form a 6-element subset with exactly three even elements, you must choose 3 of the 5 evens, and 3 of the 5 odds, so the number of 6-element subsets that have exactly three even elements is: <span class="math notranslate nohighlight">\(\displaystyle \binom{5}{3} \cdot \binom{5}{3} = 10 \cdot 10 = 100\)</span>. The total number of 6-element subsets is <span class="math notranslate nohighlight">\(\displaystyle \binom{10}{6} = \frac{10!}{6! \cdot (10-6)!} = \frac{10 \cdot 9 \cdot 8 \cdot 7 \cdot 6!}{6! \cdot 4!} = 210\)</span>, so by the subtraction principle, there are <span class="math notranslate nohighlight">\(210-100=110\)</span> 6-element subsets that do not have exactly three even elements.</p>
+</div>
+</details><ol class="arabic simple" start="17">
+<li><p>How many 10-digit binary strings are there that have exactly four 1’s or exactly five 1’s? How many do not have exactly four 1’s or exactly five 1’s?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(\displaystyle |A_{4}| = \binom{10}{4} = \frac{10!}{4! \cdot (10-4)!} = \frac{10 \cdot 9 \cdot 8 \cdot 7 \cdot 6!}{4! \cdot 6!} = 210\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle |A_{5}| = \binom{10}{5} = \frac{10!}{5! \cdot (10-5)!} = \frac{10 \cdot 9 \cdot 8 \cdot 7 \cdot 6 \cdot 5!}{5! \cdot 5!} = 252\)</span>
+By the addition principle there are <span class="math notranslate nohighlight">\(\displaystyle |A_{4} + A_{5}| = \binom{10}{4} + \binom{10}{5} = 210 + 252 = 462\)</span> 10-digit binary strings are there that have exactly four 1’s or exactly five 1’s.
+All together, there are <span class="math notranslate nohighlight">\(|A| = 2^{10} = 1024\)</span> different 10-digit binary strings. By the subtraction principle combined with the answer to the first part of this problem, the answer is <span class="math notranslate nohighlight">\(\displaystyle 2^{10} - \binom{10}{4} - \binom{10}{5} = 1024 - 462 = 562\)</span>.</p>
+</div>
+</details><ol class="arabic simple" start="18">
+<li><p>How many 10-digit binary strings have an even number of 1’s? 🔴</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(A_k\)</span>​ be the set of 10-digit binary strings with exactly <span class="math notranslate nohighlight">\(k\)</span> ones. A binary string has an even number of 1’s when <span class="math notranslate nohighlight">\(k=0,2,4,6,8,10\)</span>.
+<span class="math notranslate nohighlight">\(\displaystyle |A_{0}| = \binom{10}{0} = \frac{10!}{0! \cdot (10-0)!} = \frac{10!}{10!} = 1\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle |A_{2}| = \binom{10}{2} = \frac{10!}{2! \cdot (10-2)!} = \frac{10 \cdot 9 \cdot 8!}{2! \cdot 8!} = 45\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle |A_{4}| = \binom{10}{4} = \frac{10!}{4! \cdot (10-4)!} = \frac{10 \cdot 9 \cdot 8 \cdot 7 \cdot 6!}{4! \cdot 6!} = 210\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle |A_{6}| = \binom{10}{6} = \frac{10!}{6! \cdot (10-6)!} = \frac{10 \cdot 9 \cdot 8 \cdot 7 \cdot 6!}{6! \cdot 4!} = 210\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle |A_{8}| = \binom{10}{8} = \frac{10!}{8! \cdot (10-8)!} = \frac{10 \cdot 9 \cdot 8!}{8! \cdot 2!} = 45\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle |A_{10}| = \binom{10}{10} = \frac{10!}{10! \cdot (10-10)!} = \frac{10!}{10!} = 1\)</span>
+By the addition principle, there are <span class="math notranslate nohighlight">\(|A_{0}| + |A_{2}| + |A_{4}| + |A_{6}| + |A_{8}| + |A_{10}| = 1+45+210+210+45+1 = 512\)</span> 10-digit binary strings that have an even number of 1’s.</p>
+</div>
+</details><ol class="arabic simple" start="19">
+<li><p>A 5-card poker hand is called a flush if all cards are the same suit. How many different flushes are there?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">There are <span class="math notranslate nohighlight">\(\displaystyle \binom{13}{5} = \frac{13!}{5! \cdot (13-5)!} = \frac{13 \cdot 12 \cdot 11 \cdot 10 \cdot 9 \cdot 8!}{5! \cdot 8!} = 1287\)</span> 5-card hands that are all hearts. Similarly, there are <span class="math notranslate nohighlight">\(\displaystyle \binom{13}{5} = 1287\)</span> 5-card hands that are all diamonds, or all clubs, or all spades. By the addition principle, there are then <span class="math notranslate nohighlight">\(1287 + 1287 + 1287 + 1287 = 5148\)</span> flushes.</p>
+</div>
+</details></section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="03-6-pascals-triangle-and-the-binomial-theorem.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">3.6 Pascal’s Triangle and the Binomial Theorem</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="03-4-factorials-and-permutations.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">3.4 Factorials and Permutations</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">3.5 Counting Subsets</a><ul>
+<li><a class="reference internal" href="#exercises-for-section-3-5">Exercises for Section 3.5</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

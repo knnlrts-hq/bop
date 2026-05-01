@@ -1,0 +1,220 @@
+# 2.5 Truth Tables for Statements
+
+You should now know the truth tables for $\land$, $\lor$, $\sim$, $\Rightarrow$ and $\Leftrightarrow$. They should be internalized as well as memorized. You must understand the symbols thoroughly, for we now combine them to form more complex statements. For example, suppose we want to convey that one or the other of $P$ and $Q$ is true but they are not both true. No single symbol expresses this, but we could combine them as $(P \vee Q) \ \wedge \sim (P \wedge Q)$, which literally means: "$P$ or $Q$ is true, and it is not the case that both $P$ and $Q$ are true."
+
+This statement will be true or false depending on the truth values of $P$ and $Q$. In fact we can make a truth table for the entire statement. **Begin as usual by listing the possible true/false combinations of $P$ and $Q$ on four lines. The statement $( P \lor Q ) \ \land \sim ( P \land Q )$ contains the individual statements $( P \lor Q )$ and $( P \land Q )$, so we next tally their truth values in the third and fourth columns. The fifth column lists values for $\sim ( P \land Q )$, and these are just the opposites of the corresponding entries in the fourth column. Finally, combining the third and fifth columns with $\wedge$, we get the values for $( P \lor Q ) \ \land \sim ( P \land Q )$ in the sixth column.**
+
+
+<table style="margin-left: auto; margin-right: auto;">
+	<colgroup>
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 180px;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="text-align:center;">P</th>
+			<th style="text-align:center;">Q</th>
+			<th style="text-align:center;">(P &vee; Q)</th>
+			<th style="text-align:center;">(P &wedge; Q)</th>
+			<th style="text-align:center;">~(P &wedge; Q)</th>
+			<th style="text-align:center;">(P &vee; Q) &wedge; ~(P &wedge; Q)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+	</tbody>
+</table>
+
+**This truth table tells us that $( P \lor Q ) \land \sim ( P \land Q )$ is true precisely when one but not both of $P$ and $Q$ are true, so it has the meaning we intended. (Notice that the middle three columns of our truth table are just “helper columns” and are not necessary parts of the table.** In writing truth tables, you may choose to omit such columns if you are confident about your work.)
+
+For another example, consider the following familiar statement about real numbers $x$ and $y$ : "The product $x y$ equals zero if and only if $x = 0$ or $y = 0$." This can be modeled as $( x y = 0 ) \Leftrightarrow ( x = 0 \lor y = 0 )$. If we introduce letters $P$, $Q$ and $R$ for the statements $x y = 0$, $x = 0$ and $y = 0$, it becomes $P \Leftrightarrow ( Q \lor R )$. Notice that the parentheses are necessary here, for without them we wouldn’t know whether to read the statement as $P \Leftrightarrow ( Q \lor R )$ or $( P \Leftrightarrow Q ) \lor R$.
+
+**Making a truth table for $P \Leftrightarrow ( Q \lor R )$ entails a line for each $T/F$ combination for the three statements $P$, $Q$ and $R$. The eight possible combinations are tallied in the first three columns of the following table.**
+
+
+<table style="margin-left: auto; margin-right: auto;">
+	<colgroup>
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+		<col style="width: 120px;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="text-align:center;">P</th>
+			<th style="text-align:center;">Q</th>
+			<th style="text-align:center;">R</th>
+			<th style="text-align:center;">Q &vee; R</th>
+			<th style="text-align:center;">P &Leftrightarrow; (Q &vee; R)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">T</td>
+			<td style="text-align:center;">F</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">F</td>
+			<td style="text-align:center;">T</td>
+		</tr>
+	</tbody>
+</table>
+
+We fill in the fourth column using our knowledge of the truth table for $\lor$. Finally the fifth column is filled in by combining the first and fourth columns with our understanding of the truth table for $\Leftrightarrow$. The resulting table gives the true/false values of $P \Leftrightarrow ( Q \lor R )$ for all values of $P$, $Q$ and $R$.
+
+**<mark>Notice that when we plug in various values for $x$ and $y$, the statements $P$ : $x y = 0$, $Q$ : $x = 0$ and $R$ : $y = 0$ have various truth values, but the statement $P \Leftrightarrow ( Q \lor R )$ is always true. For example, if $x = 2$ and $y = 3$, then $P$, $Q$ and $R$ are all false. This scenario is described in the last row of the table, and there we see that $P \Leftrightarrow ( Q \lor R )$ is true. Likewise if $x = 0$ and $y = 7$, then $P$ and $Q$ are true and $R$ is false, a scenario described in the second line of the table, where again $P \Leftrightarrow ( Q \lor R )$ is true. There is a simple reason why $P \Leftrightarrow ( Q \lor R )$ is true for any values of $x$ and $y$ : It is that $P \Leftrightarrow ( Q \lor R )$ represents $( x y = 0 ) \Leftrightarrow ( x = 0 \lor y = 0 )$, which is a true mathematical statement. It is absolutely impossible for it to be false.</mark>**
+
+**This may make you wonder about the lines in the table where $P \Leftrightarrow ( Q \lor R )$ is false. Why are they there? The reason is that $P \Leftrightarrow ( Q \lor R )$ can also represent a false statement. To see how, imagine that at the end of the semester your professor makes the following promise.**
+- **You pass the class if and only if you get an "$A$" on the final or you get a "$B$" on the final.**
+**This promise has the form $P \Leftrightarrow ( Q \lor R )$, so its truth values are tabulated in the above table. Imagine it turned out that you got an "$A$" on the exam but failed the class. Then surely your professor lied to you. In fact, $P$ is false, $Q$ is true and $R$ is false. This scenario is reflected in the sixth line of the table, and indeed $P \Leftrightarrow ( Q \lor R )$ is false (i.e., it is a lie). <mark>The moral of this example is that people can lie, but true mathematical statements never lie.</mark>**
+
+We close this section with a word about the use of parentheses. The symbol $\sim$ is analogous to the minus sign in algebra. It negates the expression it precedes. Thus $\sim P \ \lor Q$ means $( \sim P ) \ \lor Q$, not $\sim (P \lor Q )$. In $\sim ( P \lor Q )$, the value of the entire expression $P \lor Q$ is negated.
+
+## Exercises for Section 2.5
+
+Write a truth table for the logical statements in problems 1–9:
+1. $P \lor ( Q \Rightarrow R )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">R</th><th style="text-align:center;">Q &Rightarrow; R</th><th style="text-align:center;">P &vee; (Q &Rightarrow; R)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr></tbody></table>
+:::
+
+2. $( Q \lor R ) \Leftrightarrow ( R \land Q )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 180px;"></colgroup><thead><tr><th style="text-align:center;">Q</th><th style="text-align:center;">R</th><th style="text-align:center;">Q &vee; R</th><th style="text-align:center;">R &wedge; Q</th><th style="text-align:center;">(Q &vee; R) &Leftrightarrow; (R &wedge; Q)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr></tbody></table>
+:::
+
+3. $\sim ( P \Rightarrow Q )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">P &Rightarrow; Q</th><th style="text-align:center;">&sim; (P &Rightarrow; Q)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td></tr></tbody></table>
+:::
+
+4. $\sim ( P \lor Q ) \lor ( \sim P )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 180px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">&sim; P</th><th style="text-align:center;">P &vee; Q</th><th style="text-align:center;">&sim; (P &vee; Q)</th><th style="text-align:center;">&sim; (P &vee; Q) &vee; (&sim; P)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr></tbody></table>
+:::
+
+5. $( P \ \land \sim P ) \lor Q$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">&sim; P</th><th style="text-align:center;">P &wedge; &sim; P</th><th style="text-align:center;">(P &wedge; &sim; P) &vee; Q</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr></tbody></table>
+:::
+
+6. $( P \ \land \sim P ) \land Q$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">&sim; P</th><th style="text-align:center;">P &wedge; &sim; P</th><th style="text-align:center;">(P &wedge; &sim; P) &wedge; Q</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr></tbody></table>
+:::
+
+7. $( P \ \land \sim P ) \Rightarrow Q$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">&sim; P</th><th style="text-align:center;">P &wedge; &sim; P</th><th style="text-align:center;">(P &wedge; &sim; P) &Rightarrow; Q</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr></tbody></table>
+:::
+
+8. $P \lor (Q \ \land \sim R)$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">R</th><th style="text-align:center;">&sim; R</th><th style="text-align:center;">Q &wedge; &sim; R</th><th style="text-align:center;">P &vee; (Q &wedge; &sim; R)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td></tr></tbody></table>
+:::
+
+9. $\sim (\sim P \ \lor \sim Q )$ 
+:::{dropdown} Answer
+<table style="margin-left: auto; margin-right: auto;"><colgroup><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"><col style="width: 120px;"></colgroup><thead><tr><th style="text-align:center;">P</th><th style="text-align:center;">Q</th><th style="text-align:center;">&sim; P</th><th style="text-align:center;">&sim; Q</th><th style="text-align:center;">&sim; P &vee; &sim; Q</th><th style="text-align:center;">&sim; (&sim; P &vee; &sim; Q)</th></tr></thead><tbody><tr><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td></tr><tr><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td></tr><tr><td style="text-align:center;">F</td><td style="text-align:center;">F</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">T</td><td style="text-align:center;">F</td></tr></tbody></table>
+:::
+
+10. Suppose the statement $( ( P \land Q ) \lor R ) \Rightarrow ( R \lor S )$ is false. Find the truth values of $P , Q , R$ and $S$. (This can be done without a truth table.) 
+:::{dropdown} Answer
+An implication is false only when the left side is true and the right side is false (i.e. it is a lie). So in $((P\land Q)\lor R)\Rightarrow (R\lor S)$, we need: $((P\land Q)\lor R)=T$ and $(R\lor S)=F$.
+Since $R\lor S$ is false, both must be false: $R=F$, $S=F$.
+Now substitute $R=F$ into the left side: $(P\land Q)\lor F = P\land Q = T$. For this to hold, it must be that: $P=T$, $Q=T$.
+Thus the truth values are: $\boxed{P=T,\ Q=T,\ R=F,\ S=F}$.
+:::
+
+11. Suppose $P$ is false and that the statement $( R \Rightarrow S ) \Leftrightarrow ( P \land Q )$ is true. Find the truth values of $R$ and $S$. (This can be done without a truth table.) 
+:::{dropdown} Answer
+Since $P=F$, the conjunction $P\land Q$ must be false no matter what $Q$ is: $P\land Q = F$. 
+So the statement becomes: $(R\Rightarrow S)\Leftrightarrow F$. For a biconditional to be true, both sides must have the same truth value. Therefore: $R\Rightarrow S = F$.
+An implication is false only when the left side is true and the right side is false (i.e. it is a lie).
+Thus the truth values are: $\boxed{R=T, \ S=F}$.
+:::
+

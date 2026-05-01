@@ -1,0 +1,657 @@
+# 1.7 Venn Diagrams
+
+**In thinking about sets, it is sometimes helpful to draw informal, schematic diagrams of them. In doing this we often represent a set with a circle (or oval), which we regard as enclosing all the elements of the set. Such diagrams can illustrate how sets combine using various operations. For example, Figures 1.7(a–c) show two sets $A$ and $B$ that overlap in a middle region. The sets $A \cup B$, $A \cap B$ and $A - B$ are shaded. Such graphical representations of sets are called Venn diagrams, after their inventor, British logician John Venn, 1834–1923.** 
+
+<img src="../assets/Pasted image 20260312100105.png" width="1000">
+Figure 1.7. Venn diagrams for two sets
+
+**Though you are unlikely to draw Venn diagrams as a part of a proof of any theorem, you will probably find them to be useful “scratch work” devices that help you to understand how sets combine, and to develop strategies for proving certain theorems or solving certain problems.** The remainder of this section uses Venn diagrams to explore how three sets can be combined using $\cup$ and $\cap$. 
+
+Let’s begin with the set $A \cup B \cup C$. Our definitions suggest this should consist of all elements which are in one or more of the sets $A$, $B$ and $C$. Figure 1.8(a) shows a Venn diagram for this. Similarly, we think of $A \cap B \cap C$ as all elements common to each of $A$, $B$ and $C$, so in Figure 1.8(b) the region belonging to all three sets is shaded. 
+
+<img src="../assets/Pasted image 20260312100213.png">
+Figure 1.8. Venn diagrams for three sets
+
+**We can also think of $A \cap B \cap C$ as the two-step operation $( A \cap B ) \cap C$. In this expression the set $A \cap B$ is represented by the region common to both $A$ and $B$, and when we intersect this with $C$ we get Figure 1.8(b). This is a visual representation of the fact that $A \cap B \cap C = ( A \cap B ) \cap C$. Similarly, we have $A \cap B \cap C = A \cap ( B \cap C )$. Likewise, $A \cup B \cup C = ( A \cup B ) \cup C = A \cup ( B \cup C )$.** 
+
+**Notice that in these examples, where the expression either contains only the symbol $\cup$ or only the symbol $\cap$, the placement of the parentheses is irrelevant, so we are free to drop them. It is analogous to the situations in algebra involving expressions $( a + b ) + c = a + ( b + c )$ or $( a \cdot b ) \cdot c = a \cdot ( b \cdot c )$. We tend to drop the parentheses and write simply $a + b + c$ or $a \cdot b \cdot c$. By contrast, in an expression like $( a + b ) \cdot c$ the parentheses are absolutely essential because $( a + b ) \cdot c$ and $a + ( b \cdot c )$ are generally not equal.** 
+
+**Now let’s use Venn diagrams to help us understand the expressions $( A \cup B ) \cap C$ and $A \cup ( B \cap C )$, which use a mix of $\cup$ and $\cap$. Figure 1.9 shows how to draw a Venn diagram for $( A \cup B ) \cap C$. In the drawing on the left, the set $A \cup B$ is shaded with horizontal lines, while $C$ is shaded with vertical lines. Thus the set $( A \cup B ) \cap C$ is represented by the cross-hatched region where $A \cup B$ and $C$ overlap.** The superfluous shadings are omitted in the drawing on the right showing the set $( A \cup B ) \cap C$. 
+
+<img src="../assets/Pasted image 20260312100303.png">
+Figure 1.9. How to make a Venn diagram for $( A \cup B ) \cap C$
+
+**Now think about $A \cup ( B \cap C )$. In Figure 1.10 the set $A$ is shaded with horizontal lines, and $B \cap C$ is shaded with vertical lines. The union $A \cup ( B \cap C )$ is represented by the totality of all shaded regions, as shown on the right.** 
+
+<img src="../assets/Pasted image 20260312100321.png">
+Figure 1.10. How to make a Venn diagram for $A \cup ( B \cap C )$
+
+**Compare the diagrams for $( A \cup B ) \cap C$ and $A \cup ( B \cap C )$ in Figures 1.9 and 1.10. The fact that the diagrams are different indicates that $( A \cup B ) \cap C \neq$ $A \cup ( B \cap C )$ in general. Thus an expression such as $A \cup B \cap C$ is absolutely meaningless because we can’t tell whether it means $( A \cup B ) \cap C$ or $A \cup ( B \cap C )$.** In summary, Venn diagrams have helped us understand the following. 
+
+Important Points:
+- **<mark>If an expression involving sets uses only $\cup$, then parentheses are optional.</mark>** 
+- **<mark>If an expression involving sets uses only $\cap$, then parentheses are optional.</mark>** 
+- **<mark>If an expression uses both $\cup$ and $\cap$, then parentheses are essential.</mark>** 
+
+In the next section we will study types of expressions that use only $\cup$ or only $\cap$. These expressions will not require the use of parentheses. 
+
+## Exercises for Section 1.7
+
+1. Draw a Venn diagram for $\overline{A}$, where $A$ is a subset of a universal set $U$. 
+:::{dropdown} Answer
+
+<img src="../assets/f64483caafea4948911c14c52a1326c8.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Rectangle
+
+def style_axes(ax, title):
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-3, 3)
+    ax.set_ylim(-3, 3)
+    ax.set_title(title, fontsize=11)
+    ax.axis("off")
+
+fig, axes = plt.subplots(1, 1, figsize=(6, 6))
+ax = axes
+# 1) universal set U
+ax.add_patch(Rectangle((-2.5, -2.5), 5, 5, facecolor="blue", edgecolor="none", fill=True, alpha=0.35))
+# 2) subset A
+ax.add_patch(Circle((0, 0), 1.2, facecolor="white", edgecolor="black", fill=True, alpha=1.0))
+ax.text(0, 0, r"$A$", ha="center")
+ax.text(-2, 2, r"$U$", ha="center")
+style_axes(ax, r"$\overline{A}$")
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+2. Draw a Venn diagram for $B - A$. 
+:::{dropdown} Answer
+
+<img src="../assets/9ecef6a1b6a443878cfae594f80dbfd9.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "matplotlib",
+#   "matplotlib-venn",
+#   "uuid",
+# ]
+# ///
+"""Draw a Venn diagram for B - A"""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn2, venn2_circles
+
+def style_venn(ax, title, highlighted_ids):
+    v = venn2(subsets=(1, 1, 1), set_labels=("A", "B"), ax=ax)
+    venn2_circles(subsets=(1, 1, 1), ax=ax, color="black", linewidth=1.0)
+    for region_id in ("10", "01", "11"):
+        patch = v.get_patch_by_id(region_id)
+        if patch is not None:
+            patch.set_edgecolor("black")
+            patch.set_linewidth(0.8)
+            if region_id in highlighted_ids:
+                patch.set_color("blue")
+                patch.set_alpha(0.35)
+            else:
+                patch.set_color("white")
+                patch.set_alpha(1.0)
+        label = v.get_label_by_id(region_id)
+        if label is not None:
+            label.set_text("")
+    ax.set_title(title)
+
+fig, ax = plt.subplots(1, 1, figsize=(5, 6))
+# B - A = elements in B but not in A
+highlight = {"01"}
+style_venn(ax, r"$B - A$", highlight)
+uid = uuid.uuid4().hex
+fig.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+fig.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close(fig)
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+3. Draw a Venn diagram for $( A - B ) \cap C$. 
+:::{dropdown} Answer
+
+<img src="../assets/4383157491e140838889ac5d3381f094.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "matplotlib",
+#   "matplotlib-venn",
+#   "uuid",
+# ]
+# ///
+"""Draw a Venn diagram for (A - B) ∩ C"""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn3, venn3_circles
+
+def style_venn(ax, title, highlighted_ids):
+    v = venn3(subsets=(1, 1, 1, 1, 1, 1, 1), set_labels=("A", "B", "C"), ax=ax)
+    venn3_circles(subsets=(1, 1, 1, 1, 1, 1, 1), ax=ax, color="black", linewidth=1.0)
+    for region_id in ("100", "010", "110", "001", "101", "011", "111"):
+        patch = v.get_patch_by_id(region_id)
+        if patch is not None:
+            patch.set_edgecolor("black")
+            patch.set_linewidth(0.8)
+            if region_id in highlighted_ids:
+                patch.set_color("blue")
+                patch.set_alpha(0.35)
+            else:
+                patch.set_color("white")
+                patch.set_alpha(1.0)
+        label = v.get_label_by_id(region_id)
+        if label is not None:
+            label.set_text("")
+    ax.set_title(title)
+
+fig, ax = plt.subplots(1, 1, figsize=(5, 6))
+# (A - B) ∩ C
+highlight = {"101"}
+style_venn(ax, r"$(A - B) \cap C$", highlight)
+uid = uuid.uuid4().hex
+fig.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+fig.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close(fig)
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+4. Draw a Venn diagram for $( A \cup B ) - C$.
+:::{dropdown} Answer
+
+<img src="../assets/80fdd1e633fc4f3eb5c1971a6b97a1a4.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "matplotlib",
+#   "matplotlib-venn",
+#   "uuid",
+# ]
+# ///
+"""Draw a Venn diagram for (A U B) - C"""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn3, venn3_circles
+
+def style_venn(ax, title, highlighted_ids):
+    v = venn3(subsets=(1, 1, 1, 1, 1, 1, 1), set_labels=("A", "B", "C"), ax=ax)
+    venn3_circles(subsets=(1, 1, 1, 1, 1, 1, 1), ax=ax, color="black", linewidth=1.0)
+    for region_id in ("100", "010", "110", "001", "101", "011", "111"):
+        patch = v.get_patch_by_id(region_id)
+        if patch is not None:
+            patch.set_edgecolor("black")
+            patch.set_linewidth(0.8)
+            if region_id in highlighted_ids:
+                patch.set_color("blue")
+                patch.set_alpha(0.35)
+            else:
+                patch.set_color("white")
+                patch.set_alpha(1.0)
+        label = v.get_label_by_id(region_id)
+        if label is not None:
+            label.set_text("")
+    ax.set_title(title)
+
+fig, ax = plt.subplots(1, 1, figsize=(5, 6))
+# (A U B) - C
+highlight = {"100", "110", "010"}
+style_venn(ax, r"$(A \cup B) - C$", highlight)
+uid = uuid.uuid4().hex
+fig.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+fig.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close(fig)
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+5. Draw Venn diagrams for $A \cup ( B \cap C )$ and $( A \cup B ) \cap ( A \cup C )$. Based on your drawings, do you think $A \cup ( B \cap C ) = ( A \cup B ) \cap ( A \cup C )$? 
+:::{dropdown} Answer
+The statement $A \cup ( B \cap C ) = ( A \cup B ) \cap ( A \cup C )$ is true. Based on the drawings, we are inclined to say that the equation $A \cup ( B \cap C ) = ( A \cup B ) \cap ( A \cup C )$ holds for all sets $A$, $B$ and $C$.
+
+<img src="../assets/30536fb2611e40e293c3f44dda2d5390.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "matplotlib",
+#   "matplotlib-venn",
+#   "uuid",
+# ]
+# ///
+"""Draw Venn diagrams for A ∪ (B ∩ C) and (A ∪ B) ∩ (A ∪ C)"""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn3, venn3_circles
+
+def style_venn(ax, title, highlighted_ids):
+    v = venn3(subsets=(1, 1, 1, 1, 1, 1, 1), set_labels=("A", "B", "C"), ax=ax)
+    venn3_circles(subsets=(1, 1, 1, 1, 1, 1, 1), ax=ax, color="black", linewidth=1.0)
+    for region_id in ("100", "010", "110", "001", "101", "011", "111"):
+        patch = v.get_patch_by_id(region_id)
+        if patch is not None:
+            patch.set_edgecolor("black")
+            patch.set_linewidth(0.8)
+            if region_id in highlighted_ids:
+                patch.set_color("blue")
+                patch.set_alpha(0.35)
+            else:
+                patch.set_color("white")
+                patch.set_alpha(1.0)
+        label = v.get_label_by_id(region_id)
+        if label is not None:
+            label.set_text("")
+    ax.set_title(title)
+
+fig, axes = plt.subplots(1, 2, figsize=(10, 6))
+# A ∪ (B ∩ C)
+highlight = {"100", "110", "101", "111", "011"}
+style_venn(axes[0], r"$A \cup (B \cap C)$", highlight)
+# (A ∪ B) ∩ (A ∪ C) gives the same highlighted regions
+style_venn(axes[1], r"$(A \cup B) \cap (A \cup C)$", highlight)
+
+uid = uuid.uuid4().hex
+fig.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+fig.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close(fig)
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+6. Draw Venn diagrams for $A \cap ( B \cup C )$ and $( A \cap B ) \cup ( A \cap C )$. Based on your drawings, do you think $A \cap ( B \cup C ) = ( A \cap B ) \cup ( A \cap C )$? 
+:::{dropdown} Answer
+The statement $A \cap ( B \cup C ) = ( A \cap B ) \cup ( A \cap C )$ is true. Based on the drawings, we are inclined to say that the equation $A \cap ( B \cup C ) = ( A \cap B ) \cup ( A \cap C )$ holds for all sets $A$, $B$ and $C$.
+
+<img src="../assets/a0056cf9b450468a8b780c3dba04e407.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "matplotlib",
+#   "matplotlib-venn",
+#   "uuid",
+# ]
+# ///
+"""Draw Venn diagrams for A ∩ (B ∪ C) and (A ∩  B) ∪ (A ∩ C)"""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn3, venn3_circles
+
+def style_venn(ax, title, highlighted_ids):
+    v = venn3(subsets=(1, 1, 1, 1, 1, 1, 1), set_labels=("A", "B", "C"), ax=ax)
+    venn3_circles(subsets=(1, 1, 1, 1, 1, 1, 1), ax=ax, color="black", linewidth=1.0)
+    for region_id in ("100", "010", "110", "001", "101", "011", "111"):
+        patch = v.get_patch_by_id(region_id)
+        if patch is not None:
+            patch.set_edgecolor("black")
+            patch.set_linewidth(0.8)
+            if region_id in highlighted_ids:
+                patch.set_color("blue")
+                patch.set_alpha(0.35)
+            else:
+                patch.set_color("white")
+                patch.set_alpha(1.0)
+        label = v.get_label_by_id(region_id)
+        if label is not None:
+            label.set_text("")
+    ax.set_title(title)
+
+fig, axes = plt.subplots(1, 2, figsize=(10, 6))
+# A ∩ (B ∪ C)
+highlight = {"101", "111", "110"}
+style_venn(axes[0], r"$A \cap (B \cup C)$", highlight)
+# (A ∩ B) ∪ (A ∩ C) gives the same highlighted regions
+style_venn(axes[1], r"$(A \cap B) \cup (A \cap C)$", highlight)
+
+uid = uuid.uuid4().hex
+fig.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+fig.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close(fig)
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+7. Suppose sets $A$ and $B$ are in a universal set $U$. Draw Venn diagrams for $\overline{A \cap B}$ and $\overline{A} \cup \overline{B}$. Based on your drawings, do you think it’s true that $\overline{A \cap B} = \overline{A} \cup \overline{B}$? 
+:::{dropdown} Answer
+The diagrams for $\overline{A \cap B}$ and $\overline{A} \cup \overline{B}$ look exactly alike. Thus we would expect that the equation $\overline{A \cap B} = \overline{A} \cup \overline{B}$ is true for any sets $A$ and $B$.
+
+<img src="../assets/8da21a150ec94bde8bd0380b380486b4.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Rectangle
+
+def style_axes(ax, title):
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-3, 3)
+    ax.set_ylim(-3, 3)
+    ax.set_title(title, fontsize=11)
+    ax.axis("off")
+
+def draw_panel(ax, title, mask_func):
+    # universal set box outline
+    rect = Rectangle((-2.5, -2.5), 5, 5, facecolor="none")
+    ax.add_patch(rect)
+    # create shaded region using a grid mask
+    x = np.linspace(-2.5, 2.5, 800)
+    y = np.linspace(-2.5, 2.5, 800)
+    X, Y = np.meshgrid(x, y)
+    # circles for A and B
+    A = (X + 0.8)**2 + Y**2 <= 1.2**2
+    B = (X - 0.8)**2 + Y**2 <= 1.2**2
+    shade = mask_func(A, B)
+    img = np.zeros((shade.shape[0], shade.shape[1], 4))
+    img[..., 2] = 1.0      # blue channel
+    img[..., 3] = 0.35 * shade.astype(float)  # alpha only where shaded
+    ax.imshow(img, extent=(-2.5, 2.5, -2.5, 2.5), origin="lower", interpolation="nearest")
+    # draw set circles on top
+    ax.add_patch(Circle((-0.8, 0), 1.2, facecolor="none", edgecolor="black", linewidth=1.2))
+    ax.add_patch(Circle((0.8, 0), 1.2, facecolor="none", edgecolor="black", linewidth=1.2))
+    # labels
+    ax.text(-1.15, 0, r"$A$", ha="center", va="center")
+    ax.text(1.15, 0, r"$B$", ha="center", va="center")
+    ax.text(-2.1, 2.1, r"$U$", ha="center", va="center")
+    style_axes(ax, title)
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+# Left panel: complement of intersection
+draw_panel(axes[0], r"$\overline{A \cap B}$", lambda A, B: ~(A & B))
+# Right panel: complement of A union complement of B
+draw_panel(axes[1], r"$\overline{A} \cup \overline{B}$", lambda A, B: (~A) | (~B))
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+print(f"Saved: {uid}.png and {uid}.svg")
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+8. Suppose sets $A$ and $B$ are in a universal set $U$. Draw Venn diagrams for $\overline{A \cup B}$ and $\overline{A} \cap \overline{B}$ . Based on your drawings, do you think it’s true that $\overline{A \cup B} = \overline{A} \cap \overline{B}$? 
+:::{dropdown} Answer
+The diagrams for $\overline{A \cup B}$ and $\overline{A} \cap \overline{B}$ look exactly alike. Thus we would expect that the equation $\overline{A \cup B} = \overline{A} \cap \overline{B}$ is true for any sets $A$ and $B$.
+
+<img src="../assets/fb279a3fed544bcbb86a5b7fa303f0c7.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+#   "uuid",
+# ]
+# ///
+import matplotlib as mpl
+mpl.use("Agg")  # non-interactive backend
+import uuid
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Rectangle
+
+def style_axes(ax, title):
+    ax.set_aspect("equal", "box")
+    ax.set_xlim(-3, 3)
+    ax.set_ylim(-3, 3)
+    ax.set_title(title, fontsize=11)
+    ax.axis("off")
+
+def draw_panel(ax, title, mask_func):
+    # universal set box outline
+    rect = Rectangle((-2.5, -2.5), 5, 5, facecolor="none")
+    ax.add_patch(rect)
+    # create shaded region using a grid mask
+    x = np.linspace(-2.5, 2.5, 800)
+    y = np.linspace(-2.5, 2.5, 800)
+    X, Y = np.meshgrid(x, y)
+    # circles for A and B
+    A = (X + 0.8)**2 + Y**2 <= 1.2**2
+    B = (X - 0.8)**2 + Y**2 <= 1.2**2
+    shade = mask_func(A, B)
+    img = np.zeros((shade.shape[0], shade.shape[1], 4))
+    img[..., 2] = 1.0      # blue channel
+    img[..., 3] = 0.35 * shade.astype(float)  # alpha only where shaded
+    ax.imshow(img, extent=(-2.5, 2.5, -2.5, 2.5), origin="lower", interpolation="nearest")
+    # draw set circles on top
+    ax.add_patch(Circle((-0.8, 0), 1.2, facecolor="none", edgecolor="black", linewidth=1.2))
+    ax.add_patch(Circle((0.8, 0), 1.2, facecolor="none", edgecolor="black", linewidth=1.2))
+    # labels
+    ax.text(-1.15, 0, r"$A$", ha="center", va="center")
+    ax.text(1.15, 0, r"$B$", ha="center", va="center")
+    ax.text(-2.1, 2.1, r"$U$", ha="center", va="center")
+    style_axes(ax, title)
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+# Left panel: complement of union
+draw_panel(axes[0], r"$\overline{A \cup B}$", lambda A, B: ~(A | B))
+# Right panel: complement of A intersection complement of B
+draw_panel(axes[1], r"$\overline{A} \cap \overline{B}$", lambda A, B: (~A) & (~B))
+uid = uuid.uuid4().hex
+plt.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+plt.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close()
+print(f"Saved: {uid}.png and {uid}.svg")
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+9. Draw a Venn diagram for $( A \cap B ) - C$. 
+:::{dropdown} Answer
+
+<img src="../assets/fb2a739f7dfb48cb9b361012f5de1548.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "matplotlib",
+#   "matplotlib-venn",
+#   "uuid",
+# ]
+# ///
+"""Draw a Venn diagram for (A ∩ B) - C"""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn3, venn3_circles
+
+def style_venn(ax, title, highlighted_ids):
+    v = venn3(subsets=(1, 1, 1, 1, 1, 1, 1), set_labels=("A", "B", "C"), ax=ax)
+    venn3_circles(subsets=(1, 1, 1, 1, 1, 1, 1), ax=ax, color="black", linewidth=1.0)
+    for region_id in ("100", "010", "110", "001", "101", "011", "111"):
+        patch = v.get_patch_by_id(region_id)
+        if patch is not None:
+            patch.set_edgecolor("black")
+            patch.set_linewidth(0.8)
+            if region_id in highlighted_ids:
+                patch.set_color("blue")
+                patch.set_alpha(0.35)
+            else:
+                patch.set_color("white")
+                patch.set_alpha(1.0)
+        label = v.get_label_by_id(region_id)
+        if label is not None:
+            label.set_text("")
+    ax.set_title(title)
+
+fig, ax = plt.subplots(1, 1, figsize=(5, 6))
+# (A ∩ B) - C
+highlight = {"110"}
+style_venn(ax, r"$(A \cap B) - C$", highlight)
+uid = uuid.uuid4().hex
+fig.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+fig.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close(fig)
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+10. Draw a Venn diagram for $( A - B ) \cup C$. 
+:::{dropdown} Answer
+
+<img src="../assets/96f1daeec3e44762a97bc45a7970e932.png" width="500">
+
+```python
+#!/usr/bin/env -S uv run
+# /// script
+# dependencies = [
+#   "matplotlib",
+#   "matplotlib-venn",
+#   "uuid",
+# ]
+# ///
+"""Draw a Venn diagram for (A - B) U C"""
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend
+import uuid
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn3, venn3_circles
+
+def style_venn(ax, title, highlighted_ids):
+    v = venn3(subsets=(1, 1, 1, 1, 1, 1, 1), set_labels=("A", "B", "C"), ax=ax)
+    venn3_circles(subsets=(1, 1, 1, 1, 1, 1, 1), ax=ax, color="black", linewidth=1.0)
+    for region_id in ("100", "010", "110", "001", "101", "011", "111"):
+        patch = v.get_patch_by_id(region_id)
+        if patch is not None:
+            patch.set_edgecolor("black")
+            patch.set_linewidth(0.8)
+            if region_id in highlighted_ids:
+                patch.set_color("blue")
+                patch.set_alpha(0.35)
+            else:
+                patch.set_color("white")
+                patch.set_alpha(1.0)
+        label = v.get_label_by_id(region_id)
+        if label is not None:
+            label.set_text("")
+    ax.set_title(title)
+
+fig, ax = plt.subplots(1, 1, figsize=(5, 6))
+# (A \cap B) - C
+highlight = {"100", "101", "111", "011", "001"}
+style_venn(ax, r"$(A - B) \cup C$", highlight)
+uid = uuid.uuid4().hex
+fig.savefig(f"{uid}.png", dpi=600, bbox_inches="tight")
+fig.savefig(f"{uid}.svg", bbox_inches="tight")
+plt.close(fig)
+```
+
+```bash
+chmod +x plot.py
+uv run plot.py
+```
+:::
+
+Following are Venn diagrams for expressions involving sets $A , B$ and $c$ . Write a corresponding expression. 
+11. 
+<img src="../assets/4d577c2df50eb9aa5f6c2c4ed711be14f7616e6034122ea1ddc5fbb7b5eab7f1.jpg">
+:::{dropdown} Answer
+$(B \cap C) - A$
+:::
+
+12. 
+<img src="../assets/fabab6a864bc5cc448a6fbbafdcb0d94b039ca528e355770879b7bf4c6a9380d.jpg">
+:::{dropdown} Answer
+$((A \cup B) \cap C) \cup (A - (B \cup C))$
+:::
+
+13. 
+<img src="../assets/cbafb51dacfae915b8cac6cbd4e606c1cf43b4c22331c6b179da323b6e030473.jpg">
+:::{dropdown} Answer
+$(A \cup B \cup C) - (A \cap B \cap C)$
+:::
+
+14. 
+<img src="../assets/dffa532617f3cacbe6ce1ecdd34a4a870ffa8611f2dfb9c0b6795f8ed460ed1c.jpg">
+:::{dropdown} Answer
+$(A \cap B \cap C) \cup (A - (B \cup C))$
+:::
+

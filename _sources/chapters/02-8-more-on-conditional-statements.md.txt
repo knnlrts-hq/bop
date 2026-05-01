@@ -1,0 +1,26 @@
+# 2.8 More on Conditional Statements
+
+**It is time to address a very important point about conditional statements that contain variables. To motivate this, let’s return to the following example concerning integers $x$ : ($x$ is a multiple of 6) $\Rightarrow$ ($x$ is even). As noted earlier, since every multiple of 6 is even, this is a true statement no matter what integer $x$ is. We could even underscore this fact by writing this true statement as : $\forall \ x \in \mathbb{Z}$, ($x$ is a multiple of 6) $\Rightarrow$ ($x$ is even).**
+
+**But now switch things around to get the different statement : ($x$ is even) $\Rightarrow$ ($x$ is a multiple of 6). This is true for some values of $x$ such as $-12$, $-6$, 6, 12, 18, etc., but false for others (such as $-4$, $-2$, 2, 4, 8, 10, etc.). Thus we do not have a statement, but rather an open sentence. (Recall from Section 2.1 that an open sentence is a sentence whose truth value depends on the value of a certain variable or variables.) However, by putting a universal quantifier in front we get : $\forall \ x \in \mathbb {Z}$, ($x$ is even) $\Rightarrow$ ($x$ is a multiple of 6), which is definitely false, so this new expression is a statement, not an open sentence. <mark>In general, given any two open sentences $P ( x )$ and $Q ( x )$ about integers $x$, the expression $\forall \ x \in \mathbb{Z}, \ P(x) \Rightarrow Q(x)$ is either true or false, so it is a statement, not an open sentence.</mark>**
+
+**<mark>Now we come to the very important point. In mathematics, whenever $P(x)$ and $Q(x)$ are open sentences concerning elements $x$ in some set $X$ (depending on context), an expression of form $P(x) \Rightarrow Q(x)$ is understood to be the statement $\forall \ x \in X, \ P(x) \Rightarrow Q(x)$. In other words, if a conditional statement is not explicitly quantified then there is an implied universal quantifier in front of it. This is done because statements of the form $\forall \ x \in X, \ P(x) \Rightarrow Q(x)$ are so common in mathematics that we would get tired of putting the $\forall \ x \in X$ in front of them.</mark>**
+
+Thus the following sentence is a true statement (as it is true for all $x$).
+- If $x$ is a multiple of 6, then $x$ is even.
+
+Likewise, the next sentence is a false statement (as it is not true for all $x$).
+- If $x$ is even, then $x$ is a multiple of 6.
+
+This leads to the following significant interpretation of a conditional statement, which is more general than (but consistent with) its definition in Section 2.3.
+
+**<mark>Definition 2.2: If $P$ and $Q$ are statements or open sentences, then "If $P$, then $Q$," is a statement. This statement is true if it’s impossible for $P$ to be true while $Q$ is false. It is false if there is at least one instance in which $P$ is true but $Q$ is false.</mark>**
+
+Thus the following are true statements:
+- If $x \in \mathbb{R}$, then $x^{2} + 1 > 0$.
+- If a function $f$ is differentiable on $\mathbb{R}$, then $f$ is continuous on $\mathbb{R}$.
+
+Likewise, the following are false statements:
+- If $p$ is a prime number, then $p$ is odd. (2 is prime.)
+- If $f$ is a rational function, then $f$ has an asymptote. ($x^{2} = \dfrac{x^{2}}{1}$ is rational, but does not have an asymptote.)
+
