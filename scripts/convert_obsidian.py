@@ -24,7 +24,16 @@ def convert_highlights(text: str) -> str:
 
 
 def convert_images(text: str, existing: set) -> str:
-    raise NotImplementedError
+    def replace(match):
+        filename = match.group(1)
+        width = match.group(2)
+        if filename in existing:
+            if width:
+                return f'<img src="../assets/{filename}" width="{width}">'
+            return f'<img src="../assets/{filename}">'
+        return f"<!-- TODO: missing image: {filename} -->"
+
+    return re.sub(r"!\[\[([^\]|]+?)(?:\|(\d+))?\]\]", replace, text)
 
 
 def convert_file(src: Path, out_dir: Path, assets_dir: Path) -> Path:

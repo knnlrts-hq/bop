@@ -65,3 +65,34 @@ def test_highlight_none():
 def test_highlight_preserves_math():
     # Dollar signs must not be touched
     assert convert_highlights("$x = 1$") == "$x = 1$"
+
+
+# --- convert_images ---
+
+def test_image_with_width_present():
+    result = convert_images("![[fig.png|500]]", {"fig.png"})
+    assert result == '<img src="../assets/fig.png" width="500">'
+
+
+def test_image_no_width_present():
+    result = convert_images("![[fig.png]]", {"fig.png"})
+    assert result == '<img src="../assets/fig.png">'
+
+
+def test_image_missing_with_width():
+    result = convert_images("![[missing.png|300]]", set())
+    assert result == "<!-- TODO: missing image: missing.png -->"
+
+
+def test_image_missing_no_width():
+    result = convert_images("![[missing.png]]", set())
+    assert result == "<!-- TODO: missing image: missing.png -->"
+
+
+def test_image_none():
+    assert convert_images("no images here", set()) == "no images here"
+
+
+def test_image_preserves_surrounding_text():
+    result = convert_images("before ![[fig.png|100]] after", {"fig.png"})
+    assert result == 'before <img src="../assets/fig.png" width="100"> after'
