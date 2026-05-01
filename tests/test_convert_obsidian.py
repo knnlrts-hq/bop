@@ -5,9 +5,12 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
 from convert_obsidian import (
     slugify_filename,
+    slugify_title,
     strip_comments,
     convert_highlights,
     convert_images,
+    convert_callouts,
+    split_into_sections,
     convert_file,
 )
 
@@ -24,6 +27,20 @@ def test_slugify_logic():
 
 def test_slugify_counting():
     assert slugify_filename("03✓. Counting.md") == "03-counting.md"
+
+
+# --- slugify_title ---
+
+def test_slugify_title_basic():
+    assert slugify_title("Introduction to Sets") == "introduction-to-sets"
+
+
+def test_slugify_title_with_numbers():
+    assert slugify_title("The Cartesian Product") == "the-cartesian-product"
+
+
+def test_slugify_title_special_chars():
+    assert slugify_title("Russell's Paradox") == "russell-s-paradox"
 
 
 # --- strip_comments ---
@@ -63,8 +80,44 @@ def test_highlight_none():
 
 
 def test_highlight_preserves_math():
-    # Dollar signs must not be touched
     assert convert_highlights("$x = 1$") == "$x = 1$"
+
+
+# --- convert_callouts ---
+
+def test_callout_success_collapsed():
+    result = convert_callouts("> [!success]- Answer\n> $x = 1$\n")
+    assert result == ":::{dropdown} Answer\n$x = 1$\n:::\n"
+
+
+def test_callout_info_collapsed():
+    result = convert_callouts("> [!info]- Mean Value Theorem\n> content\n")
+    assert result == ":::{dropdown} Mean Value Theorem\ncontent\n:::\n"
+
+
+def test_callout_multiline_body():
+    inp = "> [!success]- Answer\n> line 1\n> line 2\n> line 3\n"
+    result = convert_callouts(inp)
+    assert result == ":::{dropdown} Answer\nline 1\nline 2\nline 3\n:::\n"
+
+
+def test_callout_title_trailing_space_stripped():
+    result = convert_callouts("> [!info]- Mean Value Theorem \n> body\n")
+    assert "Mean Value Theorem\n" in result
+    assert "Mean Value Theorem \n" not in result
+
+
+def test_callout_no_callouts():
+    text = "> regular blockquote\n> no callout here\n"
+    assert convert_callouts(text) == text
+
+
+def test_callout_preserves_surrounding_text():
+    inp = "before\n> [!success]- Answer\n> body\nafter\n"
+    result = convert_callouts(inp)
+    assert result.startswith("before\n")
+    assert result.endswith("after\n")
+    assert ":::{dropdown} Answer" in result
 
 
 # --- convert_images ---
@@ -98,6 +151,43 @@ def test_image_preserves_surrounding_text():
     assert result == 'before <img src="../assets/fig.png" width="100"> after'
 
 
+# --- split_into_sections ---
+
+def test_split_basic():
+    text = "# 1.1 Introduction to Sets\ncontent 1\n# 1.2 Cartesian Product\ncontent 2\n"
+    sections = split_into_sections(text)
+    assert len(sections) == 2
+    assert sections[0][0] == "01-1-introduction-to-sets"
+    assert sections[1][0] == "01-2-cartesian-product"
+
+
+def test_split_preamble_included_in_first_section():
+    text = "Preamble text.\n# 1.1 Sets\ncontent\n"
+    sections = split_into_sections(text)
+    assert len(sections) == 1
+    assert sections[0][1].startswith("Preamble text.")
+    assert "# 1.1 Sets" in sections[0][1]
+
+
+def test_split_no_sections_returns_empty():
+    assert split_into_sections("just some text\n") == []
+
+
+def test_split_slug_format():
+    text = "# 2.10 Negating Statements\ncontent\n"
+    sections = split_into_sections(text)
+    assert sections[0][0] == "02-10-negating-statements"
+
+
+def test_split_content_boundaries():
+    text = "# 1.1 A\ncontent a\n# 1.2 B\ncontent b\n# 1.3 C\ncontent c\n"
+    sections = split_into_sections(text)
+    assert "content a" in sections[0][1]
+    assert "content b" not in sections[0][1]
+    assert "content b" in sections[1][1]
+    assert "content c" in sections[2][1]
+
+
 # --- convert_file (integration) ---
 
 def test_convert_file(tmp_path):
@@ -122,7 +212,7 @@ def test_convert_file(tmp_path):
     assert "%%comment%%" not in content
     assert "<mark>highlight</mark>" in content
     assert '<img src="../assets/fig.png" width="300">' in content
-    assert "$x = 1$" in content  # math untouched
+    assert "$x = 1$" in content
 
 
 def test_convert_file_missing_image(tmp_path):
@@ -138,3 +228,19 @@ def test_convert_file_missing_image(tmp_path):
 
     content = out.read_text(encoding="utf-8")
     assert "<!-- TODO: missing image: ghost.png -->" in content
+
+
+def test_convert_file_converts_callouts(tmp_path):
+    out_dir = tmp_path / "docs" / "chapters"
+    out_dir.mkdir(parents=True)
+    assets_dir = tmp_path / "docs" / "assets"
+    assets_dir.mkdir(parents=True)
+
+    src = tmp_path / "01✓. Sets.md"
+    src.write_text("> [!success]- Answer\n> $x = 1$\n", encoding="utf-8")
+
+    out = convert_file(src, out_dir, assets_dir)
+
+    content = out.read_text(encoding="utf-8")
+    assert ":::{dropdown} Answer" in content
+    assert "[!success]" not in content
