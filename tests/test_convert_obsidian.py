@@ -96,3 +96,45 @@ def test_image_none():
 def test_image_preserves_surrounding_text():
     result = convert_images("before ![[fig.png|100]] after", {"fig.png"})
     assert result == 'before <img src="../assets/fig.png" width="100"> after'
+
+
+# --- convert_file (integration) ---
+
+def test_convert_file(tmp_path):
+    chapters_dir = tmp_path / "chapters"
+    chapters_dir.mkdir()
+    out_dir = tmp_path / "docs" / "chapters"
+    out_dir.mkdir(parents=True)
+    assets_dir = tmp_path / "docs" / "assets"
+    assets_dir.mkdir(parents=True)
+
+    src = chapters_dir / "01✓. Sets.md"
+    src.write_text(
+        "%%comment%%\n==highlight== and ![[fig.png|300]]\n$x = 1$\n",
+        encoding="utf-8",
+    )
+    (assets_dir / "fig.png").write_bytes(b"")
+
+    out = convert_file(src, out_dir, assets_dir)
+
+    assert out.name == "01-sets.md"
+    content = out.read_text(encoding="utf-8")
+    assert "%%comment%%" not in content
+    assert "<mark>highlight</mark>" in content
+    assert '<img src="../assets/fig.png" width="300">' in content
+    assert "$x = 1$" in content  # math untouched
+
+
+def test_convert_file_missing_image(tmp_path):
+    out_dir = tmp_path / "docs" / "chapters"
+    out_dir.mkdir(parents=True)
+    assets_dir = tmp_path / "docs" / "assets"
+    assets_dir.mkdir(parents=True)
+
+    src = tmp_path / "02✓. Logic.md"
+    src.write_text("![[ghost.png|200]]\n", encoding="utf-8")
+
+    out = convert_file(src, out_dir, assets_dir)
+
+    content = out.read_text(encoding="utf-8")
+    assert "<!-- TODO: missing image: ghost.png -->" in content

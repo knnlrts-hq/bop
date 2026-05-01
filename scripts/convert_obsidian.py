@@ -37,11 +37,23 @@ def convert_images(text: str, existing: set) -> str:
 
 
 def convert_file(src: Path, out_dir: Path, assets_dir: Path) -> Path:
-    raise NotImplementedError
+    existing = {f.name for f in assets_dir.iterdir()} if assets_dir.exists() else set()
+    text = src.read_text(encoding="utf-8")
+    text = strip_comments(text)
+    text = convert_highlights(text)
+    text = convert_images(text, existing)
+    slug = slugify_filename(src.name)
+    out_path = out_dir / slug
+    out_path.write_text(text, encoding="utf-8")
+    return out_path
 
 
 def main():
-    raise NotImplementedError
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    ASSETS_DIR.mkdir(parents=True, exist_ok=True)
+    for src in sorted(CHAPTERS_DIR.glob("*.md")):
+        out = convert_file(src, OUT_DIR, ASSETS_DIR)
+        print(f"  {src.name} -> {out.name}")
 
 
 if __name__ == "__main__":
