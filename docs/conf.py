@@ -4,4 +4,4 @@ extensions = ["myst_parser", "sphinx_copybutton", "sphinx.ext.mathjax"]
 myst_enable_extensions = ["colon_fence", "html_image", "dollarmath"]
 html_theme = "furo"
 master_doc = "index"
-exclude_patterns = ["_build"]
+exclude_patterns = ["_build", "superpowers"]
