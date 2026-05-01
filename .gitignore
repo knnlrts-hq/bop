@@ -1,0 +1,9 @@
+# Sphinx build output
+docs/_build/
+
+# Generated MyST files (rebuilt by convert_obsidian.py on every build)
+docs/chapters/
+
+# Python bytecode
+__pycache__/
+*.pyc
