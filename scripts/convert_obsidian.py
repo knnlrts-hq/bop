@@ -8,7 +8,11 @@ ASSETS_DIR = Path("docs/assets")
 
 
 def slugify_filename(name: str) -> str:
-    raise NotImplementedError
+    stem = Path(name).stem
+    normalized = unicodedata.normalize("NFKD", stem)
+    ascii_only = normalized.encode("ascii", "ignore").decode("ascii")
+    slugged = re.sub(r"[^a-z0-9]+", "-", ascii_only.lower())
+    return slugged.strip("-") + ".md"
 
 
 def strip_comments(text: str) -> str:
