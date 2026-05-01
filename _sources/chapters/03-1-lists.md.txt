@@ -20,7 +20,7 @@ $$
 
 **For more examples, $( a , 1 5 )$ is a list of length two. And $(0, (0, 1, 1))$ is a list of length two whose second entry is a list of length three. Two lists are equal if they have exactly the same entries in exactly the same positions. Thus equal lists have the same number of entries. If two lists have different lengths, then they can not be equal.** Thus $( 0 , 0 , 0 , 0 , 0 , 0 ) \neq ( 0 , 0 , 0 , 0 , 0 )$. Also
 
-<img src="../assets/Pasted image 20260324163912.png" width="500">
+<img src="../assets/Pasted_image_20260324163912.png" width="500">
 
 because the list on the left has length eleven but the list on the right has just one entry (a piece of paper with some words on it).
 
@@ -28,7 +28,7 @@ because the list on the left has length eleven but the list on the right has jus
 
 **For brevity we often write lists without parentheses, or even commas. For instance, we may write $( S , O , S )$ as SOS if there is no risk of confusion.** But be alert that doing this can lead to ambiguity: writing $(9,10,11)$ as $9 \ 10 \ 11$ may cause us to confuse it with $(9,1,0,1,1)$. Here it’s best to retain the parenthesis/comma notation or at least write the list as $9,10,11$. **A list of symbols written without parentheses and commas is called a string.** The process of tossing a coin ten times may be described by a string such as $HHTHTTTHHT$. Tossing it twice could lead to any of the outcomes $HH$, $HT$, $TH$ or $TT$. Tossing it zero times is described by the empty list $( )$. Imagine rolling a dice five times and recording the outcomes. This might be described by the list (<span style="font-size: 25px; color: black;">⚂,⚄,⚂,⚀,⚅</span>), meaning that you rolled <span style="font-size: 25px; color: black;">⚂</span> first, then <span style="font-size: 25px; color: black;">⚄</span>, then <span style="font-size: 25px; color: black;">⚂</span>, etc. We might abbreviate this list as <span style="font-size: 25px; color: black;">⚂⚄⚂⚀⚅</span>, or 3, 5, 3, 1, 6. Now imagine rolling a pair of dice, one white and one black. A typical outcome might be modeled as a set like {<span style="font-size: 25px; color: black;">⚃</span>,<span style="font-size: 25px; background:black; color:white;">⚁</span>}. Rolling the pair six times might be described with a list of six such outcomes: 
 
-<img src="../assets/Pasted image 20260324164236.png" width="750">
+<img src="../assets/Pasted_image_20260324164236.png" width="750">
 
 We might abbreviate this list as <span style="font-size: 25px; color: black;">⚃</span><span style="font-size: 25px; background:black; color:white;">⚁</span> , <span style="font-size: 25px; color: black;">⚂</span><span style="font-size: 25px; background:black; color:white;">⚄</span> , <span style="font-size: 25px; color: black;">⚅</span><span style="font-size: 25px; background:black; color:white;">⚅</span> , <span style="font-size: 25px; color: black;">⚀</span><span style="font-size: 25px; background:black; color:white;">⚀</span> , <span style="font-size: 25px; color: black;">⚀</span><span style="font-size: 25px; background:black; color:white;">⚁</span> , <span style="font-size: 25px; color: black;">⚁</span><span style="font-size: 25px; background:black; color:white;">⚂</span>.
 

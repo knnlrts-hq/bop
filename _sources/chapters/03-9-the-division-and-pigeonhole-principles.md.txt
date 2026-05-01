@@ -18,7 +18,7 @@ Our final fundamental counting principle is called the division principle. Befor
 
 **Solution: Pick six numbers between 0 and 9. Here’s why two of them sum to 9: Imagine five boxes, each marked with two numbers, as shown below. Each box is labeled so that the two numbers written on it sum to 9.**
 
-<img src="../assets/Pasted image 20260324171156.png" width="800">
+<img src="../assets/Pasted_image_20260324171156.png" width="800">
 
 **For each number that was picked, put it in the box having that number written on it. For example, if we picked 7, it goes in the box labeled "2, 7." (The number 2, if picked, would go in that box too.) In this way we place the six chosen numbers in five boxes. As there are more numbers than boxes, the pigeonhole principle says that some box has more than one (hence two) of the picked numbers in it. Those two numbers sum to 9. Notice that if we picked only five numbers from 0 to 9, then it’s possible that no two sum to 9: we could be unlucky and pick 0, 1, 2, 3, 4. But the pigeonhole principle ensures that if six are picked then two do sum to 9.**
 
@@ -65,7 +65,7 @@ Imagine six boxes, labeled 1 through 6. Every time you roll a <span style="font-
 :::{dropdown} Answer
 Divide the unit square into four congruent subsquares of side length $\dfrac{1}{2}$​. Each subsquare now has diagonal $\displaystyle \sqrt{\left(\frac12\right)^2+\left(\frac12\right)^2} = \frac{\sqrt2}{2}$. Since 5 points are placed into 4 subsquares, by the pigeonhole principle at least one subsquare contains at least $\left\lceil \dfrac{5}{4} \right\rceil = 2$ points. Any two points in the same subsquare are at most the length of the diagonal apart, so those two points are within $\dfrac{\sqrt{2}}{2}$ units of each other.
 
-<!-- TODO: missing image: Drawing 2026-04-28 09.54.04.excalidraw -->
+<img src="../assets/0309square.png" width="500">
 
 Note that "within $\dfrac{\sqrt{2}}{2}$ units of each other" means that the distance is less than or equal to $\dfrac{\sqrt2}{2}$​​, so saying the maximum distance is exactly the diagonal is fine.
 :::
@@ -81,7 +81,7 @@ Alternatively: look at each number modulo 10. Put the possible remainders into t
 :::{dropdown} Answer
 Start by choosing any 2 of the 5 points on the sphere $S$. There is a great circle passing through both of them. This great circle divides the sphere into 2 closed hemispheres, and the chosen 2 points lie on the boundary, so they belong to both hemispheres. 
 
-<!-- TODO: missing image: Drawing 2026-04-28 10.39.23.excalidraw -->
+<img src="../assets/0309sphere.png" width="500">
 
 The remaining 3 points now lie in the 2 hemispheres. By the pigeonhole principle, at least one hemisphere contains at least $\left\lceil \dfrac{3}{2} \right\rceil = 2$ of the remaining points. Since that same hemisphere also contains the original 2 boundary points on the great circle, it contains at least $2+2=4$ points in total. Therefore, there is a hemisphere that contains at least 4 of the 5 points on the sphere $S$.
 

@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="3.10 Combinatorial Proof" href="03-10-combinatorial-proof.html"><link rel="prev" title="3.8 Counting Multisets" href="03-8-counting-multisets.html">
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
-        <title>3.9 The Division and Pigeonhole Principles - Book of Proof — Annotated documentation</title>
+        <title>3.9 The Division and Pigeonhole Principles - Book of Proof - Annotated documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -163,7 +163,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+      <a href="../index.html"><div class="brand">Book of Proof - Annotated  documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -184,7 +184,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  <span class="sidebar-brand-text">Book of Proof - Annotated  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -275,7 +275,7 @@
 <p><strong>For an extremely simple application, notice that in any group of 13 people, at least two of them were born on the same month. Although this is obvious, it really does follow from the pigeonhole principle. Think of the 13 people as objects, and put each person in the “box” that is his birth month. As there are more people than boxes (months), at least one box (month) has two or more people in it, meaning at least two of the 13 people were born in the same month. Further, for any group of 100 people, the division principle says that there is a month in which <span class="math notranslate nohighlight">\(\left\lceil \dfrac{100}{12} \right\rceil = 9\)</span> or more of the people were born. It also guarantees a month in which <span class="math notranslate nohighlight">\(\left\lfloor \dfrac{100}{12} \right\rfloor = 8\)</span> or fewer of the people were born.</strong></p>
 <p><strong>Example 3.24: Pick six integers between 0 and 9 (inclusive). Show that two of them must add up to 9.</strong> For example, suppose you picked <span class="math notranslate nohighlight">\(0, 1, 3, 5, 7\)</span> and <span class="math notranslate nohighlight">\(8\)</span>. Then <span class="math notranslate nohighlight">\(1 + 8 = 9\)</span>. If you picked <span class="math notranslate nohighlight">\(4, 5, 6, 7, 8, 9\)</span>, then <span class="math notranslate nohighlight">\(4 + 5 = 9\)</span>. The problem asks us to show that this happens no matter how we pick the numbers.</p>
 <p><strong>Solution: Pick six numbers between 0 and 9. Here’s why two of them sum to 9: Imagine five boxes, each marked with two numbers, as shown below. Each box is labeled so that the two numbers written on it sum to 9.</strong></p>
-<a class="reference internal image-reference" href="assets/Pastedimage20260324171156.png"><img alt="assets/Pastedimage20260324171156.png" src="assets/Pastedimage20260324171156.png" style="width: 800px;" />
+<a class="reference internal image-reference" href="../_images/Pasted_image_20260324171156.png"><img alt="../_images/Pasted_image_20260324171156.png" src="../_images/Pasted_image_20260324171156.png" style="width: 800px;" />
 </a>
 <p><strong>For each number that was picked, put it in the box having that number written on it. For example, if we picked 7, it goes in the box labeled “2, 7.” (The number 2, if picked, would go in that box too.) In this way we place the six chosen numbers in five boxes. As there are more numbers than boxes, the pigeonhole principle says that some box has more than one (hence two) of the picked numbers in it. Those two numbers sum to 9. Notice that if we picked only five numbers from 0 to 9, then it’s possible that no two sum to 9: we could be unlucky and pick 0, 1, 2, 3, 4. But the pigeonhole principle ensures that if six are picked then two do sum to 9.</strong></p>
 <p><strong>Example 3.25: A store has a gumball machine containing a large number of red, green, blue and white gumballs. You get one gumball for each nickel you put into the machine. The store offers the following deal: You agree to buy some number of gumballs, and if 13 or more of them have the same color you get <span class="math notranslate nohighlight">\(\$ 5\)</span>. What is the fewest number of gumballs you need to buy to be <span class="math notranslate nohighlight">\(100 \%\)</span> certain that you will make money on the deal?</strong></p>
@@ -324,7 +324,8 @@ Alternatively: to avoid having 5 cards of the same suit for as long as possible,
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Divide the unit square into four congruent subsquares of side length <span class="math notranslate nohighlight">\(\dfrac{1}{2}\)</span>​. Each subsquare now has diagonal <span class="math notranslate nohighlight">\(\displaystyle \sqrt{\left(\frac12\right)^2+\left(\frac12\right)^2} = \frac{\sqrt2}{2}\)</span>. Since 5 points are placed into 4 subsquares, by the pigeonhole principle at least one subsquare contains at least <span class="math notranslate nohighlight">\(\left\lceil \dfrac{5}{4} \right\rceil = 2\)</span> points. Any two points in the same subsquare are at most the length of the diagonal apart, so those two points are within <span class="math notranslate nohighlight">\(\dfrac{\sqrt{2}}{2}\)</span> units of each other.</p>
-<!-- TODO: missing image: Drawing 2026-04-28 09.54.04.excalidraw -->
+<a class="reference internal image-reference" href="../_images/0309square.png"><img alt="../_images/0309square.png" src="../_images/0309square.png" style="width: 500px;" />
+</a>
 <p class="sd-card-text">Note that “within <span class="math notranslate nohighlight">\(\dfrac{\sqrt{2}}{2}\)</span> units of each other” means that the distance is less than or equal to <span class="math notranslate nohighlight">\(\dfrac{\sqrt2}{2}\)</span>​​, so saying the maximum distance is exactly the diagonal is fine.</p>
 </div>
 </details><ol class="arabic simple" start="5">
@@ -343,7 +344,8 @@ Alternatively: to avoid having 5 cards of the same suit for as long as possible,
 <summary class="sd-summary-title sd-card-header">
 <span class="sd-summary-text">Answer</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Start by choosing any 2 of the 5 points on the sphere <span class="math notranslate nohighlight">\(S\)</span>. There is a great circle passing through both of them. This great circle divides the sphere into 2 closed hemispheres, and the chosen 2 points lie on the boundary, so they belong to both hemispheres.</p>
-<!-- TODO: missing image: Drawing 2026-04-28 10.39.23.excalidraw -->
+<a class="reference internal image-reference" href="../_images/0309sphere.png"><img alt="../_images/0309sphere.png" src="../_images/0309sphere.png" style="width: 500px;" />
+</a>
 <p class="sd-card-text">The remaining 3 points now lie in the 2 hemispheres. By the pigeonhole principle, at least one hemisphere contains at least <span class="math notranslate nohighlight">\(\left\lceil \dfrac{3}{2} \right\rceil = 2\)</span> of the remaining points. Since that same hemisphere also contains the original 2 boundary points on the great circle, it contains at least <span class="math notranslate nohighlight">\(2+2=4\)</span> points in total. Therefore, there is a hemisphere that contains at least 4 of the 5 points on the sphere <span class="math notranslate nohighlight">\(S\)</span>.</p>
 <p class="sd-card-text">Note that it is always possible to draw a unique great circle through any two distinct points on the surface of a sphere, if the two chosen points are not antipodal. Through two non-antipodal points and the center, there is a unique plane, and hence a great circle containing them. If the two points are antipodal (two points on a sphere are antipodal if they are opposite through the centre), there are infinitely many great circles through them.</p>
 </div>

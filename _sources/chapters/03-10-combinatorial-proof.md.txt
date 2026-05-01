@@ -2,7 +2,7 @@
 
 **<mark>Combinatorial proof is a method of proving two different expressions are equal by showing that they are both answers to the same counting question. We have already used combinatorial proof (without calling it combinatorial proof) in proving Pascal’s formula $\displaystyle \binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}$ on page 90. There we argued that the left-hand side $\displaystyle \binom{n+1}{k}$ is, by definition, the number of $k$-element subsets of the set $S = \{0,1,2, \ldots, n \}$ with $|S| = n + 1$. But the right- hand side also gives the number of $k$-element subsets of $S$, because such a subset either contains 0 or it does not. We can make any $k$-element subset of $S$ that contains 0 by starting with 0 and selecting $k - 1$ other elements from $\{1,2,\ldots,n\}$, in $\displaystyle \binom{n}{k-1}$ ways. We can make any $k$-element subset that does not contain 0 by selecting $k$ elements from $\{1,2,\ldots,n\}$, and there are $\displaystyle \binom{n}{k}$ ways to do this.</mark>** Thus,
 
-<img src="../assets/Pasted image 20260324171311.png" width="500">
+<img src="../assets/Pasted_image_20260324171311.png" width="500">
 
 **Both sides count the number of $k$-element subsets of $S$, so they are equal. This is combinatorial proof.**
 
@@ -37,7 +37,7 @@ Our next example will prove that $\displaystyle \sum_{k=0}^{n} \binom{n}{k}^{2} 
 
 **Solution: First, the right-hand side $\displaystyle \binom{2n}{n}$ is the number of ways to select $n$ things from a set $S$ that has $2n$ elements. Now let’s count this a different way. <mark>Divide $S$ into two equal-sized parts, $S = A \cup B$, where $|A| = n$ and $| B | = n$, and $A \cap B = \varnothing$. For any fixed $k$ with $0 \leq k \leq n$, we can select $n$ things from $S$ by taking $k$ things from $A$ and $n - k$ things from $B$ for a total of $k + (n-k) = n$ things. By the multiplication principle, we get $\displaystyle \binom{n}{k} \cdot \binom{n}{n-k}$ $n$-element subsets of $S$ this way.</mark> As $k$ could be any number from 0 to $n$, the number of ways to select $n$ things from $S$ is thus**
 
-<img src="../assets/Pasted image 20260324171340.png" width="750">
+<img src="../assets/Pasted_image_20260324171340.png" width="750">
 
 **But because $\displaystyle \binom{n}{n-k} = \binom{n}{k}$, this expression equals $\displaystyle \binom{n}{0} \cdot \binom{n}{0} + \binom{n}{1} \cdot \binom{n}{1} + \binom{n}{2} \cdot \binom{n}{2} + \dots + \binom{n}{n} \cdot \binom{n}{n}$, which is $\displaystyle \binom{n}{0}^{2} + \binom{n}{1}^{2} + \binom{n}{2}^{2} + \cdots + \binom{n}{n}^{2} = \sum_{k=0}^{n} \binom{n}{k}^{2}$. In summary, we’ve counted the ways to choose $n$ elements from the set $S$ with two methods. One method gives $\displaystyle \binom{2n}{n}$, and the other gives $\displaystyle \sum_{k=0}^{n} \binom{n}{k}^{2}$. Therefore $\displaystyle \sum_{k=0}^{n} \binom{n}{k}^{2} = \binom{2n}{n}$.**
 
@@ -50,7 +50,7 @@ Use combinatorial proof to solve the following problems. You may assume that any
 :::{dropdown} Answer
 Let $S=\{0,1,2,3,\ldots,n,n+1\}$, which is a set with $n+2$ elements. The right-hand side $\displaystyle \binom{n+2}{3}$ of the equation is the number of ways to choose 3-element subsets out of the elements of $S$. Let's now count these 3-element subsets in a different way. Any such 3-element subset $X \subseteq S$ can be written as $X=\{j,k,l\}$, where $0 \leq j < k < l \leq n+1$. Note that this forces the middle element $k$ to be in the range $1 < k < n$. Given a fixed middle element $k$, there are exactly $k$ choices for the smallest element $j$ and there are exactly $(n+1 - k)$ choices for the largest element $l$.
 
-<img src="../assets/Pasted image 20260421190533.png" width="750">
+<img src="../assets/Pasted_image_20260421190533.png" width="750">
 
 By the multiplication principle, there are $k \cdot 1 \cdot (n+1-k)$ possible 3-element subsets $X$ for a given single fixed middle element $k$. For example, if $k=1$, there are $1 \cdot 1 \cdot (n+1-1) = 1 \cdot (n-0)$ subsets $X$ with middle element "$1$". If $k=2$, there are $2 \cdot 1 \cdot (n+1-2) = 2 \cdot (n-1)$ subsets $X$ with middle element "$2$". If $k=3$, there are $3 \cdot 1 \cdot (n+1-3) = 3 \cdot (n-2)$ subsets $X$ with middle element "$3$". Thus the left-hand side of the equation counts up the number of 3-element subsets of $S$, so it is equal to the right-hand side.
 
@@ -159,7 +159,7 @@ Note that $\displaystyle \binom{m}{k}$ does not have to mean "choose $k$ element
 :::{dropdown} Answer
 Let $S = \{0_{(n+1)},1,2,\ldots,n\}$, so $|S|=n+1$. The right-hand side of our equation counts the number of subsets $X \subseteq S$ with size $m+1$ elements. Now let’s think of a way to make such an $X \subseteq S$ with $|X| = m+1$. We could begin by selecting a largest element $k$ for $X$. Now, once we have chosen $k$, there are $k$ elements in $S$ to the left of $k$, and we need to choose $m$ of them to go in $X$ (so these, along with $k$, form the set $X$).
 
-<img src="../assets/Pasted image 20260423095750.png" width="750">
+<img src="../assets/Pasted_image_20260423095750.png" width="750">
 
 There are $\displaystyle \binom{k}{m}$ ways to choose these $m$ numbers, so there are $\displaystyle \binom{k}{m}$ subsets of $S$ whose largest element is $k$. Notice that we must have $m \leq k \leq n$. (The largest element $k$ of $X$ cannot be smaller than $m$ because we need at least $m$ elements on its left.) Summing over all possible largest values in $X$, we see that $\displaystyle \sum_{k=m}^{n} \binom{k}{m}$ equals the number of subsets of $S$ with $m+1$ elements. 
 The previous two paragraphs show that $\displaystyle \sum_{k=m}^{n} \binom{k}{m}$ and $\displaystyle \binom{n+1}{m+1}$ are answers to the same counting question, so they are equal.

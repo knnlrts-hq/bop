@@ -14,11 +14,11 @@ In our first example we will rework an instance where we used the addition princ
 
 **In Example 3.3 (c) our approach was to divide these lists into four types, depending on whether the $E$ is in the first, second, third or fourth position.**
 
-<img src="../assets/Pasted image 20260324165507.png" width="1000">
+<img src="../assets/Pasted_image_20260324165507.png" width="1000">
 
 **Then we used the multiplication principle to count the lists of type 1. There are 6 choices for the second entry, 5 for the third, and 4 for the fourth. This is indicated above, where the number below a box is the number of choices we have for that position. The multiplication principle implies that there are $6 \cdot 5 \cdot 4 = 120$ lists of type 1. Similarly there are $6 \cdot 5 \cdot 4 = 120$ lists of types 2, 3, and 4.**
 
-<img src="../assets/Pasted image 20260324165534.png" width="1000">
+<img src="../assets/Pasted_image_20260324165534.png" width="1000">
 
 We then used the addition principle intuitively, conceiving of the lists to be counted as the elements of a set $X$, broken up into parts $X_{1}$, $X_{2}$, $X_{3}$ and $X_{4}$, which are the lists of types 1 ,2, 3 and 4, respectively. **The addition principle says that the number of lists that contain an $E$ is $|X| = |X_{1}| + |X_{2}| + |X_{3}| + |X_{4}| = 120 + 120 + 120 + 120 = 480$. We use the addition principle when we need to count the things in some set $X$. If we can find a way to break $X$ up as $X = X_{1} \cup X_{2} \cup \cdots \cup X_{n}$, where each $X_{i}$ is easier to count than $X$, then the addition principle gives an answer of $|X| = |X_{1}| + |X_{2}| + |X_{3}| + \cdots + |X_{n}|$.**
 
@@ -28,7 +28,7 @@ We then used the addition principle intuitively, conceiving of the lists to be c
 
 **Solution: Let $X$ be the set of all such numbers. The answer will be $|X|$, so our task is to find $|X|$. Put $X = X_{1} \cup X_{2} \cup X_{3} \cup X_{4} \cup X_{5}$, where $X_{i}$ is the set of those numbers in $X$ whose $i$th digit is 6, as diagramed below.** Note $X_{i} \cap X_{j} = \varnothing$ whenever $i \neq j$ because the numbers in $X_{i}$ have their 6 in a different position than the numbers in $X_{j}$. Our plan is to use the multiplication principle to compute each $|X_{i}|$, and follow this with the addition principle.
 
-<img src="../assets/Pasted image 20260324165603.png" width="1000">
+<img src="../assets/Pasted_image_20260324165603.png" width="1000">
 
 **The first digit of any number in $X_{1}$ is 6, and the three digits following it can be any of the ten digits except 0 (not allowed) or 6 (already appears). Thus there are eight choices for each of three digits following the first 6. But because any number in $X_{1}$ is even, its final digit must be one of 2, 4 or 8, so there are just three choices for this final digit. By the multiplication principle, $|X_{1}| = 8 \cdot 8 \cdot 8 \cdot 3 = 1536$. Likewise $|X_{2}| = |X_{3}| = |X_{4}| = 8 \cdot 8 \cdot 8 \cdot 3 = 1536$. But $X_{5}$ is slightly different because we do not choose the final digit, which is already 6. The multiplication principle gives $|X_{5}| = 8 \cdot 8 \cdot 8 \cdot 8 = 4096$. The addition principle gives our final answer. The number of even 5-digit numbers with no 0’s and one 6 is $|X| = |X_{1}| + |X_{2}| + |X_{3}| + |X_{4}| + |X_{5}| = 1536 + 1536 + 1536 + 1536 + 4096 = 10,240$.**
 

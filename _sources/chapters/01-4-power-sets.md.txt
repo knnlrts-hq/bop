@@ -39,7 +39,7 @@ $$
 
 **The set $\mathscr { P } ( \mathbb { R } ^ { 2 } )$ is mind boggling. Think of $\mathbb { R } ^ { 2 } = \left\{ ( x , y ) : x , y \in \mathbb { R } \right\}$ as the set of all points on the Cartesian plane. A subset of $\mathbb { R } ^ { 2 }$ (that is, an element of $\mathscr { P } ( \mathbb { R } ^ { 2 } )$ ) is a set of points in the plane. Let’s look at some of these sets. Since $\left\{ ( 1 , 2 ) , ( 1 , 1 ) \right\} \subseteq \mathbb { R } ^ { 2 }$, we know that $\left\{ ( 1 , 2 ) , ( 1 , 1 ) \right\} \in { \mathscr { P } } ( \mathbb { R } ^ { 2 } )$. We can even draw a picture of this subset, as in Figure 1.4(a). For another example, the graph of the equation $y = x ^ { 2 }$ is the set of points $G = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}$ and this is a subset of $\mathbb { R } ^ { 2 }$, so $G \in { \mathscr { P } } ( \mathbb { R } ^ { 2 } )$ . Figure 1.4(b) is a picture of $G$. Because this can be done for any function, the graph of any imaginable function $f : \mathbb { R } \to \mathbb { R }$ is an element of $\mathscr { P } ( \mathbb { R } ^ { 2 } )$.** 
 
-<img src="../assets/Pasted image 20260312095628.png" width="1000">
+<img src="../assets/Pasted_image_20260312095628.png" width="1000">
 Figure 1.4. Three of the many, many sets in $\mathscr { P } ( \mathbb { R } ^ { 2 } )$
 
 **In fact, any black-and-white image on the plane can be thought of as a subset of $\mathbb { R } ^ { 2 }$, where the black points belong to the subset and the white points do not. So the text “INFINITE” in Figure 1.4(c) is a subset of $\mathbb { R } ^ { 2 }$ and therefore an element of $\mathscr { P } ( \mathbb { R } ^ { 2 } )$. By that token, $\mathscr { P } ( \mathbb { R } ^ { 2 } )$ contains a copy of the page you are reading now.**

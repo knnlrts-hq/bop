@@ -9,7 +9,7 @@ In the above example there are 3 choices for the first entry, 2 choices for the 
 
 **Consider making a list of length 4 from the four letters $\{ a , b , c , d \}$, where the list is not allowed to have a repeated letter. For example, $abcd$ and $cadb$ are allowed, but $aabc$ and $cacb$ are not allowed. How many such lists are there?** Let’s analyze this question with a tree representing the choices we have for each list entry. **In making such a list we could start with the first entry: we have 4 choices for it, namely $a , b , c$ or $d$, and the left side of the tree branches out to each of these choices. But once we’ve chosen a letter for the first entry, we can’t use that letter in the list again, so there are only 3 choices for the second entry. And once we’ve chosen letters for the first and second entries we can’t use these letters in the third entry, so there are just 2 choices for it. By the time we get to the fourth entry we are forced to use whatever letter we have left; there is only 1 choice. The situation is described fully in the below tree showing how to make all allowable lists by choosing 4 letters for the first entry, 3 for the second entry, 2 for the third entry and 1 for the fourth entry. We see that the total number of lists is the product $4 \cdot 3 \cdot 2 \cdot 1 = 24$.**
 
-<img src="../assets/Pasted image 20260324165003.png" width="750">
+<img src="../assets/Pasted_image_20260324165003.png" width="750">
 Figure 3.2. Constructing lists from letters in $\{ a , b , c , d \}$, without repetition.
 
 **These trees show that the number of lists constructible by some specified process equals the product of the numbers of choices for each list entry.** We summarize this kind of reasoning as an important fact.
@@ -64,19 +64,19 @@ The next section presents two new counting principles that codify the kind of th
 
 **Solution: Start by making a list of five boxes. The first box must contain either $B$, $C$ or $D$, so there are three choices for it.**
 
-<img src="../assets/Pasted image 20260324165242.png" width="350">
+<img src="../assets/Pasted_image_20260324165242.png" width="350">
 
 **Now there are 6 letters left for the remaining 4 boxes. The knee-jerk action is to fill them in, one at a time, using up an additional letter each time.**
 
-<img src="../assets/Pasted image 20260324165324.png" width="350">
+<img src="../assets/Pasted_image_20260324165324.png" width="350">
 
 **<mark>But when we get to the last box, there is a problem. It is supposed to contain a vowel, but for all we know we have already used up one or both vowels in the previous boxes. The multiplication principle breaks down because there is no way to tell how many choices there are for the last box. The correct way to solve this problem is to fill in the first and last boxes (the ones that have restrictions) first.</mark>**
 
-<img src="../assets/Pasted image 20260324165343.png" width="350">
+<img src="../assets/Pasted_image_20260324165343.png" width="350">
 
 **Then fill the remaining middle boxes with the 5 remaining letters.**
 
-<img src="../assets/Pasted image 20260324165359.png" width="350">
+<img src="../assets/Pasted_image_20260324165359.png" width="350">
 
 **<mark>By the multiplication principle, there are then $3 \cdot 5 \cdot 4 \cdot 3 \cdot 2 = 360$ lists</mark>.**
 

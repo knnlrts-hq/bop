@@ -32,7 +32,7 @@ Parts 12–15 use interval notation (Section 1.1), so $[ 2 , 5 ] = \left\{ x \in
 
 Example 1.9: Let $A = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}$ be the graph of the equation $y = x ^ { 2 }$ and let $B = \left\{ ( x , x + 2 ) : x \in \mathbb { R } \right\}$ be the graph of the equation $y = x + 2$. These sets are subsets of $\mathbb { R } ^ { 2 }$. They are sketched together in Figure 1.5(a). Figure 1.5(b) shows $A \cup B$, the set of all points $( x , y )$ that are on one (or both) of the two graphs. Observe that $A \cap B = \left\{ ( - 1 , 1 ) , ( 2 , 4 ) \right\}$ consists of just two elements, the two points where the graphs intersect, as illustrated in Figure 1.5(c). Figure 1.5(d) shows $A - B$, which is the set $A$ with “holes” where $B$ crossed it. In set builder notation, we could write $A \cup B = \left\{ ( x , y ) : x \in \mathbb { R } , y = x ^ { 2 } \right.$ or $y = x + 2 \}$ and $A - B = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } - \left\{ - 1 , 2 \right\} \right\}$ ($\mathbb{R}$ without $-1$ and $2$). 
 
-<img src="../assets/Pasted image 20260312095755.png" width="1000">
+<img src="../assets/Pasted_image_20260312095755.png" width="1000">
 Figure 1.5. The union, intersection and difference of sets A and B
 
 ## Exercises for Section 1.5

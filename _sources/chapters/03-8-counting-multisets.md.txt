@@ -10,21 +10,21 @@ $$
 
 To illustrate the idea of multisets, consider the multisets of cardinality 2 that can be made from the symbols $\{a,b,c,d\}$. They are $[a,a] \quad [a,b] \quad [a,c] \quad [a,d] \quad [b,b] \quad [b,c] \quad [b,d] \quad [c,c] \quad [c,d] \quad [d,d]$. We have listed them so that the letters in each multiset are in alphabetical order (remember, we can order the elements of a multiset in any way we choose), and the 10 multisets are arranged in dictionary order. For multisets of cardinality 3 made from $\{a,b,c,d\}$, we have:
 
-<img src="../assets/Pasted image 20260324170734.png" width="500">
+<img src="../assets/Pasted_image_20260324170734.png" width="500">
 
 **Though $X = \{a,b,c,d\}$ has no subsets of cardinality 5, there are many multisets of cardinality 5 made from these elements, including $[a,a,a,a,a]$, $[a,a,b,c,d]$ and $[b,c,c,d,d]$, and so on. Exactly how many are there? This is the first question about multisets that we shall tackle: Given a finite set $X$, how many cardinality-$k$ multisets can be made from $X$? Let’s start by counting the cardinality-5 multisets made from symbols $X = \{a,b,c,d\}$. (Our approach will lead to a general formula.) We know we can write any such multiset with its letters in alphabetical order. Tweaking the notation slightly, we could write any such multiset with bars separating the groupings of $a,b,c,d$, as shown in the table below. Notice that if a symbol does not appear in the multiset, we still write the bar that would have separated it from the others.**
 
-<img src="../assets/Pasted image 20260324170753.png" width="750">
+<img src="../assets/Pasted_image_20260324170753.png" width="750">
 
 **This suggests that we can encode the multisets as lists made from the two symbols $*$ and $|$, with an $*$ for each element of the multiset**, as follows.
 
-<img src="../assets/Pasted image 20260324170824.png" width="700">
+<img src="../assets/Pasted_image_20260324170824.png" width="700">
 
 **For examples see the right-hand column of the table. Any such encoding is a list made from 5 stars and 3 bars, so the list has a total of 8 entries. How many such lists are there? We can form such a list by choosing 3 of the 8 positions for the bars, and filling the remaining three positions with stars. Therefore the number of such lists is $\displaystyle \binom{8}{3} = \dfrac{8!}{3!5!} = 56$. That is our answer. There are 56 cardinality-5 multisets that can be made from the symbols in $X = \{a,b,c,d\}$. If we wanted to count the cardinality-3 multisets made from $X$, then the exact same reasoning would apply, but with 3 stars instead of 5. We’d be counting the length-6 lists with 3 stars and 3 bars. There are $\displaystyle \binom{6}{3} = \dfrac{6!}{3!3!} = 20$ such lists. So there are 20 cardinality-3 multisets made from $X = \{a,b,c,d\}$.** This agrees with our accounting on the previous page.
 
 In general, given a set $X = \{x_{1}, x_{2}, \ldots, x_{n}\}$ of $n$ elements, any cardinality-$k$ multiset made from its elements can be encoded in a star-and-bar list: 
 
-<img src="../assets/Pasted image 20260324170845.png" width="750">
+<img src="../assets/Pasted_image_20260324170845.png" width="750">
 
 Such a list has $k$ stars (one for each element of the multiset) and $n-1$ separating bars (a bar between each of the $n$ groupings of stars). Therefore its length is $k + n - 1$. We can make such a list by selecting $n - 1$ list positions out of $k + n - 1$ positions for the bars and inserting stars in the left-over positions. Thus there are $\displaystyle \binom{k+n-1}{n-1}$ such lists. Alternatively we could choose $k$ positions for the stars and fill in the remaining $n - k$ with bars, so there are $\displaystyle \binom{k+n-1}{k}$ such lists. Note that $\displaystyle \binom{k+n-1}{k} = \binom{k+n-1}{n-1}$ by Equation (3.4) on page 91. Let’s summarize our reckoning.
 
@@ -36,7 +36,7 @@ $$
 
 **<mark>This works because any cardinality-$k$ multiset made from the $n$ elements of $X$ can be encoded in a star-and-bar list of length $k + n - 1$, having form</mark>**
 
-<img src="../assets/Pasted image 20260324170907.png" width="750">
+<img src="../assets/Pasted_image_20260324170907.png" width="750">
 
 **<mark>with $k$ stars and $n - 1$ bars separating the $n$ groupings of stars. Such a list can be made by selecting $n - 1$ positions for the bars, and filling the remaining positions with stars, and there are $\displaystyle \binom{k+n-1}{n-1}$ ways to do this.</mark>**
 
@@ -54,18 +54,18 @@ $$
 
 **Solution: We can model a solution with stars and bars. For example, encode the solution $(w,x,y,z) = (3,4,5,8)$ as**
 
-<img src="../assets/Pasted image 20260324170940.png" width="500">
+<img src="../assets/Pasted_image_20260324170940.png" width="500">
 
 **In general, any solution $(w,x,y,z) = (a,b,c,d)$ gets encoded as**
 
-<img src="../assets/Pasted image 20260324170956.png" width="600">
+<img src="../assets/Pasted_image_20260324170956.png" width="600">
 **where all together there are 20 stars and 3 bars. So, for instance the solution $(w,x,y,z) = (0,0,10,10)$ gets encoded as $| | * * * * * * * * * * | * * * * * * * * * *$, and the solution $(w,x,y,z) = (7,3,5,5)$ is encoded as $* * * * * * * | * * * | * * * * * | * * * * *$ Thus we can describe any non-negative integer solution to the equation as a list of length $20 + 3 = 23$ that has 20 stars and 3 bars. We can make any such list by choosing 3 out of 23 spots for the bars, and filling the remaining 20 spots with stars. The number of ways to do this is $\displaystyle \binom{23}{3} = \dfrac{23!}{3!20!} = \dfrac{23 \cdot 22 \cdot 21}{3 \cdot 2} = 23 \cdot 11 \cdot 7 = 1771$. Thus there are 1771 non-negative integer solutions of $w + x + y + z = 20$. For another approach to this example, model solutions of $w + x + y + z = 20$ as 20-element multisets made from the elements of $\{w,x,y,z\}$.** For example, solution $(5,5,4,6)$ corresponds to $[w,w,w,w,w,x,x,x,x,x,y,y,y,y,z,z,z,z,z,z]$. By Fact 3.7, there are $\displaystyle \binom{20+4-1}{20} = \binom{23}{20} = 1771$ such multisets, so this is the number of solutions to $w + x + y + z = 20$.
 
 **Example 3.21: This problem concerns the lists $(w,x,y,z)$ of integers with the property that $0 \leq w \leq x \leq y \leq z \leq 10$. That is, each entry is an integer between 0 and 10, and the entries are ordered from smallest to largest. For example, $(0,3,3,7)$, $(1,1,1,1)$ and $(2,3,6,9)$ have this property, but $(2,3,6,4)$ does not. How many such lists are there?**
 
 **Solution: We can encode such a list with 10 stars and 4 bars, where $w$ is the number of stars to the left of the first bar, $x$ is the number of stars to the left of the second bar, $y$ is the number of stars to the left of the third bar, and $z$ is the number of stars to the left of the fourth bar. For example, $(2,3,6,9)$ is encoded as $* * | * | * * * | * * * | *$, and $(1, 2, 3, 4)$ is encoded as $* | * | * | * | * * * * \ *$.** Here are some other examples of lists paired with their encodings.
 
-<img src="../assets/Pasted image 20260324171023.png" width="500">
+<img src="../assets/Pasted_image_20260324171023.png" width="500">
 
 **Such encodings are lists of length 14, with 10 stars and 4 bars. We can make such a list by choosing 4 of the 14 slots for the bars and filling the remaining slots with stars. The number of ways to do this is $\displaystyle \binom{14}{4} = 1001$. Answer: There are 1001 such lists.**
 
@@ -75,7 +75,7 @@ We will examine one more type of multiset problem. To motivate it, consider the 
 
 The columns in the oval correspond to the same permutation of the letters of BOOK, as indicated in the row below the oval. Thus there are actually $\displaystyle \dfrac{4!}{2} = \dfrac{24}{2} = 12$ permutations of the letters of $BOOK$. This is actually a problem about multisets. The letters in "BOOK" form a multiset $[B,O,O,K]$, and we have determined that there are 12 permutations of this multiset. For another motivational example, consider the permutations of the letters of the word $BANANA$. Here there are two $N$’s and three $A$’s. Though some of the letters look identical, think of them as distinct physical objects that we can permute into different orderings. It helps to subscript the letters to emphasize that they are actually six distinct objects: ${B A}_{1}{N}_{1}{A}_{2}{N}_{2}{A}_{3}$. Now, there are $6! = 720$ permutations of these six letters. It’s not practical to write out all of them, but we can get a sense of the problem by making a partial listing in the box below.
 
-<img src="../assets/Pasted image 20260324171101.png" width="850">
+<img src="../assets/Pasted_image_20260324171101.png" width="850">
 
 The first column lists the permutations of ${B A}_{1}{N}_{1}{A}_{2}{N}_{2}{A}_{3}$ corresponding to the word $BANANA$. By the multiplication principle, the column has $3!2! = 12$ permutations because the three ${A}_{i}$’s can be permuted in $3!$ ways within their positions, and the two ${N}_{i}$’s can be permuted in $2!$ ways. Similarly, the second column lists the $3!2! = 12$ permutations corresponding to the "word" $ABNANA$. All together there are $6! = 720$ permutations of ${B A}_{1}{N}_{1}{A}_{2}{N}_{2}{A}_{3}$, and groupings of 12 of them correspond to particular permutations of $BANANA$. Therefore the total number of permutations of $BANANA$ is $\dfrac{6!}{3!2!} = \dfrac{720}{12} = 60$. The kind of reasoning used here generalizes to the following fact. 
 
@@ -115,7 +115,7 @@ In reaching in, you are grabbing a 15-element multiset made from elements in $\{
 5. A bag contains 20 identical red balls, 20 identical blue balls, 20 identical green balls, and one white ball. You reach in and grab 15 balls. How many different outcomes are possible? 🔴
 :::{dropdown} Answer
 First we count the number of outcomes that don’t have a white ball. This is a 15-element multiset made from elements in $\{R,G,B\}$. Modeling this with stars and bars, we are looking at length-17 lists of the form:
-<img src="../assets/Pasted image 20260426194730.png" width="400">
+<img src="../assets/Pasted_image_20260426194730.png" width="400">
 where there are 15 stars and two bars. Therefore there are $\displaystyle \binom{15+3-1}{15} = \binom{17}{15}$ outcomes without the white ball. 
 Next we count the outcomes that do have the white ball. *Then there are 14 remaining balls in the grab.* In counting the ways that they can be selected we can use the same stars-and-bars model above, but this time the list is of length 16 and has 14 stars. There are $\displaystyle \binom{14+3-1}{14} = \binom{16}{14}$ outcomes. 
 Finally, by the addition principle, the answer to the question is $\displaystyle \binom{17}{15} + \binom{16}{14} = 256$.
@@ -133,7 +133,7 @@ Finally, by the addition principle, the answer to the question is $\displaystyle
 7. In how many ways can you place 20 identical balls into five different boxes?
 :::{dropdown} Answer
 Let’s model this with stars and bars. Doing this we get a list of length 24 with 20 stars and 4 bars, where the first grouping of stars has as many stars as balls in Box 1, the second grouping has as many stars as balls in Box 2, and so on.
-<img src="../assets/Pasted image 20260426194814.png" width="600">
+<img src="../assets/Pasted_image_20260426194814.png" width="600">
 The number of ways to place 20 balls in the five boxes equals the number of such lists, which is $\displaystyle \binom{20 + 5 - 1}{20} = \binom{24}{20} = \binom{24}{4} = 10,626$.
 :::
 
@@ -145,7 +145,7 @@ Note that since $0 \leq x \leq y \leq z \leq 100$, the triple $( x , y , z )$ is
 9. A bag contains 50 pennies, 50 nickels, 50 dimes and 50 quarters. You reach in and grab 30 coins. How many different outcomes are possible?
 :::{dropdown} Answer
 This is a 30-element multiset made from elements in $\{1,5,10,25\}$. The stars-and-bars model is
-<img src="../assets/Pasted image 20260426194846.png" width="500">
+<img src="../assets/Pasted_image_20260426194846.png" width="500">
 so there are $\displaystyle \binom{30+4-1}{30} = \binom{33}{30} = \binom{33}{3} = 5456$ outcomes.
 :::
 
@@ -158,7 +158,7 @@ Model solutions of $u + v + w + x + y + z = 90$ as 90-element multisets made fro
 :::{dropdown} Answer
 Imagine a bag containing 100 red balls, 100 blue balls, 100 green balls and 100 white balls. Each solution of the equation corresponds to an outcome in selecting 100 balls from the bag, where the selection includes $w \geq 4$ red balls, $x \geq 2$ blue balls, $y \geq 0$ green balls and $z \geq 0$ white balls.
 Now let’s consider making such a selection. *Pre-select 4 red balls and 2 blue balls, so 94 balls remain in the bag.* Next the remaining 94 balls are selected. We can calculate the number of ways that this selection can be made with stars and bars, where there are 94 stars and 3 bars, so the list’s length is 97.
-<img src="../assets/Pasted image 20260426194931.png" width="500">
+<img src="../assets/Pasted_image_20260426194931.png" width="500">
 The number of outcomes is thus $\displaystyle \binom{100-6 + 4-1}{100-6} = \binom{97}{94} = \binom{97}{3} = 147,440$.
 :::
 

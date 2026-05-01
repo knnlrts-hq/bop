@@ -74,7 +74,7 @@ $$
 
 Example 1.14: In this example, all sets $A_{\alpha}$ are all subsets of the plane $\mathbb{R}^{2}$. Each $\alpha$ belongs to the index set $I = [ 0 , 2 ] = \left\{ x \in \mathbb{R} : 0 \leq x \leq 2 \right\}$, which is the set of all real numbers between 0 and 2. For each number $\alpha \in I$, define $A _ { \alpha }$ to be the set $A _ { \alpha } = [ \alpha , 2 ] \times [ 0 , \alpha ]$, which is the rectangle on the $xy$-plane whose base runs from $\alpha$ to 2 on the $x$-axis, and whose height is $\alpha$. Some of these are shown shaded below. (The dotted diagonal line $y = x$ is not a part of any of the sets, but is shown for clarity, as the upper left corner of each $A_{\alpha}$ touches it.) Note that these sets are not indexed with just integers. For example, as $\sqrt{2} \in I$, there is a set $A_{\sqrt{2}}$, which shown below on the right. 
 
-<img src="../assets/Pasted image 20260312100524.png" width="1200">
+<img src="../assets/Pasted_image_20260312100524.png" width="1200">
 
 Note that $A_{0} = [ 0 , 2 ] \times [ 0 , 0 ] = [ 0 , 2 ] \times \left\{ 0 \right\} = \left\{ (0,0), \ldots, (1,0) \ldots, (2,0) \right\}$ is the interval $[0, 2]$ on the $x$-axis (a “flat” rectangle). Also, $A_{2} = [ 2 , 2 ] \times [ 0 , 2 ] = \{ 2 \} \times [ 0 , 2 ] = \left\{ (2,0), \ldots, (2,1), \ldots, (2,2) \right\}$ is the vertical side of the dotted triangle in the above pictures. 
 
@@ -100,7 +100,7 @@ In words, given a point $(a,b) \in \mathbb{R}^{2}$, the corresponding set $P_{(a
 
 Figure 1.11 (left) shows the specific set $P_{(1,2)} = \left\{(x,y,z) \in \mathbb{R}^{3} : x + 2y = 0 \right\}$. It is the vertical plane that intersects the $xy$-plane at the line $x + 2y = 0$ (or $y = \dfrac{1}{-2}x$). 
 
-<img src="../assets/Pasted image 20260312100654.png" width="1000">
+<img src="../assets/Pasted_image_20260312100654.png" width="1000">
 Figure 1.11. The sets $P_{(a,b)}$ are vertical planes containing the $z$-axis.
 
 For any point $(a,b) \in \mathbb{R}^{2}$ with $(a,b) \neq (0,0)$, we can visualize $P_{(a,b)}$ as the vertical plane that cuts the $xy$-plane at the line $ax + by = 0$. Figure 1.11 (right) shows a few of the $P_{(a,b)}$ sets. Since any two such planes intersect along the $z$-axis, and because the $z$-axis is a subset of every $P_{(a,b)}$, it is immediately clear that 

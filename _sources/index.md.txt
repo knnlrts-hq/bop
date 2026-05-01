@@ -1,4 +1,6 @@
-# Book of Proof — Annotated
+# Book of Proof - Annotated
+
+![cover](assets/Book_cover_-_Book_of_Proof.png)
 
 *Book of Proof* is a free, open-source mathematics textbook by **Richard Hammack**
 (Virginia Commonwealth University). It introduces students to the language and

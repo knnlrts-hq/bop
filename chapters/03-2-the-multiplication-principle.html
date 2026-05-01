@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="3.3 The Addition and Subtraction Principles" href="03-3-the-addition-and-subtraction-principles.html"><link rel="prev" title="3.1 Lists" href="03-1-lists.html">
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
-        <title>3.2 The Multiplication Principle - Book of Proof — Annotated documentation</title>
+        <title>3.2 The Multiplication Principle - Book of Proof - Annotated documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -163,7 +163,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+      <a href="../index.html"><div class="brand">Book of Proof - Annotated  documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -184,7 +184,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  <span class="sidebar-brand-text">Book of Proof - Annotated  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -271,7 +271,7 @@
 Figure 3.1. Constructing lists of length 3
 <p>In the above example there are 3 choices for the first entry, 2 choices for the second entry, and 2 for the third, and the total number of possible lists is the product of choices <span class="math notranslate nohighlight">\(3 \cdot 2 \cdot 2 = 12\)</span>. <strong>This kind of reasoning is an instance of what we will call the multiplication principle.</strong> We will do one more example before stating this important idea.</p>
 <p><strong>Consider making a list of length 4 from the four letters <span class="math notranslate nohighlight">\(\{ a , b , c , d \}\)</span>, where the list is not allowed to have a repeated letter. For example, <span class="math notranslate nohighlight">\(abcd\)</span> and <span class="math notranslate nohighlight">\(cadb\)</span> are allowed, but <span class="math notranslate nohighlight">\(aabc\)</span> and <span class="math notranslate nohighlight">\(cacb\)</span> are not allowed. How many such lists are there?</strong> Let’s analyze this question with a tree representing the choices we have for each list entry. <strong>In making such a list we could start with the first entry: we have 4 choices for it, namely <span class="math notranslate nohighlight">\(a , b , c\)</span> or <span class="math notranslate nohighlight">\(d\)</span>, and the left side of the tree branches out to each of these choices. But once we’ve chosen a letter for the first entry, we can’t use that letter in the list again, so there are only 3 choices for the second entry. And once we’ve chosen letters for the first and second entries we can’t use these letters in the third entry, so there are just 2 choices for it. By the time we get to the fourth entry we are forced to use whatever letter we have left; there is only 1 choice. The situation is described fully in the below tree showing how to make all allowable lists by choosing 4 letters for the first entry, 3 for the second entry, 2 for the third entry and 1 for the fourth entry. We see that the total number of lists is the product <span class="math notranslate nohighlight">\(4 \cdot 3 \cdot 2 \cdot 1 = 24\)</span>.</strong></p>
-<img src="../assets/Pasted image 20260324165003.png" width="750">
+<img src="../assets/Pasted_image_20260324165003.png" width="750">
 Figure 3.2. Constructing lists from letters in $\{ a , b , c , d \}$, without repetition.
 <p><strong>These trees show that the number of lists constructible by some specified process equals the product of the numbers of choices for each list entry.</strong> We summarize this kind of reasoning as an important fact.</p>
 <p><strong><mark>Fact 3.1: (Multiplication Principle) Suppose in making a list of length <span class="math notranslate nohighlight">\(n\)</span> there are <span class="math notranslate nohighlight">\(a_{1}\)</span> possible choices for the first entry, <span class="math notranslate nohighlight">\(a_{2}\)</span> possible choices for the second entry, <span class="math notranslate nohighlight">\(a_{3}\)</span> possible choices for the third entry, and so on. Then the total number of different lists that can be made this way is the product <span class="math notranslate nohighlight">\(a_{1} \cdot a_{2} \cdot a_{3} \cdots a_{n}\)</span>.</mark></strong></p>
@@ -305,16 +305,16 @@ Figure 3.2. Constructing lists from letters in $\{ a , b , c , d \}$, without re
 <p>The next section presents two new counting principles that codify the kind of thinking we used in parts (c) and (d) above (the addition and subtraction principles). Combined with the multiplication principle, they solve complex counting problems in ways that avoid the pitfalls of double counting. But first, one more example of the multiplication principle highlights another pitfall to be alert to.</p>
 <p><strong>Example 3.4: A non-repetitive list of length 5 is to be made from the symbols <span class="math notranslate nohighlight">\(A , B , C , D , E , F , G\)</span>. The first entry must be either a <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span> or <span class="math notranslate nohighlight">\(D\)</span>, and the last entry must be a vowel. How many such lists are possible?</strong></p>
 <p><strong>Solution: Start by making a list of five boxes. The first box must contain either <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span> or <span class="math notranslate nohighlight">\(D\)</span>, so there are three choices for it.</strong></p>
-<a class="reference internal image-reference" href="assets/Pastedimage20260324165242.png"><img alt="assets/Pastedimage20260324165242.png" src="assets/Pastedimage20260324165242.png" style="width: 350px;" />
+<a class="reference internal image-reference" href="../_images/Pasted_image_20260324165242.png"><img alt="../_images/Pasted_image_20260324165242.png" src="../_images/Pasted_image_20260324165242.png" style="width: 350px;" />
 </a>
 <p><strong>Now there are 6 letters left for the remaining 4 boxes. The knee-jerk action is to fill them in, one at a time, using up an additional letter each time.</strong></p>
-<a class="reference internal image-reference" href="assets/Pastedimage20260324165324.png"><img alt="assets/Pastedimage20260324165324.png" src="assets/Pastedimage20260324165324.png" style="width: 350px;" />
+<a class="reference internal image-reference" href="../_images/Pasted_image_20260324165324.png"><img alt="../_images/Pasted_image_20260324165324.png" src="../_images/Pasted_image_20260324165324.png" style="width: 350px;" />
 </a>
 <p><strong><mark>But when we get to the last box, there is a problem. It is supposed to contain a vowel, but for all we know we have already used up one or both vowels in the previous boxes. The multiplication principle breaks down because there is no way to tell how many choices there are for the last box. The correct way to solve this problem is to fill in the first and last boxes (the ones that have restrictions) first.</mark></strong></p>
-<a class="reference internal image-reference" href="assets/Pastedimage20260324165343.png"><img alt="assets/Pastedimage20260324165343.png" src="assets/Pastedimage20260324165343.png" style="width: 350px;" />
+<a class="reference internal image-reference" href="../_images/Pasted_image_20260324165343.png"><img alt="../_images/Pasted_image_20260324165343.png" src="../_images/Pasted_image_20260324165343.png" style="width: 350px;" />
 </a>
 <p><strong>Then fill the remaining middle boxes with the 5 remaining letters.</strong></p>
-<a class="reference internal image-reference" href="assets/Pastedimage20260324165359.png"><img alt="assets/Pastedimage20260324165359.png" src="assets/Pastedimage20260324165359.png" style="width: 350px;" />
+<a class="reference internal image-reference" href="../_images/Pasted_image_20260324165359.png"><img alt="../_images/Pasted_image_20260324165359.png" src="../_images/Pasted_image_20260324165359.png" style="width: 350px;" />
 </a>
 <p><strong><mark>By the multiplication principle, there are then <span class="math notranslate nohighlight">\(3 \cdot 5 \cdot 4 \cdot 3 \cdot 2 = 360\)</span> lists</mark>.</strong></p>
 <p>The new principles to be introduced in the next section are usually used in conjunction with the multiplication principle. So work a few exercises now to test your understanding of it.</p>

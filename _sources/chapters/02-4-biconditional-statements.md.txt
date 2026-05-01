@@ -77,7 +77,7 @@ Compare the statement $R$: ($a$ is even) $\Leftrightarrow$ ($a$ is divisible by 
 - **$P$ is equivalent to $Q$.**
 - **If $P$, then $Q$, and conversely.**
 
-<img src="../assets/Pasted image 20260323164206.png" width="500">
+<img src="../assets/Pasted_image_20260323164206.png" width="500">
 
 The first three of these just combine constructions from the previous section to express that $P \Rightarrow Q$ and $Q \Rightarrow P$. In the last one, the words “...and conversely” mean that in addition to "If $P$, then $Q$" being true, the converse statement "If $Q$, then $P$" is also true.
 

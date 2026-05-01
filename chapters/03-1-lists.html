@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="3.2 The Multiplication Principle" href="03-2-the-multiplication-principle.html"><link rel="prev" title="2.12 An Important Note" href="02-12-an-important-note.html">
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
-        <title>3.1 Lists - Book of Proof — Annotated documentation</title>
+        <title>3.1 Lists - Book of Proof - Annotated documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -163,7 +163,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">Book of Proof — Annotated  documentation</div></a>
+      <a href="../index.html"><div class="brand">Book of Proof - Annotated  documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -184,7 +184,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  <span class="sidebar-brand-text">Book of Proof — Annotated  documentation</span>
+  <span class="sidebar-brand-text">Book of Proof - Annotated  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -284,12 +284,12 @@
 <p><strong>but—as noted above—the analogous equality for lists does not hold.</strong></p>
 <p><strong>Unlike sets, lists can have repeated entries. Thus <span class="math notranslate nohighlight">\((5,3,5,4,3,3)\)</span> is a perfectly acceptable list, as is <span class="math notranslate nohighlight">\(( S , O , S )\)</span>. The length of a list is its number of entries. So <span class="math notranslate nohighlight">\((5,3,5,4,3,3)\)</span> has length six, and <span class="math notranslate nohighlight">\(( S , O , S )\)</span> has length three.</strong></p>
 <p><strong>For more examples, <span class="math notranslate nohighlight">\(( a , 1 5 )\)</span> is a list of length two. And <span class="math notranslate nohighlight">\((0, (0, 1, 1))\)</span> is a list of length two whose second entry is a list of length three. Two lists are equal if they have exactly the same entries in exactly the same positions. Thus equal lists have the same number of entries. If two lists have different lengths, then they can not be equal.</strong> Thus <span class="math notranslate nohighlight">\(( 0 , 0 , 0 , 0 , 0 , 0 ) \neq ( 0 , 0 , 0 , 0 , 0 )\)</span>. Also</p>
-<a class="reference internal image-reference" href="assets/Pastedimage20260324163912.png"><img alt="assets/Pastedimage20260324163912.png" src="assets/Pastedimage20260324163912.png" style="width: 500px;" />
+<a class="reference internal image-reference" href="../_images/Pasted_image_20260324163912.png"><img alt="../_images/Pasted_image_20260324163912.png" src="../_images/Pasted_image_20260324163912.png" style="width: 500px;" />
 </a>
 <p>because the list on the left has length eleven but the list on the right has just one entry (a piece of paper with some words on it).</p>
 <p><strong>There is one very special list which has no entries at all. It is called the empty list and is denoted <span class="math notranslate nohighlight">\(( )\)</span>. It is the only list whose length is zero.</strong></p>
 <p><strong>For brevity we often write lists without parentheses, or even commas. For instance, we may write <span class="math notranslate nohighlight">\(( S , O , S )\)</span> as SOS if there is no risk of confusion.</strong> But be alert that doing this can lead to ambiguity: writing <span class="math notranslate nohighlight">\((9,10,11)\)</span> as <span class="math notranslate nohighlight">\(9 \ 10 \ 11\)</span> may cause us to confuse it with <span class="math notranslate nohighlight">\((9,1,0,1,1)\)</span>. Here it’s best to retain the parenthesis/comma notation or at least write the list as <span class="math notranslate nohighlight">\(9,10,11\)</span>. <strong>A list of symbols written without parentheses and commas is called a string.</strong> The process of tossing a coin ten times may be described by a string such as <span class="math notranslate nohighlight">\(HHTHTTTHHT\)</span>. Tossing it twice could lead to any of the outcomes <span class="math notranslate nohighlight">\(HH\)</span>, <span class="math notranslate nohighlight">\(HT\)</span>, <span class="math notranslate nohighlight">\(TH\)</span> or <span class="math notranslate nohighlight">\(TT\)</span>. Tossing it zero times is described by the empty list <span class="math notranslate nohighlight">\(( )\)</span>. Imagine rolling a dice five times and recording the outcomes. This might be described by the list (<span style="font-size: 25px; color: black;">⚂,⚄,⚂,⚀,⚅</span>), meaning that you rolled <span style="font-size: 25px; color: black;">⚂</span> first, then <span style="font-size: 25px; color: black;">⚄</span>, then <span style="font-size: 25px; color: black;">⚂</span>, etc. We might abbreviate this list as <span style="font-size: 25px; color: black;">⚂⚄⚂⚀⚅</span>, or 3, 5, 3, 1, 6. Now imagine rolling a pair of dice, one white and one black. A typical outcome might be modeled as a set like {<span style="font-size: 25px; color: black;">⚃</span>,<span style="font-size: 25px; background:black; color:white;">⚁</span>}. Rolling the pair six times might be described with a list of six such outcomes:</p>
-<a class="reference internal image-reference" href="assets/Pastedimage20260324164236.png"><img alt="assets/Pastedimage20260324164236.png" src="assets/Pastedimage20260324164236.png" style="width: 750px;" />
+<a class="reference internal image-reference" href="../_images/Pasted_image_20260324164236.png"><img alt="../_images/Pasted_image_20260324164236.png" src="../_images/Pasted_image_20260324164236.png" style="width: 750px;" />
 </a>
 <p>We might abbreviate this list as <span style="font-size: 25px; color: black;">⚃</span><span style="font-size: 25px; background:black; color:white;">⚁</span> , <span style="font-size: 25px; color: black;">⚂</span><span style="font-size: 25px; background:black; color:white;">⚄</span> , <span style="font-size: 25px; color: black;">⚅</span><span style="font-size: 25px; background:black; color:white;">⚅</span> , <span style="font-size: 25px; color: black;">⚀</span><span style="font-size: 25px; background:black; color:white;">⚀</span> , <span style="font-size: 25px; color: black;">⚀</span><span style="font-size: 25px; background:black; color:white;">⚁</span> , <span style="font-size: 25px; color: black;">⚁</span><span style="font-size: 25px; background:black; color:white;">⚂</span>.</p>
 <p><strong>We study lists because many real-world phenomena can be described and understood in terms of them. Your phone number can be identified as a list of ten digits. (Order is essential, for rearranging the digits can produce a different phone number.) A byte is another important example of a list. A byte is simply a length-eight list of 0’s and 1’s. The world of information technology revolves around bytes. And the examples above show that multi-step processes (such as rolling a dice twice) can be modeled as lists.</strong> We now explore methods of counting or enumerating lists and processes.</p>

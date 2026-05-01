@@ -18,7 +18,7 @@ Thus $\overline { { P } }$ is the set of composite numbers and 1.
 
 Example 1.11: Let $A = \left\{ ( x , x ^ { 2 } ) : x \in \mathbb { R } \right\}$ be the graph of the equation $y = x^{2}$. Figure 1.6(a) shows $A$ in its universal set $\mathbb{R}^{2}$. The complement of $A$ is ${ \overline { { A } } } =$ $\mathbb { R } ^ { 2 } - A = \left\{ ( x , y ) \in \mathbb{R}^{2} : y \neq x^{2} \right\}$, illustrated by the shaded area in Figure 1.6(b). 
 
-<img src="../assets/Pasted image 20260312095945.png" width="750">
+<img src="../assets/Pasted_image_20260312095945.png" width="750">
 Figure 1.6. A set and its complement
 
 ## Exercises for Section 1.6

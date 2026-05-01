@@ -157,7 +157,7 @@ As $P \Rightarrow Q$ is a true statement in this particular example, there is no
 - **For $P$, it is necessary that $Q$.**
 - **$P$ only if $Q$.**
 
-<img src="../assets/Pasted image 20260322211426.png" width="500">
+<img src="../assets/Pasted_image_20260322211426.png" width="500">
 
 These can all be used in the place of (and mean exactly the same thing as) "If $P$, then $Q$." **<mark>You should analyze the meaning of each one and convince yourself that it captures the meaning of $P \Rightarrow Q$. For example, $P \Rightarrow Q$ means the condition of $P$ being true is enough (i.e., sufficient) to make $Q$ true; hence "$P$ is a sufficient condition for $Q$."</mark>**
 

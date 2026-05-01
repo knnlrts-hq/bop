@@ -2,7 +2,7 @@
 
 **In working examples from the previous two sections you may have noticed that we often need to count the number of non-repetitive lists of length $n$ that are made from $n$ symbols. This kind of problem occurs so often that a special idea, called a factorial, is used to handle it.** The table below motivates this. The first column lists successive integer values $n$, from 0 onward. The second contains a set $\{a, b, \ldots \}$ of $n$ symbols. The third column shows all the possible non-repetitive lists of length $n$ that can be made from these symbols. Finally, the last column tallies up how many lists there are of that type. **When $n = 0$ there is only one list of length 0 that can be made from 0 symbols, namely the empty list $( )$. Thus the value 1 is entered in the last column of that row.**
 
-<img src="../assets/Pasted image 20260324165658.png" width="850">
+<img src="../assets/Pasted_image_20260324165658.png" width="850">
 
 **For $n > 0$, the number that appears in the last column can be computed using the multiplication principle. The number of non-repetitive lists of length $n$ that can be made from $n$ symbols is $n \cdot ( n - 1 ) \cdot ( n - 2 ) \cdots 3 \cdot 2 \cdot 1$. Thus, for instance, the number in the last column of the row for $n = 4$ is $4 \cdot 3 \cdot 2 \cdot 1 = 24$.** The number that appears in the last column of Row $n$ is called the factorial of $n$. It is denoted with the special symbol $n!$, which we pronounce as "$n$ factorial." Here is the definition:
 
@@ -36,9 +36,9 @@ Plugging in $n = 1$ gives $1! = 1 \cdot (1 - 1)! = 1 \cdot 0!$, that is, $1! = 1
 
 From a deck of cards you take the four queens and lay them in a row. By the multiplication principle there are $4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24$ ways to do this, that is, there are 24 permutations of the set of four Queen cards.
 
-<img src="../assets/Pasted image 20260324165800.png">
+<img src="../assets/Pasted_image_20260324165800.png">
 
-**In general, a set with $n$ elements will have $n!$ different permutations.** Above, the set $\{1, 2, 3\}$ has $3! = 6$ permutations, while <img src="../assets/Pasted image 20260324165849.png" width="175">has $4 ! = 24$ permutations. The set $\{a, b, c, d, e, f, g\}$ has $7! = 5040$ permutations, though there’s not much point in listing them all out. **The important thing is that the factorial counts the number of permutations.**
+**In general, a set with $n$ elements will have $n!$ different permutations.** Above, the set $\{1, 2, 3\}$ has $3! = 6$ permutations, while <img src="../assets/Pasted_image_20260324165849.png" width="175">has $4 ! = 24$ permutations. The set $\{a, b, c, d, e, f, g\}$ has $7! = 5040$ permutations, though there’s not much point in listing them all out. **The important thing is that the factorial counts the number of permutations.**
 
 In saying a permutation of a set is an arrangement of its elements in a row, we are speaking informally because sometimes the elements are not literally in a row. Imagine a classroom of 20 desks, in four rows of five desks each. Let $X$ be a class (set) of 20 students. If the students walk in and seat themselves, one per desk, we can regard this as a permutation of the 20 students because we can number the desks 1,2,3, ... ,20 and in this sense the students have arranged themselves in a list of length 20. There are $20! = 2,432,902,008,176,640,000$ permutations of the students.
 
@@ -46,7 +46,7 @@ In saying a permutation of a set is an arrangement of its elements in a row, we 
 
 **For example, take $X = \{a, b, c, d\}$. The 1-permutations of $X$ are the lists we could make with just one element from $X$. There are only 4 such lists: $(a), (b), (c), (d)$. The 2-permutations of $X$ are the non-repetitive lists that we could make from two elements of $X$. There are 12 of them: $(a,b), (a,c), (a,d), (b,a), (b,c), (b,d), (c,a), (c,b), (c,d), (d,a), (d,b), (d,c)$. Even before writing them all down, we’d know there are 12 of them because in making a non-repetitive length-2 list from $X$ we have 4 choices for the first element, then 3 choices for the second, so by the multiplication principle the total number of 2-permutations of $X$ is $4 \cdot 3 = 12$. Now let’s count the number of 3-permutations of $X$. They are the length-3 non-repetitive lists made from elements of $X$. The multiplication principle says there will be $4 \cdot 3 \cdot 2 = 24$ of them.** Here they are:
 
-<img src="../assets/Pasted image 20260324165937.png" width="500">
+<img src="../assets/Pasted_image_20260324165937.png" width="500">
 
 **The 4-permutations of $X$ are the non-repetitive lists made from all 4 elements of $X$. These are simply the $4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24$ permutations of $X$. <mark>Let’s go back and think about the $0$-permutations of $X$. They are the non-repetitive lists of length 0 made from the elements of $X$. Of course there is only one such list, namely the empty list $()$.</mark>**
 
@@ -62,7 +62,7 @@ $$
 
 **All together there are $k$ factors in this product, so to compute $P(n, k)$ just perform $n \cdot ( n - 1 ) \cdot  ( n - 2 ) \cdot  ( n - 3 ) \cdots$ until you’ve multiplied $k$ numbers.** Examples:
 
-<img src="../assets/Pasted image 20260402224310.png" width="600">
+<img src="../assets/Pasted_image_20260402224310.png" width="600">
 
 **<mark>Note $P(10, 11) = 0$, as the 11th factor in the product is 0. This makes sense because $P(10, 11)$ is the number of non-repetitive length-11 lists made from just 10 symbols. There are no such lists, so $P(10, 11) = 0$ is right. In fact you can check that Equation (3.2) gives $P(n, k) = 0$ whenever $k > n$. Also notice above that $P(10, 10) = 10!$. In general $P(n, n) = n!$.</mark>**
 

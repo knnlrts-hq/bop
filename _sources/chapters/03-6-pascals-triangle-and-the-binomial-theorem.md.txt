@@ -23,7 +23,7 @@ $$
 
 **for each $0 \leq k \leq n$. In words, the $k$-th entry of Row $n$ of Pascal’s triangle equals the $(n-k)$-th entry. This means that Pascal’s triangle is symmetric with respect to the vertical line through its apex, as is evident in Figure 3.3.**
 
-<img src="../assets/Pasted image 20260324170515.png" width="1000">
+<img src="../assets/Pasted_image_20260324170515.png" width="1000">
 
 
 Figure 3.4. The $n$-th row of Pascal’s triangle lists the coefficients of $(x+y)^{n}$

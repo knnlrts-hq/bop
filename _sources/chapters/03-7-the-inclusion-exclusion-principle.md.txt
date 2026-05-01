@@ -15,11 +15,11 @@
 
 **Solution: Let $A$ be the set of 3-card hands where all three cards are red (i.e., either $\heartsuit$ or $\diamondsuit$). Let $B$ be the set of 3-card hands in which all three cards are face cards (i.e., $J$, $Q$ or $K$ of any suit). These sets are illustrated below.**
 
-<img src="../assets/Pasted image 20260324170610.png" width="1000">
+<img src="../assets/Pasted_image_20260324170610.png" width="1000">
 
 **We seek the number of 3-card hands that are all red or all face cards, and this number is $|A \cup B|$. By Fact 3.6, $|A \cup B| = |A| + |B| - |A \cap B|$. Let’s examine $|A|, |B|$ and $|A \cap B|$ separately. Any hand in $A$ is formed by selecting three cards from the 26 red cards in the deck, so $\displaystyle |A| = \binom{26}{3}$. Similarly, any hand in $B$ is formed by selecting three cards from the 12 face cards in the deck ($4J + 4Q + 4K$), so $\displaystyle |B| = \binom{12}{3}$. Now think about $A \cap B$. It contains all the 3-card hands made up of cards that are red face cards.**
 
-<img src="../assets/Pasted image 20260324170636.png" width="1000">
+<img src="../assets/Pasted_image_20260324170636.png" width="1000">
 
 **The deck has only 6 red face cards, so $\displaystyle |A \cap B| = \binom{6}{3}$. Now we can answer our question. The number of 3-card hands that are all red or all face cards is $\displaystyle |A \cup B| = |A| + |B| - |A \cap B| = \binom{26}{3} + \binom{12}{3} - \binom{6}{3} = 2600 + 220 - 20 = 2800$.**
 
