@@ -71,7 +71,8 @@ Example 1.4: Represent the two sides of a coin by the set $S = \left\{ H, T \rig
 ## Exercises for Section 1.2
 
 A. Write out the indicated sets by listing their elements between braces. 
-1. Suppose $A = \left\{ 1 , 2 , 3 , 4 \right\}$ and $B = \left\{ a , c \right\}$. 
+1. Suppose $A = \left\{ 1 , 2 , 3 , 4 \right\}$ and $B = \left\{ a , c \right\}$.
+
 (a) $A \times B$ 
 :::{dropdown} Answer
 $A \times B = \{1,2,3,4\} \times \{a,c\}$
@@ -137,6 +138,7 @@ $B^{3} = \{(a,a,a),(a,a,c),(a,c,a),(a,c,c),(c,a,a),(c,a,c),(c,c,a),(c,c,c)\}$
 :::
 
 2. Suppose $A = \left\{ \pi , e , 0 \right\}$ and $B = \left\{ 0 , 1 \right\}$ . 
+
 (a) $A \times B$ 
 :::{dropdown} Answer
 $A \times B = \{\pi,e,0\} \times \{0,1\}$
@@ -250,6 +252,7 @@ i.e. 16 $4$-tuples of $0$'s and $1$'s.
 :::
 
 B. Sketch these Cartesian products on the $x$-$y$ plane $\mathbb { R } ^ { 2 }$ (or $\mathbb { R } ^ { 3 }$ for the last two). 
+
 9. $\{ 1 , 2 , 3 \} \times \{ - 1 , 0 , 1 \}$ 
 :::{dropdown} Answer
 $\{1,2,3\} \times \{-1,0,1\} = \{(1,-1),(1,0),(1,1),(2,-1),(2,0),(2,1),(3,-1),(3,0),(3,1)\}$
@@ -676,7 +679,7 @@ uv run plot.py
 ```
 :::
 
-16. $\mathbb{N} \times \mathbb{Z}$ 
+17. $\mathbb{N} \times \mathbb{Z}$ 
 :::{dropdown} Answer
 Note: $0$ is not included in $\mathbb{N}$, and thus $\mathbb{N} = \{1,2,3,\dots\}$.
 A lattice of points $(m,n)$ where $m\in\mathbb{N}$ and $n\in\mathbb{Z}$: vertical columns of integer points for positive integer $x$-coordinates.
@@ -725,7 +728,7 @@ uv run plot.py
 ```
 :::
 
-17. $\mathbb{Z} \times \mathbb{Z}$ 
+18. $\mathbb{Z} \times \mathbb{Z}$ 
 :::{dropdown} Answer
 The full integer lattice: all points $(m,n)$ with $m,n\in\mathbb{Z}$.
 
@@ -773,7 +776,7 @@ uv run plot.py
 ```
 :::
 
-18. $[ 0 , 1 ] \times [ 0 , 1 ] \times [ 0 , 1 ]$ 
+19. $[ 0 , 1 ] \times [ 0 , 1 ] \times [ 0 , 1 ]$ 
 :::{dropdown} Answer
 This is the closed unit cube: all points $(x,y,z)$ with $0 \le x, y, z \le 1$.
 
@@ -852,7 +855,7 @@ uv run plot.py
 ```
 :::
 
-19. $\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } + y ^ { 2 } \leq 1 \right\} \times [ 0 , 1 ]$ 
+20. $\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } + y ^ { 2 } \leq 1 \right\} \times [ 0 , 1 ]$ 
 :::{dropdown} Answer
 The set is a solid right circular cylinder of radius $1$ and height $1$:  all points $(x,y,z)$ with $x^{2}+y^{2}\le1$ and $0 \le z\le 1$.
 

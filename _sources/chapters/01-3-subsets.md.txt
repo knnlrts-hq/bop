@@ -64,7 +64,8 @@ Though they should help you understand the concept of subset, the above examples
 
 ## Exercises for Section 1.3
 
-A. List all the subsets of the following sets. 
+A. List all the subsets of the following sets.
+
 1. $\{1,2,3,4\}$
 :::{dropdown} Answer
 $\mathscr{P}(\{1,2,3,4\}) = \{ \varnothing, \{1\}, \{2\}, \{3\}, \{4\}, \{1,2\}, \{1,3\}, \{1,4\}, \{2,3\}, \{2,4\}, \{3,4\}, \{1,2,3\}, \{1,2,4\}, \{1,3,4\}, \{2,3,4\}, \{1,2,3,4\} \}$
@@ -108,6 +109,7 @@ $\{ \varnothing, \{\{0,1\}\}, \{\{0,1,\{2\}\}\}, \{\{0\}\}, \{\{0,1\},\{0,1,\{2\
 :::
 
 B. Write out the following sets by listing their elements between braces. 
+
 9. $\{ X : X \subseteq \{ 3 , 2 , a \} \text{ and } | X | = 2 \}$ 
 :::{dropdown} Answer
 $\{\{3,2\},\{3,a\},\{2,a\}\}$
@@ -142,8 +144,8 @@ False. As sets, $\mathbb{R}^2 = \{(x,y):x,y \in \mathbb{R} \}$ and $\mathbb{R}^3
 15. $\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x - 1 = 0 \right\} \subseteq \left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } - x = 0 \right\}$ 
 :::{dropdown} Answer
 **True.** 
-The left-hand set is the vertical line $x=1$. Thus $\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x - 1 = 0 \} = \{\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}$. Every tuple $(x,y)$ in $\mathbb{R}^2$ with $x = 1$.
-The right-hand set consists of two vertical lines in $\mathbb{R}^2$: $\{ (x,y) : x(x-1)=0 \}$, i.e. $x=0$ or $x=1$. Thus $\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } - x = 0 \} = \{\ldots,(0,-1),\ldots, (0, -0.5),\ldots, (0,0),\ldots, (0,0.5),\ldots,(0,1),\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}$. Every tuple $(x,y)$ in $\mathbb{R}^2$ with $x = 0$ or $x = 1$.
+The left-hand set is the vertical line $x=1$. Thus $$\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x - 1 = 0 \} = \{\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}$. Every tuple $(x,y)$ in $\mathbb{R}^2$ with $x = 1$$.
+The right-hand set consists of two vertical lines in $\mathbb{R}^2$: $\{ (x,y) : x(x-1)=0 \}$, i.e. $x=0$ or $x=1$. Thus $$\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } - x = 0 \} = \{\ldots,(0,-1),\ldots, (0, -0.5),\ldots, (0,0),\ldots, (0,0.5),\ldots,(0,1),\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}$. Every tuple $(x,y)$$ in $\mathbb{R}^2$ with $x = 0$ or $x = 1$.
 Every point with $x=1$ lies in the right set.
 
 <img src="../assets/1e9c3f57391e482cb70ba4cd573c1a59.png" width="750">
@@ -222,9 +224,9 @@ uv run plot.py
 16. $\left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } - x = 0 \right\} \subseteq \left\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x - 1 = 0 \right\}$ 
 :::{dropdown} Answer
 **False.** 
-The left-hand set consists of two vertical lines in $\mathbb{R}^2$: $\{ (x,y) : x(x-1)=0 \}$, i.e. $x=0$ or $x=1$. Thus $\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } - x = 0 \} = \{\ldots,(0,-1),\ldots, (0, -0.5),\ldots, (0,0),\ldots, (0,0.5),\ldots,(0,1),\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}$. Every tuple $(x,y)$ in $\mathbb{R}^2$ with $x = 0$ or $x = 1$.
-The right-hand set is the vertical line $x=1$. Thus $\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x - 1 = 0 \} = \{\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}$. Every tuple $(x,y)$ in $\mathbb{R}^2$ with $x = 1$.
-Points with $x=0$ (e.g. $(0,0)$) are not in the right-hand set representing $x=1$.
+The left-hand set consists of two vertical lines in $$\mathbb{R}^2$: $\{ (x,y) : x(x-1)=0 \}$, i.e. $x=0$ or $x=1$. Thus $\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x ^ { 2 } - x = 0 \} = \{\ldots,(0,-1),\ldots, (0, -0.5),\ldots, (0,0),\ldots, (0,0.5),\ldots,(0,1),\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}$. Every tuple $(x,y)$ in $\mathbb{R}^2$ with $x = 0$ or $x = 1$$.
+The right-hand set is the vertical line $x=1$. Thus $$\{ ( x , y ) \in \mathbb { R } ^ { 2 } : x - 1 = 0 \} = \{\ldots,(1,-1),\ldots, (1, -0.5),\ldots, (1,0),\ldots, (1,0.5),\ldots,(1,1),\ldots\}$. Every tuple $(x,y)$ in $\mathbb{R}^2$ with $x = 1$.
+Points with $x=0$ (e.g. $(0,0)$) are not in the right-hand set representing $x=1$$.
 
 <img src="../assets/3b17cae42f3e47c7bbe1c3cde73de857.png" width="750">
 
