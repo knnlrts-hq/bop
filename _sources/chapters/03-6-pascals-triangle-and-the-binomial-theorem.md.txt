@@ -77,9 +77,9 @@ Now plug in $x=3x$  and $y = -2y$ in the term $84 \cdot x^{6} \cdot y^{3}$ to ge
 
 5. Use the binomial theorem to show $\displaystyle \sum_{k = 0}^{n} \binom{n}{k} = 2^{n}$.
 :::{dropdown} Answer
-The binomial theorem: $\displaystyle (x+y)^{n} = \sum_{k=0}^{n} \binom{n}{k} (x)^{n-k} (y)^{k} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}$.
+The binomial theorem: $$\displaystyle (x+y)^{n} = \sum_{k=0}^{n} \binom{n}{k} (x)^{n-k} (y)^{k} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}$$.
 Observe that $2^{n} = (1+1)^{n}$. Now use the binomial theorem to work out $(x + y)^{n}$ and plug in $x = 1$ and $y = 1$.
-$\displaystyle (1+1)^{n} = \sum_{k=0}^{n} \binom{n}{k} \cdot (1)^{n-k} \cdot (1)^{k} = \binom{n}{0} \cdot (1)^{n} \cdot (1)^{0} + \binom{n}{1} \cdot (1)^{n-1} \cdot (1)^{1} + \ldots + \binom{n}{n-1} \cdot (1)^{1} \cdot (1)^{n-1} + \binom{n}{n} \cdot (1)^{0} \cdot (1)^{n} = \binom{n}{0} + \binom{n}{1} + \ldots + \binom{n}{n-1} + \binom{n}{n} = \sum_{k=0}^{n} \binom{n}{k} = 2^{n}$.
+$$\displaystyle (1+1)^{n} = \sum_{k=0}^{n} \binom{n}{k} \cdot (1)^{n-k} \cdot (1)^{k} = \binom{n}{0} \cdot (1)^{n} \cdot (1)^{0} + \binom{n}{1} \cdot (1)^{n-1} \cdot (1)^{1} + \ldots + \binom{n}{n-1} \cdot (1)^{1} \cdot (1)^{n-1} + \binom{n}{n} \cdot (1)^{0} \cdot (1)^{n} = \binom{n}{0} + \binom{n}{1} + \ldots + \binom{n}{n-1} + \binom{n}{n} = \sum_{k=0}^{n} \binom{n}{k} = 2^{n}$$.
 :::
 
 6. Use Definition 3.2 (page 85) and Fact 1.3 (page 13) to show $\displaystyle \sum_{k = 0}^{n} \binom{n}{k} = 2^{n}$. 🔴
@@ -91,23 +91,23 @@ Let $A$ be a set with $n$ elements. By fact 1.3, the total number of subset of $
 
 7. Use the binomial theorem to show $\displaystyle \sum_{k = 0}^{n} 3^{k} \binom{n}{k} = 4^{n}$. 
 :::{dropdown} Answer
-The binomial theorem: $\displaystyle (x+y)^{n} = \sum_{k=0}^{n} \binom{n}{k} (x)^{n-k} (y)^{k} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}$.
+The binomial theorem: $$\displaystyle (x+y)^{n} = \sum_{k=0}^{n} \binom{n}{k} (x)^{n-k} (y)^{k} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}$$.
 Observe that $4^{n} = (1+3)^{n}$. Now use the binomial theorem to work out $(x + y)^{n}$ and plug in $x = 1$ and $y = 3$.
-$\displaystyle (1+3)^{n} = \sum_{k=0}^{n} \binom{n}{k} \cdot (1)^{n-k} \cdot (3)^{k} = \binom{n}{0} \cdot (1)^{n} \cdot (3)^{0} + \binom{n}{1} \cdot (1)^{n-1} \cdot (3)^{1} + \ldots + \binom{n}{n-1} \cdot (1)^{1} \cdot (3)^{n-1} + \binom{n}{n} \cdot (1)^{0} \cdot (3)^{n} = (3)^{0} \cdot \binom{n}{0} + (3)^{1} \cdot \binom{n}{1} + \ldots + (3)^{n-1} \cdot \binom{n}{n-1} + (3)^{n} \cdot \binom{n}{n} = \sum_{k=0}^{n} 3^{k} \binom{n}{k} = 4^{n}$.
+$$\displaystyle (1+3)^{n} = \sum_{k=0}^{n} \binom{n}{k} \cdot (1)^{n-k} \cdot (3)^{k} = \binom{n}{0} \cdot (1)^{n} \cdot (3)^{0} + \binom{n}{1} \cdot (1)^{n-1} \cdot (3)^{1} + \ldots + \binom{n}{n-1} \cdot (1)^{1} \cdot (3)^{n-1} + \binom{n}{n} \cdot (1)^{0} \cdot (3)^{n} = (3)^{0} \cdot \binom{n}{0} + (3)^{1} \cdot \binom{n}{1} + \ldots + (3)^{n-1} \cdot \binom{n}{n-1} + (3)^{n} \cdot \binom{n}{n} = \sum_{k=0}^{n} 3^{k} \binom{n}{k} = 4^{n}$$.
 :::
 
 8. Use Fact 3.5 (page 87) to derive Equation 3.3 (page 90). 
 :::{dropdown} Answer
 Fact 3.5: If $0 \leq k \leq n$, then $\displaystyle \binom{n}{k} = \dfrac{n!}{k! \cdot (n-k)!}$. Otherwise $\displaystyle \binom{n}{k} = 0$.
 Equation 3.3: $\displaystyle \binom {n + 1} {k} = \binom {n} {k - 1} + \binom {n} {k}$ for any integers $n$ and $k$ with $1 \leq k \leq n$.
-$\displaystyle \binom {n + 1} {k} = \binom {n} {k - 1} + \binom {n} {k} = \dfrac{n!}{(k-1)! \cdot (n-(k-1))!} + \dfrac{n!}{k! \cdot (n-k)!} = \dfrac{k \cdot n!}{k \cdot (k-1)! \cdot (n-k+1)!} + \dfrac{(n-k+1) \cdot n!}{k! \cdot (n-k+1) \cdot (n-k)!} = \dfrac{n! \cdot (k + (n-k+1))}{k! \cdot (n-k+1)!} = \dfrac{n! \cdot (n+1)}{k! \cdot (n+1-k)!} = \dfrac{(n+1)!}{k! \cdot ((n+1)-k)!} = \binom{n + 1}{k}$
+$$\displaystyle \binom {n + 1} {k} = \binom {n} {k - 1} + \binom {n} {k} = \dfrac{n!}{(k-1)! \cdot (n-(k-1))!} + \dfrac{n!}{k! \cdot (n-k)!} = \dfrac{k \cdot n!}{k \cdot (k-1)! \cdot (n-k+1)!} + \dfrac{(n-k+1) \cdot n!}{k! \cdot (n-k+1) \cdot (n-k)!} = \dfrac{n! \cdot (k + (n-k+1))}{k! \cdot (n-k+1)!} = \dfrac{n! \cdot (n+1)}{k! \cdot (n+1-k)!} = \dfrac{(n+1)!}{k! \cdot ((n+1)-k)!} = \binom{n + 1}{k}$$
 :::
 
 9. Use the binomial theorem to show $\displaystyle \binom{n}{0} - \binom{n}{1} + \binom{n}{2} - \binom{n}{3} + \binom{n}{4} - \cdots + (-1)^{n} \binom{n}{n} = 0$, for $n > 0$.
 :::{dropdown} Answer
 The binomial theorem: $\displaystyle (x+y)^{n} = \sum_{k=0}^{n} \binom{n}{k} (x)^{n-k} (y)^{k} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}$.
 Observe that $0 = 0^{n} = (1-1)^{n}$. Now use the binomial theorem to work out $(x + y)^{n}$ and plug in $x = 1$ and $y = -1$.
-$\displaystyle (1-1)^{n} = \sum_{k=0}^{n} \binom{n}{k} \cdot (1)^{n-k} \cdot (-1)^{k} = \binom{n}{0} \cdot (1)^{n} \cdot (-1)^{0} + \binom{n}{1} \cdot (1)^{n-1} \cdot (-1)^{1} + \ldots + \binom{n}{n-1} \cdot (1)^{1} \cdot (-1)^{n-1} + \binom{n}{n} \cdot (1)^{0} \cdot (-1)^{n} = \sum_{k=0}^{n} (-1)^{k} \binom{n}{k} = 0$.
+$$\displaystyle (1-1)^{n} = \sum_{k=0}^{n} \binom{n}{k} \cdot (1)^{n-k} \cdot (-1)^{k} = \binom{n}{0} \cdot (1)^{n} \cdot (-1)^{0} + \binom{n}{1} \cdot (1)^{n-1} \cdot (-1)^{1} + \ldots + \binom{n}{n-1} \cdot (1)^{1} \cdot (-1)^{n-1} + \binom{n}{n} \cdot (1)^{0} \cdot (-1)^{n} = \sum_{k=0}^{n} (-1)^{k} \binom{n}{k} = 0$$.
 Note that $0^0$ is undetermined/undefined.
 :::
 
@@ -121,32 +121,32 @@ For $k = 0$, the formula becomes $\displaystyle 0 \binom{n}{0} = n \binom{n-1}{-
 
 11. Use the binomial theorem to show $\displaystyle 9^{n} = \sum_{k=0}^{n} (-1)^{k} \binom{n}{k} 10^{n-k}$.
 :::{dropdown} Answer
-The binomial theorem: $\displaystyle (x+y)^{n} = \sum_{k=0}^{n} \binom{n}{k} (x)^{n-k} (y)^{k} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}$.
+The binomial theorem: $$\displaystyle (x+y)^{n} = \sum_{k=0}^{n} \binom{n}{k} (x)^{n-k} (y)^{k} = \binom{n}{0} x^{n} + \binom{n}{1} x^{n-1}y + \binom{n}{2} x^{n-2}y^{2} + \binom{n}{3} x^{n-3}y^{3} + \ldots + \binom{n}{n-1} xy^{n-1} + \binom{n}{n} y^{n}$$.
 Observe that $9^{n} = (10-1)^{n}$. Now use the binomial theorem to work out $(x + y)^{n}$ and plug in $x = 10$ and $y = -1$.
-$\displaystyle 9^{n} = (10-1)^{n} = \binom{n}{0} \cdot (10)^{n} \cdot (-1)^{0} + \binom{n}{1} \cdot (10)^{n-1} \cdot (-1)^{1} + \ldots + \binom{n}{n-1} \cdot (10)^{1} \cdot (-1)^{n-1} + \binom{n}{n} \cdot (10)^{0} \cdot (-1)^{n} = \sum_{k=0}^{n} (-1)^{k} \binom{n}{k} (10)^{n-k}$.
+$$\displaystyle 9^{n} = (10-1)^{n} = \binom{n}{0} \cdot (10)^{n} \cdot (-1)^{0} + \binom{n}{1} \cdot (10)^{n-1} \cdot (-1)^{1} + \ldots + \binom{n}{n-1} \cdot (10)^{1} \cdot (-1)^{n-1} + \binom{n}{n} \cdot (10)^{0} \cdot (-1)^{n} = \sum_{k=0}^{n} (-1)^{k} \binom{n}{k} (10)^{n-k}$$.
 :::
 
 12. Show that $\displaystyle \binom{n}{k} \binom{k}{m} = \binom{n}{m} \binom{n-m}{k-m}$. 
 :::{dropdown} Answer
-$\displaystyle \binom{n}{k} \binom{k}{m} = \frac{n!}{k! \cdot (n-k)!} \cdot \frac{k!}{m! \cdot (k-m)!} = \frac{n! \cdot k!}{k! \cdot (n-k)! \cdot m! \cdot (k-m)!} = \frac{n!}{m! \cdot (k-m)! \cdot (n-k)!}$
-$\displaystyle \binom{n}{m} \binom{n-m}{k-m} = \frac{n!}{m! \cdot (n-m)!} \cdot \frac{(n-m)!}{(k-m)! \cdot ((n-m)-(k-m))!} = \frac{n! \cdot (n-m)!}{m! \cdot (n-m)! \cdot (k-m)! \cdot (n-k)!} = \frac{n!}{m! \cdot (k-m)! \cdot (n-k)!}$
+$$\displaystyle \binom{n}{k} \binom{k}{m} = \frac{n!}{k! \cdot (n-k)!} \cdot \frac{k!}{m! \cdot (k-m)!} = \frac{n! \cdot k!}{k! \cdot (n-k)! \cdot m! \cdot (k-m)!} = \frac{n!}{m! \cdot (k-m)! \cdot (n-k)!}$$
+$$\displaystyle \binom{n}{m} \binom{n-m}{k-m} = \frac{n!}{m! \cdot (n-m)!} \cdot \frac{(n-m)!}{(k-m)! \cdot ((n-m)-(k-m))!} = \frac{n! \cdot (n-m)!}{m! \cdot (n-m)! \cdot (k-m)! \cdot (n-k)!} = \frac{n!}{m! \cdot (k-m)! \cdot (n-k)!}$$
 Therefore $\displaystyle \binom{n}{k} \binom{k}{m} = \binom{n}{m} \binom{n-m}{k-m}$.
 :::
  
 13. Show that $\displaystyle \binom{n}{3} = \binom{2}{2} + \binom{3}{2} + \binom{4}{2} + \binom{5}{2} + \dots + \binom{n-1}{2}$. 
 :::{dropdown} Answer
 Assume $n \geq 3$ and note that $\displaystyle \binom{n + 1}{k} = \binom{n}{k} + \binom{n}{k - 1}$ for any integers $n$ and $k$ with $1 \leq k \leq n$. 
-If $\displaystyle \binom{n + 1}{k} = \binom{n}{3}$, then $\displaystyle \binom{n}{3} = \binom{n-1}{3} + \binom{n-1}{2} = \binom{n-2}{3} + \binom{n-2}{2} + \binom{n-1}{2} = \ldots = 0 + \binom{2}{2} + \binom{3}{2} + \ldots + \binom{n-2}{2} + \binom{n-1}{2}$.
+If $\displaystyle \binom{n + 1}{k} = \binom{n}{3}$, then $$\displaystyle \binom{n}{3} = \binom{n-1}{3} + \binom{n-1}{2} = \binom{n-2}{3} + \binom{n-2}{2} + \binom{n-1}{2} = \ldots = 0 + \binom{2}{2} + \binom{3}{2} + \ldots + \binom{n-2}{2} + \binom{n-1}{2}$$.
 :::
 
 14. The first five rows of Pascal’s triangle appear in the digits of powers of 11: $11^{0} = 1$, $11^{1}=11$, $11^{2} = 121$, $11^{3} = 1331$ and $11^{4} = 14641$. Why is this so? Why does the pattern not continue with $11^{5}$? 
 :::{dropdown} Answer
 Note that $\displaystyle 11^{n} = (1 + 10)^{n} = \sum_{k=0}^{n} \binom{n}{k} (1)^{n-k} (10)^{k}$. For $n=0,1,2,3,4$, all the binomial coefficients in row $n$ of Pascal’s triangle are single-digit numbers, so they appear directly as the digits of $11^{n}$. The pattern does not continue for $11^{5}$ because the fifth row of Pascal’s triangle is $(1,\ 5,\ 10,\ 10,\ 5,\ 1)$, and the numbers $10$ are not single digits. Therefore carrying occurs in base 10, so the digits are no longer exactly the entries of Pascal’s triangle. The pattern fails because of carrying in base 10 once binomial coefficients become two-digit numbers.
-$\displaystyle 11^{0} = (1 + 10)^{0} = \sum_{k=0}^{0} \binom{0}{k} (1)^{0-k} (10)^{k} = \binom{0}{0} (1)^{0} (10)^{0} = \mathbf{1} \cdot 1 = 1$
-$\displaystyle 11^{1} = (1 + 10)^{1} = \sum_{k=0}^{1} \binom{1}{k} (1)^{1-k} (10)^{k} = \binom{1}{0} (1)^{1} (10)^{0} + \binom{1}{1} (1)^{0} (10)^{1} = \mathbf{1} \cdot 1 + \mathbf{1} \cdot 10 = 11$
-$\displaystyle 11^{2} = (1 + 10)^{2} = \sum_{k=0}^{2} \binom{2}{k} (1)^{2-k} (10)^{k} = \binom{2}{0} (1)^{2} (10)^{0} + \binom{2}{1} (1)^{1} (10)^{1} + \binom{2}{2} (1)^{0} (10)^{2} = \mathbf{1} \cdot 1 + \mathbf{2} \cdot 10 + \mathbf{1} \cdot 100 = 121$
-$\displaystyle 11^{3} = (1 + 10)^{3} = \sum_{k=0}^{3} \binom{3}{k} (1)^{3-k} (10)^{k} = \binom{3}{0} (1)^{3} (10)^{0} + \binom{3}{1} (1)^{2} (10)^{1} + \binom{3}{2} (1)^{1} (10)^{2} + \binom{3}{3} (1)^{0} (10)^{3} = \mathbf{1} \cdot 1 + \mathbf{3} \cdot 10 + \mathbf{3} \cdot 100 + \mathbf{1} \cdot 1000 = 1331$
-$\displaystyle 11^{4} = (1 + 10)^{4} = \sum_{k=0}^{4} \binom{4}{k} (1)^{4-k} (10)^{k} = \binom{4}{0} (1)^{4} (10)^{0} + \binom{4}{1} (1)^{3} (10)^{1} + \binom{4}{2} (1)^{2} (10)^{2} + \binom{4}{3} (1)^{1} (10)^{3} + \binom{4}{4} (1)^{0} (10)^{4} = \mathbf{1} \cdot 1 + \mathbf{4} \cdot 10 + \mathbf{6} \cdot 100 + \mathbf{4} \cdot 1000 + \mathbf{1} \cdot 10000 = 14641$
-$\displaystyle 11^{5} = (1 + 10)^{5} = \sum_{k=0}^{5} \binom{5}{k} (1)^{5-k} (10)^{k} = \binom{5}{0} (1)^{5} (10)^{0} + \binom{5}{1} (1)^{4} (10)^{1} + \binom{5}{2} (1)^{3} (10)^{2} + \binom{5}{3} (1)^{2} (10)^{3} + \binom{5}{4} (1)^{1} (10)^{4} + \binom{5}{5} (1)^{0} (10)^{5} = \mathbf{1} \cdot 1 + \mathbf{5} \cdot 10 + \mathbf{10} \cdot 100 + \mathbf{10} \cdot 1000 + \mathbf{5} \cdot 10000 + \mathbf{1} \cdot 100000 = 161051$
+$$\displaystyle 11^{0} = (1 + 10)^{0} = \sum_{k=0}^{0} \binom{0}{k} (1)^{0-k} (10)^{k} = \binom{0}{0} (1)^{0} (10)^{0} = \mathbf{1} \cdot 1 = 1$$
+$$\displaystyle 11^{1} = (1 + 10)^{1} = \sum_{k=0}^{1} \binom{1}{k} (1)^{1-k} (10)^{k} = \binom{1}{0} (1)^{1} (10)^{0} + \binom{1}{1} (1)^{0} (10)^{1} = \mathbf{1} \cdot 1 + \mathbf{1} \cdot 10 = 11$
+$$\displaystyle 11^{2} = (1 + 10)^{2} = \sum_{k=0}^{2} \binom{2}{k} (1)^{2-k} (10)^{k} = \binom{2}{0} (1)^{2} (10)^{0} + \binom{2}{1} (1)^{1} (10)^{1} + \binom{2}{2} (1)^{0} (10)^{2} = \mathbf{1} \cdot 1 + \mathbf{2} \cdot 10 + \mathbf{1} \cdot 100 = 121$$
+$$\displaystyle 11^{3} = (1 + 10)^{3} = \sum_{k=0}^{3} \binom{3}{k} (1)^{3-k} (10)^{k} = \binom{3}{0} (1)^{3} (10)^{0} + \binom{3}{1} (1)^{2} (10)^{1} + \binom{3}{2} (1)^{1} (10)^{2} + \binom{3}{3} (1)^{0} (10)^{3} = \mathbf{1} \cdot 1 + \mathbf{3} \cdot 10 + \mathbf{3} \cdot 100 + \mathbf{1} \cdot 1000 = 1331$$
+$$\displaystyle 11^{4} = (1 + 10)^{4} = \sum_{k=0}^{4} \binom{4}{k} (1)^{4-k} (10)^{k} = \binom{4}{0} (1)^{4} (10)^{0} + \binom{4}{1} (1)^{3} (10)^{1} + \binom{4}{2} (1)^{2} (10)^{2} + \binom{4}{3} (1)^{1} (10)^{3} + \binom{4}{4} (1)^{0} (10)^{4} = \mathbf{1} \cdot 1 + \mathbf{4} \cdot 10 + \mathbf{6} \cdot 100 + \mathbf{4} \cdot 1000 + \mathbf{1} \cdot 10000 = 14641$$
+$$\displaystyle 11^{5} = (1 + 10)^{5} = \sum_{k=0}^{5} \binom{5}{k} (1)^{5-k} (10)^{k} = \binom{5}{0} (1)^{5} (10)^{0} + \binom{5}{1} (1)^{4} (10)^{1} + \binom{5}{2} (1)^{3} (10)^{2} + \binom{5}{3} (1)^{2} (10)^{3} + \binom{5}{4} (1)^{1} (10)^{4} + \binom{5}{5} (1)^{0} (10)^{5} = \mathbf{1} \cdot 1 + \mathbf{5} \cdot 10 + \mathbf{10} \cdot 100 + \mathbf{10} \cdot 1000 + \mathbf{5} \cdot 10000 + \mathbf{1} \cdot 100000 = 161051$$
 :::
 

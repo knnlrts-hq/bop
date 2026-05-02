@@ -149,38 +149,38 @@ Regard $ABC$ as a single symbol. Then we are looking for the permutations of fiv
 Alternatively, make 5 groups of the forms: `A B C * * * *`, `* A B C * * *`, `* * A B C * *`, `* * * A B C *`, and `* * * * A B C`. Each group has  $1 \cdot 1 \cdot 1 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 4! = 24$ permutations. By the addition principle, the total number of permutations across all groups is $24 \cdot 5 = 120$.
 :::
 
-9. How many permutations of the digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$ are there in which the digits alternate even and odd? (For example, $2183470965$.) 🔴
+10. How many permutations of the digits $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$ are there in which the digits alternate even and odd? (For example, $2183470965$.) 🔴
 :::{dropdown} Answer
 Make 2 groups of the forms: `OEOEOEOEOE` and `EOEOEOEOEO`. Each pattern gives $5 \cdot 5 \cdot 4 \cdot 4 \cdot 3 \cdot 3 \cdot 2 \cdot 2 \cdot 1 \cdot 1 = 5! \cdot 5! = 14400$ permutations. By the addition principle, $14400 + 14400 = 28800$.
 How many permutations of *10-digit numbers* are there in which the digits alternate even and odd? In this case, the leading $0$ is forbidden (as numbers are not written with leading zeros), so there are still 2 groups of the forms: `OEOEOEOEOE` and `EOEOEOEOEO`. The first pattern gives $5 \cdot 5 \cdot 4 \cdot 4 \cdot 3 \cdot 3 \cdot 2 \cdot 2 \cdot 1 \cdot 1 = 5! \cdot 5! = 14400$ permutations. However, the second pattern now gives only $4 \cdot 5 \cdot 4 \cdot 4 \cdot 3 \cdot 3 \cdot 2 \cdot 2 \cdot 1 \cdot 1 = 4 \cdot 4! \cdot 5! = 11520$ permutations. By the addition principle, $14400 + 11520 = 25920$.
 :::
 
-10. You deal 7 cards off of a 52-card deck and line them up in a row. How many possible lineups are there in which not all cards are red?
+11. You deal 7 cards off of a 52-card deck and line them up in a row. How many possible lineups are there in which not all cards are red?
 :::{dropdown} Answer
 All together, there are $|U| = P(52,7) = \dfrac{52!}{(52-7)!} = 674,274,182,400$ 7-card lineups with cards selected from the entire deck. There are $|X| = P(26,7) = \dfrac{26!}{(26-7)!} = 3,315,312,000$ 7-card lineups with red cards selected from the 26 red cards in the deck. By the subtraction principle, the number of lineups that are not all red is $|U - X| = P(52,7) - P(26,7) = 674,274,182,400 - 3,315,312,000 = 670,958,870,400$.
 :::
 
-11. You deal 7 cards off of a 52-card deck and line them up in a row. How many possible lineups are there in which no card is a club?
+12. You deal 7 cards off of a 52-card deck and line them up in a row. How many possible lineups are there in which no card is a club?
 :::{dropdown} Answer
 There are 13 club cards in a standard 52-card deck, so $|X| = P((52-13),7) = \dfrac{39!}{(39-7)!} = 77,519,922,480$
 :::
 
-12. How many lists of length six (with no repetition) can be made from the 26 letters of the English alphabet?
+13. How many lists of length six (with no repetition) can be made from the 26 letters of the English alphabet?
 :::{dropdown} Answer
 $P(26,6) = \dfrac{26!}{(26-6)!} = 165,765,600$.
 :::
 
-13. Five of ten books are arranged on a shelf. In how many ways can this be done?
+14. Five of ten books are arranged on a shelf. In how many ways can this be done?
 :::{dropdown} Answer
 $P(10,5) = \dfrac{10!}{(10-5)!} = 30,240$
 :::
 
-14. In a club of 15 people, we need to choose a president, vice-president, secretary, and treasurer. In how many ways can this be done?
+15. In a club of 15 people, we need to choose a president, vice-president, secretary, and treasurer. In how many ways can this be done?
 :::{dropdown} Answer
 $P(15,4) = \dfrac{15!}{(15-4)!} = 32,760$.
 :::
 
-15. How many 4-permutations are there of the set $\left\{ A , B , C , D , E , F \right\}$ if whenever $A$ appears in the permutation, it is followed by $E$? 🔴
+16. How many 4-permutations are there of the set $\left\{ A , B , C , D , E , F \right\}$ if whenever $A$ appears in the permutation, it is followed by $E$? 🔴
 :::{dropdown} Answer
 - Case 1: $A$ does not appear. Then we choose and arrange letters from the set $\{B,C,D,E,F\}$. $P(5,4) = \dfrac{5!}{(5-4)!} = 120$.
 - Case 2: if $A$ appears, then $AE$ is treated as a block, and we choose and arrange 2 other letters from the set $\{B,C,D,F\}$, meaning $P(4,2) = 12$ permutations. Make 3 groups of the forms: $A E * *$, $* A E *$, and $* * A E$. Each group has  $1 \cdot 1  \cdot 4 \cdot 3 = 12$ possible permutations. By the addition principle, the total number of permutations across all groups is $12+12+12 = 36$.
@@ -188,41 +188,41 @@ $P(15,4) = \dfrac{15!}{(15-4)!} = 32,760$.
 Then by the addition principle, there are $120 + 36 = 156$ total permutations where if whenever $A$ appears, it is followed by an $E$.
 :::
 
-16. Three people in a group of ten line up at a ticket counter to buy tickets. How many lineups are possible?
+17. Three people in a group of ten line up at a ticket counter to buy tickets. How many lineups are possible?
 :::{dropdown} Answer
 $P(10,3) = \dfrac{10!}{(10-3)!} = 720$.
 :::
 
-17. There is a very interesting function $r : [ 0 , \infty ) \to \mathbb{R}$ called the gamma function. It is defined as $\displaystyle \varGamma(x) = \int_{0}^{\infty} t^{x-1} e^{-t} \ dt$. It has the remarkable property that if $x \in \mathbb{N}$, then $\varGamma(x) = (x-1)!$. Check that this is true for $x = 1 , 2 , 3 , 4$. Notice that this function provides a way of extending factorials to numbers other than integers. Since $\displaystyle \varGamma(n) = (n-1)!$ for all $n \in \mathbb{N}$, we have the formula $n! = \varGamma(n+1)$. But $\varGamma$ can be evaluated at any number in $[ 0 , \infty )$, not just at integers, so we have a formula for $n!$ for any real number $n \in [ 0 , \infty )$. Extra credit: Compute $\pi!$. 🔴
+18. There is a very interesting function $r : [ 0 , \infty ) \to \mathbb{R}$ called the gamma function. It is defined as $\displaystyle \varGamma(x) = \int_{0}^{\infty} t^{x-1} e^{-t} \ dt$. It has the remarkable property that if $x \in \mathbb{N}$, then $\varGamma(x) = (x-1)!$. Check that this is true for $x = 1 , 2 , 3 , 4$. Notice that this function provides a way of extending factorials to numbers other than integers. Since $\displaystyle \varGamma(n) = (n-1)!$ for all $n \in \mathbb{N}$, we have the formula $n! = \varGamma(n+1)$. But $\varGamma$ can be evaluated at any number in $[ 0 , \infty )$, not just at integers, so we have a formula for $n!$ for any real number $n \in [ 0 , \infty )$. Extra credit: Compute $\pi!$. 🔴
 :::{dropdown} Answer
 The gamma function does not equal $n!$, but instead it equals a shifted factorial: $\varGamma(n) = (n-1)!$ for all $n \in \mathbb{N}$. In order to make the gamma function formula match $n!$, we must shift by 1: $n! = \varGamma(n+1)$. Also note that $n! = n \cdot (n-1)!$, so it follows that $n! = n \cdot (n-1)! = n \cdot \varGamma(n) = \varGamma(n+1)$. 
 
 The gamma function is $\displaystyle \varGamma(x) = \int_{0}^{\infty} t^{x-1} e^{-t} \ dt$, so it follows that $\displaystyle \varGamma(x+1) = \int_{0}^{\infty} t^{(x+1-1)} e^{-t} \ dt = \int_{0}^{\infty} t^{x} e^{-t} \ dt$. 
 Using integration by parts $\displaystyle \int u \ dv = uv - \int v \ du$ with $u = t^{x}$ and $dv = e^{-t} \ dt$, gives us $du = xt^{x-1} \ dt$ and $v = -e^{-t}$.
-Therefore $\displaystyle \varGamma(x+1) = \int_{0}^{\infty} t^{x} e^{-t} \ dt = \left[-t^{x}e^{-t}\right]_{0}^{\infty} + x \cdot \int_0^{\infty} t^{x-1}e^{-t} \ dt$.
+Therefore $$\displaystyle \varGamma(x+1) = \int_{0}^{\infty} t^{x} e^{-t} \ dt = \left[-t^{x}e^{-t}\right]_{0}^{\infty} + x \cdot \int_0^{\infty} t^{x-1}e^{-t} \ dt$$.
 The boundary term $\left[-t^{x}e^{-t}\right]_{0}^{\infty}$ resolves to 0, so it follows that $\displaystyle \boxed{\varGamma(x+1) = x \cdot \int_0^{\infty} t^{x-1}e^{-t} \ dt = x \cdot \varGamma(x)}$.
 
 $\displaystyle \varGamma(1) = \int_0^{\infty} t^{(1-1)}e^{-t} \ dt = \int_0^{\infty} e^{-t} \ dt$
 Using u-substitution $u = -t$, gives us $du = -dt$.
-Therefore $\displaystyle \varGamma(1) = \int_0^{\infty} e^{-t} \ dt = -\int_0^{\infty} e^{u} \ du = \left[-e^{-t}\right]_{0}^{\infty} = (-e^{-t}) - (-e^{-0}) = 1 - e^{-t} = 1$
+Therefore $$\displaystyle \varGamma(1) = \int_0^{\infty} e^{-t} \ dt = -\int_0^{\infty} e^{u} \ du = \left[-e^{-t}\right]_{0}^{\infty} = (-e^{-t}) - (-e^{-0}) = 1 - e^{-t} = 1$$
 $\displaystyle \boxed{\varGamma(1) = 1  = (1-1)! = 0!}$
 
 $\displaystyle \varGamma(2) = \int_0^{\infty} t^{(2-1)}e^{-t} \ dt = \int_0^{\infty} te^{-t} \ dt$
 Using integration by parts $\displaystyle \int u \ dv = uv - \int v \ du$ with $u = t$ and $dv = e^{-t} \ dt$, gives us $du = dt$ and $v = -e^{-t}$.
-Therefore $\displaystyle \varGamma(2) = \int_0^{\infty} te^{-t} \ dt = \left[-te^{-t}\right]_{0}^{\infty} + \int_0^{\infty} e^{-t} \ dt = \left[-te^{-t}\right]_{0}^{\infty} + \left[-e^{-t}\right]_{0}^{\infty} = 1 - te^{-t} - e^{-t} = 1 - e^{-t} \cdot (t+1) = 1$
+Therefore $$\displaystyle \varGamma(2) = \int_0^{\infty} te^{-t} \ dt = \left[-te^{-t}\right]_{0}^{\infty} + \int_0^{\infty} e^{-t} \ dt = \left[-te^{-t}\right]_{0}^{\infty} + \left[-e^{-t}\right]_{0}^{\infty} = 1 - te^{-t} - e^{-t} = 1 - e^{-t} \cdot (t+1) = 1$$
 $\displaystyle \boxed{\varGamma(2) = 1 \cdot \varGamma(1) = 1  = (2-1)! = 1!}$
 
 $\displaystyle \varGamma(3) = \int_0^{\infty} t^{(3-1)}e^{-t} \ dt = \int_0^{\infty} t^{2}e^{-t} \ dt$
 Using integration by parts $\displaystyle \int u \ dv = uv - \int v \ du$ with $u = t^{2}$ and $dv = e^{-t} \ dt$, gives us $du = 2t \ dt$ and $v = -e^{-t}$.
-Therefore $\displaystyle \varGamma(3) = \int_0^{\infty} t^{2}e^{-t} \ dt = \left[-t^{2}e^{-t}\right]_{0}^{\infty} + 2 \cdot \left( \int_0^{\infty} te^{-t} \ dt \right) = \left[-t^{2}e^{-t}\right]_{0}^{\infty} + 2 \cdot \left( \left[-te^{-t}\right]_{0}^{\infty} + \int_0^{\infty} e^{-t} \ dt \right) = -t^{2}e^{-t} + 2 \cdot \left( 1 - te^{-t} - e^{-t} \right) = 2 - e^{-t} \cdot (t^{2}+2t+2) = 2$
+Therefore $$\displaystyle \varGamma(3) = \int_0^{\infty} t^{2}e^{-t} \ dt = \left[-t^{2}e^{-t}\right]_{0}^{\infty} + 2 \cdot \left( \int_0^{\infty} te^{-t} \ dt \right) = \left[-t^{2}e^{-t}\right]_{0}^{\infty} + 2 \cdot \left( \left[-te^{-t}\right]_{0}^{\infty} + \int_0^{\infty} e^{-t} \ dt \right) = -t^{2}e^{-t} + 2 \cdot \left( 1 - te^{-t} - e^{-t} \right) = 2 - e^{-t} \cdot (t^{2}+2t+2) = 2$$
 $\displaystyle \boxed{\varGamma(3) = 2 \cdot \varGamma(2) = 2  = (3-1)! = 2!}$
 
 $\displaystyle \varGamma(4) = \int_0^{\infty} t^{(4-1)}e^{-t} \ dt = \int_0^{\infty} t^{3}e^{-t} \ dt$
 Using integration by parts $\displaystyle \int u \ dv = uv - \int v \ du$ with $u = t^{3}$ and $dv = e^{-t} \ dt$, gives us $du = 3t^{2} \ dt$ and $v = -e^{-t}$.
-Therefore $\displaystyle \varGamma(4) = \int_0^{\infty} t^{3}e^{-t} \ dt = \left[-t^{3}e^{-t}\right]_{0}^{\infty} + 3 \cdot \left( \int_0^{\infty} t^{2}e^{-t} \ dt \right) = \left[-t^{3}e^{-t}\right]_{0}^{\infty} + 3 \cdot \left(\left[-t^{2}e^{-t}\right]_{0}^{\infty} + 2 \cdot \left( \int_0^{\infty} te^{-t} \ dt \right)\right) = -t^{3}e^{-t} + 3 \cdot \left( 2 - t^{2}e^{-t} - 2te^{-t} - 2e^{-t} \right) = 6 - e^{-t} \cdot (t^{3}+3t^{2}+6t+6) = 6$
+Therefore $$\displaystyle \varGamma(4) = \int_0^{\infty} t^{3}e^{-t} \ dt = \left[-t^{3}e^{-t}\right]_{0}^{\infty} + 3 \cdot \left( \int_0^{\infty} t^{2}e^{-t} \ dt \right) = \left[-t^{3}e^{-t}\right]_{0}^{\infty} + 3 \cdot \left(\left[-t^{2}e^{-t}\right]_{0}^{\infty} + 2 \cdot \left( \int_0^{\infty} te^{-t} \ dt \right)\right) = -t^{3}e^{-t} + 3 \cdot \left( 2 - t^{2}e^{-t} - 2te^{-t} - 2e^{-t} \right) = 6 - e^{-t} \cdot (t^{3}+3t^{2}+6t+6) = 6$$
 $\displaystyle \boxed{\varGamma(4) = 3 \cdot \varGamma(3) = 6  = (4-1)! = 3!}$
 
-$\displaystyle \pi! = \pi \cdot \varGamma(\pi) = \varGamma(\pi + 1) = \int_{0}^{\infty} t^{(\pi+1-1)} e^{-t} \ dt = \int_{0}^{\infty} t^{\pi} e^{-t} \ dt$. To get a decimal answer we need to apply numerical analysis/approximation. Use numerical integration software, a graphing calculator, or Stirling's approximation for the gamma function ($\varGamma(z) \approx \sqrt{2\pi}z^{z-\frac{1}{2}}e^{-z}$). This works because (a) near $t=0$, the factor $t^{\pi}$ goes to $0$, so there is no problem there, and (b) for large $t$, the factor $e^{-t}$ decays very fast, so the tail becomes tiny.
+$$\displaystyle \pi! = \pi \cdot \varGamma(\pi) = \varGamma(\pi + 1) = \int_{0}^{\infty} t^{(\pi+1-1)} e^{-t} \ dt = \int_{0}^{\infty} t^{\pi} e^{-t} \ dt$$. To get a decimal answer we need to apply numerical analysis/approximation. Use numerical integration software, a graphing calculator, or Stirling's approximation for the gamma function ($\varGamma(z) \approx \sqrt{2\pi}z^{z-\frac{1}{2}}e^{-z}$). This works because (a) near $t=0$, the factor $t^{\pi}$ goes to $0$, so there is no problem there, and (b) for large $t$, the factor $e^{-t}$ decays very fast, so the tail becomes tiny.
 $\pi! = \varGamma(\pi+1) \approx 7.188082729$.
 :::
 

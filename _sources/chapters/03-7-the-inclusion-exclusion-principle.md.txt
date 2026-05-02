@@ -2,7 +2,6 @@
 
 **Many counting problems involve computing the cardinality of a union $A \cup B$ of two finite sets. We examine this kind of problem now. First we develop a formula for $|A \cup B|$. It is tempting to say that $|A \cup B|$ must equal $|A| + |B|$, but that is not quite right. If we count the elements of $A$ and then count the elements of $B$ and add the two figures together, we get $|A| + |B|$. But if $A$ and $B$ have some elements in common, then we have counted each element in $A \cap B$ twice.**
 
-
 <img src="../assets/9730b5eeb7b63dc9d22be314221a0431d4d688c9cbc78558acf30f9b6250b4cc.jpg">
 
 **Therefore $|A| + |B|$ exceeds $|A \cup B|$ by $|A \cap B|$, and consequently $|A \cup B| = |A| + |B| - |A \cap B|$. This can be a useful equation.**
@@ -59,6 +58,7 @@ Let $A$ be the set of 4-digit even positive integers, and let $B$ be the set of 
 :::
 
 4. This problem involves lists made from the letters $T , H , E , O , R , Y$, with repetition allowed.
+
 (a) How many 4-letter lists are there that don’t begin with $T$, or don’t end in $Y$? 🔴
 :::{dropdown} Answer
 Let $A$ be the set of 4-letter lists that don’t begin with $T$, and let $B$ be the set of 4-letter lists that don’t end in $Y$. We seek $|A \cup B|$. By the multiplication principle $|A| = 5 \cdot 6 \cdot 6 \cdot 6 = 1080$. Also $|B| = 6 \cdot 6 \cdot 6 \cdot 5 = 1080$. Further, $A \cap B$ consists of all 4-letter lists that don’t begin with $T$ AND don’t end in $Y$. It follows that $|A \cap B| = 5 \cdot 6 \cdot 6 \cdot 5 = 900$. Then the answer to our question is $|A \cup B| = |A| + |B| - |A \cap B|=  1080 + 1080 - 900 = 1260$.
@@ -86,7 +86,7 @@ where `*` indicates any letter from the set $\{T , H , E , O , R , Y\}$. By the 
 
 5. How many 7-digit binary strings begin in 1 or end in 1 or have exactly four 1’s? 🔴
 :::{dropdown} Answer
-Let $A$ be the set of such strings that begin in 1. Let $B$ be the set of such strings that end in 1. Let $C$ be the set of such strings that have exactly four 1’s. Then the answer to our question is $|A \cup B \cup C|$. Using Equation (3.5) to compute this number, we have $\displaystyle |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C| = 2^{6} + 2^{6} + \binom{7}{4} - 2^{5} - \binom{6}{3} - \binom{6}{3} + \binom{5}{2} = 64 + 64 + 35 - 32 - 20 - 20 + 10 = 101$.
+Let $A$ be the set of such strings that begin in 1. Let $B$ be the set of such strings that end in 1. Let $C$ be the set of such strings that have exactly four 1’s. Then the answer to our question is $|A \cup B \cup C|$. Using Equation (3.5) to compute this number, we have $$\displaystyle |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C| = 2^{6} + 2^{6} + \binom{7}{4} - 2^{5} - \binom{6}{3} - \binom{6}{3} + \binom{5}{2} = 64 + 64 + 35 - 32 - 20 - 20 + 10 = 101$$.
 Note that $|C| = \displaystyle \binom{7}{4}$ counts the number of 7-digit binary strings that have exactly four 1's (order does not matter): we choose 4 positions out of 7 for placing the 1's, and the remaining positions are automatically filled with 0's. Likewise $|A \cap C| = |B \cap C| = \displaystyle \binom{6}{3}$: we choose 3 out of 6 positions for placing the 1's, because the 1 in the first position (in the case of $A$) OR the 1 in the last position (in the case of $B$) is already fixed.  $|A \cap B \cap C| = \displaystyle \binom{5}{2}$: we choose 2 out of 5 positions for placing the 1's, because the 1 in the first position AND the 1 in the last position is already fixed.
 :::
 

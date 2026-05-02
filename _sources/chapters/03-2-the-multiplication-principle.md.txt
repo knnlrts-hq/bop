@@ -3,6 +3,7 @@
 **Many practical problems involve counting the number of possible lists that satisfy some condition or property. For example, suppose we make a list of length three having the property that the first entry must be an element of the set $\{ a , b , c \}$, the second entry must be in $\{5,7\}$ and the third entry must be in $\{ a , x \}$. Thus $( a , 5 , a )$ and $( b , 5 , a )$ are two such lists. How many such lists are there all together? To answer this question, imagine making the list by selecting the first entry, then the second and finally the third. This is described in Figure 3.1.** The choices for the first list entry are $a , b$ or $c$, and the left of the diagram branches out in three directions, one for each choice. Once this choice is made there are two choices (5 or 7) for the second entry, and this is described graphically by two branches from each of the three choices for the first entry. This pattern continues for the choice for the third entry, which is either $a$ or $x$. **Thus, in the diagram there are $3 \cdot 2 \cdot 2 = 12$ paths from left to right, each corresponding to a particular choice for each entry in the list. The corresponding lists are tallied at the far-right end of each path. So, to answer our original question, there are 12 possible lists with the stated properties.**
 
 <img src="../assets/b969a21c2b25b5ea2222aeffd894f4ff5c25fa3eafedb173940d93d75e6c4b39.jpg">
+
 Figure 3.1. Constructing lists of length 3
 
 In the above example there are 3 choices for the first entry, 2 choices for the second entry, and 2 for the third, and the total number of possible lists is the product of choices $3 \cdot 2 \cdot 2 = 12$. **This kind of reasoning is an instance of what we will call the multiplication principle.** We will do one more example before stating this important idea.
@@ -10,6 +11,7 @@ In the above example there are 3 choices for the first entry, 2 choices for the 
 **Consider making a list of length 4 from the four letters $\{ a , b , c , d \}$, where the list is not allowed to have a repeated letter. For example, $abcd$ and $cadb$ are allowed, but $aabc$ and $cacb$ are not allowed. How many such lists are there?** Let’s analyze this question with a tree representing the choices we have for each list entry. **In making such a list we could start with the first entry: we have 4 choices for it, namely $a , b , c$ or $d$, and the left side of the tree branches out to each of these choices. But once we’ve chosen a letter for the first entry, we can’t use that letter in the list again, so there are only 3 choices for the second entry. And once we’ve chosen letters for the first and second entries we can’t use these letters in the third entry, so there are just 2 choices for it. By the time we get to the fourth entry we are forced to use whatever letter we have left; there is only 1 choice. The situation is described fully in the below tree showing how to make all allowable lists by choosing 4 letters for the first entry, 3 for the second entry, 2 for the third entry and 1 for the fourth entry. We see that the total number of lists is the product $4 \cdot 3 \cdot 2 \cdot 1 = 24$.**
 
 <img src="../assets/Pasted_image_20260324165003.png" width="750">
+
 Figure 3.2. Constructing lists from letters in $\{ a , b , c , d \}$, without repetition.
 
 **These trees show that the number of lists constructible by some specified process equals the product of the numbers of choices for each list entry.** We summarize this kind of reasoning as an important fact.
@@ -36,11 +38,13 @@ Solution: Your choice is modeled by a list of form (milk, size, shots). There ar
 
 Solutions:
 **(a) Imagine the list as containing four boxes that we fill with selections from the letters $A , B , C , D , E , F$ and $G$, as illustrated below.**
+
 <img src="../assets/e5207d506871f798d08c63d9033360f24074823b2cd50136a900b984203615d3.jpg">
 
 **We have 7 choices in filling each box. The multiplication principle says the total number of lists that can be made this way is $7 \cdot 7 \cdot 7 \cdot 7 = 2401$.**
 
 **(b) This problem is the same as the previous one except that repetition is not allowed. We have seven choices for the first box, but once it is filled we can no longer use the symbol that was placed in it. Hence there are only six possibilities for the second box. Once the second box has been filled we have used up two of our letters, and there are only five left to choose from in filling the third box. Finally, when the third box is filled we have only four possible letters for the last box.**
+
 <img src="../assets/995afd1a04e771fee024f7468bbdbba40229575926a4964f537e411adae5dc93.jpg">
 
 **Thus there are $7 \cdot 6 \cdot 5 \cdot 4 = 840$ lists in which repetition does not occur.**
@@ -54,6 +58,7 @@ Solutions:
 **(d) <mark>Now we seek the number of length-4 lists where repetition is allowed and the list must contain an $E$. Here is our strategy: By Part (a) of this exercise there are a total of $7 \cdot 7 \cdot 7 \cdot 7 = 7^{4} = 2401$ lists with repetition allowed. Obviously this is not the answer to our current question, for many of these lists contain no $E$. We will subtract from 2401 the number of lists that do not contain an $E$. In making a list that does not contain an $E$, we have six choices for each list entry (because we can choose any one of the six letters $A, B, C, D, F$ or $G$). Thus there are $6 \cdot 6 \cdot 6 \cdot 6 = 6^{4} = 1296$ lists without an $E$. So the answer to our question is that there are $2401 - 1296 = 1105$ lists with repetition allowed that contain at least one $E$.</mark>**
 
 Before moving on from Example 3.3, let’s address an important point. **Perhaps you wondered if Part (d) could be solved in the same way as Part (c).** Let’s try doing it that way. **We want to count the length-4 lists (repetition allowed) that contain at least one $E$. The following diagram is adapted from Part (c). The only difference is that there are now seven choices in each slot because we are allowed to repeat any of the seven letters.**
+
 <img src="../assets/820c374baf5da10092d33f85e002b3a32c7261cd43d113eb8c9662660496ced2.jpg">
 
 **We get a total of $7^{3} + 7^{3} + 7^{3} + 7^{3} = 1372$ lists, an answer that is larger than the (correct) value of 1105 from our solution to Part (d) above. It is easy to see what went wrong. The list $(E, E, A, B)$ is of type 1 and type 2, so it got counted twice. Similarly $(E, E, C, E)$ is of type 1, 2 and 4, so it got counted three times. In fact, you can find many similar lists that were counted multiple times. In solving counting problems, we must always be careful to avoid this kind of double-counting or triple-counting, or worse.**
@@ -85,6 +90,7 @@ The new principles to be introduced in the next section are usually used in conj
 ## Exercises for Section 3.2
 
 1. Consider lists made from the letters $T , H , E , O , R , Y$, with repetition allowed.
+
 (a) How many length-4 lists are there?
 :::{dropdown} Answer
 $6 \cdot 6 \cdot 6 \cdot 6 = 6^{4} = 1,296$.
@@ -106,6 +112,7 @@ $26 \cdot 26 \cdot 26 = 26^{3} = 17,576$.
 :::
 
 3. How many lists of length 3 can be made from the symbols $A, B, C, D, E, F$ if...
+
 (a) ... repetition is allowed.
 :::{dropdown} Answer
 $6 \cdot 6 \cdot 6 = 6^{3} = 216$.
@@ -133,6 +140,7 @@ $2 \cdot 3 \cdot 2 = 12$.
 :::
 
 5. This problem involves 8-digit binary strings such as $10011011$ or $00001010$ (i.e., 8-digit numbers composed of $0$’s and $1$’s).
+
 (a) How many such strings are there?
 :::{dropdown} Answer
 $2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 = 2^{8} = 256$.
@@ -162,6 +170,7 @@ These strings can be divided into three types. Type 1 consists of those strings 
 :::
 
 7. This problem concerns 4-letter codes made from the letters $A, B, C, D, \ldots , Z$.
+
 (a) How many such codes can be made?
 :::{dropdown} Answer
 $26 \cdot 26 \cdot 26 \cdot 26 = 26^{4} = 456,976$.

@@ -76,6 +76,7 @@ The lineups we want to make can be divided into five types. They have one of the
 :::
 
 6. Consider lists made from the symbols $A , B , C , D , E$, with repetition allowed.
+
 (a) How many such length-5 lists have at least one letter repeated?
 :::{dropdown} Answer
 Let $U$ be the set of all possible lists made from the symbols $A , B , C , D , E$. Let $X$ be the set of all possible lists without any repeated letter (i.e. without repetition allowed). Then $U - X$ is the set of lists that have *at least one* letter repeated. By the subtraction principle our answer will be $|\overline{X}| = |U| - |X|$. By the multiplication principle $|U| = 5 \cdot 5 \cdot 5 \cdot 5 \cdot 5 = 5^{5} = 3,125$. Likewise $|X| = 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 120$. Thus the answer is $|\overline{X}| = |U| - |X| = 3,125 - 120 = 3,005$.
@@ -93,6 +94,7 @@ Let $U$ be the set of all possible lists made from the symbols $A , B , C , D , 
 :::
 
 8. This problem concerns lists made from the letters $A, B, C, D, E, F, G, H, I, J$.
+
 (a) How many length-5 lists can be made from these letters if repetition is not allowed and the list must begin with a vowel?
 :::{dropdown} Answer
 There are three vowels in the letters ($A$, $E$, and $I$), so $|X| = 3 \cdot 9 \cdot 8 \cdot 7 \cdot 6 = 9,072$.

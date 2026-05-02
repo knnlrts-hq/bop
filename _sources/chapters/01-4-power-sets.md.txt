@@ -63,7 +63,8 @@ $|\mathscr{P}(\mathscr{P}(\mathscr{P}(\mathbb{R}^{2})))| = 2^{\left(2^{\left(2^{
 :::
 ## Exercises for Section 1.4
 
-A. Write the following sets by listing their elements between braces. 
+A. Write the following sets by listing their elements between braces.
+
 1. $\mathscr { P } ( \{ \{ a , b \} , \{ c \} \} )$ 
 :::{dropdown} Answer
 $\big\{\varnothing, \{\{a,b\}\}, \{\{c\}\}, \{\{a,b\},\{c\}\}\big\}$
@@ -140,6 +141,7 @@ $\big\{\{2\},\ \{1,2\},\ \{2,3\},\ \{1,2,3\}\big\}$
 :::
 
 B. Suppose that $| A | = m$ and $| B | = n$ . Find the following cardinalities. 
+
 13. $| \mathscr { P } ( \mathscr { P } ( \mathscr { P } ( A ) ) ) |$ 
 :::{dropdown} Answer
 $|\mathscr{P}(X)|=2^{|X|}$
